@@ -329,10 +329,15 @@
   },
   "ra": {
     "auth": {
-      "welcome1": "Navidrome'u yüklediğiniz için teşekkürler!",
+      "welcome1": "Qırım Online'u yüklediğiniz için teşekkürler!",
       "welcome2": "Başlamak için bir yönetici kullanıcı oluşturun",
       "confirmPassword": "Şifreyi Onayla",
       "buttonCreateAdmin": "Yönetici Oluştur",
+      "buttonSignUp": "Kaydol",
+      "createAccount": "Yeni hesap oluştur",
+      "needAccount": "Hesabınız yok mu? Kaydolun",
+      "haveAccount": "Zaten hesabınız var mı? Giriş yapın",
+      "sign_up_error": "Kayıt başarısız, lütfen tekrar deneyin",
       "auth_check_error": "Devam etmek için lütfen giriş yapın",
       "user_menu": "Profil",
       "username": "Kullanıcı Adı",
@@ -340,7 +345,7 @@
       "sign_in": "Giriş yap",
       "sign_in_error": "Kimlik doğrulama başarısız, lütfen tekrar deneyin",
       "logout": "Çıkış yap",
-      "insightsCollectionNote": "Navidrome projeyi geliştirmek için anonim kullanım\nverileri toplar. Daha fazla bilgi edinmek ve isterseniz\ndevre dışı bırakmak için [buraya] tıklayın"
+      "insightsCollectionNote": "Qırım Online projeyi geliştirmek için anonim kullanım\nverileri toplar. Daha fazla bilgi edinmek ve isterseniz\ndevre dışı bırakmak için [buraya] tıklayın"
     },
     "validation": {
       "invalidChars": "Lütfen sadece harf ve rakam kullanın",
@@ -475,7 +480,7 @@
   "message": {
     "note": "NOT",
     "transcodingDisabled": "Web arayüzü üzerinden dönüştürme yapılandırmasını değiştirmek güvenlik nedeniyle devre dışı bırakılmıştır. Dönüştürme seçeneklerini değiştirmek (düzenlemek veya eklemek) isterseniz, sunucuyu %{config} yapılandırma seçeneği ile yeniden başlatın.",
-    "transcodingEnabled": "Navidrome şu anda %{config} ile çalışıyor ve bu, web arayüzünü kullanarak dönüştürme ayarlarından sistem komutlarını çalıştırmayı mümkün kılıyor. Güvenlik nedeniyle bunu devre dışı bırakmanızı ve yalnızca Dönüştürme seçeneklerini yapılandırırken etkinleştirmenizi öneririz.",
+    "transcodingEnabled": "Qırım Online şu anda %{config} ile çalışıyor ve bu, web arayüzünü kullanarak dönüştürme ayarlarından sistem komutlarını çalıştırmayı mümkün kılıyor. Güvenlik nedeniyle bunu devre dışı bırakmanızı ve yalnızca Dönüştürme seçeneklerini yapılandırırken etkinleştirmenizi öneririz.",
     "songsAddedToPlaylist": "Çalma listesine 1 şarkı eklendi |||| Çalma listesine %{smart_count} şarkı eklendi",
     "noSimilarSongsFound": "Benzer şarkı bulunamadı",
     "noTopSongsFound": "En iyi şarkı bulunamadı",
@@ -487,7 +492,7 @@
     "remove_all_missing_title": "Tüm eksik dosyaları kaldır",
     "remove_all_missing_content": "Tüm eksik dosyaları veritabanından kaldırmak istediğinizden emin misiniz? Bu, dinlenme sayıları ve değerlendirmeler dahil olmak üzere bunlara yapılan tüm referansları kalıcı olarak kaldıracaktır.",
     "notifications_blocked": "Tarayıcınızın ayarlarında bu site için Bildirimleri engellediniz",
-    "notifications_not_available": "Bu tarayıcı masaüstü bildirimlerini desteklemiyor veya Navidrome'a https üzerinden erişmiyorsunuz",
+    "notifications_not_available": "Bu tarayıcı masaüstü bildirimlerini desteklemiyor veya Qırım Online'a https üzerinden erişmiyorsunuz",
     "lastfmLinkSuccess": "Last.fm başarıyla bağlandı ve scrobbling etkinleştirildi",
     "lastfmLinkFailure": "Last.fm bağlanamadı",
     "lastfmUnlinkSuccess": "Last.fm bağlantısı kesildi ve scrobbling devre dışı bırakıldı",
@@ -614,7 +619,7 @@
     "minutesAgo": "%{smart_count} dakika önce |||| %{smart_count} dakika önce"
   },
   "help": {
-    "title": "Navidrome Kısayol Tuşları",
+    "title": "Qırım Online Kısayol Tuşları",
     "hotkeys": {
       "show_help": "Bu Yardımı Göster",
       "toggle_menu": "Menü Kenar Çubuğunu Aç/Kapat",

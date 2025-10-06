@@ -21,6 +21,7 @@ const defaultConfig = {
   defaultLanguage: '',
   defaultUIVolume: 100,
   enableUserEditing: true,
+  enableSelfRegistration: false,
   enableSharing: true,
   shareURL: '',
   defaultDownloadableShare: true,

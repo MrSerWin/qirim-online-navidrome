@@ -329,10 +329,15 @@
   },
   "ra": {
     "auth": {
-      "welcome1": "Navidrome qurğanıñız içün saolıñız!",
+      "welcome1": "Qırım Online qurğanıñız içün saolıñız!",
       "welcome2": "Başlamaq içün, bir administrator qullanıcısı yaratıñız",
       "confirmPassword": "Parolnı Tasdiqla",
       "buttonCreateAdmin": "Administrator Yarat",
+      "buttonSignUp": "Qayd Ol",
+      "createAccount": "Yañı esap yarat",
+      "needAccount": "Esabıñız yoqmı? Qayd olıñız",
+      "haveAccount": "Esabıñız barmı? Kirgeñiz",
+      "sign_up_error": "Qayd olma muvaffaqıyetsiz oldı, yañıdan deñeñiz",
       "auth_check_error": "Devam etmek içün kirgeñiz",
       "user_menu": "Profil",
       "username": "Qullanıcı adı",
@@ -340,7 +345,7 @@
       "sign_in": "Kirüv",
       "sign_in_error": "Autentifikasiya muvaffaqıyetsiz oldı, yañıdan deñeñiz",
       "logout": "Çıqış",
-      "insightsCollectionNote": "Navidrome, proyektni yaxşılaştırmaq içün\nanonim qullanma ma'lumatını yığa. [Burada]\nköprek bilmek ve ister iseñiz vazgeçmek içün basıñız"
+      "insightsCollectionNote": "Qırım Online, proyektni yaxşılaştırmaq içün\nanonim qullanma ma'lumatını yığa. [Burada]\nköprek bilmek ve ister iseñiz vazgeçmek içün basıñız"
     },
     "validation": {
       "invalidChars": "Faqat arifler ve sayılarnı qullanıñız",
@@ -475,7 +480,7 @@
   "message": {
     "note": "NOT",
     "transcodingDisabled": "Veb interfeysi arqalı transkodlama qonfigurasiyasını deñiştirmek havfsızlıq sebeplerinen qabilsiz etilgen. Transkodlama sıyaqlarını deñiştirmek (tahrirlev yaki eklemek) isterseniñ, servernı %{config} qonfigurasiya sıyağı ilen qayta başlatıñız.",
-    "transcodingEnabled": "Navidrome şimdi %{config} ilen çalışa, bu da veb interfeysi arqalı transkodlama sıyaqlarından sistem buyruqlarını çalıştırmağa imkan bere. Havfsızlıq sebeplerinen bunı qabilsiz etmegиñizni ve ancaq Transkodlama sıyaqlarını qonfigurasiya etken vaqıt qabilleştirmegиñizni tavsiye etemiz.",
+    "transcodingEnabled": "Qırım Online şimdi %{config} ilen çalışa, bu da veb interfeysi arqalı transkodlama sıyaqlarından sistem buyruqlarını çalıştırmağa imkan bere. Havfsızlıq sebeplerinen bunı qabilsiz etmegиñizni ve ancaq Transkodlama sıyaqlarını qonfigurasiya etken vaqıt qabilleştirmegиñizni tavsiye etemiz.",
     "songsAddedToPlaylist": "Çalğı listesine 1 cır eklendi |||| Çalğı listesine %{smart_count} cır eklendi",
     "noSimilarSongsFound": "Oxşar cırlar tapılmadı",
     "noTopSongsFound": "Eñ iyi cırlar tapılmadı",
@@ -487,7 +492,7 @@
     "remove_all_missing_title": "Barça eksik dosyelerni çıqar",
     "remove_all_missing_content": "Ma'lumat bazasından barça eksik dosyelerni çıqarmaq içün eminsiñizmi? Bu, olarga qonusında barça referanslarnı, çalınış sayılarını ve qıymetlendirmelerni qayturmassız olaraq çıqaracaq.",
     "notifications_blocked": "Brauzerıñıznıñ sıyaqlarında bu saife içün bildirimlerge tıyış qoygansıñız",
-    "notifications_not_available": "Bu brauzer masaüstü bildirimlerni desteklemey yaki Navidrome'ge https arqalı kirmeysıñiz",
+    "notifications_not_available": "Bu brauzer masaüstü bildirimlerni desteklemey yaki Qırım Online'ge https arqalı kirmeysıñiz",
     "lastfmLinkSuccess": "Last.fm muvaffaqıyetle bağlandı ve scrobbling qabilleştirildi",
     "lastfmLinkFailure": "Last.fm bağlana olmadı",
     "lastfmUnlinkSuccess": "Last.fm bağı kesildi ve scrobbling qabilsiz etildi",
@@ -614,7 +619,7 @@
     "minutesAgo": "%{smart_count} daqqa evel |||| %{smart_count} daqqa evel"
   },
   "help": {
-    "title": "Navidrome Qısqa Tuşları",
+    "title": "Qırım Online Qısqa Tuşları",
     "hotkeys": {
       "show_help": "Bu Yardımnı Köster",
       "toggle_menu": "Menü Yan Çubuğını Aç/Qapat",

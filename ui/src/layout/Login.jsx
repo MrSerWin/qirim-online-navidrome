@@ -26,6 +26,7 @@ import config from '../config'
 import { clearQueue } from '../actions'
 import { retrieveTranslation } from '../i18n'
 import { INSIGHTS_DOC_URL } from '../consts.js'
+import { baseUrl } from '../utils'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -108,7 +109,7 @@ const renderInput = ({
   />
 )
 
-const FormLogin = ({ loading, handleSubmit, validate }) => {
+const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) => {
   const translate = useTranslate()
   const classes = useStyles()
 
@@ -130,7 +131,7 @@ const FormLogin = ({ loading, handleSubmit, validate }) => {
                   rel="noopener noreferrer"
                   className={classes.systemNameLink}
                 >
-                  Navidrome
+                  Qırım Online
                 </a>
               </div>
               {config.welcomeMessage && (
@@ -173,6 +174,18 @@ const FormLogin = ({ loading, handleSubmit, validate }) => {
                   {translate('ra.auth.sign_in')}
                 </Button>
               </CardActions>
+              {showToggle && (
+                <CardActions className={classes.actions}>
+                  <Button
+                    variant="text"
+                    onClick={onToggle}
+                    disabled={loading}
+                    fullWidth
+                  >
+                    {translate('ra.auth.needAccount')}
+                  </Button>
+                </CardActions>
+              )}
             </Card>
             <Notification />
           </div>
@@ -238,7 +251,7 @@ const InsightsNotice = ({ url }) => {
   return <div className={classes.message}>{renderedLines}</div>
 }
 
-const FormSignUp = ({ loading, handleSubmit, validate }) => {
+const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) => {
   const translate = useTranslate()
   const classes = useStyles()
 
@@ -254,11 +267,13 @@ const FormSignUp = ({ loading, handleSubmit, validate }) => {
                 <img src={Logo} className={classes.icon} alt={'logo'} />
               </div>
               <div className={classes.welcome}>
-                {translate('ra.auth.welcome1')}
+                {showToggle ? translate('ra.auth.createAccount') : translate('ra.auth.welcome1')}
               </div>
-              <div className={classes.welcome}>
-                {translate('ra.auth.welcome2')}
-              </div>
+              {!showToggle && (
+                <div className={classes.welcome}>
+                  {translate('ra.auth.welcome2')}
+                </div>
+              )}
               <div className={classes.form}>
                 <div className={classes.input}>
                   <Field
@@ -299,10 +314,22 @@ const FormSignUp = ({ loading, handleSubmit, validate }) => {
                   fullWidth
                 >
                   {loading && <CircularProgress size={25} thickness={2} />}
-                  {translate('ra.auth.buttonCreateAdmin')}
+                  {showToggle ? translate('ra.auth.buttonSignUp') : translate('ra.auth.buttonCreateAdmin')}
                 </Button>
               </CardActions>
-              <InsightsNotice url={INSIGHTS_DOC_URL} />
+              {showToggle && (
+                <CardActions className={classes.actions}>
+                  <Button
+                    variant="text"
+                    onClick={onToggle}
+                    disabled={loading}
+                    fullWidth
+                  >
+                    {translate('ra.auth.haveAccount')}
+                  </Button>
+                </CardActions>
+              )}
+              {!showToggle && <InsightsNotice url={INSIGHTS_DOC_URL} />}
             </Card>
             <Notification />
           </div>
@@ -314,6 +341,7 @@ const FormSignUp = ({ loading, handleSubmit, validate }) => {
 
 const Login = ({ location }) => {
   const [loading, setLoading] = useState(false)
+  const [isSignup, setIsSignup] = useState(false)
   const translate = useTranslate()
   const notify = useNotify()
   const login = useLogin()
@@ -323,21 +351,57 @@ const Login = ({ location }) => {
     (auth) => {
       setLoading(true)
       dispatch(clearQueue())
-      login(auth, location.state ? location.state.nextPathname : '/').catch(
-        (error) => {
-          setLoading(false)
-          notify(
-            typeof error === 'string'
-              ? error
-              : typeof error === 'undefined' || !error.message
-                ? 'ra.auth.sign_in_error'
-                : error.message,
-            'warning',
-          )
-        },
-      )
+
+      // Determine the URL based on whether we're signing up or logging in
+      const url = isSignup ? baseUrl('/auth/signup') : baseUrl('/auth/login')
+      const request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify({ username: auth.username, password: auth.password }),
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+      })
+
+      if (isSignup) {
+        // Handle signup
+        fetch(request)
+          .then((response) => {
+            if (response.status < 200 || response.status >= 300) {
+              return response.json().then((error) => {
+                throw new Error(error.message || 'Signup failed')
+              })
+            }
+            return response.json()
+          })
+          .then(() => {
+            // After successful signup, log in
+            login(auth, location.state ? location.state.nextPathname : '/')
+          })
+          .catch((error) => {
+            setLoading(false)
+            notify(
+              typeof error === 'string'
+                ? error
+                : error.message || 'ra.auth.sign_up_error',
+              'warning',
+            )
+          })
+      } else {
+        // Handle login
+        login(auth, location.state ? location.state.nextPathname : '/').catch(
+          (error) => {
+            setLoading(false)
+            notify(
+              typeof error === 'string'
+                ? error
+                : typeof error === 'undefined' || !error.message
+                  ? 'ra.auth.sign_in_error'
+                  : error.message,
+              'warning',
+            )
+          },
+        )
+      }
     },
-    [dispatch, login, notify, setLoading, location],
+    [dispatch, login, notify, setLoading, location, isSignup],
   )
 
   const validateLogin = useCallback(
@@ -381,11 +445,27 @@ const Login = ({ location }) => {
       />
     )
   }
+
+  // Show signup/login toggle if self-registration is enabled
+  if (config.enableSelfRegistration && isSignup) {
+    return (
+      <FormSignUp
+        handleSubmit={handleSubmit}
+        validate={validateSignup}
+        loading={loading}
+        showToggle={true}
+        onToggle={() => setIsSignup(false)}
+      />
+    )
+  }
+
   return (
     <FormLogin
       handleSubmit={handleSubmit}
       validate={validateLogin}
       loading={loading}
+      showToggle={config.enableSelfRegistration}
+      onToggle={() => setIsSignup(true)}
     />
   )
 }

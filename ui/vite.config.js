@@ -49,10 +49,10 @@ export default defineConfig({
 // PWA manifest
 function manifest() {
   return {
-    name: 'Navidrome',
-    short_name: 'Navidrome',
+    name: 'Qırım Online',
+    short_name: 'Qırım Online',
     description:
-      'Navidrome, an open source web-based music collection server and streamer',
+      'Qırım Online',
     categories: ['music', 'entertainment'],
     display: 'standalone',
     start_url: './',

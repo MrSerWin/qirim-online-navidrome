@@ -71,6 +71,7 @@ type configOptions struct {
 	EnableFavourites                bool
 	EnableStarRating                bool
 	EnableUserEditing               bool
+	EnableSelfRegistration          bool
 	EnableSharing                   bool
 	ShareURL                        string
 	DefaultShareExpiration          time.Duration
@@ -517,6 +518,7 @@ func setViperDefaults() {
 	viper.SetDefault("enablefavourites", true)
 	viper.SetDefault("enablestarrating", true)
 	viper.SetDefault("enableuserediting", true)
+	viper.SetDefault("enableselfregistration", false)
 	viper.SetDefault("defaulttheme", "Dark")
 	viper.SetDefault("defaultlanguage", "")
 	viper.SetDefault("defaultuivolume", consts.DefaultUIVolume)

@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 
 const links = {
   homepage: 'navidrome.org',
-  reddit: 'reddit.com/r/Navidrome',
+  reddit: 'reddit.com/r/Qırım Online',
   twitter: 'twitter.com/navidrome',
   discord: 'discord.gg/xh7j7yF',
   source: 'github.com/navidrome/navidrome',
@@ -444,7 +444,7 @@ const AboutDialog = ({ open, onClose }) => {
       className={classes.expandableDialog}
     >
       <DialogTitle id="about-dialog-title" onClose={onClose}>
-        Navidrome Music Server
+        Qırım Online Music Server
       </DialogTitle>
       <DialogContent dividers>
         <TabContent

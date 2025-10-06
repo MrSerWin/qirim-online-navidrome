@@ -153,6 +153,53 @@ func createAdminUser(ctx context.Context, ds model.DataStore, username, password
 	return nil
 }
 
+func signup(ds model.DataStore) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if !conf.Server.EnableSelfRegistration {
+			_ = rest.RespondWithError(w, http.StatusForbidden, "Self-registration is disabled")
+			return
+		}
+
+		username, password, err := getCredentialsFromBody(r)
+		if err != nil {
+			log.Error(r, "Parsing request body", err)
+			_ = rest.RespondWithError(w, http.StatusUnprocessableEntity, err.Error())
+			return
+		}
+
+		// Check if user already exists
+		userRepo := ds.User(r.Context())
+		existingUser, err := userRepo.FindByUsername(username)
+		if err == nil && existingUser != nil {
+			_ = rest.RespondWithError(w, http.StatusConflict, "Username already exists")
+			return
+		}
+
+		// Create new user (non-admin)
+		now := time.Now()
+		caser := cases.Title(language.Und)
+		newUser := model.User{
+			ID:          id.NewRandom(),
+			UserName:    username,
+			Name:        caser.String(username),
+			Email:       "",
+			NewPassword: password,
+			IsAdmin:     false,
+			LastLoginAt: &now,
+		}
+
+		err = userRepo.Put(&newUser)
+		if err != nil {
+			log.Error(r, "Could not create user", "user", newUser, err)
+			_ = rest.RespondWithError(w, http.StatusInternalServerError, "Failed to create user")
+			return
+		}
+
+		log.Info(r, "New user registered", "username", username)
+		doLogin(ds, username, password, w, r)
+	}
+}
+
 func validateLogin(userRepo model.UserRepository, userName, password string) (*model.User, error) {
 	u, err := userRepo.FindByUsernameWithPassword(userName)
 	if errors.Is(err, model.ErrNotFound) {
