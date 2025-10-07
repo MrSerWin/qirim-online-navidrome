@@ -230,6 +230,11 @@ func (s *Server) frontendAssetsHandler() http.Handler {
 	r := chi.NewRouter()
 
 	r.Handle("/", Index(s.ds, ui.BuildAssets()))
+	// Add Service-Worker-Allowed header for sw.js to allow scope '/'
+	r.HandleFunc("/sw.js", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Service-Worker-Allowed", "/")
+		http.StripPrefix(s.appRoot, http.FileServer(http.FS(ui.BuildAssets()))).ServeHTTP(w, r)
+	})
 	r.Handle("/*", http.StripPrefix(s.appRoot, http.FileServer(http.FS(ui.BuildAssets()))))
 	return r
 }

@@ -16,6 +16,26 @@ export default defineConfig({
       filename: 'sw.js',
       devOptions: {
         enabled: true,
+        type: 'module',
+      },
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /^https?:\/\/localhost:4633\/rest\/stream.*/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'audio-cache-dev',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+              },
+            },
+          },
+        ],
       },
     }),
   ],

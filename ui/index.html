@@ -30,10 +30,10 @@
     <meta property="og:image:height" content="300">
     <title>Qırım Online</title>
     <script>
-      window.__APP_CONFIG__ = {{ .AppConfig | js }}
+      window.__APP_CONFIG__ = '{{ if .AppConfig }}{{ .AppConfig | js }}{{ end }}'
     </script>
     <script>
-      window.__SHARE_INFO__ = {{ .ShareInfo | js }}
+      window.__SHARE_INFO__ = '{{ if .ShareInfo }}{{ .ShareInfo | js }}{{ end }}'
     </script>
   </head>
   <body>
