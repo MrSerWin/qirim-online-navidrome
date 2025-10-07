@@ -18,7 +18,7 @@ import {
   useTranslate,
   useVersion,
 } from 'react-admin'
-import Logo from '../icons/android-icon-192x192.png'
+import Logo from '../icons/new-logo-login.png'
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
@@ -42,7 +42,7 @@ const useStyles = makeStyles(
       backgroundPosition: 'center',
     },
     card: {
-      minWidth: 300,
+      minWidth: 400,
       marginTop: '6em',
       overflow: 'visible',
     },
@@ -83,6 +83,7 @@ const useStyles = makeStyles(
     button: {},
     systemNameLink: {
       textDecoration: 'none',
+      color: '#ffffff'
     },
     message: {
       marginTop: '1em',
@@ -126,7 +127,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
               </div>
               <div className={classes.systemName}>
                 <a
-                  href="https://www.navidrome.org"
+                  href="https://qirim.online"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={classes.systemNameLink}
@@ -287,6 +288,16 @@ const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) =
                 </div>
                 <div className={classes.input}>
                   <Field
+                    name="email"
+                    component={renderInput}
+                    label={translate('ra.auth.email')}
+                    type="email"
+                    disabled={loading}
+                    spellCheck={false}
+                  />
+                </div>
+                <div className={classes.input}>
+                  <Field
                     name="password"
                     component={renderInput}
                     label={translate('ra.auth.password')}
@@ -301,6 +312,16 @@ const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) =
                     label={translate('ra.auth.confirmPassword')}
                     type="password"
                     disabled={loading}
+                  />
+                </div>
+                {/* Honeypot field - hidden from users, only bots will fill it */}
+                <div style={{ position: 'absolute', left: '-9999px' }}>
+                  <Field
+                    name="website"
+                    component={renderInput}
+                    label="Website"
+                    tabIndex="-1"
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -352,11 +373,23 @@ const Login = ({ location }) => {
       setLoading(true)
       dispatch(clearQueue())
 
+      // Check honeypot field for bots (only on signup)
+      if (isSignup && auth.website) {
+        // If honeypot field is filled, it's likely a bot
+        setLoading(false)
+        notify('ra.auth.sign_up_error', 'warning')
+        return
+      }
+
       // Determine the URL based on whether we're signing up or logging in
       const url = isSignup ? baseUrl('/auth/signup') : baseUrl('/auth/login')
+      const requestBody = isSignup
+        ? { username: auth.username, password: auth.password, email: auth.email }
+        : { username: auth.username, password: auth.password }
+
       const request = new Request(url, {
         method: 'POST',
-        body: JSON.stringify({ username: auth.username, password: auth.password }),
+        body: JSON.stringify(requestBody),
         headers: new Headers({ 'Content-Type': 'application/json' }),
       })
 
@@ -365,8 +398,16 @@ const Login = ({ location }) => {
         fetch(request)
           .then((response) => {
             if (response.status < 200 || response.status >= 300) {
-              return response.json().then((error) => {
-                throw new Error(error.message || 'Signup failed')
+              return response.json().then((errorData) => {
+                // Extract error message from response
+                const errorMessage = errorData.error || errorData.message || 'Signup failed'
+                throw new Error(errorMessage)
+              }).catch((jsonError) => {
+                // If response is not JSON, throw generic error
+                if (jsonError instanceof SyntaxError) {
+                  throw new Error('Signup failed')
+                }
+                throw jsonError
               })
             }
             return response.json()
@@ -377,6 +418,7 @@ const Login = ({ location }) => {
           })
           .catch((error) => {
             setLoading(false)
+            // Display the actual error message from backend
             notify(
               typeof error === 'string'
                 ? error
@@ -421,10 +463,45 @@ const Login = ({ location }) => {
   const validateSignup = useCallback(
     (values) => {
       const errors = validateLogin(values)
-      const regex = /^\w+$/g
-      if (values.username && !values.username.match(regex)) {
-        errors.username = translate('ra.validation.invalidChars')
+
+      // Username validation (3-50 chars, alphanumeric + _ - .)
+      if (values.username) {
+        if (values.username.length < 3) {
+          errors.username = translate('ra.validation.minLength', { min: 3 })
+        } else if (values.username.length > 50) {
+          errors.username = translate('ra.validation.maxLength', { max: 50 })
+        } else {
+          // Check valid characters
+          const validUsername = /^[a-zA-Z0-9_.-]+$/
+          if (!validUsername.test(values.username)) {
+            errors.username = translate('ra.validation.username_invalid_chars')
+          }
+        }
       }
+
+      // Password validation (8+ chars, must contain letter + number)
+      if (values.password) {
+        if (values.password.length < 8) {
+          errors.password = translate('ra.validation.password_min_length')
+        } else if (values.password.length > 100) {
+          errors.password = translate('ra.validation.maxLength', { max: 100 })
+        } else {
+          const hasLetter = /[a-zA-Z]/.test(values.password)
+          const hasNumber = /[0-9]/.test(values.password)
+          if (!hasLetter || !hasNumber) {
+            errors.password = translate('ra.validation.password_complexity')
+          }
+        }
+      }
+
+      // Email validation (optional)
+      if (values.email && values.email.trim() !== '') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(values.email)) {
+          errors.email = translate('ra.validation.email')
+        }
+      }
+
       if (!values.confirmPassword) {
         errors.confirmPassword = translate('ra.validation.required')
       }

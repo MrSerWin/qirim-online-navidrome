@@ -13,7 +13,7 @@ import song from './song'
 import album from './album'
 import artist from './artist'
 import playlist from './playlist'
-import radio from './radio'
+// import radio from './radio'
 import share from './share'
 import library from './library'
 import { Player } from './audioplayer'
@@ -100,10 +100,10 @@ const Admin = (props) => {
         <Resource name="album" {...album} options={{ subMenu: 'albumList' }} />,
         <Resource name="artist" {...artist} />,
         <Resource name="song" {...song} />,
-        <Resource
-          name="radio"
-          {...(permissions === 'admin' ? radio.admin : radio.all)}
-        />,
+        // <Resource
+        //   name="radio"
+        //   {...(permissions === 'admin' ? radio.admin : radio.all)}
+        // />,
         config.enableSharing && <Resource name="share" {...share} />,
         <Resource
           name="playlist"

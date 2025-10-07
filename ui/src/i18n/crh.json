@@ -342,6 +342,7 @@
       "user_menu": "Profil",
       "username": "Qullanıcı adı",
       "password": "Parol",
+      "email": "Elektron poçta",
       "sign_in": "Kirüv",
       "sign_in_error": "Autentifikasiya muvaffaqıyetsiz oldı, yañıdan deñeñiz",
       "logout": "Çıqış",

@@ -203,13 +203,14 @@ func (s *Server) mountAuthenticationRoutes() chi.Router {
 
 			rateLimiter := httprate.LimitByIP(conf.Server.AuthRequestLimit, conf.Server.AuthWindowLength)
 			r.With(rateLimiter).Post("/login", login(s.ds))
+			r.With(rateLimiter).Post("/signup", signup(s.ds))
 		} else {
 			log.Warn("Login rate limit is disabled! Consider enabling it to be protected against brute-force attacks")
 
 			r.Post("/login", login(s.ds))
+			r.Post("/signup", signup(s.ds))
 		}
 		r.Post("/createAdmin", createAdmin(s.ds))
-		r.Post("/signup", signup(s.ds))
 	})
 }
 

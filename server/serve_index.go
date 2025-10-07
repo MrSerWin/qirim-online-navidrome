@@ -110,7 +110,11 @@ func serveIndex(ds model.DataStore, fs fs.FS, shareInfo *model.Share) http.Handl
 }
 
 func getIndexTemplate(r *http.Request, fs fs.FS) (*template.Template, error) {
-	t := template.New("initial state")
+	t := template.New("initial state").Funcs(template.FuncMap{
+		"js": func(s string) template.JS {
+			return template.JS(s)
+		},
+	})
 	indexHtml, err := fs.Open("index.html")
 	if err != nil {
 		log.Error(r, "Could not find `index.html` template", err)

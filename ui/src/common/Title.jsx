@@ -1,14 +1,40 @@
 import React from 'react'
 import { useMediaQuery } from '@material-ui/core'
 import { useTranslate } from 'react-admin'
+import { makeStyles } from '@material-ui/core/styles'
+import Logo from '../icons/new-logo-no-bg-white.png'
+
+const useStyles = makeStyles({
+  logo: {
+    height: '50px',
+    width: 'auto',
+    marginRight: '8px',
+    verticalAlign: 'middle',
+  },
+  titleContainer: {
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
+})
 
 export const Title = ({ subTitle, args }) => {
   const translate = useTranslate()
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'))
   const text = translate(subTitle, { ...args, _: subTitle })
+  const classes = useStyles()
 
   if (isDesktop) {
-    return <span>Qırım Online {text ? ` - ${text}` : ''}</span>
+    return (
+      <span className={classes.titleContainer}>
+        <img src={Logo} alt="Qırım Online" className={classes.logo} />
+        <span>Qırım Online{text ? ` - ${text}` : ''}</span>
+      </span>
+    )
   }
-  return <span>{text ? text : 'Qırım Online'}</span>
+  return (
+    <span className={classes.titleContainer}>
+      <img src={Logo} alt="Qırım Online" className={classes.logo} />
+      <span>{text ? text : 'Qırım Online'}</span>
+    </span>
+  )
 }

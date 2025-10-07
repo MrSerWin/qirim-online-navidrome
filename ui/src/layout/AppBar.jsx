@@ -52,7 +52,7 @@ const AboutMenuItem = forwardRef(({ onClick, ...rest }, ref) => {
         <ListItemIcon className={classes.icon}>
           <MdInfo title={label} size={24} />
         </ListItemIcon>
-        {label}!!!!
+        {label}
       </MenuItem>
       <AboutDialog onClose={handleClose} open={open} />
     </>

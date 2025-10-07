@@ -342,6 +342,7 @@
       "user_menu": "Profil",
       "username": "Kullanıcı Adı",
       "password": "Şifre",
+      "email": "E-posta",
       "sign_in": "Giriş yap",
       "sign_in_error": "Kimlik doğrulama başarısız, lütfen tekrar deneyin",
       "logout": "Çıkış yap",
