@@ -9,10 +9,15 @@ const useStyles = makeStyles({
     height: '50px',
     width: 'auto',
     marginRight: '8px',
-    verticalAlign: 'middle',
   },
   titleContainer: {
-    display: 'inline-flex',
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+  },
+  titleText: {
+    lineHeight: '1',
+    display: 'flex',
     alignItems: 'center',
   },
 })
@@ -27,14 +32,14 @@ export const Title = ({ subTitle, args }) => {
     return (
       <span className={classes.titleContainer}>
         <img src={Logo} alt="Qırım Online" className={classes.logo} />
-        <span>Qırım Online{text ? ` - ${text}` : ''}</span>
+        <span className={classes.titleText}>Qırım Online{text ? ` - ${text}` : ''}</span>
       </span>
     )
   }
   return (
     <span className={classes.titleContainer}>
       <img src={Logo} alt="Qırım Online" className={classes.logo} />
-      <span>{text ? text : 'Qırım Online'}</span>
+      <span className={classes.titleText}>{text ? text : 'Qırım Online'}</span>
     </span>
   )
 }

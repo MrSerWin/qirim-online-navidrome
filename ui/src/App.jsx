@@ -14,7 +14,7 @@ import album from './album'
 import artist from './artist'
 import playlist from './playlist'
 // import radio from './radio'
-import share from './share'
+// import share from './share'
 import library from './library'
 import { Player } from './audioplayer'
 import customRoutes from './routes'
@@ -104,7 +104,8 @@ const Admin = (props) => {
         //   name="radio"
         //   {...(permissions === 'admin' ? radio.admin : radio.all)}
         // />,
-        config.enableSharing && <Resource name="share" {...share} />,
+        // Share temporarily disabled
+        // config.enableSharing && <Resource name="share" {...share} />,
         <Resource
           name="playlist"
           {...playlist}
