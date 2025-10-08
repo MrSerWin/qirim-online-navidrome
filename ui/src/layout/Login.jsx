@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from '@material-ui/core/Link'
 import TextField from '@material-ui/core/TextField'
+import { useMediaQuery } from '@material-ui/core'
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
 import {
   createMuiTheme,
@@ -18,14 +19,17 @@ import {
   useTranslate,
   useVersion,
 } from 'react-admin'
-import Logo from '../icons/new-logo-login.png'
+import { useSelector } from 'react-redux'
+
+import Logo from '../icons/new-logo-no-bg.png'
+import LogoWhite from '../icons/new-logo-no-bg-white.png'
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
 import config from '../config'
 import { clearQueue } from '../actions'
 import { retrieveTranslation } from '../i18n'
-import { INSIGHTS_DOC_URL } from '../consts.js'
+import { INSIGHTS_DOC_URL, AUTO_THEME_ID } from '../consts.js'
 import { baseUrl } from '../utils'
 
 const useStyles = makeStyles(
@@ -113,6 +117,19 @@ const renderInput = ({
 const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) => {
   const translate = useTranslate()
   const classes = useStyles()
+    const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
+
+  const logo = useSelector((state) => {
+    if (state.theme === AUTO_THEME_ID) {
+      return prefersLightMode ? Logo : LogoWhite;
+    }
+
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
+      return Logo;
+    }
+
+    return LogoWhite;
+  })
 
   return (
     <Form
@@ -123,7 +140,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
           <div className={classes.main}>
             <Card className={classes.card}>
               <div className={classes.avatar}>
-                <img src={Logo} className={classes.icon} alt={'logo'} />
+                <img src={logo} className={classes.icon} alt={'logo'} />
               </div>
               <div className={classes.systemName}>
                 <a

@@ -50,6 +50,7 @@ const AlbumFilter = (props) => {
   return (
     <Filter {...props} variant={'outlined'}>
       <SearchInput id="search" source="name" alwaysOn />
+      { /* 
       <ReferenceInput
         label={translate('resources.album.fields.artist')}
         source="artist_id"
@@ -157,6 +158,7 @@ const AlbumFilter = (props) => {
         />
       )}
       {isAdmin && <NullableBooleanInput source="missing" />}
+      */ }
     </Filter>
   )
 }
@@ -230,19 +232,20 @@ const AlbumList = (props) => {
         exporter={false}
         bulkActionButtons={false}
         filter={{ seed }}
-        actions={<AlbumListActions />}
         filters={<AlbumFilter />}
         perPage={perPage}
-        pagination={<Pagination rowsPerPageOptions={perPageOptions} />}
+        // actions={<AlbumListActions />}
+        // pagination={<Pagination rowsPerPageOptions={perPageOptions} />}
         title={<AlbumListTitle albumListType={albumListType} />}
       >
-        {albumView.grid ? (
+        {/* {albumView.grid ? (
           <AlbumGridView albumListType={albumListType} {...props} />
         ) : (
           <AlbumTableView {...props} />
-        )}
+        )} */}
+          <AlbumGridView albumListType={albumListType} {...props} />
       </List>
-      <ExpandInfoDialog content={<AlbumInfo />} />
+      {/* <ExpandInfoDialog content={<AlbumInfo />} />  */}
     </>
   )
 }

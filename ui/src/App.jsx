@@ -112,11 +112,11 @@ const Admin = (props) => {
           options={{ subMenu: 'playlist' }}
         />,
         <Resource name="user" {...user} options={{ subMenu: 'settings' }} />,
-        <Resource
-          name="player"
-          {...player}
-          options={{ subMenu: 'settings' }}
-        />,
+        // <Resource
+        //   name="player"
+        //   {...player}
+        //   options={{ subMenu: 'settings' }}
+        // />,
         permissions === 'admin' ? (
           <Resource
             name="transcoding"

@@ -3,12 +3,13 @@ import {
   ImageList,
   ImageListItem,
   Typography,
-  ImageListItemBar,
   useMediaQuery,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
 import { Link } from 'react-router-dom'
+import IconButton from '@material-ui/core/IconButton'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import { linkToRecord, useListContext, Loading } from 'react-admin'
 import { withContentRect } from 'react-measure'
 import { useDrag } from 'react-dnd'
@@ -27,13 +28,13 @@ const useStyles = makeStyles(
     tileBar: {
       transition: 'all 150ms ease-out',
       opacity: 0,
-      textAlign: 'left',
+      textAlign: 'center',
       marginBottom: '3px',
       background:
         'linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%)',
     },
     tileBarMobile: {
-      textAlign: 'left',
+      textAlign: 'center',
       marginBottom: '3px',
       background:
         'linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%)',
@@ -42,7 +43,7 @@ const useStyles = makeStyles(
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      textAlign: 'left',
+      textAlign: 'center',
       fontSize: '1em',
     },
     albumName: {
@@ -51,6 +52,8 @@ const useStyles = makeStyles(
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
+      textAlign: 'center',
+      display: 'block',
     },
     missingAlbum: {
       opacity: 0.3,
@@ -61,6 +64,7 @@ const useStyles = makeStyles(
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
+      textAlign: 'center',
     },
     albumSubtitle: {
       fontSize: '12px',
@@ -68,22 +72,83 @@ const useStyles = makeStyles(
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
+      textAlign: 'center',
     },
     link: {
       position: 'relative',
       display: 'block',
       textDecoration: 'none',
-      '&:hover $tileBar': {
-        opacity: 1,
-      },
     },
     albumLink: {
       position: 'relative',
       display: 'block',
       textDecoration: 'none',
+      textAlign: 'center',
     },
-    albumContainer: {},
-    albumPlayButton: { color: 'white' },
+    albumContainer: {
+      border: `1px solid ${theme.palette.divider}`,
+      boxSizing: 'border-box',
+      padding: theme.spacing(1),
+      borderRadius: theme.shape.borderRadius,
+      transition: 'box-shadow 180ms ease, border-color 120ms ease',
+      '&:hover $tileBar': {
+        opacity: 1,
+      },
+      '&:hover $overlayCenter': {
+        opacity: 1,
+        pointerEvents: 'auto',
+        transform: 'translate(-50%, -50%) scale(1)',
+      },
+      '&:hover': {
+        // boxShadow: theme.shadows[4],
+        background: theme.palette.action.hover,
+      },
+      '&:active': {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+    albumPlayButton: {
+      color: '#b6b7c0',
+      borderRadius: '50%',
+      background: '#2e677d',
+
+      '&:hover': {
+        background: '#2e677d',
+        opacity: 0.7,
+        // background: theme.palette.action.hover,
+      },
+    },
+    coverWrapper: {
+      position: 'relative',
+      width: '100%',
+      display: 'block',
+    },
+    overlayCenter: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      transition: 'opacity 150ms ease-out, transform 150ms ease-out',
+      opacity: 0.2,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 3,
+      pointerEvents: 'none',
+    },
+    overlayCenterMobile: {
+      opacity: 0.65,
+      pointerEvents: 'auto',
+    },
+    topRightActions: {
+      position: 'absolute',
+      top: theme.spacing(0.5),
+      right: theme.spacing(0.5),
+      zIndex: 4,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+    },
   }),
   { name: 'NDAlbumGridView' },
 )
@@ -109,11 +174,7 @@ const getColsForWidth = (width) => {
   return 9
 }
 
-const Cover = withContentRect('bounds')(({
-  record,
-  measureRef,
-  contentRect,
-}) => {
+const Cover = withContentRect('bounds')(({ record, measureRef, contentRect }) => {
   // Force height to be the same as the width determined by the GridList
   // noinspection JSSuspiciousNameCombination
   const classes = useCoverStyles({ height: contentRect.bounds.width })
@@ -174,25 +235,40 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
   )
   return (
     <div className={computedClasses}>
-      <Link
-        className={classes.link}
-        to={linkToRecord(basePath, record.id, 'show')}
-      >
-        <Cover record={record} />
-        <ImageListItemBar
-          className={isDesktop ? classes.tileBar : classes.tileBarMobile}
-          subtitle={
-            !record.missing && (
-              <PlayButton
-                className={classes.albumPlayButton}
-                record={record}
-                size="small"
-              />
-            )
-          }
-          actionIcon={<AlbumContextMenu record={record} color={'white'} />}
-        />
-      </Link>
+      <div className={classes.coverWrapper}>
+        <Link
+          className={classes.link}
+          to={linkToRecord(basePath, record.id, 'show')}
+        >
+          <Cover record={record} />
+        </Link>
+
+        {/* Centered play overlay (desktop: appears on hover; mobile: semi-visible) */}
+        <div
+          className={clsx(
+            classes.overlayCenter,
+            !isDesktop && classes.overlayCenterMobile,
+          )}
+        >
+          {!record.missing && (
+            <PlayButton
+              className={classes.albumPlayButton}
+              record={record}
+              size="large"
+            />
+          )}
+        </div>
+
+        {/* Top-right actions: like and menu */}
+        <div className={classes.topRightActions}>
+          <IconButton size="small" aria-label="like" color={'#484848'} />
+          <AlbumContextMenu record={record} color={'#484848'} />
+        </div>
+
+        {/* bottom gradient bar (keeps previous visual) */}
+        <div className={isDesktop ? classes.tileBar : classes.tileBarMobile} />
+      </div>
+
       <Link
         className={classes.albumLink}
         to={linkToRecord(basePath, record.id, 'show')}
