@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import LogoLight from '../icons/new-logo-no-bg-white.png'
 import LogoDark from '../icons/new-logo-no-bg.png';
-import themes from '../themes'
 import { AUTO_THEME_ID } from '../consts'
 
 const useStyles = makeStyles({
@@ -34,7 +33,6 @@ export const Title = ({ subTitle, args }) => {
   const classes = useStyles();
 
   const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
-  // const logo = prefersLightMode ? LogoDark : LogoLight;
 
   const logo = useSelector((state) => {
     if (state.theme === AUTO_THEME_ID) {
