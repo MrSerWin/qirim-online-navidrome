@@ -582,6 +582,8 @@
       "source": "Kaynak kodu",
       "featureRequests": "Özellik istekleri",
       "lastInsightsCollection": "Son istatistik toplama",
+      "website": "Web sitesi",
+      "email": "E-posta",
       "insights": {
         "disabled": "Devre Dışı",
         "waiting": "Bekliyor"

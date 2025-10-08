@@ -585,6 +585,8 @@
       "source": "Исходный код",
       "featureRequests": "Запросы функций",
       "lastInsightsCollection": "Последний сбор статистики",
+      "website": "Вебсайт",
+      "email": "Электронная почта",
       "insights": {
         "disabled": "Отключено",
         "waiting": "Ожидание"

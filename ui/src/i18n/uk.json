@@ -582,6 +582,8 @@
       "source": "Вихідний код",
       "featureRequests": "Запити функцій",
       "lastInsightsCollection": "Останній збір даних",
+      "website": "Вебсайт",
+      "email": "Електронна пошта",
       "insights": {
         "disabled": "Вимкнено",
         "waiting": "Очікування"

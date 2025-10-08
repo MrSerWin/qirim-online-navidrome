@@ -582,6 +582,8 @@
       "source": "Menba kodu",
       "featureRequests": "Xususıyet soraşuvları",
       "lastInsightsCollection": "Soñki anlayış toplaması",
+      "website": "Web saife",
+      "email": "Elektron poçta",
       "insights": {
         "disabled": "Qabilsiz",
         "waiting": "Küte"

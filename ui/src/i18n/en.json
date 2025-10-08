@@ -585,6 +585,8 @@
       "source": "Source code",
       "featureRequests": "Feature requests",
       "lastInsightsCollection": "Last insights collection",
+      "website": "Website",
+      "email": "Email",
       "insights": {
         "disabled": "Disabled",
         "waiting": "Waiting"

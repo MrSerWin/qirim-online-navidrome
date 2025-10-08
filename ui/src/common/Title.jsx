@@ -1,8 +1,13 @@
 import React from 'react'
 import { useMediaQuery } from '@material-ui/core'
 import { useTranslate } from 'react-admin'
+import { useSelector } from 'react-redux'
+
 import { makeStyles } from '@material-ui/core/styles'
-import Logo from '../icons/new-logo-no-bg-white.png'
+import LogoLight from '../icons/new-logo-no-bg-white.png'
+import LogoDark from '../icons/new-logo-no-bg.png';
+import themes from '../themes'
+import { AUTO_THEME_ID } from '../consts'
 
 const useStyles = makeStyles({
   logo: {
@@ -26,19 +31,34 @@ export const Title = ({ subTitle, args }) => {
   const translate = useTranslate()
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'))
   const text = translate(subTitle, { ...args, _: subTitle })
-  const classes = useStyles()
+  const classes = useStyles();
+
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
+  // const logo = prefersLightMode ? LogoDark : LogoLight;
+
+  const logo = useSelector((state) => {
+    if (state.theme === AUTO_THEME_ID) {
+      return prefersLightMode ? LogoDark : LogoLight;
+    }
+    
+    if (state.theme === 'LigeraTheme') {
+      return LogoDark;
+    }
+
+    return LogoLight;
+  })
 
   if (isDesktop) {
     return (
       <span className={classes.titleContainer}>
-        <img src={Logo} alt="Qırım Online" className={classes.logo} />
+        <img src={logo} alt="Qırım Online" className={classes.logo} />
         <span className={classes.titleText}>Qırım Online{text ? ` - ${text}` : ''}</span>
       </span>
     )
   }
   return (
     <span className={classes.titleContainer}>
-      <img src={Logo} alt="Qırım Online" className={classes.logo} />
+      <img src={logo} alt="Qırım Online" className={classes.logo} />
       <span className={classes.titleText}>{text ? text : 'Qırım Online'}</span>
     </span>
   )

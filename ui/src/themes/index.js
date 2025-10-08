@@ -14,9 +14,8 @@ import NordTheme from './nord'
 
 export default {
   // Classic default themes
-  // LightTheme,
+  LightTheme,
   // DarkTheme,
-
   // // New themes should be added here, in alphabetic order
   // CatppuccinMacchiatoTheme,
   // CustomDarkTheme,
@@ -24,9 +23,10 @@ export default {
   // ExtraDarkTheme,
   // GreenTheme,
   // GruvboxDarkTheme,
-  LigeraTheme,
   // MonokaiTheme,
-  NordTheme,
   // NuclearTheme,
   // SpotifyTheme,
+
+  // LigeraTheme,
+  NordTheme,
 }
