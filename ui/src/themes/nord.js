@@ -1,4 +1,5 @@
 import stylesheet from './nord.css.js'
+import rajdhani from './fonts/rajdhani.css.js'
 
 // For Album, Playlist
 const musicListActions = {
@@ -45,6 +46,9 @@ const musicListActions = {
 
 export default {
   themeName: 'Nord',
+  typography: {
+    fontFamily: "Rajdhani, sans-serif",
+  },
   palette: {
     primary: {
       main: '#D8DEE9',
@@ -55,6 +59,7 @@ export default {
     type: 'dark',
   },
   overrides: {
+    '@global': rajdhani,
     MuiFormGroup: {
       root: {
         color: '#D8DEE9',
@@ -121,7 +126,7 @@ export default {
     },
     MuiPaper: {
       root: {
-        backgroundColor: '#3B4252',
+        backgroundColor: '#202021',
       },
       rounded: {
         borderRadius: '8px',
@@ -132,10 +137,10 @@ export default {
     },
     MuiTableRow: {
       root: {
-        color: '#434C5E',
+        color: '#202021',
         transition: 'background-color .3s ease',
         '&:hover': {
-          backgroundColor: '#434C5E !important',
+          backgroundColor: '#202021 !important',
         },
         '&:last-child': {
           borderBottom: '1px solid #4C566A !important',
@@ -147,7 +152,7 @@ export default {
     },
     MuiToolbar: {
       root: {
-        backgroundColor: '#3B4252 !important',
+        backgroundColor: '#202021 !important',
       },
     },
     MuiTableCell: {
@@ -226,9 +231,10 @@ export default {
         color: '#b3b3b3',
       },
       albumContainer: {
-        backgroundColor: '#434C5E',
+        border: '1px solid transparent !important',
+        backgroundColor: '#2b2b2b',
         borderRadius: '8px',
-        padding: '.75rem',
+        padding: '0 0 .75rem 0',
         transition: 'background-color .3s ease',
         '&:hover': {
           backgroundColor: '#4C566A',
@@ -270,7 +276,7 @@ export default {
     },
     NDAlbumDetails: {
       root: {
-        background: '#434C5E',
+        background: '#202021',
         borderRadius: 0,
         boxShadow: '0 8px 8px rgb(0 0 0 / 20%)',
       },
@@ -338,8 +344,8 @@ export default {
     RaLayout: {
       content: {
         padding: '0 !important',
-        background: '#3B4252',
-        backgroundColor: 'rgb(59, 66, 82)',
+        background: '#202021',
+        backgroundColor: '#202021',
       },
       root: {
         backgroundColor: '#2E3440',
@@ -347,7 +353,7 @@ export default {
     },
     RaList: {
       content: {
-        backgroundColor: '#3B4252',
+        backgroundColor: '#202021',
         borderRadius: '0px',
       },
     },

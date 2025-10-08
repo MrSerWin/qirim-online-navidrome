@@ -1,16 +1,21 @@
 import stylesheet from './light.css.js'
+import rajdhani from './fonts/rajdhani.css.js'
 
 export default {
   themeName: 'Light',
+  typography: {
+    fontFamily: "Rajdhani, sans-serif",
+  },
   palette: {
     secondary: {
       light: '#5f5fc4',
       dark: '#001064',
-      main: '#3f51b5',
+      main: '#fefef9',
       contrastText: '#fff',
     },
   },
   overrides: {
+    '@global': rajdhani,
     MuiFilledInput: {
       root: {
         backgroundColor: 'rgba(0, 0, 0, 0.04)',

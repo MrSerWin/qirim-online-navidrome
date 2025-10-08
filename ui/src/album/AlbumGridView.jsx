@@ -15,6 +15,9 @@ import { withContentRect } from 'react-measure'
 import { useDrag } from 'react-dnd'
 import subsonic from '../subsonic'
 import { AlbumContextMenu, PlayButton, ArtistLinkField } from '../common'
+import { useDataProvider } from 'react-admin'
+import { useDispatch } from 'react-redux'
+import { playTracks } from '../actions'
 import { DraggableTypes } from '../consts'
 import clsx from 'clsx'
 import { AlbumDatesField } from './AlbumDatesField.jsx'
@@ -88,7 +91,8 @@ const useStyles = makeStyles(
     albumContainer: {
       border: `1px solid ${theme.palette.divider}`,
       boxSizing: 'border-box',
-      padding: theme.spacing(1),
+      // padding: theme.spacing(1),
+      padding: '0 0 .75rem 0',
       borderRadius: theme.shape.borderRadius,
       transition: 'box-shadow 180ms ease, border-color 120ms ease',
       '&:hover $tileBar': {
@@ -233,6 +237,29 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
     classes.albumContainer,
     record.missing && classes.missingAlbum,
   )
+  const dataProvider = useDataProvider()
+  const dispatch = useDispatch()
+
+  const playAlbum = React.useCallback(
+    (e) => {
+      if (e) {
+        e.stopPropagation()
+        e.preventDefault()
+      }
+      dataProvider
+        .getList('song', {
+          pagination: { page: 1, perPage: -1 },
+          sort: { field: 'album', order: 'ASC' },
+          filter: { album_id: record.id, disc_number: record.discNumber },
+        })
+        .then((response) => {
+          const data = response.data.reduce((acc, cur) => ({ ...acc, [cur.id]: cur }), {})
+          const ids = response.data.map((r) => r.id)
+          dispatch(playTracks(data, ids))
+        })
+    },
+    [dataProvider, dispatch, record],
+  )
   return (
     <div className={computedClasses}>
       <div className={classes.coverWrapper}>
@@ -250,7 +277,7 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
             !isDesktop && classes.overlayCenterMobile,
           )}
         >
-          {!record.missing && (
+          {isDesktop && !record.missing && (
             <PlayButton
               className={classes.albumPlayButton}
               record={record}

@@ -40,6 +40,16 @@ const useStyles = makeStyles({
     margin: 0,
     height: '24px',
   },
+  searchComponent: {
+    width: '100%',
+  },
+  filterComponent: {
+    width: '100%',
+    marginLeft: '10px',
+    '& .filter-field': {
+      width: '100%',
+    }
+  }
 })
 
 const AlbumFilter = (props) => {
@@ -48,8 +58,8 @@ const AlbumFilter = (props) => {
   const { permissions } = usePermissions()
   const isAdmin = permissions === 'admin'
   return (
-    <Filter {...props} variant={'outlined'}>
-      <SearchInput id="search" source="name" alwaysOn />
+    <Filter {...props} variant={'outlined'} className={classes.filterComponent}>
+      <SearchInput id="search" source="name" alwaysOn className={classes.searchComponent} />
       { /* 
       <ReferenceInput
         label={translate('resources.album.fields.artist')}
@@ -243,7 +253,7 @@ const AlbumList = (props) => {
         ) : (
           <AlbumTableView {...props} />
         )} */}
-          <AlbumGridView albumListType={albumListType} {...props} />
+        <AlbumGridView albumListType={albumListType} {...props} />
       </List>
       {/* <ExpandInfoDialog content={<AlbumInfo />} />  */}
     </>

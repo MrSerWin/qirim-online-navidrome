@@ -61,9 +61,20 @@ const useStyles = makeStyles({
   ratingField: {
     visibility: 'hidden',
   },
+  searchComponent: {
+    width: '100%',
+  },
+  filterComponent: {
+    width: '100%',
+    marginLeft: '10px',
+    '& .filter-field': {
+      width: '100%',
+    }
+  }
 })
 
 const ArtistFilter = (props) => {
+  const classes = useStyles()
   const translate = useTranslate()
   const { permissions } = usePermissions()
   const isAdmin = permissions === 'admin'
@@ -79,9 +90,9 @@ const ArtistFilter = (props) => {
   }, [])
   roles?.sort((a, b) => a.name.localeCompare(b.name))
   return (
-    <Filter {...props} variant={'outlined'}>
-      <SearchInput id="search" source="name" alwaysOn />
-      <SelectInput source="role" choices={roles} alwaysOn />
+    <Filter {...props} variant={'outlined'} className={classes.filterComponent}>
+      <SearchInput id="search" source="name" alwaysOn className={classes.searchComponent} />
+      {/* <SelectInput source="role" choices={roles} alwaysOn />
       {config.enableFavourites && (
         <QuickFilter
           source="starred"
@@ -89,7 +100,7 @@ const ArtistFilter = (props) => {
           defaultValue={true}
         />
       )}
-      {isAdmin && <NullableBooleanInput source="missing" />}
+      {isAdmin && <NullableBooleanInput source="missing" />} */}
     </Filter>
   )
 }

@@ -65,7 +65,7 @@ const useStyles = makeStyles(
       marginTop: '1em',
       display: 'flex',
       justifyContent: 'center',
-      color: '#3f51b5', //theme.palette.grey[500]
+      color: '#fefef9', //theme.palette.grey[500]
     },
     welcome: {
       marginTop: '1em',
@@ -73,7 +73,7 @@ const useStyles = makeStyles(
       display: 'flex',
       justifyContent: 'center',
       flexWrap: 'wrap',
-      color: '#3f51b5', //theme.palette.grey[500]
+      color: '#fefef9', //theme.palette.grey[500]
     },
     form: {
       padding: '0 1em 1em 1em',

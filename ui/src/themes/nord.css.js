@@ -136,7 +136,7 @@ const stylesheet = `
 
 .audio-lists-panel-content .audio-item:active,
 .audio-lists-panel-content .audio-item:hover {
-    background-color: #3B4252;
+    background-color: #202021;
 }
 
 /* Mobile */

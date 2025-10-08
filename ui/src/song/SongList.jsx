@@ -64,6 +64,16 @@ const useStyles = makeStyles({
     margin: 0,
     height: '24px',
   },
+  searchComponent: {
+    width: '100%',
+  },
+  filterComponent: {
+    width: '100%',
+    marginLeft: '10px',
+    '& .filter-field': {
+      width: '100%',
+    }
+  }
 })
 
 const SongFilter = (props) => {
@@ -72,9 +82,12 @@ const SongFilter = (props) => {
   const { permissions } = usePermissions()
   const isAdmin = permissions === 'admin'
   return (
-    <Filter {...props} variant={'outlined'}>
-      <SearchInput source="title" alwaysOn />
-      <ReferenceArrayInput
+    // <Filter {...props} variant={'outlined'}>
+    //   <SearchInput source="title" alwaysOn />
+
+    <Filter {...props} variant={'outlined'} className={classes.filterComponent}>
+      <SearchInput source="title" alwaysOn className={classes.searchComponent} />
+      {/* <ReferenceArrayInput
         label={translate('resources.song.fields.genre')}
         source="genre_id"
         reference="genre"
@@ -125,7 +138,7 @@ const SongFilter = (props) => {
           defaultValue={true}
         />
       )}
-      {isAdmin && <NullableBooleanInput source="missing" />}
+      {isAdmin && <NullableBooleanInput source="missing" />} */}
     </Filter>
   )
 }
