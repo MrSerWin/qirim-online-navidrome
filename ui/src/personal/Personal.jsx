@@ -25,10 +25,12 @@ const Personal = () => {
         <SelectTheme />
         <SelectLanguage />
         <SelectDefaultView />
-        {config.enableReplayGain && <ReplayGainToggle />}
         <NotificationsToggle />
+        {/* 
+        {config.enableReplayGain && <ReplayGainToggle />}
         {config.lastFMEnabled && <LastfmScrobbleToggle />}
-        {config.listenBrainzEnabled && <ListenBrainzScrobbleToggle />}
+        {config.listenBrainzEnabled && <ListenBrainzScrobbleToggle />} 
+        */}
       </SimpleForm>
     </Card>
   )
