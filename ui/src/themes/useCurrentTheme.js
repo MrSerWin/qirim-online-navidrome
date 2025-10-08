@@ -9,15 +9,16 @@ const useCurrentTheme = () => {
   const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
   const theme = useSelector((state) => {
     if (state.theme === AUTO_THEME_ID) {
-      return prefersLightMode ? themes.LightTheme : themes.DarkTheme
+      // return themes.NordTheme || Object.values(themes)[0]
+      return prefersLightMode ? themes.LigeraTheme : themes.NordTheme
     }
     const themeName =
       Object.keys(themes).find((t) => t === state.theme) ||
       Object.keys(themes).find(
         (t) => themes[t].themeName === config.defaultTheme,
       ) ||
-      'DarkTheme'
-    return themes[themeName]
+      'NordTheme'
+    return themes[themeName] || themes.NordTheme || Object.values(themes)[0]
   })
 
   useEffect(() => {

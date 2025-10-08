@@ -18,15 +18,16 @@ export const SelectTheme = (props) => {
       name: 'Auto',
     },
   ]
-  themeChoices.push(
+  
+ themeChoices.push(
     ...Object.keys(themes).map((key) => {
       return { id: key, name: themes[key].themeName }
     }),
   )
-  themeChoices.push({
-    id: helpKey,
-    name: <HelpMsg caption={'Create your own'} />,
-  })
+  // themeChoices.push({
+  //   id: helpKey,
+  //   name: <HelpMsg caption={'Create your own'} />,
+  // })
   return (
     <SelectInput
       {...props}
@@ -36,10 +37,6 @@ export const SelectTheme = (props) => {
       translateChoice={false}
       choices={themeChoices}
       onChange={(event) => {
-        if (event.target.value === helpKey) {
-          openInNewTab(docsUrl('/docs/developers/creating-themes/'))
-          return
-        }
         dispatch(changeTheme(event.target.value))
       }}
     />

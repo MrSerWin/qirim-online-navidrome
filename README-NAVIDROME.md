@@ -180,3 +180,4 @@ make server
 🛑 Остановить все:
 make stop
 Или просто Ctrl+C в терминале с make dev
+pkill -f navidrome

@@ -11,10 +11,10 @@ export const SelectLanguage = (props) => {
   const locale = useLocale()
   const { choices } = useGetLanguageChoices()
 
-  choices.push({
-    id: helpKey,
-    name: <HelpMsg caption={'Help to translate'} />,
-  })
+  // choices.push({
+  //   id: helpKey,
+  //   name: <HelpMsg caption={'Help to translate'} />,
+  // })
 
   return (
     <SelectInput
@@ -25,10 +25,10 @@ export const SelectLanguage = (props) => {
       choices={choices}
       translateChoice={false}
       onChange={(event) => {
-        if (event.target.value === helpKey) {
-          openInNewTab(docsUrl('/docs/developers/translations/'))
-          return
-        }
+        // if (event.target.value === helpKey) {
+        //   openInNewTab(docsUrl('/docs/developers/translations/'))
+        //   return
+        // }
         setLocale(event.target.value).then(() => {
           localStorage.setItem('locale', event.target.value)
           document.documentElement.lang = event.target.value
