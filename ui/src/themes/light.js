@@ -1,6 +1,10 @@
 import stylesheet from './light.css.js'
 import rajdhani from './fonts/rajdhani.css.js'
-
+const bLight = {
+  300: '#484848',
+  500: '#ffffff',
+  600: '#efefef',
+}
 export default {
   themeName: 'Light',
   typography: {
@@ -8,9 +12,9 @@ export default {
   },
   palette: {
     secondary: {
-      light: '#5f5fc4',
-      dark: '#001064',
-      main: '#fefef9',
+      light: bLight['300'],
+      dark: '#484848',
+      main: '#fafafa',
       contrastText: '#fff',
     },
   },
@@ -22,6 +26,17 @@ export default {
         '&$disabled': {
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
         },
+      },
+    },
+
+    MuiAppBar: {
+      positionFixed: {
+        // background: `${bLight['500']} !important`,
+        boxShadow: 'none !important',
+        borderBottom: `1px solid ${bLight['600']}`,
+      },
+      colorSecondary: {
+        color: bLight['300'],
       },
     },
     NDLogin: {
@@ -64,4 +79,32 @@ export default {
     theme: 'light',
     stylesheet,
   },
+
+  MuiButton: {
+    root: {
+      backgroundColor: '#4C566A !important',
+      border: '1px solid transparent',
+      borderRadius: 500,
+      '&:hover': {
+        backgroundColor: `${'#5E81AC !important'}`,
+      },
+    },
+    label: {
+      color: 'red',
+      paddingRight: '1rem',
+      paddingLeft: '0.7rem',
+    },
+    contained: {
+      boxShadow: 'none',
+      '&:hover': {
+        boxShadow: 'none',
+      },
+    },
+  },
+  MuiIconButton: {
+    label: {
+      color: 'red',
+    },
+  },
+
 }

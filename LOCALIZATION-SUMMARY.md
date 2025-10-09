@@ -38,10 +38,10 @@
 ### Переведенные Разделы
 
 ✅ **Resources (Ресурсы):**
-- Songs (Композиции/Пісні/Şarkılar/Cırlar)
+- Songs (Композиции/Пісні/Şarkılar/Yırlar)
 - Albums (Альбомы/Альбоми/Albümler/Albomlar)
 - Artists (Исполнители/Виконавці/Sanatçılar/Artistler)
-- Playlists (Плейлисты/Плейлисти/Çalma Listeleri/Çalğı Listeleri)
+- Playlists (Плейлисты/Плейлисти/Çalma Listeleri/Çalğı cedvelleri)
 - Users (Пользователи/Користувачі/Kullanıcılar/Qullanıcılar)
 - Libraries (Библиотеки/Бібліотеки/Kütüphaneler/Kitabhaneler)
 - Radio (Радио/Радіо/Radyo/Radio)
@@ -58,7 +58,7 @@
 ✅ **Actions (Действия):**
 - Play/Pause (Воспроизвести/Відтворити/Çal)
 - Download (Скачать/Завантажити/İndir)
-- Add to Playlist (Добавить в плейлист/Додати до плейлиста/Çalma Listesine Ekle)
+- Add to Playlist (Добавить в плейлист/До плейлиста/Çalma Listesine Ekle)
 - Share (Поделиться/Поділитися/Paylaş)
 - Edit/Delete (Редактировать/Удалить)
 
@@ -84,7 +84,7 @@
 **Турецкий и Крымскотатарский** (2 формы):
 ```
 Şarkı / Şarkılar
-Cır / Cırlar
+Yır / Yırlar
 ```
 
 ### Сохраненные Термины

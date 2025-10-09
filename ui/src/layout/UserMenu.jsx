@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
+  button: {
+    color: theme.palette.text.primary,
+    zIndex: 2,
+  },
 }))
 
 const UserMenu = (props) => {
@@ -76,7 +80,7 @@ const UserMenu = (props) => {
           aria-label={label && translate(label, { _: label })}
           aria-owns={open ? 'menu-appbar' : null}
           aria-haspopup={true}
-          color="inherit"
+          className={classes.button}
           onClick={handleMenu}
           size={'small'}
         >

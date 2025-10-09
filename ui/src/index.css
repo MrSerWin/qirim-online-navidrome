@@ -15,3 +15,7 @@ code {
 .rc-slider {
   z-index: 78;
 }
+
+.multiLineText {
+  white-space: pre-wrap;
+}

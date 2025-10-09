@@ -1,42 +1,42 @@
 const stylesheet = `
 .react-jinke-music-player-main.light-theme .loading svg {
-    color: #5f5fc4;
+    color: #484848;
     font-size: 24px
 }
 
 .react-jinke-music-player-mobile-play-model-tip {
-    background-color: #5f5fc4;
+    background-color: #484848;
 }
 
 .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle, .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-track {
-    background-color: #5f5fc4
+    background-color: #484848
 }
 
 .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle:active {
-    box-shadow: 0 0 2px #5f5fc4
+    box-shadow: 0 0 2px #484848
 }
 
 .react-jinke-music-player-main.light-theme .audio-item.playing svg {
-    color: #5f5fc4
+    color: #484848
 }
 
 .react-jinke-music-player-main.light-theme .audio-item.playing .player-singer {
-    color: #5f5fc4 !important
+    color: #484848 !important
 }
 
 .audio-lists-panel-content .audio-item.playing, .audio-lists-panel-content .audio-item.playing svg {
-    color: #5f5fc4
+    color: #484848
 }
 .audio-lists-panel-content .audio-item:active .group:not([class=".player-delete"]) svg, .audio-lists-panel-content .audio-item:hover .group:not([class=".player-delete"]) svg {
-    color: #5f5fc4
+    color: #484848
 }
 
 .react-jinke-music-player-main.light-theme ::-webkit-scrollbar-thumb {
-    background-color: #5f5fc4;
+    background-color: #484848;
 }
 
 .react-jinke-music-player-main.light-theme svg {
-    color: #5f5fc4
+    color: #484848
 }
 
 .react-jinke-music-player-main.light-theme svg:active, .react-jinke-music-player-main.light-theme svg:hover {
@@ -55,7 +55,7 @@ const stylesheet = `
 .react-jinke-music-player-main.light-theme .music-player-panel {
     background-color: #fff;
     box-shadow: 0 1px 2px 0 rgba(0, 34, 77, .05);
-    color: #5f5fc4
+    color: #484848
 }
 
 .react-jinke-music-player-main.light-theme .music-player-panel .img-content {
@@ -75,8 +75,8 @@ const stylesheet = `
 }
 
 .react-jinke-music-player-main.light-theme .rc-switch-checked {
-    background-color: #5f5fc4 !important;
-    border: 1px solid #5f5fc4
+    background-color: #484848 !important;
+    border: 1px solid #484848
 }
 
 .react-jinke-music-player-main.light-theme .rc-switch-inner {
@@ -115,7 +115,18 @@ const stylesheet = `
 }
 
 .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item.playing, .react-jinke-music-player-main.light-theme .audio-lists-panel .audio-item.playing svg {
-    color: #5f5fc4 !important
+    color: #484848 !important
+}
+.MuiCheckbox-colorSecondary.Mui-checked {
+    color: rgba(0, 0, 0, 0.54) !important
+}
+
+.MuiButton-textPrimary {
+    color: #484848 !important;
+}
+.MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.65rem !important;
 }
 `
 

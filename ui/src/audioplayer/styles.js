@@ -1,3 +1,4 @@
+import { colors } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyle = makeStyles(
@@ -7,6 +8,7 @@ const useStyle = makeStyles(
       color: theme.palette.primary.dark,
     },
     songTitle: {
+      color: colors.blueGrey[900],
       fontWeight: 'bold',
       '&:hover + $qualityInfo': {
         opacity: 1,

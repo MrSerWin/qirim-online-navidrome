@@ -42,6 +42,12 @@ const useStyles = makeStyles({
   },
   searchComponent: {
     width: '100%',
+    '& .MuiInputBase-root': {
+
+      // '&:focus-visible': {
+      //   border: '1px solid red !important',
+      // }
+    }
   },
   filterComponent: {
     width: '100%',

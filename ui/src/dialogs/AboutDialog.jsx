@@ -33,14 +33,12 @@ const AboutDialog = ({ open, onClose }) => {
       maxWidth={'sm'}
     >
       <DialogTitle id="about-dialog-title" onClose={onClose}>
-        {translate('about.title', { _: 'Qırım Online Music Server' })}
+        {translate('about.title', { _: 'Qırım Online' })}
       </DialogTitle>
       <DialogContent dividers>
-        <p>
-          {translate('about.description', {
-            _: 'A personal music server with a focus on multilingual support.',
-          })}
-        </p>
+        <div className='multiLineText'>
+          {translate('about.description')}
+        </div>
         <Table aria-label={translate('menu.about')} size="small">
           <TableBody>
             {Object.keys(links).map((key) => {

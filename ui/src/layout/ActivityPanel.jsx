@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
   },
   button: {
-    color: 'inherit',
+    // color: // color: 'red !important',
+    color: theme.palette.text.primary,
     zIndex: 2,
   },
   counterStatus: {

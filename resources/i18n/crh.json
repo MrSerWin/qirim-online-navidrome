@@ -2,7 +2,7 @@
   "languageName": "Qırımtatar tili",
   "resources": {
     "song": {
-      "name": "Cır |||| Cırlar",
+      "name": "Yır |||| Yırlar",
       "fields": {
         "albumArtist": "Albom Artistı",
         "duration": "Zaman",
@@ -41,11 +41,11 @@
       "actions": {
         "addToQueue": "Soñraq Çal",
         "playNow": "Şimdi Çal",
-        "addToPlaylist": "Çalğı Listesine Ekle",
-        "showInPlaylist": "Çalğı Listesinde Köster",
+        "addToPlaylist": "Çalğı cedveline qoş",
+        "showInPlaylist": "Çalğı cedvelinde Köster",
         "shuffleAll": "Epsinı Qarıştır",
         "download": "Yükle",
-        "playNext": "Soñrakini Çal",
+        "playNext": "Sonraki",
         "info": "Ma'lumat Al"
       }
     },
@@ -55,7 +55,7 @@
         "albumArtist": "Albom Artistı",
         "artist": "Artist",
         "duration": "Zaman",
-        "songCount": "Cırlar",
+        "songCount": "Yırlar",
         "playCount": "Çalınışlar",
         "size": "Ölçü",
         "name": "Adı",
@@ -82,22 +82,22 @@
       },
       "actions": {
         "playAll": "Çal",
-        "playNext": "Soñrakini Çal",
+        "playNext": "Sonraki",
         "addToQueue": "Soñraq Çal",
         "share": "Paylaş",
         "shuffle": "Qarıştır",
-        "addToPlaylist": "Çalğı Listesine Ekle",
+        "addToPlaylist": "Çalğı cedveline qoş",
         "download": "Yükle",
         "info": "Ma'lumat Al"
       },
       "lists": {
-        "all": "Episiniñ",
+        "all": "Episi",
         "random": "Tesadüf",
         "recentlyAdded": "Yañı Eklengen",
         "recentlyPlayed": "Yañı Çalınğan",
-        "mostPlayed": "Eñ Çoq Çalınğan",
+        "mostPlayed": "Çoq oynağan",
         "starred": "Sevimli",
-        "topRated": "Eñ Yüksek Qıymetlendirilgen"
+        "topRated": "Liderler"
       }
     },
     "artist": {
@@ -105,7 +105,7 @@
       "fields": {
         "name": "Adı",
         "albumCount": "Albom Sayısı",
-        "songCount": "Cır Sayısı",
+        "songCount": "Yır Sayısı",
         "size": "Ölçü",
         "playCount": "Çalınışlar",
         "rating": "Qıymetlendirme",
@@ -130,7 +130,7 @@
         "maincredit": "Albom Artistı yaki Artist |||| Albom Artistleri yaki Artistler"
       },
       "actions": {
-        "topSongs": "Eñ İyi Cırlar",
+        "topSongs": "Eñ İyi Yırlar",
         "shuffle": "Qarıştır",
         "radio": "Radio"
       }
@@ -194,7 +194,7 @@
       }
     },
     "playlist": {
-      "name": "Çalğı Listesi |||| Çalğı Listeleri",
+      "name": "Çalğı cedveli |||| Çalğı cedvelleri",
       "fields": {
         "name": "Adı",
         "duration": "Devam",
@@ -202,27 +202,27 @@
         "public": "Umumiy",
         "updatedAt": "Yañartılğan",
         "createdAt": "Yaratılğan",
-        "songCount": "Cırlar",
+        "songCount": "Yırlar",
         "comment": "Şerh",
         "sync": "Avto-ithal",
         "path": "Qaydan ithal et"
       },
       "actions": {
-        "selectPlaylist": "Çalğı listesini saylañız:",
+        "selectPlaylist": "Çalğı cedvelini saylañız:",
         "addNewPlaylist": "\"%{name}\" yarat",
         "export": "Eksport",
-        "saveQueue": "Sıranı Çalğı Listesine Saqla",
+        "saveQueue": "Sıranı Çalğı cedveline Saqla",
         "makePublic": "Umumiy Yap",
         "makePrivate": "Hususiy Yap",
-        "searchOrCreate": "Çalğı listelerini qıdırıñız yaki yañısını yaratmaq içün yazıñız...",
-        "pressEnterToCreate": "Yañı çalğı listesini yaratmaq içün Enter basıñız",
+        "searchOrCreate": "Çalğı cedvellerini qıdırıñız yaki yañısını yaratmaq içün yazıñız...",
+        "pressEnterToCreate": "Yañı Çalğı cedvelini yaratmaq içün Enter basıñız",
         "removeFromSelection": "Saylamadan çıqar"
       },
       "message": {
-        "duplicate_song": "Tekrar cırlarnı ekle",
-        "song_exist": "Çalğı listesine eklengen tekrarlar bar. Tekrarlarnı ekleymisiñiz yaki keçeyimsiñiz?",
-        "noPlaylistsFound": "İç bir çalğı listesi tapılmadı",
-        "noPlaylists": "İc bir çalğı listesi yoq"
+        "duplicate_song": "Tekrar Yırlarnı ekle",
+        "song_exist": "Çalğı cedveline qoşngen tekrarlar bar. Tekrarlarnı ekleymisiñiz yaki keçeyimsiñiz?",
+        "noPlaylistsFound": "İç bir Çalğı cedveli tapılmadı",
+        "noPlaylists": "İc bir Çalğı cedveli yoq"
       }
     },
     "radio": {
@@ -281,10 +281,10 @@
         "path": "Yol",
         "remotePath": "Uzaqtaki Yol",
         "lastScanAt": "Soñki Tarama",
-        "songCount": "Cırlar",
+        "songCount": "Yırlar",
         "albumCount": "Albomlar",
         "artistCount": "Artistler",
-        "totalSongs": "Cırlar",
+        "totalSongs": "Yırlar",
         "totalAlbums": "Albomlar",
         "totalArtists": "Artistler",
         "totalFolders": "Qısımlar",
@@ -425,7 +425,7 @@
       }
     },
     "message": {
-      "about": "Aqqında",
+      "about": "Biz Aqqında",
       "are_you_sure": "Eminsiñizmi?",
       "bulk_delete_content": "Bu %{name} silmekke eminsiñizmi? |||| Bu %{smart_count} ögeni silmekke eminsiñizmi?",
       "bulk_delete_title": "%{name} sil |||| %{smart_count} %{name} sil",
@@ -476,12 +476,12 @@
     "note": "NOT",
     "transcodingDisabled": "Veb interfeysi arqalı transkodlama qonfigurasiyasını deñiştirmek havfsızlıq sebeplerinen qabilsiz etilgen. Transkodlama sıyaqlarını deñiştirmek (tahrirlev yaki eklemek) isterseniñ, servernı %{config} qonfigurasiya sıyağı ilen qayta başlatıñız.",
     "transcodingEnabled": "Navidrome şimdi %{config} ilen çalışa, bu da veb interfeysi arqalı transkodlama sıyaqlarından sistem buyruqlarını çalıştırmağa imkan bere. Havfsızlıq sebeplerinen bunı qabilsiz etmegиñizni ve ancaq Transkodlama sıyaqlarını qonfigurasiya etken vaqıt qabilleştirmegиñizni tavsiye etemiz.",
-    "songsAddedToPlaylist": "Çalğı listesine 1 cır eklendi |||| Çalğı listesine %{smart_count} cır eklendi",
-    "noSimilarSongsFound": "Oxşar cırlar tapılmadı",
-    "noTopSongsFound": "Eñ iyi cırlar tapılmadı",
+    "songsAddedToPlaylist": "Çalğı cedveline 1 Yır eklendi |||| Çalğı cedveline %{smart_count} Yır eklendi",
+    "noSimilarSongsFound": "Oxşar Yırlar tapılmadı",
+    "noTopSongsFound": "Eñ iyi Yırlar tapılmadı",
     "noPlaylistsAvailable": "İç biri mevcut degil",
     "delete_user_title": "'%{name}' qullanıcısını sil",
-    "delete_user_content": "Bu qullanıcını ve onıñ barça ma'lumatını (çalğı listeleri ve tercihler dahil) silmekke eminsiñizmi?",
+    "delete_user_content": "Bu qullanıcını ve onıñ barça ma'lumatını (Çalğı cedvelleri ve tercihler dahil) silmekke eminsiñizmi?",
     "remove_missing_title": "Eksik dosyelerni çıqar",
     "remove_missing_content": "Saylanggan eksik dosyelerni ma'lumat bazasından çıqarmaq içün eminsiñizmi? Bu, olarga qonusında barça referanslarnı, çalınış sayılarını ve qıymetlendirmelerni qayturmassız olaraq çıqaracaq.",
     "remove_all_missing_title": "Barça eksik dosyelerni çıqar",
@@ -522,12 +522,12 @@
     "version": "Versiya",
     "theme": "Tema",
     "personal": {
-      "name": "Şahsiy",
+      "name": "Parametrler",
       "options": {
         "theme": "Tema",
         "language": "Til",
-        "defaultView": "Ögbelek Körüniş",
-        "desktop_notifications": "Masaüstü Bildirimleri",
+        "defaultView": "Standart körüniş",
+        "desktop_notifications": "İş masasınıñ haberdarlıqları",
         "lastfmNotConfigured": "Last.fm API Anahtarı qonfigurasiya etilmegen",
         "lastfmScrobbling": "Last.fm'ge Scrobble Et",
         "listenBrainzScrobbling": "ListenBrainz'ge Scrobble Et",
@@ -541,9 +541,9 @@
       }
     },
     "albumList": "Albomlar",
-    "playlists": "Çalğı Listeleri",
-    "sharedPlaylists": "Paylaşılğan Çalğı Listeleri",
-    "about": "Aqqında"
+    "playlists": "Çalğı cedvelleri",
+    "sharedPlaylists": "Paylaşılğan Çalğı cedvelleri",
+    "about": "Biz Aqqında"
   },
   "player": {
     "playListsText": "Çalma Sırası",
@@ -571,6 +571,7 @@
     }
   },
   "about": {
+"description": "Qırım.Online - qırımtatar muzıkasınıñ eñ büyük onlayn arhividir!\n\nBizim platformamız em asırlar ruhunı qaplap alğan qadimiy halq yırlarını, em de zemaneviy artistlerniñ canlı hitlerini qaplap alğan unikal ve er taraflama cıyıntıqnı teklif ete. Biz qırımtatarlarnıñ qıymetsiz muzıka mirasını saqlap qalmağa ve bütün dünya diñleyicilerine elverişli yapmağa tırışamız.\n\nQırım.Online – bu tek bir veb-sayt degil; bu aqiqiy raqamlı hazine, er keske bu zengin medeniyetni onıñ tılsımlı avaları yardımınen duymağa imkân bere. Qırımtatar muzıkasınıñ tolu spektrini bir yerde açıñız!",
     "links": {
       "homepage": "Ana saife",
       "source": "Menba kodu",
@@ -582,7 +583,7 @@
       }
     },
     "tabs": {
-      "about": "Aqqında",
+      "about": "Biz Aqqında",
       "config": "Qonfigurasiya"
     },
     "config": {
@@ -619,9 +620,9 @@
       "show_help": "Bu Yardımnı Köster",
       "toggle_menu": "Menü Yan Çubuğını Aç/Qapat",
       "toggle_play": "Çal / Durdır",
-      "prev_song": "Evelki Cır",
-      "next_song": "Soñraki Cır",
-      "current_song": "Ağımdaki Cırğa Ket",
+      "prev_song": "Evelki Yır",
+      "next_song": "Soñraki Yır",
+      "current_song": "Ağımdaki Yırğa Ket",
       "vol_up": "Sesnı Arttır",
       "vol_down": "Sesnı Azalt",
       "toggle_love": "Bu parçanı sevimlilerge ekle"

@@ -26,7 +26,7 @@ import { nowPlayingCountUpdate } from '../actions'
 import config from '../config'
 
 const useStyles = makeStyles((theme) => ({
-  button: { color: 'inherit' },
+  button: { color: theme.palette.text.primary },
   list: {
     width: '30em',
     maxHeight: (props) => {
@@ -92,6 +92,7 @@ const NowPlayingButton = React.memo(({ count, onClick }) => {
         onClick={onClick}
         aria-label={translate('nowPlaying.title')}
         aria-haspopup="true"
+        color="primary"
       >
         <Badge
           badgeContent={count}

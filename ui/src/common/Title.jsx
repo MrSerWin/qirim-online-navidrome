@@ -8,7 +8,8 @@ import LogoLight from '../icons/new-logo-no-bg-white.png'
 import LogoDark from '../icons/new-logo-no-bg.png';
 import { AUTO_THEME_ID } from '../consts'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(
+  (theme) => ({
   logo: {
     height: '50px',
     width: 'auto',
@@ -23,8 +24,9 @@ const useStyles = makeStyles({
     lineHeight: '1',
     display: 'flex',
     alignItems: 'center',
+    color: theme.palette.text.primary,
   },
-})
+}))
 
 export const Title = ({ subTitle, args }) => {
   const translate = useTranslate()
@@ -38,8 +40,8 @@ export const Title = ({ subTitle, args }) => {
     if (state.theme === AUTO_THEME_ID) {
       return prefersLightMode ? LogoDark : LogoLight;
     }
-    
-    if (state.theme === 'LigeraTheme') {
+
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
       return LogoDark;
     }
 

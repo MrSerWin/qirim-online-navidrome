@@ -10,7 +10,7 @@ const defaultConfig = {
   loginBackgroundURL: 'https://source.unsplash.com/collection/1065384/1600x900',
   maxSidebarPlaylists: 100,
   enableTranscodingConfig: true,
-  enableDownloads: true,
+  enableDownloads: false,
   enableFavourites: true,
   losslessFormats: 'FLAC,WAV,ALAC,DSF',
   welcomeMessage: '',
