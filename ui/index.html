@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+
+    <!-- Primary Meta Tags -->
+    <title>Qirim.Online — Крупнейший Архив Крымскотатарской Музыки | Слушать Онлайн</title>
+    <meta name="title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки | Слушать Онлайн" />
     <meta
-            name="description"
-            content="Qırım Online Music Server - {{.Version}}"
+      name="description"
+      content="Qirim.Online — крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты крымскотатарских исполнителей. Бесплатный стриминг музыки онлайн."
     />
+    <meta name="keywords" content="крымскотатарская музыка, qirimtatar music, кърымтатар джыры, народные песни крымских татар, крымскотатарские исполнители, онлайн архив музыки, qirim online, крымскотатарская культура, традиционная музыка, современная крымскотатарская музыка, слушать онлайн, музыкальный стриминг" />
+    <meta name="author" content="Qirim.Online" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Russian" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -16,19 +30,80 @@
     <meta name="msapplication-TileColor" content="#5b5fd5">
     <meta name="theme-color" content="#5b5fd5">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--
-      manifest.webmanifest provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.webmanifest" />
-    <meta property="og:site_name" content="Qırım Online">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Qirim.Online">
     <meta property="og:url" content="{{ .ShareURL }}">
-    <meta property="og:title" content="{{ .ShareDescription }}">
+    <meta property="og:title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки">
+    <meta property="og:description" content="Откройте для себя уникальную коллекцию крымскотатарской музыки — от старинных народных песен до современных хитов. Слушайте онлайн бесплатно." />
     <meta property="og:image" content="{{ .ShareImageURL }}">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-    <title>Qırım Online</title>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Qirim.Online - Крымскотатарская музыка онлайн" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="crh_UA" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки" />
+    <meta name="twitter:description" content="Откройте для себя уникальную коллекцию крымскотатарской музыки — от старинных народных песен до современных хитов." />
+    <meta name="twitter:image" content="{{ .ShareImageURL }}" />
+    <meta name="twitter:image:alt" content="Qirim.Online - Крымскотатарская музыка онлайн" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://qirim.online/" />
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Qirim.Online",
+      "alternateName": ["Къырым.Онлайн", "Qırım Online"],
+      "url": "https://qirim.online",
+      "description": "Крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты.",
+      "inLanguage": ["ru", "crh", "en"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://qirim.online/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicArchive",
+      "name": "Qirim.Online",
+      "description": "Qirim.Online — крупнейший онлайн-архив крымскотатарской музыки. Уникальная коллекция народных песен и современных хитов.",
+      "url": "https://qirim.online",
+      "genre": ["Крымскотатарская музыка", "Народная музыка", "Традиционная музыка"],
+      "keywords": "крымскотатарская музыка, кърымтатар джыры, народные песни, музыкальный архив",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Любители крымскотатарской музыки и культуры"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Qirim.Online",
+      "url": "https://qirim.online",
+      "logo": "https://qirim.online/android-chrome-512x512.png",
+      "description": "Цифровая сокровищница крымскотатарской музыки",
+      "sameAs": []
+    }
+    </script>
+
     <script>
       window.__APP_CONFIG__ = '{{ if .AppConfig }}{{ .AppConfig | js }}{{ end }}'
     </script>
@@ -37,7 +112,13 @@
     </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1>Qirim.Online</h1>
+        <p>Для работы этого приложения необходимо включить JavaScript.</p>
+        <p>Please enable JavaScript to run this app.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.

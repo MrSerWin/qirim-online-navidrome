@@ -49,7 +49,24 @@ export default defineConfig({
   base: './',
   build: {
     outDir: 'build',
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps in production for security
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.log in production
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-redux'],
+          'material-ui': ['@material-ui/core', '@material-ui/icons'],
+          'react-admin': ['react-admin', 'ra-data-json-server'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
   },
   test: {
     globals: true,
@@ -69,25 +86,41 @@ export default defineConfig({
 // PWA manifest
 function manifest() {
   return {
-    name: 'Qırım Online',
-    short_name: 'Qırım Online',
-    description:
-      'Qırım Online',
+    name: 'Qirim.Online — Крымскотатарская Музыка',
+    short_name: 'Qirim.Online',
+    description: 'Крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты.',
     categories: ['music', 'entertainment'],
     display: 'standalone',
     start_url: './',
-    background_color: 'white',
-    theme_color: 'blue',
+    scope: './',
+    lang: 'ru',
+    dir: 'ltr',
+    background_color: '#303030',
+    theme_color: '#5b5fd5',
     icons: [
       {
         src: './android-chrome-192x192.png',
         sizes: '192x192',
         type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: './android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
       },
       {
         src: './android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: './android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
   }

@@ -1,2 +1,36 @@
+# Qirim.Online - Robots.txt
+# Крымскотатарская музыка онлайн
+
 User-agent: *
-Disallow: /
+Allow: /
+Allow: /app/
+Allow: /album/
+Allow: /artist/
+Allow: /playlist/
+
+# Disallow private/admin sections
+Disallow: /api/
+Disallow: /rest/
+Disallow: /user/
+Disallow: /settings/
+Disallow: /admin/
+Disallow: /share/
+
+# Crawl-delay for all bots
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://qirim.online/sitemap.xml
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

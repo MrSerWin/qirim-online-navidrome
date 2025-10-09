@@ -1,9 +1,11 @@
 {
-  "name": "Qırım Online",
-  "short_name": "QO",
-  "description": "Qırım Online Music Server - Your personal music streaming service",
+  "name": "Qirim.Online — Крымскотатарская Музыка",
+  "short_name": "Qirim.Online",
+  "description": "Крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты крымскотатарских исполнителей.",
   "start_url": "./",
   "scope": "./",
+  "lang": "ru",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
