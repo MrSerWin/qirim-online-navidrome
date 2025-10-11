@@ -90,7 +90,7 @@ const useStyles = makeStyles(
       border: `1px solid ${theme.palette.divider}`,
       boxSizing: 'border-box',
       // padding: theme.spacing(1),
-      padding: '0 0 .75rem 0',
+      padding: '0.75rem 0',
       borderRadius: theme.shape.borderRadius,
       transition: 'box-shadow 180ms ease, border-color 120ms ease',
       '&:hover $tileBar': {
@@ -157,11 +157,14 @@ const useStyles = makeStyles(
 
 const useCoverStyles = makeStyles({
   cover: {
-    display: 'inline-block',
-    width: '100%',
-    objectFit: 'contain',
-    height: (props) => props.height,
+    display: 'block',
+    width: '70%',
+    height: 'auto',
+    aspectRatio: '1 / 1',
+    objectFit: 'cover',
+    margin: '0 auto',
     transition: 'opacity 0.3s ease-in-out',
+    borderRadius: '50%',
   },
   coverLoading: {
     opacity: 0.5,

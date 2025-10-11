@@ -45,7 +45,7 @@ const musicListActions = {
 }
 
 export default {
-  themeName: 'Nord',
+  themeName: 'QO Dark',
   typography: {
     fontFamily: "Rajdhani, sans-serif",
   },

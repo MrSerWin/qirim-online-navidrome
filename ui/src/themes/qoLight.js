@@ -1,5 +1,11 @@
-import stylesheet from './nord.css.js'
+import stylesheet from './light.css.js'
 import rajdhani from './fonts/rajdhani.css.js'
+
+const bLight = {
+  300: '#484848',
+  500: '#ffffff',
+  600: '#efefef',
+}
 
 // For Album, Playlist
 const musicListActions = {
@@ -18,13 +24,13 @@ const musicListActions = {
       minWidth: 0,
       padding: 5,
       transition: 'transform .3s ease',
-      backgroundColor: '#5E81AC !important',
+      backgroundColor: '#0085ff !important',
       color: '#fff',
       borderRadius: 500,
       border: 0,
       '&:hover': {
         transform: 'scale(2.1)',
-        backgroundColor: '#5E81AC !important',
+        backgroundColor: '#0085ff !important',
         border: 0,
       },
     },
@@ -39,30 +45,30 @@ const musicListActions = {
     },
     'button>span:first-child>span, button:not(:first-child)>span:first-child>svg':
       {
-        color: 'rgba(255, 255, 255, 0.8)',
+        color: 'rgba(0, 0, 0, 0.8)',
       },
   },
 }
 
 export default {
-  themeName: 'Nord',
+  themeName: 'QO Light',
   typography: {
     fontFamily: "Rajdhani, sans-serif",
   },
   palette: {
-    primary: {
-      main: '#D8DEE9',
-    },
     secondary: {
-      main: '#4C566A',
+      light: bLight['300'],
+      dark: '#484848',
+      main: '#fafafa',
+      contrastText: '#fff',
     },
-    type: 'dark',
+    type: 'light',
   },
   overrides: {
     '@global': rajdhani,
     MuiFormGroup: {
       root: {
-        color: '#D8DEE9',
+        color: '#484848',
       },
     },
     MuiMenuItem: {
@@ -82,15 +88,15 @@ export default {
     },
     MuiButton: {
       root: {
-        backgroundColor: '#4C566A !important',
+        backgroundColor: '#efefef !important',
         border: '1px solid transparent',
         borderRadius: 500,
         '&:hover': {
-          backgroundColor: `${'#5E81AC !important'}`,
+          backgroundColor: `${'#d0d0d0 !important'}`,
         },
       },
       label: {
-        color: '#D8DEE9',
+        color: '#484848',
         paddingRight: '1rem',
         paddingLeft: '0.7rem',
       },
@@ -103,19 +109,26 @@ export default {
     },
     MuiIconButton: {
       label: {
-        color: '#D8DEE9',
+        color: '#484848',
       },
     },
     MuiDrawer: {
       root: {
-        background: '#2E3440',
+        background: '#ffffff',
         paddingTop: '10px',
       },
     },
-
+    MuiFilledInput: {
+      root: {
+        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+        '&$disabled': {
+          backgroundColor: 'rgba(0, 0, 0, 0.04)',
+        },
+      },
+    },
     MuiList: {
       root: {
-        color: '#D8DEE9',
+        color: '#484848',
         background: 'none',
       },
     },
@@ -126,7 +139,7 @@ export default {
     },
     MuiPaper: {
       root: {
-        backgroundColor: '#202021',
+        backgroundColor: '#ffffff',
       },
       rounded: {
         borderRadius: '8px',
@@ -137,40 +150,40 @@ export default {
     },
     MuiTableRow: {
       root: {
-        color: '#202021',
+        color: '#484848',
         transition: 'background-color .3s ease',
         '&:hover': {
-          backgroundColor: '#202021 !important',
+          backgroundColor: '#f5f5f5 !important',
         },
         '&:last-child': {
-          borderBottom: '1px solid #4C566A !important',
+          borderBottom: '1px solid #efefef !important',
         },
       },
       head: {
-        color: '#4C566A',
+        color: '#484848',
       },
     },
     MuiToolbar: {
       root: {
-        backgroundColor: '#202021 !important',
+        backgroundColor: '#ffffff !important',
       },
     },
     MuiTableCell: {
       root: {
         borderBottom: 'none',
-        color: '#b3b3b3 !important',
+        color: '#484848 !important',
         padding: '10px !important',
       },
       head: {
-        borderBottom: '1px solid #2E3440',
+        borderBottom: '1px solid #efefef',
         fontSize: '0.75rem',
         textTransform: 'uppercase',
         letterSpacing: 1.2,
-        backgroundColor: '#4C566A !important',
-        color: '#D8DEE9 !important',
+        backgroundColor: '#fafafa !important',
+        color: '#484848 !important',
       },
       body: {
-        color: '#D8DEE9 !important',
+        color: '#484848 !important',
       },
     },
     MuiSwitch: {
@@ -178,7 +191,7 @@ export default {
         width: '89%',
         transform: 'translateX(.1rem) scale(140%)',
         opacity: '0.7 !important',
-        backgroundColor: 'rgba(255,255,255,0.25)',
+        backgroundColor: 'rgba(0,0,0,0.25)',
       },
       thumb: {
         transform: 'scale(60%)',
@@ -192,16 +205,19 @@ export default {
     },
     MuiAppBar: {
       positionFixed: {
-        backgroundColor: '#4C566A !important',
-        boxShadow:
-          'rgba(15, 17, 21, 0.25) 0px 4px 6px, rgba(15, 17, 21, 0.1) 0px 5px 7px',
+        backgroundColor: '#ffffff !important',
+        boxShadow: 'none !important',
+        borderBottom: `1px solid ${bLight['600']}`,
+      },
+      colorSecondary: {
+        color: bLight['300'],
       },
     },
     MuiOutlinedInput: {
       root: {
         borderRadius: '8px',
         '&:hover': {
-          borderColor: '#D8DEE9',
+          borderColor: '#484848',
         },
       },
       notchedOutline: {
@@ -217,7 +233,7 @@ export default {
     },
     MuiChip: {
       root: {
-        backgroundColor: '#4C566A',
+        backgroundColor: '#efefef',
       },
     },
     NDAlbumGridView: {
@@ -225,29 +241,29 @@ export default {
         marginTop: '0.5rem',
         fontWeight: 700,
         textTransform: 'none',
-        color: '#E5E9F0',
+        color: '#000000',
       },
       albumSubtitle: {
-        color: '#b3b3b3',
+        color: '#484848',
       },
       albumContainer: {
         border: '1px solid transparent !important',
-        backgroundColor: '#2b2b2b',
+        backgroundColor: '#ffffff',
         borderRadius: '8px',
         padding: '0.75rem 0',
         transition: 'background-color .3s ease',
         '&:hover': {
-          backgroundColor: '#4C566A',
+          backgroundColor: '#f5f5f5',
         },
       },
       albumPlayButton: {
-        backgroundColor: '#5E81AC',
+        backgroundColor: '#0085ff',
         borderRadius: '50%',
         boxShadow: '0 8px 8px rgb(0 0 0 / 30%)',
         padding: '0.35rem',
         transition: 'padding .3s ease',
         '&:hover': {
-          background: `${'#5E81AC'} !important`,
+          background: `${'#0085ff'} !important`,
           padding: '0.45rem',
         },
       },
@@ -261,11 +277,11 @@ export default {
       title: {
         fontSize: 'calc(1.5rem + 1.5vw);',
         fontWeight: 700,
-        color: '#fff',
+        color: '#000',
       },
       details: {
         fontSize: '.875rem',
-        color: 'rgba(255,255,255, 0.8)',
+        color: 'rgba(0,0,0, 0.8)',
       },
     },
     NDAlbumShow: {
@@ -276,7 +292,7 @@ export default {
     },
     NDAlbumDetails: {
       root: {
-        background: '#202021',
+        background: '#ffffff',
         borderRadius: 0,
         boxShadow: '0 8px 8px rgb(0 0 0 / 20%)',
       },
@@ -294,18 +310,18 @@ export default {
       },
       recordMeta: {
         fontSize: '.875rem',
-        color: 'rgba(255,255,255, 0.8)',
+        color: 'rgba(0,0,0, 0.8)',
       },
     },
     NDCollapsibleComment: {
       commentBlock: {
         fontSize: '.875rem',
-        color: 'rgba(255,255,255, 0.8)',
+        color: 'rgba(0,0,0, 0.8)',
       },
     },
     NDAudioPlayer: {
       audioTitle: {
-        color: '#D8DEE9',
+        color: '#484848',
         fontSize: '0.875rem',
       },
       songTitle: {
@@ -313,25 +329,40 @@ export default {
       },
       songInfo: {
         fontSize: '0.675rem',
-        color: '#b3b3b3',
+        color: '#484848',
       },
       player: {
-        border: '10px solid #4C566A',
-        backgroundColor: '#4C566A !important',
+        border: '10px solid #ffffff',
+        backgroundColor: '#ffffff !important',
       },
     },
     NDLogin: {
       main: {
-        boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, .75)',
-      },
-      systemNameLink: {
-        color: '#fff',
+        '& .MuiFormLabel-root': {
+          color: '#000000',
+        },
+        '& .MuiFormLabel-root.Mui-focused': {
+          color: '#0085ff',
+        },
+        '& .MuiFormLabel-root.Mui-error': {
+          color: '#f44336',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottom: '2px solid #0085ff',
+        },
       },
       card: {
-        border: '1px solid #282828',
+        minWidth: 300,
+        marginTop: '6em',
+        backgroundColor: '#ffffffe6',
       },
-      avatar: {
-        marginBottom: 0,
+      avatar: {},
+      icon: {},
+      button: {
+        boxShadow: '3px 3px 5px #000000a3',
+      },
+      systemNameLink: {
+        color: '#0085ff',
       },
     },
     NDSubMenu: {
@@ -341,34 +372,40 @@ export default {
         },
       },
     },
+    NDMobileArtistDetails: {
+      bgContainer: {
+        background:
+          'linear-gradient(to bottom, rgb(255 255 255 / 51%), rgb(250 250 250))!important',
+      },
+    },
     RaLayout: {
       content: {
         padding: '0 !important',
-        background: '#202021',
-        backgroundColor: '#202021',
+        background: '#fafafa',
+        backgroundColor: '#fafafa',
       },
       root: {
-        backgroundColor: '#2E3440',
+        backgroundColor: '#ffffff',
       },
     },
     RaList: {
       content: {
-        backgroundColor: '#202021',
+        backgroundColor: '#ffffff',
         borderRadius: '0px',
       },
     },
     RaListToolbar: {
       toolbar: {
-        backgroundColor: '#2E3440',
+        backgroundColor: '#ffffff',
         padding: '0 .55rem !important',
       },
     },
     RaSidebar: {
       fixed: {
-        backgroundColor: '#2E3440',
+        backgroundColor: '#ffffff',
       },
       drawerPaper: {
-        backgroundColor: '#2E3440 !important',
+        backgroundColor: '#ffffff !important',
       },
     },
     RaSearchInput: {
@@ -395,15 +432,15 @@ export default {
     },
     RaLink: {
       link: {
-        color: '#81A1C1',
+        color: '#0085ff',
       },
     },
     RaPaginationActions: {
       currentPageButton: {
-        border: '2px solid rgba(255,255,255,0.25)',
+        border: '2px solid rgba(0,0,0,0.25)',
       },
       button: {
-        backgroundColor: '#4C566A',
+        backgroundColor: '#efefef',
         minWidth: 48,
         margin: '0 4px',
         '@global': {
@@ -426,7 +463,7 @@ export default {
     },
   },
   player: {
-    theme: 'dark',
+    theme: 'light',
     stylesheet,
   },
 }
