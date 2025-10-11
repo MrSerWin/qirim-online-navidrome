@@ -10,6 +10,7 @@ import {
   useTranslate,
   NullableBooleanInput,
   usePermissions,
+  useListContext,
 } from 'react-admin'
 import { useMediaQuery } from '@material-ui/core'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -31,12 +32,13 @@ import {
 import { useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import { setTrack } from '../actions'
+import { setTrack, playTracks } from '../actions'
 import { SongListActions } from './SongListActions'
 import { AlbumLinkField } from './AlbumLinkField'
 import { SongBulkActions, QualityInfo, useSelectedFields } from '../common'
 import config from '../config'
 import ExpandInfoDialog from '../dialogs/ExpandInfoDialog'
+import { useAutoLoadQueue } from './useAutoLoadQueue'
 
 const useStyles = makeStyles({
   contextHeader: {
@@ -143,15 +145,23 @@ const SongFilter = (props) => {
   )
 }
 
-const SongList = (props) => {
+const SongListContent = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const isXsmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'))
-  useResourceRefresh('song')
+  const { data, ids } = useListContext()
+
+  // Auto-load next page when queue is near end
+  useAutoLoadQueue({ resource: 'song', threshold: 10 })
 
   const handleRowClick = (id, basePath, record) => {
-    dispatch(setTrack(record))
+    // Play all songs in the list starting from the clicked one
+    if (!data || !ids) {
+      console.error('No data or ids available')
+      return
+    }
+    dispatch(playTracks(data, ids, id))
   }
 
   const toggleableFields = useMemo(() => {
@@ -219,44 +229,53 @@ const SongList = (props) => {
 
   return (
     <>
-      <List
-        {...props}
-        sort={{ field: 'title', order: 'ASC' }}
-        exporter={false}
-        bulkActionButtons={<SongBulkActions />}
-        actions={<SongListActions />}
-        filters={<SongFilter />}
-        perPage={isXsmall ? 50 : 15}
-      >
-        {isXsmall ? (
-          <SongSimpleList />
-        ) : (
-          <SongDatagrid
-            rowClick={handleRowClick}
-            contextAlwaysVisible={!isDesktop}
-            classes={{ row: classes.row }}
-          >
-            <SongTitleField source="title" showTrackNumbers={false} />
-            {columns}
-            <SongContextMenu
-              source={'starred_at'}
-              sortByOrder={'DESC'}
-              sortable={config.enableFavourites}
-              className={classes.contextMenu}
-              label={
-                config.enableFavourites && (
-                  <FavoriteBorderIcon
-                    fontSize={'small'}
-                    className={classes.contextHeader}
-                  />
-                )
-              }
-            />
-          </SongDatagrid>
-        )}
-      </List>
+      {isXsmall ? (
+        <SongSimpleList />
+      ) : (
+        <SongDatagrid
+          rowClick={handleRowClick}
+          contextAlwaysVisible={!isDesktop}
+          classes={{ row: classes.row }}
+        >
+          <SongTitleField source="title" showTrackNumbers={false} />
+          {columns}
+          <SongContextMenu
+            source={'starred_at'}
+            sortByOrder={'DESC'}
+            sortable={config.enableFavourites}
+            className={classes.contextMenu}
+            label={
+              config.enableFavourites && (
+                <FavoriteBorderIcon
+                  fontSize={'small'}
+                  className={classes.contextHeader}
+                />
+              )
+            }
+          />
+        </SongDatagrid>
+      )}
       <ExpandInfoDialog content={<SongInfo />} />
     </>
+  )
+}
+
+const SongList = (props) => {
+  const isXsmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
+  useResourceRefresh('song')
+
+  return (
+    <List
+      {...props}
+      sort={{ field: 'title', order: 'ASC' }}
+      exporter={false}
+      bulkActionButtons={<SongBulkActions />}
+      actions={<SongListActions />}
+      filters={<SongFilter />}
+      perPage={isXsmall ? 100 : 50}
+    >
+      <SongListContent />
+    </List>
   )
 }
 
