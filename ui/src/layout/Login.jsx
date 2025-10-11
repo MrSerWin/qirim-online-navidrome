@@ -21,8 +21,11 @@ import {
 } from 'react-admin'
 import { useSelector } from 'react-redux'
 
-import Logo from '../icons/new-logo-no-bg.png'
-import LogoWhite from '../icons/new-logo-no-bg-white.png'
+// import Logo from '../icons/new-logo-no-bg.png'
+// import LogoWhite from '../icons/new-logo-no-bg-white.png'
+
+import LogoWhite from '../icons/qo-logo.png'
+import Logo from '../icons/qo-logo-dark.png';
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
@@ -49,6 +52,7 @@ const useStyles = makeStyles(
       minWidth: 400,
       marginTop: '6em',
       overflow: 'visible',
+      // backgroundColor: 'red !important', //theme.palette.background.paper,
     },
     avatar: {
       margin: '1em',
@@ -58,7 +62,7 @@ const useStyles = makeStyles(
     },
     icon: {
       backgroundColor: 'transparent',
-      width: '6.3em',
+      width: '11.3em',
       height: '6.3em',
     },
     systemName: {
@@ -142,7 +146,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
               <div className={classes.avatar}>
                 <img src={logo} className={classes.icon} alt={'logo'} />
               </div>
-              <div className={classes.systemName}>
+              {/* <div className={classes.systemName}>
                 <a
                   href="https://qirim.online"
                   target="_blank"
@@ -151,7 +155,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
                 >
                   Qırım Online
                 </a>
-              </div>
+              </div> */}
               {config.welcomeMessage && (
                 <div
                   className={classes.welcome}

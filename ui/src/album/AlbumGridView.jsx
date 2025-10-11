@@ -165,6 +165,7 @@ const useCoverStyles = makeStyles({
     margin: '0 auto',
     transition: 'opacity 0.3s ease-in-out',
     borderRadius: '50%',
+    backgroundColor: '#f3f3f3e6',
   },
   coverLoading: {
     opacity: 0.5,

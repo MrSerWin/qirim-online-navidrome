@@ -247,7 +247,7 @@ export default {
         color: '#484848',
       },
       albumContainer: {
-        border: '1px solid transparent !important',
+        border: '1px solid #d6d6d6 !important',
         backgroundColor: '#ffffff',
         borderRadius: '8px',
         padding: '0.75rem 0',
@@ -352,9 +352,9 @@ export default {
         },
       },
       card: {
-        minWidth: 300,
+        minWidth: 400,
         marginTop: '6em',
-        backgroundColor: '#ffffffe6',
+        backgroundColor: '#f3f3f3e6',
       },
       avatar: {},
       icon: {},

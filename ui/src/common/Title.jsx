@@ -4,8 +4,10 @@ import { useTranslate } from 'react-admin'
 import { useSelector } from 'react-redux'
 
 import { makeStyles } from '@material-ui/core/styles'
-import LogoLight from '../icons/new-logo-no-bg-white.png'
-import LogoDark from '../icons/new-logo-no-bg.png';
+// import LogoLight from '../icons/new-logo-no-bg-white.png'
+// import LogoDark from '../icons/new-logo-no-bg.png';
+import LogoLight from '../icons/qo-logo.png'
+import LogoDark from '../icons/qo-logo-dark.png';
 import { AUTO_THEME_ID } from '../consts'
 
 const useStyles = makeStyles(
