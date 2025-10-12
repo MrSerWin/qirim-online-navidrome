@@ -32,3 +32,23 @@ AGENTS.md
 *.exe
 *.test
 *.wasm
+
+# Environment files with sensitive data
+.env
+.env.local
+.env.production
+
+# Deployment scripts and documentation with server info
+deploy.sh
+update.sh
+apply-ssl.sh
+get-certificate.sh
+check-ssl-status.sh
+quick-check.sh
+DEPLOY-QIRIM-ONLINE.md
+DEPLOYMENT.md
+QUICK-START.md
+SUMMARY.md
+
+# Nginx configs (may contain server-specific settings)
+nginx/

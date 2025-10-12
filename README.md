@@ -1,88 +1,307 @@
-<a href="https://www.navidrome.org"><img src="resources/logo-192x192.png" alt="Navidrome logo" title="navidrome" align="right" height="60px" /></a>
+# Navidrome QO - Custom Music Streaming Server
 
-# Navidrome Music Server &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Tired%20of%20paying%20for%20music%20subscriptions%2C%20and%20not%20finding%20what%20you%20really%20like%3F%20Roll%20your%20own%20streaming%20service%21&url=https://navidrome.org&via=navidrome)
+Кастомная версия Navidrome с темами QO Dark/Light, круглыми обложками альбомов, непрерывным воспроизведением и автоматической загрузкой очереди.
 
-[![Last Release](https://img.shields.io/github/v/release/navidrome/navidrome?logo=github&label=latest&style=flat-square)](https://github.com/navidrome/navidrome/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/navidrome/navidrome/pipeline.yml?branch=master&logo=github&style=flat-square)](https://nightly.link/navidrome/navidrome/workflows/pipeline/master)
-[![Downloads](https://img.shields.io/github/downloads/navidrome/navidrome/total?logo=github&style=flat-square)](https://github.com/navidrome/navidrome/releases/latest)
-[![Docker Pulls](https://img.shields.io/docker/pulls/deluan/navidrome?logo=docker&label=pulls&style=flat-square)](https://hub.docker.com/r/deluan/navidrome)
-[![Dev Chat](https://img.shields.io/discord/671335427726114836?logo=discord&label=discord&style=flat-square)](https://discord.gg/xh7j7yF)
-[![Subreddit](https://img.shields.io/reddit/subreddit-subscribers/navidrome?logo=reddit&label=/r/navidrome&style=flat-square)](https://www.reddit.com/r/navidrome/)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0-ff69b4.svg?style=flat-square)](CODE_OF_CONDUCT.md)
-[![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20Navidrome%20Guru-006BFF?style=flat-square)](https://gurubase.io/g/navidrome)
+![Version](https://img.shields.io/badge/version-0.58.0--QO-blue)
+![Navidrome](https://img.shields.io/badge/based%20on-Navidrome%200.58.0-green)
 
-Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your
-music collection from any browser or mobile device. It's like your personal Spotify!
+---
 
+## 🚀 Быстрый старт
 
-**Note**: The `master` branch may be in an unstable or even broken state during development. 
-Please use [releases](https://github.com/navidrome/navidrome/releases) instead of 
-the `master` branch in order to get a stable set of binaries.
+### Развертывание на новом домене
 
-## [Check out our Live Demo!](https://www.navidrome.org/demo/)
+```bash
+./deploy.sh your-domain.com root@vps-ip
+```
 
-__Any feedback is welcome!__ If you need/want a new feature, find a bug or think of any way to improve Navidrome, 
-please file a [GitHub issue](https://github.com/navidrome/navidrome/issues) or join the discussion in our 
-[Subreddit](https://www.reddit.com/r/navidrome/). If you want to contribute to the project in any other way 
-([ui/backend dev](https://www.navidrome.org/docs/developers/), 
-[translations](https://www.navidrome.org/docs/developers/translations/), 
-[themes](https://www.navidrome.org/docs/developers/creating-themes)), please join the chat in our 
-[Discord server](https://discord.gg/xh7j7yF). 
+**Пример для qirim.online:**
 
-## Installation
+```bash
+./deploy.sh qirim.online root@93.127.197.163
+```
 
-See instructions on the [project's website](https://www.navidrome.org/docs/installation/)
+Скрипт автоматически:
+- ✅ Проверит DNS
+- ✅ Загрузит код на VPS
+- ✅ Соберёт Docker образ
+- ✅ Запустит Navidrome
+- ✅ Настроит SSL сертификат
+- ✅ Настроит редирект HTTP → HTTPS
 
-## Cloud Hosting
+**Время:** ~5-7 минут
 
-[PikaPods](https://www.pikapods.com) has partnered with us to offer you an 
-[officially supported, cloud-hosted solution](https://www.navidrome.org/docs/installation/managed/#pikapods). 
-A share of the revenue helps fund the development of Navidrome at no additional cost for you.
+---
 
-[![PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?run=navidrome)
+## 📚 Документация
 
-## Features
- 
- - Handles very **large music collections**
- - Streams virtually **any audio format** available
- - Reads and uses all your beautifully curated **metadata**
- - Great support for **compilations** (Various Artists albums) and **box sets** (multi-disc albums)
- - **Multi-user**, each user has their own play counts, playlists, favourites, etc...
- - Very **low resource usage**
- - **Multi-platform**, runs on macOS, Linux and Windows. **Docker** images are also provided
- - Ready to use binaries for all major platforms, including **Raspberry Pi**
- - Automatically **monitors your library** for changes, importing new files and reloading new metadata 
- - **Themeable**, modern and responsive **Web interface** based on [Material UI](https://material-ui.com)
- - **Compatible** with all Subsonic/Madsonic/Airsonic [clients](https://www.navidrome.org/docs/overview/#apps)
- - **Transcoding** on the fly. Can be set per user/player. **Opus encoding is supported**
- - Translated to **various languages**
+### Основные документы:
 
-## Translations
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Полное руководство по развертыванию
+- **[DEPLOY-QIRIM-ONLINE.md](DEPLOY-QIRIM-ONLINE.md)** - Специфичная инструкция для qirim.online
+- **[CHEATSHEET.md](CHEATSHEET.md)** - Шпаргалка по командам Docker
 
-Navidrome uses [POEditor](https://poeditor.com/) for translations, and we are always looking 
-for [more contributors](https://www.navidrome.org/docs/developers/translations/)
+### Дополнительные документы:
 
-<a href="https://poeditor.com/"> 
-<img height="32" src="https://github.com/user-attachments/assets/c19b1d2b-01e1-4682-a007-12356c42147c">
-</a>
+- **[README-NAVIDROME-ORIGINAL.md](README-NAVIDROME-ORIGINAL.md)** - Оригинальный README Navidrome
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Как внести вклад в Navidrome
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** - Кодекс поведения
 
-## Documentation
-All documentation can be found in the project's website: https://www.navidrome.org/docs. 
-Here are some useful direct links:
+---
 
-- [Overview](https://www.navidrome.org/docs/overview/)
-- [Installation](https://www.navidrome.org/docs/installation/)
-  - [Docker](https://www.navidrome.org/docs/installation/docker/)
-  - [Binaries](https://www.navidrome.org/docs/installation/pre-built-binaries/)
-  - [Build from source](https://www.navidrome.org/docs/installation/build-from-source/)
-- [Development](https://www.navidrome.org/docs/developers/)
-- [Subsonic API Compatibility](https://www.navidrome.org/docs/developers/subsonic-api/)
+## ✨ Кастомные функции
 
-## Screenshots
+### 1. Темы QO Dark/Light
 
-<p align="left">
-    <img height="550" src="https://raw.githubusercontent.com/navidrome/navidrome/master/.github/screenshots/ss-mobile-login.png">
-    <img height="550" src="https://raw.githubusercontent.com/navidrome/navidrome/master/.github/screenshots/ss-mobile-player.png">
-    <img height="550" src="https://raw.githubusercontent.com/navidrome/navidrome/master/.github/screenshots/ss-mobile-album-view.png">
-    <img width="550" src="https://raw.githubusercontent.com/navidrome/navidrome/master/.github/screenshots/ss-desktop-player.png">
-</p>
+Две новые темы разработанные специально для QO Music:
+
+- **QO Dark** (по умолчанию) - Тёмная тема на основе Nord Theme
+- **QO Light** - Светлая тема с цветовой схемой Light Theme
+
+**Файлы:**
+- [ui/src/themes/qoDark.js](ui/src/themes/qoDark.js)
+- [ui/src/themes/qoLight.js](ui/src/themes/qoLight.js)
+
+### 2. Круглые обложки альбомов
+
+Обложки альбомов отображаются круглыми (70% размера, по центру).
+
+**Файл:** [ui/src/album/AlbumGridView.jsx](ui/src/album/AlbumGridView.jsx)
+
+### 3. Непрерывное воспроизведение
+
+При клике на песню в очередь добавляются ВСЕ песни из текущего списка, а не только одна.
+
+**Файл:** [ui/src/song/SongList.jsx](ui/src/song/SongList.jsx)
+
+### 4. Автоматическая загрузка очереди
+
+Когда в очереди остаётся меньше 10 песен, автоматически загружается следующая страница.
+
+**Файл:** [ui/src/song/useAutoLoadQueue.js](ui/src/song/useAutoLoadQueue.js)
+
+### 5. Кастомные логотипы
+
+- Логотип QO для тёмной темы
+- Логотип QO для светлой темы
+
+**Файлы:**
+- [ui/public/qo-logo-dark.png](ui/public/qo-logo-dark.png)
+- [ui/public/qo-logo-light.png](ui/public/qo-logo-light.png)
+
+---
+
+## 🛠 Полезные скрипты
+
+### Развертывание и обновление:
+
+- **`deploy.sh`** - Полное развертывание на новом домене/VPS
+- **`update.sh`** - Обновление кода (ui/go/full)
+- **`get-certificate.sh`** - Получение SSL сертификата
+- **`apply-ssl.sh`** - Применение SSL конфигурации
+
+### Диагностика:
+
+- **`quick-check.sh`** - Быстрая проверка статуса
+- **`check-ssl-status.sh`** - Проверка SSL сертификата
+
+### Примеры использования:
+
+```bash
+# Полное развертывание
+./deploy.sh qirim.online root@93.127.197.163
+
+# Обновить только UI
+./update.sh ui
+
+# Обновить только Go код
+./update.sh go
+
+# Полное обновление
+./update.sh full
+
+# Проверить статус
+./quick-check.sh
+
+# Получить SSL сертификат вручную
+./get-certificate.sh
+```
+
+---
+
+## 📦 Структура проекта
+
+```
+navidrome/
+├── deploy.sh                 # Главный скрипт развертывания
+├── update.sh                 # Скрипт обновления
+├── quick-check.sh            # Проверка статуса
+├── get-certificate.sh        # Получение SSL
+├── apply-ssl.sh              # Применение SSL
+├── check-ssl-status.sh       # Проверка SSL
+│
+├── DEPLOYMENT.md             # Полное руководство
+├── DEPLOY-QIRIM-ONLINE.md    # Инструкция для qirim.online
+├── CHEATSHEET.md             # Шпаргалка
+│
+├── docker-compose.yml        # Конфигурация Docker
+├── Dockerfile.fixed          # Dockerfile (рабочий)
+├── .dockerignore             # Исключения Docker
+│
+├── nginx/
+│   ├── nginx.conf            # Nginx с SSL
+│   └── nginx-temp.conf       # Nginx без SSL (временный)
+│
+├── ui/                       # React UI
+│   ├── src/
+│   │   ├── themes/
+│   │   │   ├── qoDark.js     # Тёмная тема QO
+│   │   │   ├── qoLight.js    # Светлая тема QO
+│   │   │   └── index.js      # Экспорт тем
+│   │   ├── album/
+│   │   │   └── AlbumGridView.jsx  # Круглые обложки
+│   │   └── song/
+│   │       ├── SongList.jsx       # Непрерывное воспроизведение
+│   │       └── useAutoLoadQueue.js # Автозагрузка очереди
+│   └── public/
+│       ├── qo-logo-dark.png  # Логотип для тёмной темы
+│       └── qo-logo-light.png # Логотип для светлой темы
+│
+├── db/                       # Go код и миграции
+├── server/                   # Серверный код
+└── archive/                  # Старые скрипты и документы
+    ├── old-docs/             # Устаревшие документы
+    └── old-scripts/          # Устаревшие скрипты
+```
+
+---
+
+## 🔧 Требования
+
+### На Mac (разработка):
+
+- Git
+- SSH доступ к VPS
+
+### На VPS (production):
+
+- Ubuntu 20.04+
+- Docker и Docker Compose (установится автоматически)
+- Открытые порты: 80, 443
+- DNS A-запись на IP VPS
+
+---
+
+## 🌐 Текущие развертывания
+
+- **qirim.cloud** - `https://qirim.cloud` (93.127.197.163)
+- **qirim.online** - (готово к развертыванию)
+
+---
+
+## 📝 Обновление кода
+
+### После изменений в UI:
+
+```bash
+./update.sh ui root@93.127.197.163
+```
+
+⏱ **Время:** ~1-2 минуты
+
+### После изменений в Go коде:
+
+```bash
+./update.sh go root@93.127.197.163
+```
+
+⏱ **Время:** ~2-3 минуты
+
+### Полное обновление:
+
+```bash
+./update.sh full root@93.127.197.163
+```
+
+⏱ **Время:** ~3-5 минут
+
+---
+
+## 🐛 Troubleshooting
+
+### Сайт недоступен
+
+```bash
+# Проверить DNS
+dig +short your-domain.com
+
+# Проверить статус
+./quick-check.sh
+
+# Просмотреть логи (на VPS)
+ssh root@vps-ip 'cd /opt/navidrome && docker compose logs navidrome'
+```
+
+### SSL не работает
+
+```bash
+# Получить сертификат вручную
+./get-certificate.sh
+
+# Применить SSL конфигурацию
+./apply-ssl.sh
+```
+
+### Ошибки сборки
+
+```bash
+# Полная пересборка (на VPS)
+ssh root@vps-ip
+cd /opt/navidrome
+docker compose down
+docker system prune -a
+docker compose build --no-cache navidrome
+docker compose up -d
+```
+
+Подробнее: [DEPLOYMENT.md - Troubleshooting](DEPLOYMENT.md#troubleshooting)
+
+---
+
+## 🤝 Вклад в проект
+
+Этот проект основан на [Navidrome](https://github.com/navidrome/navidrome).
+
+Для вклада в оригинальный Navidrome, смотрите [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## 📄 Лицензия
+
+Как и оригинальный Navidrome, этот проект распространяется под лицензией GPL v3.
+
+---
+
+## 🔗 Полезные ссылки
+
+- [Navidrome Official Site](https://www.navidrome.org)
+- [Navidrome Documentation](https://www.navidrome.org/docs/)
+- [Navidrome GitHub](https://github.com/navidrome/navidrome)
+- [Docker Documentation](https://docs.docker.com/)
+- [Let's Encrypt](https://letsencrypt.org/)
+
+---
+
+## 📞 Поддержка
+
+При проблемах:
+
+1. Проверьте [DEPLOYMENT.md - Troubleshooting](DEPLOYMENT.md#troubleshooting)
+2. Запустите `./quick-check.sh` для диагностики
+3. Проверьте логи: `docker compose logs navidrome` (на VPS)
+
+---
+
+**Версия:** v0.58.0-QO
+**Базируется на:** Navidrome v0.58.0
+**Последнее обновление:** 2025-10-12

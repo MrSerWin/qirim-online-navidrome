@@ -1,0 +1,112 @@
+# Final fixed Dockerfile for Navidrome
+
+# Stage 1: Build UI
+FROM node:18-alpine AS ui-builder
+
+WORKDIR /build/ui
+
+# Copy all UI files (bin scripts needed for npm install)
+COPY ui/ ./
+
+# Install and build
+RUN npm ci && npm run build
+
+# Stage 2: Build TagLib from source
+FROM debian:bookworm AS taglib-builder
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    wget \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+
+# Clone and build TagLib from git (includes all submodules)
+RUN git clone --depth 1 --branch v2.0.2 https://github.com/taglib/taglib.git && \
+    cd taglib && \
+    git submodule update --init --recursive && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON . && \
+    make -j$(nproc) && \
+    make install
+
+# Stage 3: Build Navidrome
+FROM golang:1.24-bookworm AS go-builder
+
+# Copy TagLib from builder
+COPY --from=taglib-builder /usr/local /usr/local
+
+# Install other dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    pkg-config \
+    libsqlite3-dev \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Update library cache
+RUN ldconfig
+
+WORKDIR /build
+
+# Copy go files
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source
+COPY . .
+
+# Copy built UI
+COPY --from=ui-builder /build/ui/build ./ui/build
+
+# Build
+ARG GIT_SHA=dev
+ARG GIT_TAG=v0.58.0-QO
+
+ENV PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+RUN go build -tags=netgo \
+    -ldflags="-X github.com/navidrome/navidrome/consts.gitSha=${GIT_SHA} -X github.com/navidrome/navidrome/consts.gitTag=${GIT_TAG}" \
+    -o navidrome .
+
+# Stage 4: Runtime
+FROM debian:bookworm-slim
+
+# Install runtime dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ffmpeg \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy TagLib libraries
+COPY --from=taglib-builder /usr/local/lib /usr/local/lib
+
+# Update library cache
+RUN ldconfig
+
+# Create user
+RUN useradd -r -s /bin/false -u 1000 navidrome
+
+# Create directories
+RUN mkdir -p /data /music /app && \
+    chown -R navidrome:navidrome /data /music /app
+
+# Copy binary
+COPY --from=go-builder /build/navidrome /app/navidrome
+RUN chmod +x /app/navidrome
+
+USER navidrome
+WORKDIR /app
+
+EXPOSE 4533
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD ["/app/navidrome", "ping"]
+
+ENTRYPOINT ["/app/navidrome"]
+CMD []

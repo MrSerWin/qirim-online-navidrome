@@ -1,4 +1,9 @@
+# macOS metadata files
+._*
 .DS_Store
+.AppleDouble
+.LSOverride
+
 ui/node_modules
 ui/build
 !ui/build/.gitkeep
