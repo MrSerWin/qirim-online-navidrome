@@ -53,3 +53,5 @@ SUMMARY.md
 # Nginx configs (may contain server-specific settings)
 nginx/
 DEPLOY.md
+
+rebuild-and-deploy.sh
