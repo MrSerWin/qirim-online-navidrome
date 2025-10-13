@@ -150,7 +150,7 @@ const SongListContent = () => {
   const dispatch = useDispatch()
   const isXsmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'))
-  const { data, ids } = useListContext()
+  const { data, ids, total, loaded } = useListContext()
 
   // Auto-load next page when queue is near end
   useAutoLoadQueue({ resource: 'song', threshold: 10 })
@@ -230,7 +230,14 @@ const SongListContent = () => {
   return (
     <>
       {isXsmall ? (
-        <SongSimpleList />
+        <SongSimpleList
+          data={data}
+          ids={ids}
+          total={total}
+          loaded={loaded}
+          hasBulkActions={false}
+          selectedIds={[]}
+        />
       ) : (
         <SongDatagrid
           rowClick={handleRowClick}
