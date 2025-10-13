@@ -124,7 +124,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
       return prefersLightMode ? Logo : LogoWhite;
     }
 
-    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme' || state.theme === 'QOLightTheme') {
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
       return Logo;
     }
 
