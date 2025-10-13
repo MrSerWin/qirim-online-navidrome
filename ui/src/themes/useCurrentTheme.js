@@ -10,15 +10,15 @@ const useCurrentTheme = () => {
   const theme = useSelector((state) => {
     if (state.theme === AUTO_THEME_ID) {
       // return themes.NordTheme || Object.values(themes)[0]
-      return prefersLightMode ? themes.LigeraTheme : themes.NordTheme
+      return prefersLightMode ? themes.QOLightTheme : themes.QODarkTheme
     }
     const themeName =
       Object.keys(themes).find((t) => t === state.theme) ||
       Object.keys(themes).find(
         (t) => themes[t].themeName === config.defaultTheme,
       ) ||
-      'NordTheme'
-    return themes[themeName] || themes.NordTheme || Object.values(themes)[0]
+      'QODarkTheme'
+    return themes[themeName] || themes.QODarkTheme || Object.values(themes)[0]
   })
 
   useEffect(() => {

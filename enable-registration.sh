@@ -29,7 +29,7 @@ ssh "${SERVER}" << 'ENDSSH'
 
     # Also add other settings from your config
     if ! grep -q "ND_DEFAULTTHEME" docker-compose.yml; then
-        sed -i '/ND_ENABLESELFREGISTRATION:/a\      ND_DEFAULTTHEME: "NordTheme"' docker-compose.yml
+        sed -i '/ND_ENABLESELFREGISTRATION:/a\      ND_DEFAULTTHEME: "QODarkTheme"' docker-compose.yml
     fi
 
     if ! grep -q "ND_ENABLEDOWNLOADS" docker-compose.yml; then

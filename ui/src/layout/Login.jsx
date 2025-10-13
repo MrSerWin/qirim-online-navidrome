@@ -43,10 +43,6 @@ const useStyles = makeStyles(
       minHeight: '100vh',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      background: `url(${config.loginBackgroundURL})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
     },
     card: {
       minWidth: 400,
@@ -63,7 +59,7 @@ const useStyles = makeStyles(
     icon: {
       backgroundColor: 'transparent',
       width: '11.3em',
-      height: '6.3em',
+      height: '6.78em',
     },
     systemName: {
       marginTop: '1em',
@@ -128,7 +124,7 @@ const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) =>
       return prefersLightMode ? Logo : LogoWhite;
     }
 
-    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme' || state.theme === 'QOLightTheme') {
       return Logo;
     }
 

@@ -84,7 +84,7 @@ describe('useCurrentTheme', () => {
     it('sets theme as dark', () => {
       const { result } = renderHook(() => useCurrentTheme(), {
         wrapper: ({ children }) => (
-          <Provider store={createStore(themeReducer, { theme: 'DarkTheme' })}>
+          <Provider store={createStore(themeReducer, { theme: 'QODarkTheme' })}>
             {children}
           </Provider>
         ),
@@ -95,7 +95,7 @@ describe('useCurrentTheme', () => {
     it('sets theme as light', () => {
       const { result } = renderHook(() => useCurrentTheme(), {
         wrapper: ({ children }) => (
-          <Provider store={createStore(themeReducer, { theme: 'LightTheme' })}>
+          <Provider store={createStore(themeReducer, { theme: 'QOLightTheme' })}>
             {children}
           </Provider>
         ),

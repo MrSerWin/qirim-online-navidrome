@@ -17,7 +17,7 @@ const defaultConfig = {
   gaTrackingId: '',
   devActivityPanel: true,
   enableStarRating: true,
-  defaultTheme: 'Dark',
+  defaultTheme: 'QO Dark',
   defaultLanguage: '',
   defaultUIVolume: 100,
   enableUserEditing: true,

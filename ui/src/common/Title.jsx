@@ -43,7 +43,7 @@ export const Title = ({ subTitle, args }) => {
       return prefersLightMode ? LogoDark : LogoLight;
     }
 
-    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme' || state.theme === 'QOLightTheme') {
       return LogoDark;
     }
 

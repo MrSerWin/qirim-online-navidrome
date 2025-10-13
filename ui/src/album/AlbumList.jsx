@@ -251,7 +251,7 @@ const AlbumList = (props) => {
         filters={<AlbumFilter />}
         perPage={perPage}
         // actions={<AlbumListActions />}
-        // pagination={<Pagination rowsPerPageOptions={perPageOptions} />}
+        pagination={<Pagination rowsPerPageOptions={perPageOptions} />}
         title={<AlbumListTitle albumListType={albumListType} />}
       >
         {/* {albumView.grid ? (

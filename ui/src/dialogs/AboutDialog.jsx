@@ -12,12 +12,13 @@ import { DialogTitle } from './DialogTitle'
 import { DialogContent } from './DialogContent'
 
 const links = {
-  'website': 'https://qirim.online',
-  'email': 'contact@qirim.online',
+  website: 'https://qirim.online',
+  email: 'contact@qirim.online',
+
   // reddit: 'reddit.com/r/Qırım Online',
   // twitter: 'twitter.com/navidrome',
   // discord: 'discord.gg/xh7j7yF',
-  // bugReports: 'github.com/navidrome/navidrome/issues/new/choose',
+  builtOn: 'github.com/navidrome/navidrome/issues/new/choose',
   // featureRequests: 'github.com/navidrome/navidrome/discussions/new',
 }
 
