@@ -325,6 +325,19 @@
         "scanInProgress": "Tarama devam ediyor...",
         "noLibrariesAssigned": "Bu kullanıcıya atanmış kütüphane yok"
       }
+    },
+    "karaoke": {
+      "name": "Karaoke |||| Karaoke",
+      "fields": {
+        "title": "Başlık",
+        "artist": "Sanatçı",
+        "youtubeUrl": "YouTube URL",
+        "createdAt": "Oluşturulma",
+        "updatedAt": "Güncellenme"
+      },
+      "actions": {
+        "add": "Karaoke Ekle"
+      }
     }
   },
   "ra": {

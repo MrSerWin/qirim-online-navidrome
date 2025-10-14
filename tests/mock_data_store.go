@@ -26,6 +26,7 @@ type MockDataStore struct {
 	MockedUserProps      model.UserPropsRepository
 	MockedScrobbleBuffer model.ScrobbleBufferRepository
 	MockedRadio          model.RadioRepository
+	MockedKaraoke        model.KaraokeRepository
 	scrobbleBufferMu     sync.Mutex
 	repoMu               sync.Mutex
 }
@@ -219,6 +220,17 @@ func (db *MockDataStore) Radio(ctx context.Context) model.RadioRepository {
 		}
 	}
 	return db.MockedRadio
+}
+
+func (db *MockDataStore) Karaoke(ctx context.Context) model.KaraokeRepository {
+	if db.MockedKaraoke == nil {
+		if db.RealDS != nil {
+			db.MockedKaraoke = db.RealDS.Karaoke(ctx)
+		} else {
+			db.MockedKaraoke = struct{ model.KaraokeRepository }{}
+		}
+	}
+	return db.MockedKaraoke
 }
 
 func (db *MockDataStore) WithTx(block func(tx model.DataStore) error, label ...string) error {

@@ -121,7 +121,7 @@ func substringFilter(field string, value any) Sqlizer {
 	parts := strings.Fields(value.(string))
 	filters := And{}
 	for _, part := range parts {
-		filters = append(filters, Like{field: "%" + part + "%"})
+		filters = append(filters, Expr("LOWER("+field+") LIKE LOWER(?)", "%"+part+"%"))
 	}
 	return filters
 }

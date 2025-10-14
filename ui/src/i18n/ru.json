@@ -325,6 +325,19 @@
         "scanInProgress": "Выполняется сканирование...",
         "noLibrariesAssigned": "Этому пользователю не назначены библиотеки"
       }
+    },
+    "karaoke": {
+      "name": "Караоке |||| Караоке",
+      "fields": {
+        "title": "Название",
+        "artist": "Исполнитель",
+        "youtubeUrl": "YouTube URL",
+        "createdAt": "Создано",
+        "updatedAt": "Обновлено"
+      },
+      "actions": {
+        "add": "Добавить караоке"
+      }
     }
   },
   "ra": {

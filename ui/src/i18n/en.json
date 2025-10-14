@@ -325,6 +325,19 @@
         "scanInProgress": "Scan in progress...",
         "noLibrariesAssigned": "No libraries assigned to this user"
       }
+    },
+    "karaoke": {
+      "name": "Karaoke |||| Karaoke",
+      "fields": {
+        "title": "Title",
+        "artist": "Artist",
+        "youtubeUrl": "YouTube URL",
+        "createdAt": "Created at",
+        "updatedAt": "Updated at"
+      },
+      "actions": {
+        "add": "Add Karaoke"
+      }
     }
   },
   "ra": {
