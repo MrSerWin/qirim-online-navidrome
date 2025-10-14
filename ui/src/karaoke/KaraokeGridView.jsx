@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
-import { useListContext, Loading } from 'react-admin'
+import { useListContext, Loading, useDataProvider, useNotify, useRefresh, usePermissions } from 'react-admin'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -88,6 +88,12 @@ const YouTubeThumbnail = ({ url, className }) => {
 const KaraokeGridTile = ({ record }) => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
+  const dataProvider = useDataProvider()
+  const notify = useNotify()
+  const refresh = useRefresh()
+  const { permissions } = usePermissions() || {}
+  const isAdmin = permissions === 'admin'
+  const [deleting, setDeleting] = useState(false)
 
   if (!record) {
     return null
@@ -122,13 +128,42 @@ const KaraokeGridTile = ({ record }) => {
               <Typography>Invalid YouTube URL</Typography>
             )}
           </div>
-          <Button
-            variant="contained"
-            onClick={() => setOpen(false)}
-            style={{ marginTop: 16 }}
-          >
-            Close
-          </Button>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
+            {isAdmin && (
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={async () => {
+                  if (!window.confirm('Удалить запись?')) return
+                  try {
+                    setDeleting(true)
+                    await dataProvider.delete('karaoke', { id: record.id })
+                    notify('Запись удалена', { type: 'info' })
+                    refresh()
+                    setOpen(false)
+                  } catch (err) {
+                    // eslint-disable-next-line no-console
+                    console.error('Delete karaoke error', err)
+                    notify('Ошибка при удалении', { type: 'warning' })
+                  } finally {
+                    setDeleting(false)
+                  }
+                }}
+                disabled={deleting}
+                style={{ marginTop: 16 }}
+              >
+                Удалить
+              </Button>
+            )}
+
+            <Button
+              variant="contained"
+              onClick={() => setOpen(false)}
+              style={{ marginTop: 16 }}
+            >
+              Close
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </>

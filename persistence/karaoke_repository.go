@@ -177,48 +177,41 @@ func (r *karaokeRepository) Put(k *model.KaraokeSong) error {
 		return rest.ErrPermissionDenied
 	}
 
-	// 🟢 Приводим к нижнему регистру перед сохранением
+	// Приводим к нижнему регистру перед сохранением
 	k.TitleLower = strings.ToLower(k.Title)
 	k.ArtistLower = strings.ToLower(k.Artist)
-
 	k.UpdatedAt = time.Now()
 
-	var values map[string]interface{}
-	values, _ = toSQLArgs(*k)
-
 	if k.ID == "" {
-		// Новый объект — добавляем ID и CreatedAt
-		k.CreatedAt = time.Now()
+		// Новый объект — генерируем ID и устанавливаем CreatedAt
 		k.ID = id.NewRandom()
+		k.CreatedAt = time.Now()
+	}
 
-		// Убедимся, что нижние поля точно есть в values
-		values["title_lower"] = k.TitleLower
-		values["artist_lower"] = k.ArtistLower
+	// Теперь конвертируем в SQL args после установки всех полей
+	values, _ := toSQLArgs(*k)
+
+	if k.CreatedAt.IsZero() {
+		// Это обновление существующей записи
+		update := Update(r.tableName).
+			Where(Eq{"id": k.ID}).
+			SetMap(values)
+		count, err := r.executeSQL(update)
+		if err != nil {
+			return err
+		}
+		if count > 0 {
+			return nil
+		}
+		// Если запись не найдена, создаем новую (fallback)
+		k.CreatedAt = time.Now()
 		values["created_at"] = k.CreatedAt
-		values["updated_at"] = k.UpdatedAt
-
-		insert := Insert(r.tableName).SetMap(values)
-		_, err := r.executeSQL(insert)
-		return err
 	}
 
-	// Существующий объект — обновляем
-	update := Update(r.tableName).
-		Where(Eq{"id": k.ID}).
-		SetMap(values)
-	count, err := r.executeSQL(update)
-	if err != nil {
-		return err
-	}
-	if count == 0 {
-		// если запись не обновилась — создаём новую (fallback)
-		values["created_at"] = time.Now()
-		insert := Insert(r.tableName).SetMap(values)
-		_, err := r.executeSQL(insert)
-		return err
-	}
-
-	return nil
+	// Создание новой записи
+	insert := Insert(r.tableName).SetMap(values)
+	_, err := r.executeSQL(insert)
+	return err
 }
 
 func (r *karaokeRepository) Count(options ...rest.QueryOptions) (int64, error) {
