@@ -9,7 +9,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
 import { Link } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton'
-import { linkToRecord, useListContext, Loading, useDataProvider } from 'react-admin'
+import {
+  linkToRecord,
+  useListContext,
+  Loading,
+  useDataProvider,
+} from 'react-admin'
 import { withContentRect } from 'react-measure'
 import { useDrag } from 'react-dnd'
 import subsonic from '../subsonic'
@@ -180,7 +185,11 @@ const getColsForWidth = (width) => {
   return 9
 }
 
-const Cover = withContentRect('bounds')(({ record, measureRef, contentRect }) => {
+const Cover = withContentRect('bounds')(({
+  record,
+  measureRef,
+  contentRect,
+}) => {
   // Force height to be the same as the width determined by the GridList
   // noinspection JSSuspiciousNameCombination
   const classes = useCoverStyles({ height: contentRect.bounds.width })
@@ -255,7 +264,10 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
           filter: { album_id: record.id, disc_number: record.discNumber },
         })
         .then((response) => {
-          const data = response.data.reduce((acc, cur) => ({ ...acc, [cur.id]: cur }), {})
+          const data = response.data.reduce(
+            (acc, cur) => ({ ...acc, [cur.id]: cur }),
+            {},
+          )
           const ids = response.data.map((r) => r.id)
           dispatch(playTracks(data, ids))
         })

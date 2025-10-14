@@ -11,7 +11,12 @@ if ('serviceWorker' in navigator) {
     .then((regs) => {
       regs.forEach((r) => {
         try {
-          if (r && r.active && r.active.scriptURL && r.active.scriptURL.includes('dev-sw.js')) {
+          if (
+            r &&
+            r.active &&
+            r.active.scriptURL &&
+            r.active.scriptURL.includes('dev-sw.js')
+          ) {
             r.unregister().catch(() => {})
           }
         } catch (e) {

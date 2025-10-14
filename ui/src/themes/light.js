@@ -8,7 +8,7 @@ const bLight = {
 export default {
   themeName: 'Light',
   typography: {
-    fontFamily: "Rajdhani, sans-serif",
+    fontFamily: 'Rajdhani, sans-serif',
   },
   palette: {
     secondary: {
@@ -106,5 +106,4 @@ export default {
       color: 'red',
     },
   },
-
 }

@@ -47,7 +47,7 @@ const musicListActions = {
 export default {
   themeName: 'QO Dark',
   typography: {
-    fontFamily: "Rajdhani, sans-serif",
+    fontFamily: 'Rajdhani, sans-serif',
   },
   palette: {
     primary: {

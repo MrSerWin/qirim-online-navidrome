@@ -10,7 +10,14 @@ import {
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import withWidth from '@material-ui/core/withWidth'
-import { useListContext, Loading, useDataProvider, useNotify, useRefresh, usePermissions } from 'react-admin'
+import {
+  useListContext,
+  Loading,
+  useDataProvider,
+  useNotify,
+  useRefresh,
+  usePermissions,
+} from 'react-admin'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -69,7 +76,9 @@ const useStyles = makeStyles(
 
 const getYouTubeVideoId = (url) => {
   if (!url) return null
-  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/)
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/,
+  )
   return match ? match[1] : null
 }
 
@@ -104,12 +113,20 @@ const KaraokeGridTile = ({ record }) => {
   return (
     <>
       <div className={classes.itemContainer} onClick={() => setOpen(true)}>
-        <YouTubeThumbnail url={record.youtubeUrl} className={classes.thumbnail} />
+        <YouTubeThumbnail
+          url={record.youtubeUrl}
+          className={classes.thumbnail}
+        />
         <Typography className={classes.title}>{record.title}</Typography>
         <Typography className={classes.artist}>{record.artist}</Typography>
       </div>
 
-      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md" fullWidth>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        maxWidth="md"
+        fullWidth
+      >
         <DialogTitle>{record.title}</DialogTitle>
         <DialogContent>
           <Typography variant="subtitle1" color="textSecondary" gutterBottom>
@@ -138,7 +155,12 @@ const KaraokeGridTile = ({ record }) => {
 
           {record.description && (
             <div>
-              <Typography variant="body2" color="textSecondary" gutterBottom style={{ marginTop: 8 }}>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                gutterBottom
+                style={{ marginTop: 8 }}
+              >
                 <strong>Description:</strong>
               </Typography>
               <span style={{ whiteSpace: 'pre-wrap' }}>

@@ -43,19 +43,18 @@ const useStyles = makeStyles({
   searchComponent: {
     width: '100%',
     '& .MuiInputBase-root': {
-
       // '&:focus-visible': {
       //   border: '1px solid red !important',
       // }
-    }
+    },
   },
   filterComponent: {
     width: '100%',
     marginLeft: '10px',
     '& .filter-field': {
       width: '100%',
-    }
-  }
+    },
+  },
 })
 
 const AlbumFilter = (props) => {
@@ -65,8 +64,13 @@ const AlbumFilter = (props) => {
   const isAdmin = permissions === 'admin'
   return (
     <Filter {...props} variant={'outlined'} className={classes.filterComponent}>
-      <SearchInput id="search" source="name" alwaysOn className={classes.searchComponent} />
-      { /* 
+      <SearchInput
+        id="search"
+        source="name"
+        alwaysOn
+        className={classes.searchComponent}
+      />
+      {/* 
       <ReferenceInput
         label={translate('resources.album.fields.artist')}
         source="artist_id"
@@ -174,7 +178,7 @@ const AlbumFilter = (props) => {
         />
       )}
       {isAdmin && <NullableBooleanInput source="missing" />}
-      */ }
+      */}
     </Filter>
   )
 }

@@ -87,7 +87,9 @@ const audioHandler = async ({ url, request, event }) => {
     headers: new Headers({
       // Copy original headers except Range
       ...Object.fromEntries(
-        Array.from(request.headers.entries()).filter(([key]) => key.toLowerCase() !== 'range')
+        Array.from(request.headers.entries()).filter(
+          ([key]) => key.toLowerCase() !== 'range',
+        ),
       ),
     }),
     credentials: request.credentials,
@@ -102,11 +104,14 @@ const audioHandler = async ({ url, request, event }) => {
       // Clone response for caching (must clone before reading body)
       const responseToCache = response.clone()
       // Cache asynchronously without blocking return
-      cache.put(cacheKey, responseToCache).then(() => {
-        console.log('[SW] Cached audio:', songId)
-      }).catch(err => {
-        console.error('[SW] Failed to cache audio:', songId, err)
-      })
+      cache
+        .put(cacheKey, responseToCache)
+        .then(() => {
+          console.log('[SW] Cached audio:', songId)
+        })
+        .catch((err) => {
+          console.error('[SW] Failed to cache audio:', songId, err)
+        })
     }
 
     return response
@@ -117,14 +122,13 @@ const audioHandler = async ({ url, request, event }) => {
 }
 
 // Register audio streaming route
-workbox.routing.registerRoute(
-  ({ url }) => {
-    return url.pathname.includes('/stream') ||
-           url.pathname.includes('/rest/stream') ||
-           url.pathname.match(/\/api\/song\/.*\/stream/)
-  },
-  audioHandler
-)
+workbox.routing.registerRoute(({ url }) => {
+  return (
+    url.pathname.includes('/stream') ||
+    url.pathname.includes('/rest/stream') ||
+    url.pathname.match(/\/api\/song\/.*\/stream/)
+  )
+}, audioHandler)
 
 // Custom image caching handler - doesn't throw errors offline
 const imageHandler = async ({ url, request, event }) => {
@@ -149,32 +153,29 @@ const imageHandler = async ({ url, request, event }) => {
     // Return a placeholder 1x1 transparent PNG
     return new Response(
       new Uint8Array([
-        0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
-        0x00, 0x00, 0x00, 0x0d, 0x49, 0x48, 0x44, 0x52,
-        0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
-        0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0x15, 0xc4,
-        0x89, 0x00, 0x00, 0x00, 0x0a, 0x49, 0x44, 0x41,
-        0x54, 0x78, 0x9c, 0x63, 0x00, 0x01, 0x00, 0x00,
-        0x05, 0x00, 0x01, 0x0d, 0x0a, 0x2d, 0xb4, 0x00,
-        0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae,
+        0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
+        0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
+        0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0x15, 0xc4, 0x89, 0x00, 0x00, 0x00,
+        0x0a, 0x49, 0x44, 0x41, 0x54, 0x78, 0x9c, 0x63, 0x00, 0x01, 0x00, 0x00,
+        0x05, 0x00, 0x01, 0x0d, 0x0a, 0x2d, 0xb4, 0x00, 0x00, 0x00, 0x00, 0x49,
+        0x45, 0x4e, 0x44, 0xae,
       ]),
       {
         status: 200,
         statusText: 'OK',
-        headers: { 'Content-Type': 'image/png' }
-      }
+        headers: { 'Content-Type': 'image/png' },
+      },
     )
   }
 }
 
 // Cache album artwork and images
-workbox.routing.registerRoute(
-  ({ url }) => {
-    return url.pathname.includes('/api/album/') && url.pathname.includes('/cover') ||
-           url.pathname.includes('/rest/getCoverArt')
-  },
-  imageHandler
-)
+workbox.routing.registerRoute(({ url }) => {
+  return (
+    (url.pathname.includes('/api/album/') && url.pathname.includes('/cover')) ||
+    url.pathname.includes('/rest/getCoverArt')
+  )
+}, imageHandler)
 
 // Custom API handler - CacheFirst for GET, NetworkOnly for POST
 const apiHandler = async ({ url, request, event }) => {
@@ -185,7 +186,10 @@ const apiHandler = async ({ url, request, event }) => {
     } catch (error) {
       // Silently fail write operations when offline
       console.log('[SW] Offline - ignoring write request:', url.pathname)
-      return new Response(null, { status: 503, statusText: 'Service Unavailable (offline)' })
+      return new Response(null, {
+        status: 503,
+        statusText: 'Service Unavailable (offline)',
+      })
     }
   }
 
@@ -196,11 +200,13 @@ const apiHandler = async ({ url, request, event }) => {
   if (cachedResponse) {
     // Update cache in background
     event.waitUntil(
-      fetch(request).then(response => {
-        if (response.ok) {
-          cache.put(request, response.clone())
-        }
-      }).catch(() => {})
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            cache.put(request, response.clone())
+          }
+        })
+        .catch(() => {}),
     )
     return cachedResponse
   }
@@ -219,13 +225,12 @@ const apiHandler = async ({ url, request, event }) => {
 }
 
 // Cache API metadata (songs, albums, playlists)
-workbox.routing.registerRoute(
-  ({ url }) => {
-    return (url.pathname.startsWith('/api/') || url.pathname.startsWith('/rest/')) &&
-           !url.pathname.includes('/stream')
-  },
-  apiHandler
-)
+workbox.routing.registerRoute(({ url }) => {
+  return (
+    (url.pathname.startsWith('/api/') || url.pathname.startsWith('/rest/')) &&
+    !url.pathname.includes('/stream')
+  )
+}, apiHandler)
 
 // Register navigation handler LAST - after all other routes
 // This ensures that API and asset routes are handled first

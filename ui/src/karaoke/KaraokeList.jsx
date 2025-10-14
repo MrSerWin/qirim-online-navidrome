@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Filter,
-  SearchInput,
-  Pagination,
-  useTranslate,
-} from 'react-admin'
+import { Filter, SearchInput, Pagination, useTranslate } from 'react-admin'
 import { withWidth } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { List, Title } from '../common'

@@ -45,13 +45,15 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
           return acc
         }, {})
 
-        const ids = newData.map(item => item.id)
+        const ids = newData.map((item) => item.id)
 
         console.log(`[AutoLoadQueue] Adding ${ids.length} tracks to queue`)
         dispatch(addTracks(dataObject, ids))
         currentPageRef.current = nextPage
 
-        console.log(`[AutoLoadQueue] Loaded ${newData.length} tracks from page ${nextPage}. Total: ${total}`)
+        console.log(
+          `[AutoLoadQueue] Loaded ${newData.length} tracks from page ${nextPage}. Total: ${total}`,
+        )
       } else {
         console.log('[AutoLoadQueue] No more tracks to load')
       }
@@ -68,7 +70,7 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
     }
 
     // Find current track index in queue
-    const currentIndex = queue.findIndex(track => track.uuid === current.uuid)
+    const currentIndex = queue.findIndex((track) => track.uuid === current.uuid)
 
     if (currentIndex === -1) {
       return
@@ -76,11 +78,15 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
 
     const tracksRemaining = queue.length - currentIndex
 
-    console.log(`[AutoLoadQueue] Current: ${currentIndex + 1}/${queue.length}, Remaining: ${tracksRemaining}`)
+    console.log(
+      `[AutoLoadQueue] Current: ${currentIndex + 1}/${queue.length}, Remaining: ${tracksRemaining}`,
+    )
 
     // If we're near the end, load more
     if (tracksRemaining <= threshold && !loadingRef.current) {
-      console.log(`[AutoLoadQueue] Near end (${tracksRemaining} tracks left), loading next page...`)
+      console.log(
+        `[AutoLoadQueue] Near end (${tracksRemaining} tracks left), loading next page...`,
+      )
       loadNextPage()
     }
   }, [current, queue, threshold, loadNextPage])

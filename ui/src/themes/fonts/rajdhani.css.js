@@ -39,6 +39,6 @@ const rajdhani = `
   font-style: normal;
   font-display: swap;
 }
-`;
+`
 
-export default rajdhani;
+export default rajdhani

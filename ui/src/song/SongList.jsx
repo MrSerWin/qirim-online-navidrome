@@ -74,8 +74,8 @@ const useStyles = makeStyles({
     marginLeft: '10px',
     '& .filter-field': {
       width: '100%',
-    }
-  }
+    },
+  },
 })
 
 const SongFilter = (props) => {
@@ -88,7 +88,11 @@ const SongFilter = (props) => {
     //   <SearchInput source="title" alwaysOn />
 
     <Filter {...props} variant={'outlined'} className={classes.filterComponent}>
-      <SearchInput source="title" alwaysOn className={classes.searchComponent} />
+      <SearchInput
+        source="title"
+        alwaysOn
+        className={classes.searchComponent}
+      />
       {/* <ReferenceArrayInput
         label={translate('resources.song.fields.genre')}
         source="genre_id"

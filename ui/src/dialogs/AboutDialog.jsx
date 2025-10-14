@@ -37,9 +37,7 @@ const AboutDialog = ({ open, onClose }) => {
         {translate('about.title', { _: 'Qırım Online' })}
       </DialogTitle>
       <DialogContent dividers>
-        <div className='multiLineText'>
-          {translate('about.description')}
-        </div>
+        <div className="multiLineText">{translate('about.description')}</div>
         <Table aria-label={translate('menu.about')} size="small">
           <TableBody>
             {Object.keys(links).map((key) => {

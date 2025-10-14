@@ -95,7 +95,9 @@ describe('useCurrentTheme', () => {
     it('sets theme as light', () => {
       const { result } = renderHook(() => useCurrentTheme(), {
         wrapper: ({ children }) => (
-          <Provider store={createStore(themeReducer, { theme: 'QOLightTheme' })}>
+          <Provider
+            store={createStore(themeReducer, { theme: 'QOLightTheme' })}
+          >
             {children}
           </Provider>
         ),

@@ -25,7 +25,7 @@ import { useSelector } from 'react-redux'
 // import LogoWhite from '../icons/new-logo-no-bg-white.png'
 
 import LogoWhite from '../icons/qo-logo.png'
-import Logo from '../icons/qo-logo-dark.png';
+import Logo from '../icons/qo-logo-dark.png'
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
@@ -87,7 +87,7 @@ const useStyles = makeStyles(
     button: {},
     systemNameLink: {
       textDecoration: 'none',
-      color: '#ffffff'
+      color: '#ffffff',
     },
     message: {
       marginTop: '1em',
@@ -114,21 +114,27 @@ const renderInput = ({
   />
 )
 
-const FormLogin = ({ loading, handleSubmit, validate, showToggle, onToggle }) => {
+const FormLogin = ({
+  loading,
+  handleSubmit,
+  validate,
+  showToggle,
+  onToggle,
+}) => {
   const translate = useTranslate()
   const classes = useStyles()
-    const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
 
   const logo = useSelector((state) => {
     if (state.theme === AUTO_THEME_ID) {
-      return prefersLightMode ? Logo : LogoWhite;
+      return prefersLightMode ? Logo : LogoWhite
     }
 
     if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
-      return Logo;
+      return Logo
     }
 
-    return LogoWhite;
+    return LogoWhite
   })
 
   return (
@@ -269,7 +275,13 @@ const InsightsNotice = ({ url }) => {
   return <div className={classes.message}>{renderedLines}</div>
 }
 
-const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) => {
+const FormSignUp = ({
+  loading,
+  handleSubmit,
+  validate,
+  showToggle,
+  onToggle,
+}) => {
   const translate = useTranslate()
   const classes = useStyles()
 
@@ -285,7 +297,9 @@ const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) =
                 <img src={Logo} className={classes.icon} alt={'logo'} />
               </div>
               <div className={classes.welcome}>
-                {showToggle ? translate('ra.auth.createAccount') : translate('ra.auth.welcome1')}
+                {showToggle
+                  ? translate('ra.auth.createAccount')
+                  : translate('ra.auth.welcome1')}
               </div>
               {!showToggle && (
                 <div className={classes.welcome}>
@@ -352,7 +366,9 @@ const FormSignUp = ({ loading, handleSubmit, validate, showToggle, onToggle }) =
                   fullWidth
                 >
                   {loading && <CircularProgress size={25} thickness={2} />}
-                  {showToggle ? translate('ra.auth.buttonSignUp') : translate('ra.auth.buttonCreateAdmin')}
+                  {showToggle
+                    ? translate('ra.auth.buttonSignUp')
+                    : translate('ra.auth.buttonCreateAdmin')}
                 </Button>
               </CardActions>
               {showToggle && (
@@ -401,7 +417,11 @@ const Login = ({ location }) => {
       // Determine the URL based on whether we're signing up or logging in
       const url = isSignup ? baseUrl('/auth/signup') : baseUrl('/auth/login')
       const requestBody = isSignup
-        ? { username: auth.username, password: auth.password, email: auth.email }
+        ? {
+            username: auth.username,
+            password: auth.password,
+            email: auth.email,
+          }
         : { username: auth.username, password: auth.password }
 
       const request = new Request(url, {
@@ -415,17 +435,21 @@ const Login = ({ location }) => {
         fetch(request)
           .then((response) => {
             if (response.status < 200 || response.status >= 300) {
-              return response.json().then((errorData) => {
-                // Extract error message from response
-                const errorMessage = errorData.error || errorData.message || 'Signup failed'
-                throw new Error(errorMessage)
-              }).catch((jsonError) => {
-                // If response is not JSON, throw generic error
-                if (jsonError instanceof SyntaxError) {
-                  throw new Error('Signup failed')
-                }
-                throw jsonError
-              })
+              return response
+                .json()
+                .then((errorData) => {
+                  // Extract error message from response
+                  const errorMessage =
+                    errorData.error || errorData.message || 'Signup failed'
+                  throw new Error(errorMessage)
+                })
+                .catch((jsonError) => {
+                  // If response is not JSON, throw generic error
+                  if (jsonError instanceof SyntaxError) {
+                    throw new Error('Signup failed')
+                  }
+                  throw jsonError
+                })
             }
             return response.json()
           })
