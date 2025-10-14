@@ -101,7 +101,10 @@ const Admin = (props) => {
         <Resource name="album" {...album} options={{ subMenu: 'albumList' }} />,
         <Resource name="artist" {...artist} />,
         <Resource name="song" {...song} />,
-        <Resource name="karaoke" {...karaoke} />,
+        <Resource
+          name="karaoke"
+          {...(permissions === 'admin' ? karaoke.admin : karaoke.all)}
+        />,
         // <Resource
         //   name="radio"
         //   {...(permissions === 'admin' ? radio.admin : radio.all)}
