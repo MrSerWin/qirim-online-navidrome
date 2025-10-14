@@ -226,9 +226,9 @@ func signup(ds model.DataStore) func(w http.ResponseWriter, r *http.Request) {
 		validUsername := true
 		for _, char := range username {
 			if !((char >= 'a' && char <= 'z') ||
-				 (char >= 'A' && char <= 'Z') ||
-				 (char >= '0' && char <= '9') ||
-				 char == '_' || char == '-' || char == '.') {
+				(char >= 'A' && char <= 'Z') ||
+				(char >= '0' && char <= '9') ||
+				char == '_' || char == '-' || char == '.') {
 				validUsername = false
 				break
 			}
