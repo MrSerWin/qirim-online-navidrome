@@ -38,10 +38,10 @@ Nginx не может подключиться к контейнеру Navidrome
 | Проблема | Решение |
 |----------|---------|
 | Контейнер остановлен | `./restart-server.sh` |
-| Контейнер падает при старте | Проверить логи: `ssh root@93.127.197.163 "cd /opt/navidrome && docker compose logs navidrome"` |
+| Контейнер падает при старте | Проверить логи: `ssh root@SERVER_IP "cd /opt/navidrome && docker compose logs navidrome"` |
 | Неправильная конфигурация | Проверить docker-compose.yml на сервере |
-| Docker демон не запущен | `ssh root@93.127.197.163 "systemctl start docker"` |
-| Nginx неправильно настроен | `ssh root@93.127.197.163 "nginx -t"` |
+| Docker демон не запущен | `ssh root@SERVER_IP "systemctl start docker"` |
+| Nginx неправильно настроен | `ssh root@SERVER_IP "nginx -t"` |
 
 ---
 
@@ -50,7 +50,7 @@ Nginx не может подключиться к контейнеру Navidrome
 Если скрипты не помогли, подключитесь к серверу вручную:
 
 ```bash
-ssh root@93.127.197.163
+ssh root@SERVER_IP
 ```
 
 ### Проверить статус контейнера
@@ -98,13 +98,13 @@ docker compose logs -f navidrome
 ### "Permission denied" в логах
 ```bash
 # Проверить права на директории
-ssh root@93.127.197.163 "ls -la /opt/navidrome/data"
+ssh root@SERVER_IP "ls -la /opt/navidrome/data"
 ```
 
 ### "Cannot bind to port"
 ```bash
 # Проверить, не занят ли порт
-ssh root@93.127.197.163 "lsof -i :4533"
+ssh root@SERVER_IP "lsof -i :4533"
 ```
 
 ### "Database locked"
@@ -134,7 +134,7 @@ ssh root@93.127.197.163 "lsof -i :4533"
 
 2. **Мониторинг логов**
    ```bash
-   ssh root@93.127.197.163 "cd /opt/navidrome && docker compose logs -f navidrome"
+   ssh root@SERVER_IP "cd /opt/navidrome && docker compose logs -f navidrome"
    ```
 
 3. **Автоматический перезапуск** (настроить на сервере)

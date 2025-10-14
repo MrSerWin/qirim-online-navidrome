@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Restart Navidrome on server
-# Usage: ./restart-server.sh
+# Usage: SERVER_IP=root@YOUR_SERVER_IP ./restart-server.sh
 
-SERVER="root@93.127.197.163"
+SERVER="${SERVER_IP:-root@YOUR_SERVER_IP}"
 
 echo "🔄 Restarting Navidrome on server..."
 echo ""

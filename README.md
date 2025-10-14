@@ -18,7 +18,7 @@
 **Пример для qirim.online:**
 
 ```bash
-./deploy.sh qirim.online root@93.127.197.163
+./deploy.sh qirim.online root@SERVER_IP
 ```
 
 Скрипт автоматически:
@@ -109,7 +109,7 @@
 
 ```bash
 # Полное развертывание
-./deploy.sh qirim.online root@93.127.197.163
+./deploy.sh qirim.online root@SERVER_IP
 
 # Обновить только UI
 ./update.sh ui
@@ -194,7 +194,7 @@ navidrome/
 
 ## 🌐 Текущие развертывания
 
-- **qirim.cloud** - `https://qirim.cloud` (93.127.197.163)
+- **qirim.cloud** - `https://qirim.cloud`
 - **qirim.online** - (готово к развертыванию)
 
 ---
@@ -204,7 +204,7 @@ navidrome/
 ### После изменений в UI:
 
 ```bash
-./update.sh ui root@93.127.197.163
+./update.sh ui root@SERVER_IP
 ```
 
 ⏱ **Время:** ~1-2 минуты
@@ -212,7 +212,7 @@ navidrome/
 ### После изменений в Go коде:
 
 ```bash
-./update.sh go root@93.127.197.163
+./update.sh go root@SERVER_IP
 ```
 
 ⏱ **Время:** ~2-3 минуты
@@ -220,7 +220,7 @@ navidrome/
 ### Полное обновление:
 
 ```bash
-./update.sh full root@93.127.197.163
+./update.sh full root@SERVER_IP
 ```
 
 ⏱ **Время:** ~3-5 минут

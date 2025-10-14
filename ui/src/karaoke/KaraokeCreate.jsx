@@ -9,17 +9,21 @@ const KaraokeCreate = (props) => {
   const [title, setTitle] = useState('')
   const [artist, setArtist] = useState('')
   const [youtubeUrl, setYoutubeUrl] = useState('')
+  const [source, setSource] = useState('')
+  const [description, setDescription] = useState('')
   const [sending, setSending] = useState(false)
 
   const submit = async (e) => {
     e.preventDefault()
     setSending(true)
     try {
-      const res = await dataProvider.create('karaoke', { data: { title, artist, youtubeUrl } })
+      const res = await dataProvider.create('karaoke', { data: { title, artist, youtubeUrl, source, description } })
   notify('Karaoke song added', 'info')
   setTitle('')
   setArtist('')
   setYoutubeUrl('')
+  setSource('')
+  setDescription('')
   if (onSuccess) onSuccess(res?.data)
     } catch (err) {
       // notify error
@@ -40,6 +44,10 @@ const KaraokeCreate = (props) => {
         <TextField value={artist} onChange={(e) => setArtist(e.target.value)} />
         <label>YouTube URL</label>
         <TextField value={youtubeUrl} onChange={(e) => setYoutubeUrl(e.target.value)} required />
+        <label>Source</label>
+        <TextField value={source} onChange={(e) => setSource(e.target.value)} />
+        <label>Description</label>
+        <TextField value={description} onChange={(e) => setDescription(e.target.value)} multiline rows={3} />
         <div>
           <Button variant="contained" color="primary" type="submit" disabled={sending}>Add</Button>
         </div>

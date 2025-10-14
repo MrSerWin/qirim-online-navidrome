@@ -21,10 +21,10 @@
 ssh-keygen -t ed25519 -C "your_email@example.com"
 
 # 2. Скопировать на сервер
-ssh-copy-id root@93.127.197.163
+ssh-copy-id root@SERVER_IP
 
 # 3. Проверить доступ (должен зайти без пароля)
-ssh root@93.127.197.163 "echo 'SSH key works!'"
+ssh root@SERVER_IP "echo 'SSH key works!'"
 
 # 4. Теперь можно использовать автоматический деплой
 ./deploy-full.sh
@@ -41,21 +41,21 @@ ssh root@93.127.197.163 "echo 'SSH key works!'"
 
 ### Перезапуск контейнера
 ```bash
-ssh root@93.127.197.163
+ssh root@SERVER_IP
 cd /opt/navidrome
 docker compose restart navidrome
 ```
 
 ### Просмотр логов
 ```bash
-ssh root@93.127.197.163
+ssh root@SERVER_IP
 cd /opt/navidrome
 docker compose logs -f navidrome
 ```
 
 ### Проверка статуса
 ```bash
-ssh root@93.127.197.163
+ssh root@SERVER_IP
 cd /opt/navidrome
 docker compose ps
 ```
@@ -77,13 +77,13 @@ docker compose ps
 ### SSH не подключается
 ```bash
 # Проверить доступ к серверу
-ping 93.127.197.163
+ping SERVER_IP
 
 # Проверить SSH порт
-nc -zv 93.127.197.163 22
+nc -zv SERVER_IP 22
 
 # Проверить SSH конфиг
-ssh -v root@93.127.197.163
+ssh -v root@SERVER_IP
 ```
 
 ### Docker образ не собирается
@@ -98,10 +98,10 @@ docker builder prune -a
 ### Контейнер не стартует
 ```bash
 # Посмотреть логи
-ssh root@93.127.197.163 "cd /opt/navidrome && docker compose logs --tail=100 navidrome"
+ssh root@SERVER_IP "cd /opt/navidrome && docker compose logs --tail=100 navidrome"
 
 # Проверить docker-compose.yml
-ssh root@93.127.197.163 "cd /opt/navidrome && cat docker-compose.yml"
+ssh root@SERVER_IP "cd /opt/navidrome && cat docker-compose.yml"
 ```
 
 ---

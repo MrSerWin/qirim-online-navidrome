@@ -332,6 +332,8 @@
         "title": "Başlık",
         "artist": "Sanatçı",
         "youtubeUrl": "YouTube URL",
+        "source": "Kaynak",
+        "description": "Açıklama",
         "createdAt": "Oluşturulma",
         "updatedAt": "Güncellenme"
       },

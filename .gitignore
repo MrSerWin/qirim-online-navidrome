@@ -37,6 +37,7 @@ AGENTS.md
 .env
 .env.local
 .env.production
+.env.server
 
 # Deployment scripts and documentation with server info
 deploy.sh

@@ -115,7 +115,8 @@ const KaraokeGridTile = ({ record }) => {
           <Typography variant="subtitle1" color="textSecondary" gutterBottom>
             {record.artist}
           </Typography>
-          <div className={classes.videoContainer}>
+
+          <div className={classes.videoContainer} style={{ marginTop: 16 }}>
             {videoId ? (
               <iframe
                 title={record.title}
@@ -128,6 +129,24 @@ const KaraokeGridTile = ({ record }) => {
               <Typography>Invalid YouTube URL</Typography>
             )}
           </div>
+
+          {record.source && (
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              <strong>Source:</strong> {record.source}
+            </Typography>
+          )}
+
+          {record.description && (
+            <div>
+              <Typography variant="body2" color="textSecondary" gutterBottom style={{ marginTop: 8 }}>
+                <strong>Description:</strong>
+              </Typography>
+              <span style={{ whiteSpace: 'pre-wrap' }}>
+                {record.description}
+              </span>
+            </div>
+          )}
+
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
             {isAdmin && (
               <Button

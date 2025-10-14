@@ -332,6 +332,8 @@
         "title": "Назва",
         "artist": "Виконавець",
         "youtubeUrl": "YouTube URL",
+        "source": "Джерело",
+        "description": "Опис",
         "createdAt": "Створено",
         "updatedAt": "Оновлено"
       },

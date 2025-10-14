@@ -10,6 +10,8 @@ type KaraokeSong struct {
 	Artist      string    `structs:"artist" json:"artist" db:"artist"`
 	ArtistLower string    `structs:"artist_lower" json:"artistLower" db:"artist_lower"`
 	YoutubeUrl  string    `structs:"youtube_url" json:"youtubeUrl"`
+	Source      string    `structs:"source" json:"source"`
+	Description string    `structs:"description" json:"description"`
 	CreatedAt   time.Time `structs:"created_at" json:"createdAt"`
 	UpdatedAt   time.Time `structs:"updated_at" json:"updatedAt"`
 }

@@ -332,6 +332,8 @@
         "title": "Название",
         "artist": "Исполнитель",
         "youtubeUrl": "YouTube URL",
+        "source": "Источник",
+        "description": "Описание",
         "createdAt": "Создано",
         "updatedAt": "Обновлено"
       },

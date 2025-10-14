@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Complete deployment script: build, push, and restart on server
-# Usage: ./deploy-full.sh
+# Usage: SERVER_IP=root@YOUR_SERVER_IP ./deploy-full.sh
 
 set -e
 
-SERVER="root@93.127.197.163"
+SERVER="${SERVER_IP:-root@YOUR_SERVER_IP}"
 IMAGE_NAME="navidrome-qo:latest"
 TEMP_FILE="/tmp/navidrome-qo-latest.tar"
 REMOTE_DIR="/opt/navidrome"

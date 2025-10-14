@@ -332,6 +332,8 @@
         "title": "Serleva",
         "artist": "Artist",
         "youtubeUrl": "YouTube URL",
+        "source": "Menba",
+        "description": "Tasviriy",
         "createdAt": "Yaratılğan",
         "updatedAt": "Yañartılğan"
       },

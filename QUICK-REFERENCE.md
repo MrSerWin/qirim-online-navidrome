@@ -48,7 +48,7 @@ docker images | grep navidrome-qo
 ./restart-server.sh
 
 # Вручную через SSH
-ssh root@93.127.197.163
+ssh root@SERVER_IP
 cd /opt/navidrome
 
 # Команды
@@ -111,8 +111,8 @@ docker run -p 4533:4533 navidrome-qo:latest
 ### SSH не подключается
 ```bash
 # Проверить доступ
-ping 93.127.197.163
-ssh -v root@93.127.197.163
+ping SERVER_IP
+ssh -v root@SERVER_IP
 ```
 
 ### Docker образ не собирается

@@ -1,16 +1,17 @@
 #!/bin/bash
 
 # Quick server diagnostics script
-# Usage: ./check-server.sh
+# Usage: SERVER_IP=root@YOUR_SERVER_IP ./check-server.sh
 
-SERVER="root@93.127.197.163"
+SERVER="${SERVER_IP:-root@YOUR_SERVER_IP}"
 
 echo "🔍 Checking Navidrome server status..."
 echo ""
 
 # Check if server is reachable
 echo "1️⃣ Checking network connectivity..."
-if ping -c 2 93.127.197.163 > /dev/null 2>&1; then
+SERVER_HOST=$(echo "$SERVER" | cut -d'@' -f2)
+if ping -c 2 "$SERVER_HOST" > /dev/null 2>&1; then
     echo "   ✅ Server is reachable"
 else
     echo "   ❌ Server is NOT reachable"
