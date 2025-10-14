@@ -168,6 +168,75 @@ func createAdminUser(ctx context.Context, ds model.DataStore, username, password
 	return nil
 }
 
+// validateEmail validates email format
+func validateEmail(email string) bool {
+	if email == "" {
+		return true // Email is optional
+	}
+	if len(email) < 5 || len(email) >= 100 {
+		return false
+	}
+	atCount := 0
+	dotAfterAt := false
+	atPos := -1
+	for i, char := range email {
+		if char == '@' {
+			atCount++
+			atPos = i
+		}
+		if atPos > 0 && i > atPos && char == '.' {
+			dotAfterAt = true
+		}
+	}
+	return atCount == 1 && dotAfterAt
+}
+
+// validateUsername validates username format and length
+func validateUsername(username string) error {
+	if len(username) < 3 {
+		return fmt.Errorf("username must be at least 3 characters")
+	}
+	if len(username) > 50 {
+		return fmt.Errorf("username must be less than 50 characters")
+	}
+	for _, char := range username {
+		if !((char >= 'a' && char <= 'z') ||
+			(char >= 'A' && char <= 'Z') ||
+			(char >= '0' && char <= '9') ||
+			char == '_' || char == '-' || char == '.') {
+			return fmt.Errorf("username can only contain letters, numbers, underscore, dash, and dot")
+		}
+	}
+	return nil
+}
+
+// validatePassword validates password strength
+func validatePassword(password string) error {
+	if len(password) < 8 {
+		return fmt.Errorf("password must be at least 8 characters")
+	}
+	if len(password) > 100 {
+		return fmt.Errorf("password is too long")
+	}
+	hasLetter := false
+	hasNumber := false
+	for _, char := range password {
+		if (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') {
+			hasLetter = true
+		}
+		if char >= '0' && char <= '9' {
+			hasNumber = true
+		}
+		if hasLetter && hasNumber {
+			break
+		}
+	}
+	if !hasLetter || !hasNumber {
+		return fmt.Errorf("password must contain at least one letter and one number")
+	}
+	return nil
+}
+
 func signup(ds model.DataStore) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if !conf.Server.EnableSelfRegistration {
@@ -189,81 +258,22 @@ func signup(ds model.DataStore) func(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		// Validate email (optional but recommended)
-		if email != "" {
-			// Simple email validation
-			emailValid := false
-			atCount := 0
-			dotAfterAt := false
-			atPos := -1
-			for i, char := range email {
-				if char == '@' {
-					atCount++
-					atPos = i
-				}
-				if atPos > 0 && i > atPos && char == '.' {
-					dotAfterAt = true
-				}
-			}
-			emailValid = atCount == 1 && dotAfterAt && len(email) > 5 && len(email) < 100
-			if !emailValid {
-				_ = rest.RespondWithError(w, http.StatusBadRequest, "Invalid email format")
-				return
-			}
+		// Validate email
+		if !validateEmail(email) {
+			_ = rest.RespondWithError(w, http.StatusBadRequest, "Invalid email format")
+			return
 		}
 
 		// Validate username
-		if len(username) < 3 {
-			log.Warn(r, "Signup failed: username too short", "username", username, "ip", r.RemoteAddr)
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Username must be at least 3 characters")
-			return
-		}
-		if len(username) > 50 {
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Username must be less than 50 characters")
-			return
-		}
-		// Only allow alphanumeric, underscore, dash, and dot
-		validUsername := true
-		for _, char := range username {
-			if !((char >= 'a' && char <= 'z') ||
-				(char >= 'A' && char <= 'Z') ||
-				(char >= '0' && char <= '9') ||
-				char == '_' || char == '-' || char == '.') {
-				validUsername = false
-				break
-			}
-		}
-		if !validUsername {
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Username can only contain letters, numbers, underscore, dash, and dot")
+		if err := validateUsername(username); err != nil {
+			log.Warn(r, "Signup failed: invalid username", "username", username, "ip", r.RemoteAddr, "error", err)
+			_ = rest.RespondWithError(w, http.StatusBadRequest, err.Error())
 			return
 		}
 
 		// Validate password
-		if len(password) < 8 {
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Password must be at least 8 characters")
-			return
-		}
-		if len(password) > 100 {
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Password is too long")
-			return
-		}
-
-		// Check password complexity (at least one letter and one number)
-		hasLetter := false
-		hasNumber := false
-		for _, char := range password {
-			if (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') {
-				hasLetter = true
-			}
-			if char >= '0' && char <= '9' {
-				hasNumber = true
-			}
-			if hasLetter && hasNumber {
-				break
-			}
-		}
-		if !hasLetter || !hasNumber {
-			_ = rest.RespondWithError(w, http.StatusBadRequest, "Password must contain at least one letter and one number")
+		if err := validatePassword(password); err != nil {
+			_ = rest.RespondWithError(w, http.StatusBadRequest, err.Error())
 			return
 		}
 
