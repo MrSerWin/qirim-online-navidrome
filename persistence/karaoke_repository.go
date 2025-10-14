@@ -2,7 +2,6 @@ package persistence
 
 import (
 	"context"
-	"database/sql"
 	"errors"
 	"strings"
 	"time"
@@ -16,77 +15,6 @@ import (
 
 type karaokeRepository struct {
 	sqlRepository
-}
-
-// func NewKaraokeRepository(ctx context.Context, db dbx.Builder) model.KaraokeRepository {
-// 	r := &karaokeRepository{}
-// 	r.ctx = ctx
-// 	r.db = db
-
-// 	r.registerModel(&model.KaraokeSong{}, map[string]filterFunc{
-// 		"q": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			s = strings.ToLower(s)
-// 			return Expr(
-// 				"LOWER(karaoke_song.title) LIKE ? OR LOWER(karaoke_song.artist) LIKE ?",
-// 				"%"+s+"%", "%"+s+"%",
-// 			)
-// 		},
-// 		"title": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			s = strings.ToLower(s)
-// 			return Expr(
-// 				"LOWER(karaoke_song.title) LIKE ?",
-// 				"%"+s+"%",
-// 			)
-// 		},
-// 		"artist": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			s = strings.ToLower(s)
-// 			return Expr(
-// 				"LOWER(karaoke_song.artist) LIKE ?",
-// 				"%"+s+"%",
-// 			)
-// 		},
-// 	})
-
-// 	return r
-// }
-
-func backfillLowercase(ctx context.Context, db *sql.DB) error {
-	tx, err := db.Begin()
-	if err != nil {
-		return err
-	}
-	defer tx.Rollback()
-
-	rows, err := tx.QueryContext(ctx, `SELECT id, title, artist FROM karaoke_song`)
-	if err != nil {
-		return err
-	}
-	defer rows.Close()
-
-	stmt, err := tx.PrepareContext(ctx, `UPDATE karaoke_song SET title_lower = ?, artist_lower = ? WHERE id = ?`)
-	if err != nil {
-		return err
-	}
-	defer stmt.Close()
-
-	for rows.Next() {
-		var id int
-		var title, artist string
-		if err := rows.Scan(&id, &title, &artist); err != nil {
-			return err
-		}
-		if _, err := stmt.ExecContext(ctx, strings.ToLower(title), strings.ToLower(artist), id); err != nil {
-			return err
-		}
-	}
-
-	if err := tx.Commit(); err != nil {
-		return err
-	}
-	return nil
 }
 
 func NewKaraokeRepository(ctx context.Context, db dbx.Builder) model.KaraokeRepository {
@@ -117,29 +45,6 @@ func NewKaraokeRepository(ctx context.Context, db dbx.Builder) model.KaraokeRepo
 
 	return r
 }
-
-// func NewKaraokeRepository(ctx context.Context, db dbx.Builder) model.KaraokeRepository {
-// 	r := &karaokeRepository{}
-// 	r.ctx = ctx
-// 	r.db = db
-// 	r.registerModel(&model.KaraokeSong{}, map[string]filterFunc{
-// 		"q": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			// use LOWER(...) LIKE LOWER(?) for case-insensitive contains
-// 			return Expr("(karaoke_song.title COLLATE NOCASE LIKE ?) OR (karaoke_song.artist COLLATE NOCASE LIKE ?)", "%"+s+"%", "%"+s+"%")
-
-// 		},
-// 		"title": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			return Expr("(karaoke_song.title COLLATE NOCASE LIKE ?)", "%"+s+"%")
-// 		},
-// 		"artist": func(_ string, value any) Sqlizer {
-// 			s, _ := value.(string)
-// 			return Expr("(karaoke_song.artist COLLATE NOCASE LIKE ?)", "%"+s+"%")
-// 		},
-// 	})
-// 	return r
-// }
 
 func (r *karaokeRepository) isPermitted() bool {
 	user := loggedUser(r.ctx)
