@@ -3,16 +3,12 @@ import {
   Filter,
   SearchInput,
   Pagination,
-  usePermissions,
-  useRefresh,
   useTranslate,
 } from 'react-admin'
-import { Button, Dialog, DialogContent, DialogTitle } from '@material-ui/core'
 import { withWidth } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { List, Title } from '../common'
 import KaraokeGridView from './KaraokeGridView'
-import KaraokeCreate from './KaraokeCreate'
 
 const useStyles = makeStyles({
   searchComponent: {
@@ -55,13 +51,6 @@ const KaraokeListTitle = () => {
 
 const KaraokeList = (props) => {
   const { width } = props
-  const [openCreate, setOpenCreate] = useState(false)
-  const refresh = useRefresh()
-
-  const handleAddSuccess = () => {
-    setOpenCreate(false)
-    refresh()
-  }
 
   return (
     <>

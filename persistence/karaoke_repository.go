@@ -21,10 +21,18 @@ func NewKaraokeRepository(ctx context.Context, db dbx.Builder) model.KaraokeRepo
 	r.ctx = ctx
 	r.db = db
 	r.registerModel(&model.KaraokeSong{}, map[string]filterFunc{
+		"q":      karaokeFilter,
 		"title":  containsFilter("title"),
 		"artist": containsFilter("artist"),
 	})
 	return r
+}
+
+func karaokeFilter(_ string, value interface{}) Sqlizer {
+	return Or{
+		substringFilter("karaoke_song.title", value),
+		substringFilter("karaoke_song.artist", value),
+	}
 }
 
 func (r *karaokeRepository) isPermitted() bool {
