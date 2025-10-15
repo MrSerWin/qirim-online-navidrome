@@ -29,7 +29,7 @@ services:
 
       # UI
       ND_UIWELCOMEMESSAGE: "Qırım Online"
-      ND_ENABLESHARING: "false"
+      ND_ENABLESHARING: "true"
       ND_ENABLESELFREGISTRATION: "true" 
       ND_DEFAULTTHEME: "QODarkTheme"
       ND_ENABLEDOWNLOADS: "false"

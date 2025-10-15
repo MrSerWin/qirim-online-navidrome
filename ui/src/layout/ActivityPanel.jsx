@@ -100,9 +100,38 @@ const ActivityPanel = () => {
 
   useEffect(() => {
     if (serverStart.version && serverStart.version !== config.version) {
-      notify('ra.notification.new_version', 'info', {}, false, 604800000 * 50)
+      const reloadApp = () => {
+        // Unregister all service workers
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            registrations.forEach((registration) => {
+              registration.unregister()
+            })
+          })
+        }
+        // Clear cache and reload
+        if (caches) {
+          caches.keys().then((names) => {
+            names.forEach((name) => {
+              caches.delete(name)
+            })
+          })
+        }
+        // Force reload after a short delay
+        setTimeout(() => {
+          window.location.reload(true)
+        }, 100)
+      }
+
+      // Show notification with reload action
+      notify('ra.notification.new_version', 'info', {
+        action: {
+          label: translate('ra.action.refresh'),
+          onClick: reloadApp,
+        },
+      }, false, 604800000 * 50)
     }
-  }, [serverStart, notify])
+  }, [serverStart, notify, translate])
 
   const tooltipTitle = scanStatus.error
     ? `${translate('activity.status')}: ${scanStatus.error}`
