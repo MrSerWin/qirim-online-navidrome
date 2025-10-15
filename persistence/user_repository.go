@@ -193,6 +193,60 @@ func (r *userRepository) FindByUsernameWithPassword(username string) (*model.Use
 	return usr, nil
 }
 
+// OAuth provider lookup methods
+
+func (r *userRepository) FindByGoogleID(googleID string) (*model.User, error) {
+	if googleID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.google_id": googleID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByAppleID(appleID string) (*model.User, error) {
+	if appleID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.apple_id": appleID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByInstagramID(instagramID string) (*model.User, error) {
+	if instagramID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.instagram_id": instagramID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByFacebookID(facebookID string) (*model.User, error) {
+	if facebookID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.facebook_id": facebookID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
 func (r *userRepository) UpdateLastLoginAt(id string) error {
 	upd := Update(r.tableName).Where(Eq{"id": id}).Set("last_login_at", time.Now())
 	_, err := r.executeSQL(upd)
