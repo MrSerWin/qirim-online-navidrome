@@ -1,0 +1,87 @@
+services:
+  navidrome:
+    image: navidrome-qo:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.simple
+      platforms:
+        - linux/amd64
+      args:
+        GIT_SHA: ${GIT_SHA:-dev}
+        GIT_TAG: ${GIT_TAG:-v0.58.0-QO}
+    container_name: navidrome-qo-prod
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "4533:4533"
+    environment:
+      # Basic config
+      ND_CONFIGFILE: ""
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+      ND_MUSICFOLDER: "/music"
+      ND_DATAFOLDER: "/data"
+
+      # Scanning
+      ND_SCANSCHEDULE: "@every 1h"
+      ND_AUTOIMPORTPLAYLISTS: "true"
+
+      # Performance
+      ND_TRANSCODINGCACHESIZE: "100MB"
+      ND_IMAGECACHESIZE: "100MB"
+
+      # UI
+      ND_UIWELCOMEMESSAGE: "Qırım Online"
+      ND_ENABLESHARING: "false"
+      ND_ENABLESELFREGISTRATION: "true"
+      ND_DEFAULTTHEME: "QODarkTheme"
+      ND_ENABLEDOWNLOADS: "false"
+    volumes:
+      - /opt/navidrome/data:/data
+      - /opt/navidrome/music:/music:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:4533/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - navidrome-net
+
+  # Nginx reverse proxy with SSL
+  nginx:
+    image: nginx:alpine
+    container_name: navidrome-nginx-prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx-qirim-online.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - certbot-data:/var/www/certbot:ro
+      - certbot-conf:/etc/letsencrypt:ro
+    depends_on:
+      - navidrome
+    networks:
+      - navidrome-net
+
+  # Certbot for SSL certificates
+  certbot:
+    image: certbot/certbot:latest
+    container_name: navidrome-certbot-prod
+    volumes:
+      - certbot-data:/var/www/certbot
+      - certbot-conf:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+volumes:
+  certbot-data:
+    driver: local
+  certbot-conf:
+    driver: local
+
+networks:
+  navidrome-net:
+    driver: bridge

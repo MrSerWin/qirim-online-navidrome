@@ -52,11 +52,13 @@ COPY --from=taglib-build /taglib /taglib
 ENV CGO_ENABLED=1
 ENV PKG_CONFIG_PATH=/taglib/lib/pkgconfig
 
-# Copy go files
+# Copy go.mod and go.sum first
 COPY go.mod go.sum ./
+
+# Download dependencies (external only)
 RUN go mod download
 
-# Copy source
+# Copy all source code (including internal packages)
 COPY . .
 
 # Copy built UI

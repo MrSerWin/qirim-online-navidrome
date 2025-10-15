@@ -9,43 +9,25 @@
 
 ## 🚀 Быстрый старт
 
-### Развертывание на новом домене
+### Stage (qirim.cloud)
 
 ```bash
-./deploy.sh your-domain.com root@vps-ip
+./rebuild-and-deploy.sh
 ```
 
-**Пример для qirim.online:**
+### Production (qirim.online)
 
 ```bash
-./deploy.sh qirim.online root@SERVER_IP
+./rebuild-and-deploy-qirim-online.sh
 ```
 
-Скрипт автоматически:
-- ✅ Проверит DNS
-- ✅ Загрузит код на VPS
-- ✅ Соберёт Docker образ
-- ✅ Запустит Navidrome
-- ✅ Настроит SSL сертификат
-- ✅ Настроит редирект HTTP → HTTPS
-
-**Время:** ~5-7 минут
+**Время:** ~3-5 минут
 
 ---
 
 ## 📚 Документация
 
-### Основные документы:
-
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Полное руководство по развертыванию
-- **[DEPLOY-QIRIM-ONLINE.md](DEPLOY-QIRIM-ONLINE.md)** - Специфичная инструкция для qirim.online
-- **[CHEATSHEET.md](CHEATSHEET.md)** - Шпаргалка по командам Docker
-
-### Дополнительные документы:
-
-- **[README-NAVIDROME-ORIGINAL.md](README-NAVIDROME-ORIGINAL.md)** - Оригинальный README Navidrome
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Как внести вклад в Navidrome
-- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** - Кодекс поведения
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Полное руководство по развертыванию и обновлению для stage и production
 
 ---
 
@@ -91,40 +73,22 @@
 
 ---
 
-## 🛠 Полезные скрипты
+## 🛠 Скрипты
 
 ### Развертывание и обновление:
 
-- **`deploy.sh`** - Полное развертывание на новом домене/VPS
-- **`update.sh`** - Обновление кода (ui/go/full)
-- **`get-certificate.sh`** - Получение SSL сертификата
-- **`apply-ssl.sh`** - Применение SSL конфигурации
-
-### Диагностика:
-
-- **`quick-check.sh`** - Быстрая проверка статуса
-- **`check-ssl-status.sh`** - Проверка SSL сертификата
+- **`build-image.sh`** - Сборка Docker образа для linux/amd64
+- **`rebuild-and-deploy.sh`** - Развертывание stage (qirim.cloud)
+- **`rebuild-and-deploy-qirim-online.sh`** - Развертывание production (qirim.online)
 
 ### Примеры использования:
 
 ```bash
-# Полное развертывание
-./deploy.sh qirim.online root@SERVER_IP
+# Развертывание stage
+./rebuild-and-deploy.sh
 
-# Обновить только UI
-./update.sh ui
-
-# Обновить только Go код
-./update.sh go
-
-# Полное обновление
-./update.sh full
-
-# Проверить статус
-./quick-check.sh
-
-# Получить SSL сертификат вручную
-./get-certificate.sh
+# Развертывание production
+./rebuild-and-deploy-qirim-online.sh
 ```
 
 ---
@@ -133,45 +97,39 @@
 
 ```
 navidrome/
-├── deploy.sh                 # Главный скрипт развертывания
-├── update.sh                 # Скрипт обновления
-├── quick-check.sh            # Проверка статуса
-├── get-certificate.sh        # Получение SSL
-├── apply-ssl.sh              # Применение SSL
-├── check-ssl-status.sh       # Проверка SSL
+├── build-image.sh                      # Сборка Docker образа
+├── rebuild-and-deploy.sh               # Деплой stage
+├── rebuild-and-deploy-qirim-online.sh  # Деплой production
 │
-├── DEPLOYMENT.md             # Полное руководство
-├── DEPLOY-QIRIM-ONLINE.md    # Инструкция для qirim.online
-├── CHEATSHEET.md             # Шпаргалка
+├── README.md                           # Описание проекта
+├── DEPLOYMENT.md                       # Руководство по развертыванию
 │
-├── docker-compose.yml        # Конфигурация Docker
-├── Dockerfile.fixed          # Dockerfile (рабочий)
-├── .dockerignore             # Исключения Docker
+├── docker-compose.yml                  # Docker конфиг для stage
+├── docker-compose.qirim-online.yml     # Docker конфиг для production
+├── Dockerfile.simple                   # Dockerfile
+├── .dockerignore                       # Исключения Docker
 │
 ├── nginx/
-│   ├── nginx.conf            # Nginx с SSL
-│   └── nginx-temp.conf       # Nginx без SSL (временный)
+│   ├── nginx.conf                      # Nginx для stage
+│   └── nginx-qirim-online.conf         # Nginx для production
 │
-├── ui/                       # React UI
+├── ui/                                 # React UI
 │   ├── src/
 │   │   ├── themes/
-│   │   │   ├── qoDark.js     # Тёмная тема QO
-│   │   │   ├── qoLight.js    # Светлая тема QO
-│   │   │   └── index.js      # Экспорт тем
+│   │   │   ├── qoDark.js               # Тёмная тема QO
+│   │   │   ├── qoLight.js              # Светлая тема QO
+│   │   │   └── index.js                # Экспорт тем
 │   │   ├── album/
-│   │   │   └── AlbumGridView.jsx  # Круглые обложки
+│   │   │   └── AlbumGridView.jsx       # Круглые обложки
 │   │   └── song/
-│   │       ├── SongList.jsx       # Непрерывное воспроизведение
-│   │       └── useAutoLoadQueue.js # Автозагрузка очереди
+│   │       ├── SongList.jsx            # Непрерывное воспроизведение
+│   │       └── useAutoLoadQueue.js     # Автозагрузка очереди
 │   └── public/
-│       ├── qo-logo-dark.png  # Логотип для тёмной темы
-│       └── qo-logo-light.png # Логотип для светлой темы
+│       ├── qo-logo-dark.png            # Логотип для тёмной темы
+│       └── qo-logo-light.png           # Логотип для светлой темы
 │
-├── db/                       # Go код и миграции
-├── server/                   # Серверный код
-└── archive/                  # Старые скрипты и документы
-    ├── old-docs/             # Устаревшие документы
-    └── old-scripts/          # Устаревшие скрипты
+├── db/                                 # Go код и миграции
+└── server/                             # Серверный код
 ```
 
 ---
@@ -194,85 +152,32 @@ navidrome/
 
 ## 🌐 Текущие развертывания
 
-- **qirim.cloud** - `https://qirim.cloud`
-- **qirim.online** - (готово к развертыванию)
+- **Stage:** https://qirim.cloud
+- **Production:** https://qirim.online
 
 ---
 
 ## 📝 Обновление кода
 
-### После изменений в UI:
+### После любых изменений (UI или Go):
 
 ```bash
-./update.sh ui root@SERVER_IP
-```
+# Stage
+./rebuild-and-deploy.sh
 
-⏱ **Время:** ~1-2 минуты
-
-### После изменений в Go коде:
-
-```bash
-./update.sh go root@SERVER_IP
-```
-
-⏱ **Время:** ~2-3 минуты
-
-### Полное обновление:
-
-```bash
-./update.sh full root@SERVER_IP
+# Production
+./rebuild-and-deploy-qirim-online.sh
 ```
 
 ⏱ **Время:** ~3-5 минут
 
----
-
-## 🐛 Troubleshooting
-
-### Сайт недоступен
-
-```bash
-# Проверить DNS
-dig +short your-domain.com
-
-# Проверить статус
-./quick-check.sh
-
-# Просмотреть логи (на VPS)
-ssh root@vps-ip 'cd /opt/navidrome && docker compose logs navidrome'
-```
-
-### SSL не работает
-
-```bash
-# Получить сертификат вручную
-./get-certificate.sh
-
-# Применить SSL конфигурацию
-./apply-ssl.sh
-```
-
-### Ошибки сборки
-
-```bash
-# Полная пересборка (на VPS)
-ssh root@vps-ip
-cd /opt/navidrome
-docker compose down
-docker system prune -a
-docker compose build --no-cache navidrome
-docker compose up -d
-```
-
-Подробнее: [DEPLOYMENT.md - Troubleshooting](DEPLOYMENT.md#troubleshooting)
+Подробнее: [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ---
 
 ## 🤝 Вклад в проект
 
 Этот проект основан на [Navidrome](https://github.com/navidrome/navidrome).
-
-Для вклада в оригинальный Navidrome, смотрите [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
@@ -285,23 +190,10 @@ docker compose up -d
 ## 🔗 Полезные ссылки
 
 - [Navidrome Official Site](https://www.navidrome.org)
-- [Navidrome Documentation](https://www.navidrome.org/docs/)
 - [Navidrome GitHub](https://github.com/navidrome/navidrome)
-- [Docker Documentation](https://docs.docker.com/)
-- [Let's Encrypt](https://letsencrypt.org/)
-
----
-
-## 📞 Поддержка
-
-При проблемах:
-
-1. Проверьте [DEPLOYMENT.md - Troubleshooting](DEPLOYMENT.md#troubleshooting)
-2. Запустите `./quick-check.sh` для диагностики
-3. Проверьте логи: `docker compose logs navidrome` (на VPS)
 
 ---
 
 **Версия:** v0.58.0-QO
 **Базируется на:** Navidrome v0.58.0
-**Последнее обновление:** 2025-10-12
+**Последнее обновление:** 2025-10-14
