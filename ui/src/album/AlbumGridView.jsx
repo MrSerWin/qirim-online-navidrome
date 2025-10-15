@@ -241,13 +241,6 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'), {
     noSsr: true,
   })
-  if (!record) {
-    return null
-  }
-  const computedClasses = clsx(
-    classes.albumContainer,
-    record.missing && classes.missingAlbum,
-  )
   const dataProvider = useDataProvider()
   const dispatch = useDispatch()
 
@@ -274,6 +267,16 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
     },
     [dataProvider, dispatch, record],
   )
+
+  if (!record) {
+    return null
+  }
+
+  const computedClasses = clsx(
+    classes.albumContainer,
+    record.missing && classes.missingAlbum,
+  )
+
   return (
     <div className={computedClasses}>
       <div className={classes.coverWrapper}>

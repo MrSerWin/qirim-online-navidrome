@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useDataProvider, useListContext } from 'react-admin'
 import { addTracks } from '../actions'
@@ -11,8 +11,14 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
   const dataProvider = useDataProvider()
   const listContext = useListContext()
 
-  const filterValues = listContext.filterValues || {}
-  const sort = listContext.sort || { field: 'title', order: 'ASC' }
+  const filterValues = useMemo(
+    () => listContext.filterValues || {},
+    [listContext.filterValues],
+  )
+  const sort = useMemo(
+    () => listContext.sort || { field: 'title', order: 'ASC' },
+    [listContext.sort],
+  )
   const perPage = listContext.perPage || 50
 
   const playerState = useSelector((state) => state.player)
@@ -30,6 +36,7 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
     const nextPage = currentPageRef.current + 1
 
     try {
+      // eslint-disable-next-line no-console
       console.log(`[AutoLoadQueue] Loading page ${nextPage}`)
 
       const { data: newData, total } = await dataProvider.getList(resource, {
@@ -47,17 +54,21 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
 
         const ids = newData.map((item) => item.id)
 
+        // eslint-disable-next-line no-console
         console.log(`[AutoLoadQueue] Adding ${ids.length} tracks to queue`)
         dispatch(addTracks(dataObject, ids))
         currentPageRef.current = nextPage
 
+        // eslint-disable-next-line no-console
         console.log(
           `[AutoLoadQueue] Loaded ${newData.length} tracks from page ${nextPage}. Total: ${total}`,
         )
       } else {
+        // eslint-disable-next-line no-console
         console.log('[AutoLoadQueue] No more tracks to load')
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('[AutoLoadQueue] Error loading next page:', error)
     } finally {
       loadingRef.current = false
@@ -78,12 +89,14 @@ export const useAutoLoadQueue = ({ resource = 'song', threshold = 10 }) => {
 
     const tracksRemaining = queue.length - currentIndex
 
+    // eslint-disable-next-line no-console
     console.log(
       `[AutoLoadQueue] Current: ${currentIndex + 1}/${queue.length}, Remaining: ${tracksRemaining}`,
     )
 
     // If we're near the end, load more
     if (tracksRemaining <= threshold && !loadingRef.current) {
+      // eslint-disable-next-line no-console
       console.log(
         `[AutoLoadQueue] Near end (${tracksRemaining} tracks left), loading next page...`,
       )

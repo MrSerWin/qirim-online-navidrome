@@ -284,6 +284,19 @@ const FormSignUp = ({
 }) => {
   const translate = useTranslate()
   const classes = useStyles()
+  const prefersLightMode = useMediaQuery('(prefers-color-scheme: light)')
+
+  const logo = useSelector((state) => {
+    if (state.theme === AUTO_THEME_ID) {
+      return prefersLightMode ? Logo : LogoWhite
+    }
+
+    if (state.theme === 'LigeraTheme' || state.theme === 'LightTheme') {
+      return Logo
+    }
+
+    return LogoWhite
+  })
 
   return (
     <Form
@@ -294,12 +307,7 @@ const FormSignUp = ({
           <div className={classes.main}>
             <Card className={classes.card}>
               <div className={classes.avatar}>
-                <img src={Logo} className={classes.icon} alt={'logo'} />
-              </div>
-              <div className={classes.welcome}>
-                {showToggle
-                  ? translate('ra.auth.createAccount')
-                  : translate('ra.auth.welcome1')}
+                <img src={logo} className={classes.icon} alt={'logo'} />
               </div>
               {!showToggle && (
                 <div className={classes.welcome}>

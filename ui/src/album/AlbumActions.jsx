@@ -14,7 +14,6 @@ import ShuffleIcon from '@material-ui/icons/Shuffle'
 import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
 import { RiPlayListAddFill, RiPlayList2Fill } from 'react-icons/ri'
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd'
-import ShareIcon from '@material-ui/icons/Share'
 import {
   playNext,
   addTracks,
@@ -23,11 +22,10 @@ import {
   openAddToPlaylist,
   openDownloadMenu,
   DOWNLOAD_MENU_ALBUM,
-  openShareMenu,
 } from '../actions'
 import { formatBytes } from '../utils'
 import config from '../config'
-import { ToggleFieldsMenu } from '../common'
+import { ToggleFieldsMenu, QuickShareButton } from '../common'
 
 const useStyles = makeStyles({
   toolbar: { display: 'flex', justifyContent: 'space-between', width: '100%' },
@@ -77,10 +75,6 @@ const AlbumActions = ({
     dispatch(openAddToPlaylist({ selectedIds }))
   }, [dispatch, data, ids])
 
-  const handleShare = React.useCallback(() => {
-    dispatch(openShareMenu([record.id], 'album', record.name))
-  }, [dispatch, record])
-
   const handleDownload = React.useCallback(() => {
     dispatch(openDownloadMenu(record, DOWNLOAD_MENU_ALBUM))
   }, [dispatch, record])
@@ -120,12 +114,13 @@ const AlbumActions = ({
             <PlaylistAddIcon />
           </AlbumButton>
           {config.enableSharing && (
-            <AlbumButton
-              onClick={handleShare}
-              label={translate('ra.action.share')}
-            >
-              <ShareIcon />
-            </AlbumButton>
+            <QuickShareButton
+              url={window.location.href}
+              title={`${record.name} - ${record.albumArtist || record.artist}`}
+              description={`Listen to ${record.name} on Qırım Online`}
+              variant="text"
+              size="medium"
+            />
           )}
           {config.enableDownloads && (
             <AlbumButton

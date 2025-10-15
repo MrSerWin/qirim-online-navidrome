@@ -1,0 +1,40 @@
+services:
+  navidrome:
+    image: navidrome-qo:latest
+    container_name: navidrome-qo-local
+    restart: unless-stopped
+    ports:
+      - "4533:4533"
+    environment:
+      # Basic config
+      ND_CONFIGFILE: ""
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+      ND_MUSICFOLDER: "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar"
+      ND_DATAFOLDER: "/data"
+
+      # Scanning
+      ND_SCANSCHEDULE: "@every 1h"
+      ND_AUTOIMPORTPLAYLISTS: "true"
+
+      # Performance
+      ND_TRANSCODINGCACHESIZE: "100MB"
+      ND_IMAGECACHESIZE: "100MB"
+
+      # UI
+      ND_UIWELCOMEMESSAGE: "Qırım Online (Local Dev)"
+      ND_ENABLESHARING: "false"
+      ND_ENABLESELFREGISTRATION: "true"
+      ND_DEFAULTTHEME: "QODarkTheme"
+      ND_ENABLEDOWNLOADS: "false"
+    volumes:
+      # Локальные пути для разработки
+      - /Volumes/T9/1_dev/1_QO/myQO/navidrome-data:/data
+      - /Volumes/T9:/Volumes/T9:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:4533/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s

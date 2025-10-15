@@ -21,7 +21,6 @@ dist
 music
 *.db*
 .gitinfo
-docker-compose.yml
 !contrib/docker-compose.yml
 binaries
 navidrome-*
@@ -47,7 +46,6 @@ get-certificate.sh
 check-ssl-status.sh
 quick-check.sh
 DEPLOY-QIRIM-ONLINE.md
-DEPLOYMENT.md
 QUICK-START.md
 SUMMARY.md
 

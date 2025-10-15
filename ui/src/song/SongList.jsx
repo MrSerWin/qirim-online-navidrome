@@ -162,6 +162,7 @@ const SongListContent = () => {
   const handleRowClick = (id, basePath, record) => {
     // Play all songs in the list starting from the clicked one
     if (!data || !ids) {
+      // eslint-disable-next-line no-console
       console.error('No data or ids available')
       return
     }

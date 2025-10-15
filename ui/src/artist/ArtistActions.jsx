@@ -15,6 +15,8 @@ import ShuffleIcon from '@material-ui/icons/Shuffle'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import { IoIosRadio } from 'react-icons/io'
 import { playShuffle, playSimilar, playTopSongs } from './actions.js'
+import { QuickShareButton } from '../common'
+import config from '../config'
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -112,6 +114,16 @@ const ArtistActions = ({ className, record, ...rest }) => {
       >
         <IoIosRadio className={classes.radioIcon} />
       </Button>
+      {config.enableSharing && (
+        <QuickShareButton
+          url={window.location.href}
+          title={record.name}
+          description={`Listen to ${record.name} on Qırım Online`}
+          variant="text"
+          size={isMobile ? 'small' : 'medium'}
+          className={classes.button}
+        />
+      )}
     </TopToolbar>
   )
 }
