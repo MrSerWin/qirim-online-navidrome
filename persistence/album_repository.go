@@ -106,6 +106,10 @@ func NewAlbumRepository(ctx context.Context, db dbx.Builder) model.AlbumReposito
 		"random":         "random",
 		"recently_added": recentlyAddedSort(),
 		"starred_at":     "starred, starred_at",
+		"playCount":      "play_count",
+		"play_count":     "play_count",
+		"playDate":       "play_date",
+		"play_date":      "play_date",
 	})
 	return r
 }
@@ -120,6 +124,7 @@ var albumFilters = sync.OnceValue(func() map[string]filterFunc {
 		"recently_played": recentlyPlayedFilter,
 		"starred":         booleanFilter,
 		"has_rating":      hasRatingFilter,
+		"play_count":      eqFilter,
 		"missing":         booleanFilter,
 		"genre_id":        tagIDFilter,
 		"role_total_id":   allRolesFilter,

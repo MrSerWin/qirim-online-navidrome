@@ -23,7 +23,7 @@ const albumLists = {
         activeIcon={AlbumIcon}
       />
     ),
-    params: 'sort=name&order=ASC&filter={}',
+    params: 'sort=playCount&order=ASC&filter={}',
   },
   random: {
     icon: <ShuffleIcon />,

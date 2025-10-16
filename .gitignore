@@ -54,3 +54,5 @@ nginx/
 DEPLOY.md
 
 rebuild-and-deploy.sh
+
+docker-compose.qirim-online.yml
