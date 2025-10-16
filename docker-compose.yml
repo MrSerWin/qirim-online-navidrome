@@ -35,29 +35,30 @@ services:
       ND_ENABLEDOWNLOADS: "false"
 
       # OAuth Configuration (optional - uncomment to enable)
-      ND_OAUTH_ENABLED: "true"
-      ND_OAUTH_AUTOCREATEUSER: "true"
-      ND_OAUTH_AUTOCREATEUSERADMIN: "false"
+      # See OAUTH_SETUP.md for detailed setup instructions
+      # ND_OAUTH_ENABLED: "true"
+      # ND_OAUTH_AUTOCREATEUSER: "true"
+      # ND_OAUTH_AUTOCREATEUSERADMIN: "false"
 
       # Google OAuth
-      ND_OAUTH_GOOGLE_ENABLED: "true"
-      ND_OAUTH_GOOGLE_CLIENTID: "1070163609265-4kaitbf31t4563am55c7eb0nviviohp1.apps.googleusercontent.com"
-      ND_OAUTH_GOOGLE_CLIENTSECRET: "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"
+      # ND_OAUTH_GOOGLE_ENABLED: "true"
+      # ND_OAUTH_GOOGLE_CLIENTID: "your-google-client-id.apps.googleusercontent.com"
+      # ND_OAUTH_GOOGLE_CLIENTSECRET: "your-google-client-secret"
 
       # Apple OAuth
       # ND_OAUTH_APPLE_ENABLED: "true"
-      # ND_OAUTH_APPLE_CLIENTID: "qirim.online.web.signin"
-      # ND_OAUTH_APPLE_CLIENTSECRET: "${OAUTH_APPLE_CLIENTSECRET}"
+      # ND_OAUTH_APPLE_CLIENTID: "your-apple-client-id"
+      # ND_OAUTH_APPLE_CLIENTSECRET: "your-apple-client-secret"
 
-      # Instagram OAuth
-      ND_OAUTH_INSTAGRAM_ENABLED: "true"
-      ND_OAUTH_INSTAGRAM_CLIENTID: "273279853519362"
-      ND_OAUTH_INSTAGRAM_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
+      # Instagram OAuth (uses Facebook OAuth - see OAUTH_SETUP.md)
+      # ND_OAUTH_INSTAGRAM_ENABLED: "false"
+      # ND_OAUTH_INSTAGRAM_CLIENTID: "your-facebook-app-id"
+      # ND_OAUTH_INSTAGRAM_CLIENTSECRET: "your-facebook-app-secret"
 
       # Facebook OAuth
-      ND_OAUTH_FACEBOOK_ENABLED: "true"
-      ND_OAUTH_FACEBOOK_CLIENTID: "273279853519362"
-      ND_OAUTH_FACEBOOK_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
+      # ND_OAUTH_FACEBOOK_ENABLED: "true"
+      # ND_OAUTH_FACEBOOK_CLIENTID: "your-facebook-app-id"
+      # ND_OAUTH_FACEBOOK_CLIENTSECRET: "your-facebook-app-secret"
     volumes:
       - /opt/navidrome/data:/data
       - /opt/navidrome/music:/music:ro
