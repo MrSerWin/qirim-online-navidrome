@@ -77,8 +77,9 @@ func getOAuthConfig(provider string) (*oauth2.Config, error) {
 	case "instagram":
 		clientID = conf.Server.OAuth.Instagram.ClientID
 		clientSecret = conf.Server.OAuth.Instagram.ClientSecret
-		endpoint = instagramEndpoint
-		scopes = []string{"user_profile"}
+		// Instagram now uses Facebook's OAuth endpoint
+		endpoint = facebookEndpoint
+		scopes = []string{"email", "public_profile", "instagram_basic"}
 		enabled = conf.Server.OAuth.Instagram.Enabled
 	case "facebook":
 		clientID = conf.Server.OAuth.Facebook.ClientID
@@ -300,7 +301,8 @@ func getOAuthUserInfo(ctx context.Context, provider string, token *oauth2.Token)
 	case "facebook":
 		userInfoURL = facebookUserInfoURL
 	case "instagram":
-		userInfoURL = instagramUserInfoURL
+		// Instagram now uses Facebook Graph API
+		userInfoURL = facebookUserInfoURL
 	case "apple":
 		// Apple ID token is a JWT, need to decode it
 		// For simplicity, we'll parse the id_token from the token response

@@ -84,15 +84,26 @@ export ND_OAUTH_GOOGLE_CLIENTSECRET="your-client-secret"
 
 ### Instagram OAuth
 
+**Note:** Instagram Basic Display API is deprecated. Instagram OAuth now uses Facebook Login.
+
 1. Go to [Meta for Developers](https://developers.facebook.com/)
-2. Create a new app
-3. Add "Instagram" product
-4. Configure Instagram Basic Display:
-   - Add redirect URI: `https://yourdomain.com/auth/oauth/callback/instagram`
-5. Get Client ID and Client Secret from app settings
+2. Create a new app (choose "Consumer" type)
+3. Add "Facebook Login" product
+4. Configure OAuth redirect URIs:
+   - `https://yourdomain.com/auth/oauth/callback/instagram`
+   - `http://localhost:4533/auth/oauth/callback/instagram` (for local dev)
+5. Get App ID (Client ID) and App Secret (Client Secret)
+6. **Important:** Use the same Client ID and Secret as Facebook OAuth
 
 **Scopes required:**
-- `user_profile`
+- `email`
+- `public_profile`
+- `instagram_basic` (optional, for Instagram-specific data)
+
+**Configuration:**
+- Instagram OAuth uses Facebook's endpoints
+- User authentication is done via Facebook
+- You can use the same credentials for both Facebook and Instagram providers
 
 ### Facebook OAuth
 

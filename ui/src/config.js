@@ -43,7 +43,7 @@ const defaultConfig = {
   oauthProviders: {
     google: true,
     apple: false,
-    instagram: true,
+    instagram: false,
     facebook: true,
   },
 }
