@@ -356,7 +356,8 @@ func validatePasswordChange(newUser *model.User, logged *model.User) error {
 		err.Errors["password"] = "ra.validation.required"
 	}
 
-	if !strings.HasPrefix(logged.Password, consts.PasswordAutogenPrefix) {
+	// Skip password validation for OAuth users (they don't have passwords)
+	if logged.Password != "" && !strings.HasPrefix(logged.Password, consts.PasswordAutogenPrefix) {
 		if newUser.CurrentPassword == "" {
 			err.Errors["currentPassword"] = "ra.validation.required"
 		}
@@ -472,6 +473,10 @@ func (r *userRepository) encryptPassword(u *model.User) error {
 
 // decrypts u.Password
 func (r *userRepository) decryptPassword(u *model.User) error {
+	// Skip decryption if password is empty (e.g., OAuth users)
+	if u.Password == "" {
+		return nil
+	}
 	plaintext, err := utils.Decrypt(r.ctx, encKey, u.Password)
 	if err != nil {
 		log.Error(r.ctx, "Error decrypting user's password", "user", u.UserName, err)

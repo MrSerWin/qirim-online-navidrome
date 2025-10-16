@@ -39,25 +39,13 @@ const defaultConfig = {
   publicBaseUrl: '/share',
   separator: '/',
   enableInspect: true,
-  oauthEnabled: true,
-  oauthAutocreateUser: true,
-  oauthAutocreateUserAdmin: false,
-  baseURL: 'http://localhost:4533',
-  // # Google OAuth
-  oauthGoogleEnabled: true,
-  oauthGoogleClientId: '1070163609265-4kaitbf31t4563am55c7eb0nviviohp1.apps.googleusercontent.com',
-  oauthGoogleClientSecret: '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',
-
-  // # Instagram OAuth
-  oauthInstagramEnabled: true,
-  oauthInstagramClientId: '273279853519362',
-  oauthInstagramClientSecret: '9851dc8c30088c3d13994ec211675953',
-
-  // # Facebook OAuth
-  oauthFacebookEnabled: true,
-  oauthFacebookClientId: '273279853519362',
-  oauthFacebookClientSecret: '9851dc8c30088c3d13994ec211675953',
-
+  enableOAuth: true,
+  oauthProviders: {
+    google: true,
+    apple: false,
+    instagram: true,
+    facebook: true,
+  },
 }
 
 let config

@@ -38,15 +38,15 @@ services:
       ND_DEFAULTTHEME: "QODarkTheme"
       ND_ENABLEDOWNLOADS: "false"
 
-      # OAuth Configuration (optional - uncomment to enable)
-      ND_OAUTH_ENABLED: "true"
-      ND_OAUTH_AUTOCREATEUSER: "true"
-      ND_OAUTH_AUTOCREATEUSERADMIN: "false"
+      # OAuth Configuration (disabled by default - enable when ready to test)
+      # ND_OAUTH_ENABLED: "true"
+      # ND_OAUTH_AUTOCREATEUSER: "true"
+      # ND_OAUTH_AUTOCREATEUSERADMIN: "false"
 
       # Google OAuth
-      ND_OAUTH_GOOGLE_ENABLED: "true"
-      ND_OAUTH_GOOGLE_CLIENTID: "1070163609265-4kaitbf31t4563am55c7eb0nviviohp1.apps.googleusercontent.com"
-      ND_OAUTH_GOOGLE_CLIENTSECRET: "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"
+      # ND_OAUTH_GOOGLE_ENABLED: "true"
+      # ND_OAUTH_GOOGLE_CLIENTID: "1070163609265-4kaitbf31t4563am55c7eb0nviviohp1.apps.googleusercontent.com"
+      # ND_OAUTH_GOOGLE_CLIENTSECRET: "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"
 
       # Apple OAuth
       # ND_OAUTH_APPLE_ENABLED: "true"
@@ -54,14 +54,14 @@ services:
       # ND_OAUTH_APPLE_CLIENTSECRET: "${OAUTH_APPLE_CLIENTSECRET}"
 
       # Instagram OAuth
-      ND_OAUTH_INSTAGRAM_ENABLED: "true"
-      ND_OAUTH_INSTAGRAM_CLIENTID: "273279853519362"
-      ND_OAUTH_INSTAGRAM_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
+      # ND_OAUTH_INSTAGRAM_ENABLED: "true"
+      # ND_OAUTH_INSTAGRAM_CLIENTID: "273279853519362"
+      # ND_OAUTH_INSTAGRAM_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
 
       # Facebook OAuth
-      ND_OAUTH_FACEBOOK_ENABLED: "true"
-      ND_OAUTH_FACEBOOK_CLIENTID: "273279853519362"
-      ND_OAUTH_FACEBOOK_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
+      # ND_OAUTH_FACEBOOK_ENABLED: "true"
+      # ND_OAUTH_FACEBOOK_CLIENTID: "273279853519362"
+      # ND_OAUTH_FACEBOOK_CLIENTSECRET: "9851dc8c30088c3d13994ec211675953"
     volumes:
       - /opt/navidrome/data:/data
       - /opt/navidrome/music:/music:ro

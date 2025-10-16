@@ -221,6 +221,8 @@ func oauthCallback(ds model.DataStore, provider string) func(w http.ResponseWrit
 			return
 		}
 
+		log.Info(r, "OAuth user authenticated", "userId", user.ID, "username", user.UserName, "provider", provider, "isAdmin", user.IsAdmin)
+
 		// Create JWT token
 		tokenString, err := auth.CreateToken(user)
 		if err != nil {
@@ -229,12 +231,62 @@ func oauthCallback(ds model.DataStore, provider string) func(w http.ResponseWrit
 			return
 		}
 
+		log.Debug(r, "OAuth JWT token created", "userId", user.ID, "tokenLength", len(tokenString))
+
 		payload := buildAuthPayload(user)
 		payload["token"] = tokenString
 
-		// Redirect to frontend with token
-		// For now, return JSON - in production you might want to redirect to frontend with token
-		_ = rest.RespondWithJSON(w, http.StatusOK, payload)
+		// Encode payload as JSON for the HTML template
+		payloadJSON, err := json.Marshal(payload)
+		if err != nil {
+			log.Error(r, "Failed to marshal payload", err)
+			_ = rest.RespondWithError(w, http.StatusInternalServerError, "Failed to create session")
+			return
+		}
+
+		// Return HTML that will save the token and redirect to the app
+		redirectHTML := fmt.Sprintf(`<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign in successful</title>
+    <script>
+        (function() {
+            try {
+                var authInfo = %s;
+
+                // Store auth data in localStorage (same as authProvider.js)
+                if (authInfo.token) {
+                    localStorage.setItem('token', authInfo.token);
+                }
+                localStorage.setItem('userId', authInfo.id);
+                localStorage.setItem('name', authInfo.name);
+                localStorage.setItem('username', authInfo.username);
+                if (authInfo.avatar) {
+                    localStorage.setItem('avatar', authInfo.avatar);
+                }
+                localStorage.setItem('role', authInfo.isAdmin ? 'admin' : 'regular');
+                localStorage.setItem('subsonic-salt', authInfo.subsonicSalt);
+                localStorage.setItem('subsonic-token', authInfo.subsonicToken);
+                localStorage.setItem('is-authenticated', 'true');
+
+                // Redirect to home page
+                window.location.href = '/';
+            } catch (error) {
+                console.error('OAuth callback error:', error);
+                alert('Authentication failed: ' + error.message);
+                window.location.href = '/login';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Signing you in...</p>
+</body>
+</html>`, string(payloadJSON))
+
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(redirectHTML))
 	}
 }
 
