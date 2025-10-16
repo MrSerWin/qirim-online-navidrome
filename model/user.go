@@ -18,6 +18,12 @@ type User struct {
 	// Library associations (many-to-many relationship)
 	Libraries Libraries `structs:"-" json:"libraries,omitempty"`
 
+	// OAuth provider IDs
+	GoogleID    string `structs:"google_id,omitempty" json:"googleId,omitempty"`
+	AppleID     string `structs:"apple_id,omitempty" json:"appleId,omitempty"`
+	InstagramID string `structs:"instagram_id,omitempty" json:"instagramId,omitempty"`
+	FacebookID  string `structs:"facebook_id,omitempty" json:"facebookId,omitempty"`
+
 	// This is only available on the backend, and it is never sent over the wire
 	Password string `structs:"-" json:"-"`
 	// This is used to set or change a password when calling Put. If it is empty, the password is not changed.
@@ -52,6 +58,12 @@ type UserRepository interface {
 	FindByUsername(username string) (*User, error)
 	// FindByUsernameWithPassword is the same as above, but also returns the decrypted password
 	FindByUsernameWithPassword(username string) (*User, error)
+
+	// OAuth provider lookup methods
+	FindByGoogleID(googleID string) (*User, error)
+	FindByAppleID(appleID string) (*User, error)
+	FindByInstagramID(instagramID string) (*User, error)
+	FindByFacebookID(facebookID string) (*User, error)
 
 	// Library association methods
 	GetUserLibraries(userID string) (Libraries, error)

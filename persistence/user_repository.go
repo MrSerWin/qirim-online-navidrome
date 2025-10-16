@@ -193,6 +193,60 @@ func (r *userRepository) FindByUsernameWithPassword(username string) (*model.Use
 	return usr, nil
 }
 
+// OAuth provider lookup methods
+
+func (r *userRepository) FindByGoogleID(googleID string) (*model.User, error) {
+	if googleID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.google_id": googleID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByAppleID(appleID string) (*model.User, error) {
+	if appleID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.apple_id": appleID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByInstagramID(instagramID string) (*model.User, error) {
+	if instagramID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.instagram_id": instagramID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
+func (r *userRepository) FindByFacebookID(facebookID string) (*model.User, error) {
+	if facebookID == "" {
+		return nil, model.ErrNotFound
+	}
+	sel := r.selectUserWithLibraries().Where(Eq{"user.facebook_id": facebookID})
+	var usr dbUser
+	err := r.queryOne(sel, &usr)
+	if err != nil {
+		return nil, err
+	}
+	return usr.User, nil
+}
+
 func (r *userRepository) UpdateLastLoginAt(id string) error {
 	upd := Update(r.tableName).Where(Eq{"id": id}).Set("last_login_at", time.Now())
 	_, err := r.executeSQL(upd)
@@ -302,7 +356,8 @@ func validatePasswordChange(newUser *model.User, logged *model.User) error {
 		err.Errors["password"] = "ra.validation.required"
 	}
 
-	if !strings.HasPrefix(logged.Password, consts.PasswordAutogenPrefix) {
+	// Skip password validation for OAuth users (they don't have passwords)
+	if logged.Password != "" && !strings.HasPrefix(logged.Password, consts.PasswordAutogenPrefix) {
 		if newUser.CurrentPassword == "" {
 			err.Errors["currentPassword"] = "ra.validation.required"
 		}
@@ -418,6 +473,10 @@ func (r *userRepository) encryptPassword(u *model.User) error {
 
 // decrypts u.Password
 func (r *userRepository) decryptPassword(u *model.User) error {
+	// Skip decryption if password is empty (e.g., OAuth users)
+	if u.Password == "" {
+		return nil
+	}
 	plaintext, err := utils.Decrypt(r.ctx, encKey, u.Password)
 	if err != nil {
 		log.Error(r.ctx, "Error decrypting user's password", "user", u.UserName, err)

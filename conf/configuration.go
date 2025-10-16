@@ -103,6 +103,7 @@ type configOptions struct {
 	Spotify                         spotifyOptions      `json:",omitzero"`
 	Deezer                          deezerOptions       `json:",omitzero"`
 	ListenBrainz                    listenBrainzOptions `json:",omitzero"`
+	OAuth                           oauthOptions        `json:",omitzero"`
 	Tags                            map[string]TagConf  `json:",omitempty"`
 	Agents                          string
 
@@ -182,6 +183,23 @@ type deezerOptions struct {
 type listenBrainzOptions struct {
 	Enabled bool
 	BaseURL string
+}
+
+type oauthOptions struct {
+	Enabled              bool
+	Google               oauthProviderOptions `json:",omitzero"`
+	Apple                oauthProviderOptions `json:",omitzero"`
+	Instagram            oauthProviderOptions `json:",omitzero"`
+	Facebook             oauthProviderOptions `json:",omitzero"`
+	RedirectURL          string
+	AutoCreateUser       bool
+	AutoCreateUserAdmin  bool
+}
+
+type oauthProviderOptions struct {
+	Enabled      bool
+	ClientID     string
+	ClientSecret string
 }
 
 type secureOptions struct {
@@ -569,6 +587,22 @@ func setViperDefaults() {
 	viper.SetDefault("deezer.enabled", true)
 	viper.SetDefault("listenbrainz.enabled", true)
 	viper.SetDefault("listenbrainz.baseurl", "https://api.listenbrainz.org/1/")
+	viper.SetDefault("oauth.enabled", false)
+	viper.SetDefault("oauth.redirecturl", "")
+	viper.SetDefault("oauth.autocreateuser", true)
+	viper.SetDefault("oauth.autocreateuseradmin", false)
+	viper.SetDefault("oauth.google.enabled", false)
+	viper.SetDefault("oauth.google.clientid", "")
+	viper.SetDefault("oauth.google.clientsecret", "")
+	viper.SetDefault("oauth.apple.enabled", false)
+	viper.SetDefault("oauth.apple.clientid", "")
+	viper.SetDefault("oauth.apple.clientsecret", "")
+	viper.SetDefault("oauth.instagram.enabled", false)
+	viper.SetDefault("oauth.instagram.clientid", "")
+	viper.SetDefault("oauth.instagram.clientsecret", "")
+	viper.SetDefault("oauth.facebook.enabled", false)
+	viper.SetDefault("oauth.facebook.clientid", "")
+	viper.SetDefault("oauth.facebook.clientsecret", "")
 	viper.SetDefault("httpsecurityheaders.customframeoptionsvalue", "DENY")
 	viper.SetDefault("backup.path", "")
 	viper.SetDefault("backup.schedule", "")

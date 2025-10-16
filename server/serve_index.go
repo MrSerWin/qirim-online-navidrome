@@ -75,6 +75,13 @@ func serveIndex(ds model.DataStore, fs fs.FS, shareInfo *model.Share) http.Handl
 			"defaultDownsamplingFormat": conf.Server.DefaultDownsamplingFormat,
 			"separator":                 string(os.PathSeparator),
 			"enableInspect":             conf.Server.Inspect.Enabled,
+			"enableOAuth":               conf.Server.OAuth.Enabled,
+			"oauthProviders": map[string]bool{
+				"google":    conf.Server.OAuth.Google.Enabled,
+				"apple":     conf.Server.OAuth.Apple.Enabled,
+				"instagram": conf.Server.OAuth.Instagram.Enabled,
+				"facebook":  conf.Server.OAuth.Facebook.Enabled,
+			},
 		}
 		if strings.HasPrefix(conf.Server.UILoginBackgroundURL, "/") {
 			appConfig["loginBackgroundURL"] = path.Join(conf.Server.BasePath, conf.Server.UILoginBackgroundURL)

@@ -39,6 +39,13 @@ const defaultConfig = {
   publicBaseUrl: '/share',
   separator: '/',
   enableInspect: true,
+  enableOAuth: true,
+  oauthProviders: {
+    google: true,
+    apple: false,
+    instagram: false,
+    facebook: true,
+  },
 }
 
 let config

@@ -361,6 +361,8 @@
       "sign_in": "Sign in",
       "sign_in_error": "Authentication failed, please retry",
       "logout": "Logout",
+      "or": "OR",
+      "signInWith": "Sign in with %{provider}",
       "insightsCollectionNote": "Qırım Online collects anonymous usage data to\nhelp improve the project. Click [here] to learn\nmore and to opt-out if you want"
     },
     "validation": {

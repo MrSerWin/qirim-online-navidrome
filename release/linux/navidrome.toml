@@ -4,3 +4,34 @@ MusicFolder = "/opt/navidrome/music"
 EnableSelfRegistration = true
 # Disable downloads
 EnableDownloads = false
+
+# OAuth Configuration
+# Enable OAuth authentication (login via social networks)
+[OAuth]
+Enabled = false  # Set to true to enable OAuth
+AutoCreateUser = true  # Automatically create new users on first OAuth login
+AutoCreateUserAdmin = false  # Create new OAuth users as admins (false = regular users)
+
+# Google OAuth
+[OAuth.Google]
+Enabled = false
+ClientID = ""  # Get from Google Cloud Console
+ClientSecret = ""  # Get from Google Cloud Console
+
+# Apple OAuth
+[OAuth.Apple]
+Enabled = false
+ClientID = ""  # Get from Apple Developer Portal
+ClientSecret = ""  # Get from Apple Developer Portal
+
+# Instagram OAuth
+[OAuth.Instagram]
+Enabled = false
+ClientID = ""  # Get from Instagram/Meta Developers
+ClientSecret = ""  # Get from Instagram/Meta Developers
+
+# Facebook OAuth
+[OAuth.Facebook]
+Enabled = false
+ClientID = ""  # Get from Facebook Developers
+ClientSecret = ""  # Get from Facebook Developers

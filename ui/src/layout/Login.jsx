@@ -28,6 +28,7 @@ import LogoWhite from '../icons/qo-logo.png'
 import Logo from '../icons/qo-logo-dark.png'
 
 import Notification from './Notification'
+import OAuthButtons from './OAuthButtons'
 import useCurrentTheme from '../themes/useCurrentTheme'
 import config from '../config'
 import { clearQueue } from '../actions'
@@ -210,6 +211,7 @@ const FormLogin = ({
                   </Button>
                 </CardActions>
               )}
+              <OAuthButtons />
             </Card>
             <Notification />
           </div>
@@ -391,6 +393,7 @@ const FormSignUp = ({
                   </Button>
                 </CardActions>
               )}
+              {showToggle && <OAuthButtons />}
               {!showToggle && <InsightsNotice url={INSIGHTS_DOC_URL} />}
             </Card>
             <Notification />

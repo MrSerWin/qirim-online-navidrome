@@ -1,3 +1,9 @@
+# Load environment variables from .env file if it exists
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
+
 GO_VERSION=$(shell grep "^go " go.mod | cut -f 2 -d ' ')
 NODE_VERSION=$(shell cat .nvmrc)
 
@@ -24,13 +30,32 @@ setup: check_env download-deps install-golangci-lint setup-git ##@1_Run_First In
 	@(cd ./ui && npm ci)
 .PHONY: setup
 
-dev: check_env   ##@Development Start Navidrome in development mode, with hot-reload for both frontend and backend
+dev: check_env   ##@Development Start Navidrome in development mode, with hot-reload for both frontend and backend (loads .env)
+	@echo "Starting Navidrome in development mode..."
+	@if [ -f .env ]; then echo "Loading environment variables from .env file"; fi
 	ND_ENABLEINSIGHTSCOLLECTOR="false" npx foreman -j Procfile.dev -p 4533 start
 .PHONY: dev
 
-server: check_go_env buildjs ##@Development Start the backend in development mode
+server: check_go_env buildjs ##@Development Start the backend in development mode (loads .env)
+	@echo "Starting backend in development mode..."
+	@if [ -f .env ]; then echo "Loading environment variables from .env file"; fi
 	@ND_ENABLEINSIGHTSCOLLECTOR="false" go tool reflex -d none -c reflex.conf
 .PHONY: server
+
+show-env: ##@Development Show loaded environment variables from .env file
+	@echo "Environment variables loaded from .env:"
+	@echo "----------------------------------------"
+	@if [ -f .env ]; then \
+		echo "ND_OAUTH_ENABLED = $(ND_OAUTH_ENABLED)"; \
+		echo "ND_OAUTH_GOOGLE_ENABLED = $(ND_OAUTH_GOOGLE_ENABLED)"; \
+		echo "ND_OAUTH_INSTAGRAM_ENABLED = $(ND_OAUTH_INSTAGRAM_ENABLED)"; \
+		echo "ND_OAUTH_FACEBOOK_ENABLED = $(ND_OAUTH_FACEBOOK_ENABLED)"; \
+		echo "GIT_SHA = $(GIT_SHA)"; \
+		echo "GIT_TAG = $(GIT_TAG)"; \
+	else \
+		echo "No .env file found"; \
+	fi
+.PHONY: show-env
 
 stop: ##@Development Stop development servers (UI and backend)
 	@echo "Stopping development servers..."

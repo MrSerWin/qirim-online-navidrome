@@ -211,6 +211,19 @@ func (s *Server) mountAuthenticationRoutes() chi.Router {
 			r.Post("/signup", signup(s.ds))
 		}
 		r.Post("/createAdmin", createAdmin(s.ds))
+
+		// OAuth routes
+		if conf.Server.OAuth.Enabled {
+			log.Info("OAuth authentication is enabled")
+			r.Get("/oauth/{provider}", func(w http.ResponseWriter, r *http.Request) {
+				provider := chi.URLParam(r, "provider")
+				oauthLogin(provider)(w, r)
+			})
+			r.Get("/oauth/callback/{provider}", func(w http.ResponseWriter, r *http.Request) {
+				provider := chi.URLParam(r, "provider")
+				oauthCallback(s.ds, provider)(w, r)
+			})
+		}
 	})
 }
 
