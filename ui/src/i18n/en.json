@@ -363,7 +363,8 @@
       "logout": "Logout",
       "or": "OR",
       "signInWith": "Sign in with %{provider}",
-      "insightsCollectionNote": "Qırım Online collects anonymous usage data to\nhelp improve the project. Click [here] to learn\nmore and to opt-out if you want"
+      "insightsCollectionNote": "Qırım Online collects anonymous usage data to\nhelp improve the project. Click [here] to learn\nmore and to opt-out if you want",
+      "privacyPolicy": "Privacy Policy"
     },
     "validation": {
       "invalidChars": "Please only use letters and numbers",
@@ -607,6 +608,7 @@
       "lastInsightsCollection": "Last insights collection",
       "website": "Website",
       "email": "Email",
+      "privacyPolicy": "Privacy Policy",
       "insights": {
         "disabled": "Disabled",
         "waiting": "Waiting"

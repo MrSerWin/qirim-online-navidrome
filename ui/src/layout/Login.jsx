@@ -97,6 +97,13 @@ const useStyles = makeStyles(
       wordBreak: 'break-word',
       fontSize: '0.875em',
     },
+    privacyLink: {
+      marginTop: '0.5em',
+      padding: '0 1em 1em 1em',
+      textAlign: 'center',
+      fontSize: '0.75em',
+      color: '#999',
+    },
   }),
   { name: 'NDLogin' },
 )
@@ -212,6 +219,18 @@ const FormLogin = ({
                 </CardActions>
               )}
               <OAuthButtons />
+              <div className={classes.privacyLink}>
+                <Link
+                  href="/privacy.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  {translate('ra.auth.privacyPolicy', {
+                    _: 'Privacy Policy',
+                  })}
+                </Link>
+              </div>
             </Card>
             <Notification />
           </div>
@@ -395,6 +414,18 @@ const FormSignUp = ({
               )}
               {showToggle && <OAuthButtons />}
               {!showToggle && <InsightsNotice url={INSIGHTS_DOC_URL} />}
+              <div className={classes.privacyLink}>
+                <Link
+                  href="/privacy.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  {translate('ra.auth.privacyPolicy', {
+                    _: 'Privacy Policy',
+                  })}
+                </Link>
+              </div>
             </Card>
             <Notification />
           </div>

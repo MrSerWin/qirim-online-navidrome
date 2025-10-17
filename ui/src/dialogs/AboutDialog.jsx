@@ -14,6 +14,7 @@ import { DialogContent } from './DialogContent'
 const links = {
   website: 'https://qirim.online',
   email: 'contact@qirim.online',
+  privacyPolicy: 'qirim.online/privacy.html',
 
   // reddit: 'reddit.com/r/Qırım Online',
   // twitter: 'twitter.com/navidrome',
