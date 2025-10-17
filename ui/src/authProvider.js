@@ -69,10 +69,15 @@ const authProvider = {
     return Promise.resolve()
   },
 
-  checkAuth: () =>
-    localStorage.getItem('is-authenticated')
-      ? Promise.resolve()
-      : Promise.reject(),
+  checkAuth: () => {
+    // Allow unauthenticated access for public content
+    // Return 'guest' role if not authenticated, otherwise resolve normally
+    if (localStorage.getItem('is-authenticated')) {
+      return Promise.resolve()
+    }
+    // Don't reject - allow access but with 'guest' permissions
+    return Promise.resolve()
+  },
 
   checkError: ({ status }) => {
     if (status === 401) {
@@ -84,12 +89,18 @@ const authProvider = {
 
   getPermissions: () => {
     const role = localStorage.getItem('role')
-    return role ? Promise.resolve(role) : Promise.reject()
+    // Return 'guest' for unauthenticated users instead of rejecting
+    return Promise.resolve(role || 'guest')
   },
 
   getIdentity: () => {
+    const username = localStorage.getItem('username')
+    // Return null for guests (unauthenticated users)
+    if (!username) {
+      return Promise.resolve(null)
+    }
     return Promise.resolve({
-      id: localStorage.getItem('username'),
+      id: username,
       fullName: localStorage.getItem('name'),
       avatar: localStorage.getItem('avatar'),
     })

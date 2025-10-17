@@ -426,6 +426,25 @@ func Authenticator(ds model.DataStore) func(next http.Handler) http.Handler {
 	}
 }
 
+// OptionalAuthenticator tries to authenticate, but allows unauthenticated requests to proceed
+// Used for public read-only access to content
+func OptionalAuthenticator(ds model.DataStore) func(next http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			ctx, err := authenticateRequest(ds, r, UsernameFromConfig, UsernameFromToken, UsernameFromReverseProxyHeader)
+			if err != nil {
+				// Authentication failed, but allow request to proceed without user context
+				// The request context will not have a user, which handlers can check
+				next.ServeHTTP(w, r)
+				return
+			}
+
+			// Authentication succeeded, proceed with user context
+			next.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
+}
+
 // JWTRefresher updates the expiry date of the received JWT token, and add the new one to the Authorization Header
 func JWTRefresher(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

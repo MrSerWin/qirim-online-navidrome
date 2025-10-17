@@ -7,7 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { MdQuestionMark } from 'react-icons/md'
 import { makeStyles } from '@material-ui/core/styles'
-import { useDataProvider, useNotify, useTranslate } from 'react-admin'
+import { useDataProvider, useNotify, useTranslate,
+  usePermissions, } from 'react-admin'
 import clsx from 'clsx'
 import {
   playNext,
@@ -69,6 +70,7 @@ const ContextMenu = ({
   const translate = useTranslate()
   const notify = useNotify()
   const [anchorEl, setAnchorEl] = useState(null)
+  const { permissions } = usePermissions()
 
   const options = {
     play: {
@@ -96,7 +98,7 @@ const ContextMenu = ({
       action: (data, ids) => dispatch(shuffleTracks(data, ids)),
     },
     addToPlaylist: {
-      enabled: true,
+      enabled: permissions !== 'guest',
       needData: true,
       label: translate('resources.album.actions.addToPlaylist'),
       action: (data, ids) => dispatch(openAddToPlaylist({ selectedIds: ids })),

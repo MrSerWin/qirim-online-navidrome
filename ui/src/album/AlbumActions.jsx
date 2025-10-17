@@ -7,6 +7,7 @@ import {
   TopToolbar,
   useRecordContext,
   useTranslate,
+  usePermissions,
 } from 'react-admin'
 import { useMediaQuery, makeStyles } from '@material-ui/core'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
@@ -53,6 +54,11 @@ const AlbumActions = ({
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'))
   const isNotSmall = useMediaQuery((theme) => theme.breakpoints.up('sm'))
+  const { permissions } = usePermissions()
+
+  if (permissions === 'guest') {
+    // Пользователь не залогинен
+  }
 
   const handlePlay = React.useCallback(() => {
     dispatch(playTracks(data, ids))
@@ -107,12 +113,14 @@ const AlbumActions = ({
           >
             <RiPlayListAddFill />
           </AlbumButton>
-          <AlbumButton
-            onClick={handleAddToPlaylist}
-            label={translate('resources.album.actions.addToPlaylist')}
-          >
-            <PlaylistAddIcon />
-          </AlbumButton>
+          {permissions !== 'guest' && (
+            <AlbumButton
+              onClick={handleAddToPlaylist}
+              label={translate('resources.album.actions.addToPlaylist')}
+            >
+              <PlaylistAddIcon />
+            </AlbumButton>
+          )}
           {config.enableSharing && (
             <QuickShareButton
               url={window.location.href}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Create,
   SimpleForm,
@@ -9,6 +9,7 @@ import {
   useRefresh,
   useNotify,
   useRedirect,
+  usePermissions,
 } from 'react-admin'
 import { Title } from '../common'
 
@@ -18,10 +19,19 @@ const PlaylistCreate = (props) => {
   const notify = useNotify()
   const redirect = useRedirect()
   const translate = useTranslate()
+  const { permissions } = usePermissions()
   const resourceName = translate('resources.playlist.name', { smart_count: 1 })
   const title = translate('ra.page.create', {
     name: `${resourceName}`,
   })
+
+  // Redirect guests to playlist list
+  useEffect(() => {
+    if (permissions === 'guest') {
+      notify('ra.notification.logged_out', 'warning')
+      redirect('/playlist')
+    }
+  }, [permissions, notify, redirect])
 
   const onSuccess = () => {
     notify('ra.notification.created', 'info', { smart_count: 1 })

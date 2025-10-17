@@ -38,33 +38,47 @@ func New(ds model.DataStore, share core.Share, playlists core.Playlists, insight
 func (n *Router) routes() http.Handler {
 	r := chi.NewRouter()
 
-	// Public
+	// Public - No authentication required
 	n.RX(r, "/translation", newTranslationRepository, false)
 
-	// Protected
+	// Combined Public and Authenticated Routes - Using OptionalAuthenticator
+	// This middleware allows both authenticated and unauthenticated access
+	// Authentication is checked at the handler level for write operations
 	r.Group(func(r chi.Router) {
-		r.Use(server.Authenticator(n.ds))
+		r.Use(server.OptionalAuthenticator(n.ds))
 		r.Use(server.JWTRefresher)
 		r.Use(server.UpdateLastAccessMiddleware(n.ds))
-		n.R(r, "/user", model.User{}, true)
+
+		// Read-only access to content (GET requests only, available to all)
 		n.R(r, "/song", model.MediaFile{}, false)
 		n.R(r, "/album", model.Album{}, false)
 		n.R(r, "/artist", model.Artist{}, false)
 		n.R(r, "/genre", model.Genre{}, false)
+
+		// Karaoke: public read, authenticated write
+		n.addKaraokeRoute(r)
+
+		// Playlists: public read, authenticated write
+		n.addPlaylistRoute(r)
+		n.addPlaylistTrackRoute(r)
+		n.addSongPlaylistsRoute(r)
+
+		// User management (authenticated only - requires auth for ALL operations including GET)
+		n.addUserRoute(r)
+
+		// Other writable resources (requires authentication)
 		n.R(r, "/player", model.Player{}, true)
 		n.R(r, "/transcoding", model.Transcoding{}, conf.Server.EnableTranscodingConfig)
 		n.R(r, "/radio", model.Radio{}, true)
-		n.R(r, "/karaoke", model.KaraokeSong{}, true)
 		n.R(r, "/tag", model.Tag{}, true)
+
 		if conf.Server.EnableSharing {
 			n.RX(r, "/share", n.share.NewRepository, true)
 		}
 
-		n.addPlaylistRoute(r)
-		n.addPlaylistTrackRoute(r)
-		n.addSongPlaylistsRoute(r)
 		n.addQueueRoute(r)
 		n.addMissingFilesRoute(r)
+
 		n.addKeepAliveRoute(r)
 		n.addInsightsRoute(r)
 
@@ -103,14 +117,63 @@ func (n *Router) RX(r chi.Router, pathPrefix string, constructor rest.Repository
 	})
 }
 
+// addUserRoute adds user routes (all operations require authentication)
+func (n *Router) addUserRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.Resource(ctx, model.User{})
+	}
+
+	r.Route("/user", func(r chi.Router) {
+		// All operations require authentication
+		r.With(requireAuthMiddleware).Get("/", rest.GetAll(constructor))
+		r.With(requireAuthMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+			r.With(requireAuthMiddleware).Get("/", rest.Get(constructor))
+			r.With(requireAuthMiddleware).Put("/", rest.Put(constructor))
+			r.With(requireAuthMiddleware).Delete("/", rest.Delete(constructor))
+		})
+	})
+}
+
+// addKaraokeRoute adds karaoke routes with public read and authenticated write
+func (n *Router) addKaraokeRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.Resource(ctx, model.KaraokeSong{})
+	}
+
+	r.Route("/karaoke", func(r chi.Router) {
+		// GET requests - available to all (public)
+		r.Get("/", rest.GetAll(constructor))
+
+		// POST requests - require authentication
+		r.With(requireAuthMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
+			r.Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - require authentication
+			r.With(requireAuthMiddleware).Put("/", rest.Put(constructor))
+			r.With(requireAuthMiddleware).Delete("/", rest.Delete(constructor))
+		})
+	})
+}
+
 func (n *Router) addPlaylistRoute(r chi.Router) {
 	constructor := func(ctx context.Context) rest.Repository {
 		return n.ds.Resource(ctx, model.Playlist{})
 	}
 
 	r.Route("/playlist", func(r chi.Router) {
+		// GET requests - available to all (public)
 		r.Get("/", rest.GetAll(constructor))
-		r.Post("/", func(w http.ResponseWriter, r *http.Request) {
+
+		// POST requests - require authentication
+		r.With(requireAuthMiddleware).Post("/", func(w http.ResponseWriter, r *http.Request) {
 			if r.Header.Get("Content-type") == "application/json" {
 				rest.Post(constructor)(w, r)
 				return
@@ -120,35 +183,47 @@ func (n *Router) addPlaylistRoute(r chi.Router) {
 
 		r.Route("/{id}", func(r chi.Router) {
 			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
 			r.Get("/", rest.Get(constructor))
-			r.Put("/", rest.Put(constructor))
-			r.Delete("/", rest.Delete(constructor))
+
+			// PUT/DELETE - require authentication
+			r.With(requireAuthMiddleware).Put("/", rest.Put(constructor))
+			r.With(requireAuthMiddleware).Delete("/", rest.Delete(constructor))
 		})
 	})
 }
 
 func (n *Router) addPlaylistTrackRoute(r chi.Router) {
 	r.Route("/playlist/{playlistId}/tracks", func(r chi.Router) {
+		// GET requests - available to all (public)
 		r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 			getPlaylist(n.ds)(w, r)
 		})
+
+		// POST/DELETE on collection - require authentication
 		r.With(server.URLParamsMiddleware).Route("/", func(r chi.Router) {
-			r.Delete("/", func(w http.ResponseWriter, r *http.Request) {
+			r.With(requireAuthMiddleware).Delete("/", func(w http.ResponseWriter, r *http.Request) {
 				deleteFromPlaylist(n.ds)(w, r)
 			})
-			r.Post("/", func(w http.ResponseWriter, r *http.Request) {
+			r.With(requireAuthMiddleware).Post("/", func(w http.ResponseWriter, r *http.Request) {
 				addToPlaylist(n.ds)(w, r)
 			})
 		})
+
 		r.Route("/{id}", func(r chi.Router) {
 			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
 			r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 				getPlaylistTrack(n.ds)(w, r)
 			})
-			r.Put("/", func(w http.ResponseWriter, r *http.Request) {
+
+			// PUT/DELETE - require authentication
+			r.With(requireAuthMiddleware).Put("/", func(w http.ResponseWriter, r *http.Request) {
 				reorderItem(n.ds)(w, r)
 			})
-			r.Delete("/", func(w http.ResponseWriter, r *http.Request) {
+			r.With(requireAuthMiddleware).Delete("/", func(w http.ResponseWriter, r *http.Request) {
 				deleteFromPlaylist(n.ds)(w, r)
 			})
 		})
@@ -233,6 +308,18 @@ func (n *Router) addInsightsRoute(r chi.Router) {
 		} else {
 			_, _ = w.Write([]byte(`{"id":"insights_status", "lastRun":"disabled", "success":false}`))
 		}
+	})
+}
+
+// Middleware to ensure user is authenticated (not guest)
+func requireAuthMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, ok := request.UserFrom(r.Context())
+		if !ok {
+			http.Error(w, "Authentication required", http.StatusUnauthorized)
+			return
+		}
+		next.ServeHTTP(w, r)
 	})
 }
 

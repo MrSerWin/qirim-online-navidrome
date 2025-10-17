@@ -84,7 +84,7 @@ const UserMenu = (props) => {
           onClick={handleMenu}
           size={'small'}
         >
-          {loaded && identity.avatar ? (
+          {loaded && identity?.avatar ? (
             <Avatar
               className={classes.avatar}
               src={identity.avatar}
@@ -110,7 +110,7 @@ const UserMenu = (props) => {
         onClose={handleClose}
       >
         <MenuList>
-          {loaded && (
+          {loaded && identity && (
             <Card elevation={0} className={classes.username}>
               <CardContent className={classes.usernameWrap}>
                 <Typography variant={'button'}>{identity.fullName}</Typography>

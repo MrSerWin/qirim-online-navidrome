@@ -83,6 +83,27 @@ func (api *Router) routes() http.Handler {
 	// Public
 	h(r, "getOpenSubsonicExtensions", api.GetOpenSubsonicExtensions)
 
+	// Public Media Endpoints - Allow both authenticated and unauthenticated access
+	r.Group(func(r chi.Router) {
+		r.Use(server.OptionalAuthenticator(api.ds))
+		r.Use(server.UpdateLastAccessMiddleware(api.ds))
+
+		// Media streaming and cover art (public read-only access)
+		hr(r, "stream", api.Stream)
+
+		// Cover art with optional throttling
+		r.Group(func(r chi.Router) {
+			if conf.Server.DevArtworkMaxRequests > 0 {
+				log.Debug("Throttling Subsonic getCoverArt endpoint", "maxRequests", conf.Server.DevArtworkMaxRequests,
+					"backlogLimit", conf.Server.DevArtworkThrottleBacklogLimit, "backlogTimeout",
+					conf.Server.DevArtworkThrottleBacklogTimeout)
+				r.Use(middleware.ThrottleBacklog(conf.Server.DevArtworkMaxRequests, conf.Server.DevArtworkThrottleBacklogLimit,
+					conf.Server.DevArtworkThrottleBacklogTimeout))
+			}
+			hr(r, "getCoverArt", api.GetCoverArt)
+		})
+	})
+
 	// Protected
 	r.Group(func(r chi.Router) {
 		r.Use(checkRequiredParameters)
@@ -170,19 +191,7 @@ func (api *Router) routes() http.Handler {
 			hr(r, "getAvatar", api.GetAvatar)
 			h(r, "getLyrics", api.GetLyrics)
 			h(r, "getLyricsBySongId", api.GetLyricsBySongId)
-			hr(r, "stream", api.Stream)
 			hr(r, "download", api.Download)
-		})
-		r.Group(func(r chi.Router) {
-			// configure request throttling
-			if conf.Server.DevArtworkMaxRequests > 0 {
-				log.Debug("Throttling Subsonic getCoverArt endpoint", "maxRequests", conf.Server.DevArtworkMaxRequests,
-					"backlogLimit", conf.Server.DevArtworkThrottleBacklogLimit, "backlogTimeout",
-					conf.Server.DevArtworkThrottleBacklogTimeout)
-				r.Use(middleware.ThrottleBacklog(conf.Server.DevArtworkMaxRequests, conf.Server.DevArtworkThrottleBacklogLimit,
-					conf.Server.DevArtworkThrottleBacklogTimeout))
-			}
-			hr(r, "getCoverArt", api.GetCoverArt)
 		})
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))

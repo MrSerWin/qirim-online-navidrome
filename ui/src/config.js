@@ -40,6 +40,9 @@ const defaultConfig = {
   separator: '/',
   enableInspect: true,
   enableOAuth: true,
+  devAutoLogin: false,
+  devautologinusername: '',
+  DevAutoLoginUsername: '',
   oauthProviders: {
     google: true,
     apple: false,

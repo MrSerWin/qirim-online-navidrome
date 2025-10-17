@@ -166,12 +166,12 @@ const FormLogin = ({
                   Qırım Online
                 </a>
               </div> */}
-              {config.welcomeMessage && (
+              {/* {config.welcomeMessage && (
                 <div
                   className={classes.welcome}
                   dangerouslySetInnerHTML={{ __html: config.welcomeMessage }}
                 />
-              )}
+              )} */}
               <div className={classes.form}>
                 <div className={classes.input}>
                   <Field
@@ -330,11 +330,11 @@ const FormSignUp = ({
               <div className={classes.avatar}>
                 <img src={logo} className={classes.icon} alt={'logo'} />
               </div>
-              {!showToggle && (
+              {/* {!showToggle && (
                 <div className={classes.welcome}>
                   {translate('ra.auth.welcome2')}
                 </div>
-              )}
+              )} */}
               <div className={classes.form}>
                 <div className={classes.input}>
                   <Field

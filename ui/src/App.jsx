@@ -116,7 +116,10 @@ const Admin = (props) => {
           {...playlist}
           options={{ subMenu: 'playlist' }}
         />,
-        <Resource name="user" {...user} options={{ subMenu: 'settings' }} />,
+        // Hide User menu for guest (unauthenticated) users
+        permissions !== 'guest' ? (
+          <Resource name="user" {...user} options={{ subMenu: 'settings' }} />
+        ) : null,
         // <Resource
         //   name="player"
         //   {...player}

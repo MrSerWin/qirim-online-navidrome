@@ -5,14 +5,16 @@ const url = (command, id, options) => {
   const username = localStorage.getItem('username')
   const token = localStorage.getItem('subsonic-token')
   const salt = localStorage.getItem('subsonic-salt')
-  if (!username || !token || !salt) {
-    return ''
-  }
 
   const params = new URLSearchParams()
-  params.append('u', username)
-  params.append('t', token)
-  params.append('s', salt)
+
+  // Add authentication params only if user is logged in
+  if (username && token && salt) {
+    params.append('u', username)
+    params.append('t', token)
+    params.append('s', salt)
+  }
+
   params.append('f', 'json')
   params.append('v', '1.8.0')
   params.append('c', 'Qırım OnlineUI')

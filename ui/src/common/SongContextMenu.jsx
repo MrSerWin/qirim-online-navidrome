@@ -87,7 +87,7 @@ export const SongContextMenu = ({
       action: (record) => dispatch(addTracks({ [record.id]: record })),
     },
     addToPlaylist: {
-      enabled: true,
+      enabled: permissions !== 'guest',
       label: translate('resources.song.actions.addToPlaylist'),
       action: (record) =>
         dispatch(

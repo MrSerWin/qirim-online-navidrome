@@ -67,11 +67,35 @@ const settingsResources = (resource) =>
   resource.options &&
   resource.options.subMenu === 'settings'
 
+const GuestUserMenu = () => {
+  const translate = useTranslate()
+  const classes = useStyles()
+
+  return (
+    <MenuItem
+      className={classes.root}
+      onClick={() => {
+        window.location.hash = '#/login'
+      }}
+    >
+      <ListItemIcon className={classes.icon}>
+        <MdPerson size={24} />
+      </ListItemIcon>
+      {translate('ra.auth.sign_in', { _: 'Sign In' })}
+    </MenuItem>
+  )
+}
+
 const CustomUserMenu = ({ onClick, ...rest }) => {
   const translate = useTranslate()
   const resources = useSelector(getResources)
   const classes = useStyles(rest)
   const { permissions } = usePermissions()
+
+  // Show simple sign-in button for guest users
+  if (permissions === 'guest') {
+    return <GuestUserMenu />
+  }
 
   const resourceDefinition = (resourceName) =>
     resources.find((r) => r?.name === resourceName)

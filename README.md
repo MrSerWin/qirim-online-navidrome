@@ -197,3 +197,21 @@ navidrome/
 **Версия:** v0.58.0-QO
 **Базируется на:** Navidrome v0.58.0
 **Последнее обновление:** 2025-10-14
+
+Команды для управления сервером:
+Остановить:
+pkill -f navidrome
+
+Запустить в фоне:
+./navidrome > /tmp/navidrome-test.log 2>&1 &
+
+Запустить в терминале (с выводом логов):
+./navidrome
+
+Остановить конкретный процесс по PID:
+ps aux | grep navidrome  # найти PID
+kill <PID>
+Проверить, запущен ли:
+ps aux | grep navidrome
+# или
+curl http://localhost:4533/ping

@@ -16,19 +16,28 @@ const annotationTable = "annotation"
 
 func (r sqlRepository) withAnnotation(query SelectBuilder, idField string) SelectBuilder {
 	userID := loggedUser(r.ctx).ID
+
+	// Always do LEFT JOIN, even for guests, so that 'rating' column exists in the table
+	// This is required for filters like 'has_rating' to work in WHERE clause
+	// For guests, use a condition that never matches (user_id = 'invalid')
+	joinCondition := "annotation.item_id = " + idField
 	if userID == invalidUserId {
-		return query
+		// For guests: JOIN with impossible condition so all annotation values are NULL
+		joinCondition += " AND annotation.user_id = '" + invalidUserId + "'"
+	} else {
+		// For authenticated users: JOIN with their user_id
+		joinCondition += " AND annotation.user_id = '" + userID + "'"
 	}
+
 	query = query.
-		LeftJoin("annotation on ("+
-			"annotation.item_id = "+idField+
-			" AND annotation.user_id = '"+userID+"')").
+		LeftJoin("annotation on (" + joinCondition + ")").
 		Columns(
 			"coalesce(starred, 0) as starred",
 			"coalesce(rating, 0) as rating",
 			"starred_at",
 			"play_date",
 		)
+
 	if conf.Server.AlbumPlayCountMode == consts.AlbumPlayCountModeNormalized && r.tableName == "album" {
 		query = query.Columns(
 			fmt.Sprintf("round(coalesce(round(cast(play_count as float) / coalesce(%[1]s.song_count, 1), 1), 0)) as play_count", r.tableName),
