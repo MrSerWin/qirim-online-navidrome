@@ -58,6 +58,14 @@ func (n *Router) routes() http.Handler {
 		// Karaoke: public read, authenticated write
 		n.addKaraokeRoute(r)
 
+		// Shop: public read for categories/products, admin write
+		// Orders: public create, admin manage
+		if conf.Server.EnableShop {
+			n.addShopCategoryRoute(r)
+			n.addShopProductRoute(r)
+			n.addShopOrderRoute(r)
+		}
+
 		// Playlists: public read, authenticated write
 		n.addPlaylistRoute(r)
 		n.addPlaylistTrackRoute(r)
@@ -308,6 +316,85 @@ func (n *Router) addInsightsRoute(r chi.Router) {
 		} else {
 			_, _ = w.Write([]byte(`{"id":"insights_status", "lastRun":"disabled", "success":false}`))
 		}
+	})
+}
+
+// addShopCategoryRoute adds shop category routes with public read and admin write
+func (n *Router) addShopCategoryRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.ShopCategory(ctx)
+	}
+
+	r.Route("/shop/category", func(r chi.Router) {
+		// GET requests - available to all (public)
+		r.Get("/", rest.GetAll(constructor))
+
+		// POST requests - require admin privileges
+		r.With(adminOnlyMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
+			r.Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - require admin privileges
+			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))
+			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
+		})
+	})
+}
+
+// addShopProductRoute adds shop product routes with public read and admin write
+func (n *Router) addShopProductRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.ShopProduct(ctx)
+	}
+
+	r.Route("/shop/product", func(r chi.Router) {
+		// GET requests - available to all (public)
+		r.Get("/", rest.GetAll(constructor))
+
+		// POST requests - require admin privileges
+		r.With(adminOnlyMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
+			r.Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - require admin privileges
+			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))
+			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
+		})
+	})
+}
+
+// addShopOrderRoute adds shop order routes
+// Public can create orders (POST), admin can view/manage all orders
+func (n *Router) addShopOrderRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.ShopOrder(ctx)
+	}
+
+	r.Route("/shop/order", func(r chi.Router) {
+		// GET requests - admin only
+		r.With(adminOnlyMiddleware).Get("/", rest.GetAll(constructor))
+
+		// POST requests - available to all (public can create orders)
+		r.Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - admin only
+			r.With(adminOnlyMiddleware).Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - admin only
+			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))
+			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
+		})
 	})
 }
 

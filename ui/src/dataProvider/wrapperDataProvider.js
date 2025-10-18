@@ -52,6 +52,13 @@ const mapResource = (resource, params) => {
 
       return [`playlist/${plsId}/tracks`, params]
     }
+    // Map shop resources: shop-category => shop/category
+    case 'shop-category':
+      return ['shop/category', params]
+    case 'shop-product':
+      return ['shop/product', params]
+    case 'shop-order':
+      return ['shop/order', params]
     case 'album':
     case 'song':
     case 'artist':
