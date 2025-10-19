@@ -15,6 +15,7 @@ import artist from './artist'
 import playlist from './playlist'
 import karaoke from './karaoke'
 import { shopCategory, shopProduct, shopOrder } from './shop'
+import MerchBrowser from './shop/MerchBrowser'
 // import radio from './radio'
 // import share from './share'
 import library from './library'
@@ -147,6 +148,15 @@ const Admin = (props) => {
             name="missing"
             {...missing}
             options={{ subMenu: 'settings' }}
+          />
+        ) : null,
+
+        // Public merch page (available to all users)
+        config.enableShop ? (
+          <Resource
+            name="merch"
+            list={MerchBrowser}
+            options={{ label: 'Наш Мерч' }}
           />
         ) : null,
 
