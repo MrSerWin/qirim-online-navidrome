@@ -34,7 +34,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import { setTrack, playTracks } from '../actions'
 import { SongListActions } from './SongListActions'
-import { AlbumLinkField } from './AlbumLinkField'
 import { SongBulkActions, QualityInfo, useSelectedFields } from '../common'
 import config from '../config'
 import ExpandInfoDialog from '../dialogs/ExpandInfoDialog'
@@ -171,21 +170,9 @@ const SongListContent = () => {
 
   const toggleableFields = useMemo(() => {
     return {
-      album: isDesktop && <AlbumLinkField source="album" sortByOrder={'ASC'} />,
       artist: <ArtistLinkField source="artist" />,
       albumArtist: <ArtistLinkField source="albumArtist" />,
-      trackNumber: isDesktop && <NumberField source="trackNumber" />,
-      playCount: isDesktop && (
-        <NumberField source="playCount" sortByOrder={'DESC'} />
-      ),
       playDate: <DateField source="playDate" sortByOrder={'DESC'} showTime />,
-      year: isDesktop && (
-        <FunctionField
-          source="year"
-          render={(r) => r.year || ''}
-          sortByOrder={'DESC'}
-        />
-      ),
       quality: isDesktop && <QualityInfo source="quality" sortable={false} />,
       channels: isDesktop && (
         <NumberField source="channels" sortByOrder={'ASC'} />
