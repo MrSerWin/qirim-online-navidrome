@@ -4,21 +4,56 @@
 **/.LSOverride
 **/._*
 
+# Git history (saves ~94MB)
+.git
+.gitignore
+.gitattributes
+
+# GitHub assets (saves ~5.5MB)
+.github
+
+# Development files
 ui/node_modules
 ui/build
 !ui/build/.gitkeep
 Dockerfile
 docker-compose*.yml
+navidrome.toml
+.env
+.env.*
+
+# Test data and fixtures (saves ~73MB + 19MB)
+tmp
+!tmp/taglib
+**/testdata
+# Note: /tests folder (1.2MB) is needed for Go mocks, excluding only fixtures
+tests/fixtures
+
+# Build artifacts
 data
 *.db
 testDB
 navidrome
-navidrome.toml
-tmp
-!tmp/taglib
 dist
 binaries
 /cache
 /data/cache
+
+# Development binaries (saves ~35MB)
+bin
+
+# Music directory
 music
+
+# Documentation
+*.md
+!README.md
+
+# Scripts
+*.sh
+
+# Logs
+*.log
+*.log.*
+
 !Dockerfile
