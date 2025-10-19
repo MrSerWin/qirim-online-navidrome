@@ -16,6 +16,7 @@ import playlist from './playlist'
 import karaoke from './karaoke'
 import { shopCategory, shopProduct, shopOrder } from './shop'
 import MerchBrowser from './shop/MerchBrowser'
+import UserOrders from './shop/UserOrders'
 // import radio from './radio'
 // import share from './share'
 import library from './library'
@@ -157,6 +158,15 @@ const Admin = (props) => {
             name="merch"
             list={MerchBrowser}
             options={{ label: 'Наш Мерч' }}
+          />
+        ) : null,
+
+        // User orders page (available to authenticated users)
+        config.enableShop && permissions !== 'guest' ? (
+          <Resource
+            name="my-orders"
+            list={UserOrders}
+            options={{ label: 'Мои заказы' }}
           />
         ) : null,
 

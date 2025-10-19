@@ -372,15 +372,15 @@ func (n *Router) addShopProductRoute(r chi.Router) {
 }
 
 // addShopOrderRoute adds shop order routes
-// Public can create orders (POST), admin can view/manage all orders
+// Public can create orders (POST), authenticated users can view their orders, admin can manage all orders
 func (n *Router) addShopOrderRoute(r chi.Router) {
 	constructor := func(ctx context.Context) rest.Repository {
 		return n.ds.ShopOrder(ctx)
 	}
 
 	r.Route("/shop/order", func(r chi.Router) {
-		// GET requests - admin only
-		r.With(adminOnlyMiddleware).Get("/", rest.GetAll(constructor))
+		// GET requests - authenticated users can view orders
+		r.With(requireAuthMiddleware).Get("/", rest.GetAll(constructor))
 
 		// POST requests - available to all (public can create orders)
 		r.Post("/", rest.Post(constructor))
@@ -388,8 +388,8 @@ func (n *Router) addShopOrderRoute(r chi.Router) {
 		r.Route("/{id}", func(r chi.Router) {
 			r.Use(server.URLParamsMiddleware)
 
-			// GET - admin only
-			r.With(adminOnlyMiddleware).Get("/", rest.Get(constructor))
+			// GET - authenticated users can view individual orders
+			r.With(requireAuthMiddleware).Get("/", rest.Get(constructor))
 
 			// PUT/DELETE - admin only
 			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))

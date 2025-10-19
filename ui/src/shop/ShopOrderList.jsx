@@ -7,6 +7,7 @@ import {
   NumberField,
   usePermissions,
   FunctionField,
+  EditButton,
 } from 'react-admin'
 import { Chip } from '@material-ui/core'
 
@@ -17,18 +18,39 @@ const StatusField = ({ record }) => {
         return 'default'
       case 'confirmed':
         return 'primary'
-      case 'shipped':
+      case 'processing':
         return 'secondary'
+      case 'shipped':
+        return 'primary'
       case 'delivered':
         return 'primary'
       case 'cancelled':
-        return 'default'
+        return 'secondary'
       default:
         return 'default'
     }
   }
 
-  return <Chip label={record.status} color={getColor(record.status)} />
+  const getStatusText = (status) => {
+    switch (status) {
+      case 'pending':
+        return 'Ожидает подтверждения'
+      case 'confirmed':
+        return 'Подтвержден'
+      case 'processing':
+        return 'В обработке'
+      case 'shipped':
+        return 'Отправлен'
+      case 'delivered':
+        return 'Доставлен'
+      case 'cancelled':
+        return 'Отменен'
+      default:
+        return status
+    }
+  }
+
+  return <Chip label={getStatusText(record.status)} color={getColor(record.status)} />
 }
 
 const ShopOrderList = (props) => {
@@ -47,28 +69,29 @@ const ShopOrderList = (props) => {
   return (
     <List
       {...props}
-      title="Shop Orders"
+      title="Заказы магазина"
       perPage={25}
       sort={{ field: 'createdAt', order: 'DESC' }}
     >
       <Datagrid>
-        <TextField source="id" label="Order ID" />
-        <TextField source="customerName" label="Customer" />
+        <TextField source="id" label="ID заказа" />
+        <TextField source="customerName" label="Клиент" />
         <TextField source="email" label="Email" />
-        <TextField source="phone" label="Phone" />
+        <TextField source="phone" label="Телефон" />
         <FunctionField
-          label="Items"
+          label="Товары"
           render={(record) =>
-            record.items ? `${record.items.length} items` : '-'
+            record.items ? `${record.items.length} товаров` : '-'
           }
         />
-        <NumberField source="totalAmount" label="Total" />
-        <TextField source="currency" label="Currency" />
+        <NumberField source="totalAmount" label="Сумма" />
+        <TextField source="currency" label="Валюта" />
         <FunctionField
-          label="Status"
+          label="Статус"
           render={(record) => <StatusField record={record} />}
         />
-        <DateField source="createdAt" label="Created" showTime />
+        <DateField source="createdAt" label="Создан" showTime />
+        <EditButton label="Редактировать" />
       </Datagrid>
     </List>
   )

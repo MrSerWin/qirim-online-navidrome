@@ -7,6 +7,7 @@ import ShopProductList from './ShopProductList'
 import ShopProductEdit from './ShopProductEdit'
 import ShopProductCreate from './ShopProductCreate'
 import ShopOrderList from './ShopOrderList'
+import ShopOrderEdit from './ShopOrderEdit'
 
 export default {
   ShopBrowser,
@@ -30,4 +31,5 @@ export const shopProduct = {
 
 export const shopOrder = {
   list: ShopOrderList,
+  edit: ShopOrderEdit,
 }
