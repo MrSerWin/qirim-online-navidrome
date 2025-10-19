@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import { useTranslate, MenuItemLink, getResources } from 'react-admin'
 import ViewListIcon from '@material-ui/icons/ViewList'
 import AlbumIcon from '@material-ui/icons/Album'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import SubMenu from './SubMenu'
 import { humanize, pluralize } from 'inflection'
 import albumLists from '../album/albumLists'
@@ -58,6 +59,7 @@ const Menu = ({ dense = false }) => {
     menuAlbumList: true,
     menuPlaylists: true,
     menuSharedPlaylists: true,
+    menuShop: true,
   })
 
   const handleToggle = (menu) => {
@@ -138,6 +140,21 @@ const Menu = ({ dense = false }) => {
         </>
       ) : (
         resources.filter(subItems('playlist')).map(renderResourceMenuItemLink)
+      )}
+      {config.enableShop && resources.filter(subItems('shop')).length > 0 && (
+        <>
+          <Divider />
+          <SubMenu
+            handleToggle={() => handleToggle('menuShop')}
+            isOpen={state.menuShop}
+            sidebarIsOpen={open}
+            name="menu.shop"
+            icon={<ShoppingCartIcon />}
+            dense={dense}
+          >
+            {resources.filter(subItems('shop')).map(renderResourceMenuItemLink)}
+          </SubMenu>
+        </>
       )}
     </div>
   )

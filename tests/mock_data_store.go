@@ -233,6 +233,27 @@ func (db *MockDataStore) Karaoke(ctx context.Context) model.KaraokeRepository {
 	return db.MockedKaraoke
 }
 
+func (db *MockDataStore) ShopCategory(ctx context.Context) model.ResourceRepository {
+	if db.RealDS != nil {
+		return db.RealDS.ShopCategory(ctx)
+	}
+	return struct{ model.ResourceRepository }{}
+}
+
+func (db *MockDataStore) ShopProduct(ctx context.Context) model.ResourceRepository {
+	if db.RealDS != nil {
+		return db.RealDS.ShopProduct(ctx)
+	}
+	return struct{ model.ResourceRepository }{}
+}
+
+func (db *MockDataStore) ShopOrder(ctx context.Context) model.ResourceRepository {
+	if db.RealDS != nil {
+		return db.RealDS.ShopOrder(ctx)
+	}
+	return struct{ model.ResourceRepository }{}
+}
+
 func (db *MockDataStore) WithTx(block func(tx model.DataStore) error, label ...string) error {
 	return block(db)
 }

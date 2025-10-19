@@ -76,6 +76,7 @@ type configOptions struct {
 	ShareURL                        string
 	DefaultShareExpiration          time.Duration
 	DefaultDownloadableShare        bool
+	EnableShop                      bool
 	DefaultTheme                    string
 	DefaultLanguage                 string
 	DefaultUIVolume                 int
@@ -547,6 +548,7 @@ func setViperDefaults() {
 	viper.SetDefault("shareurl", "")
 	viper.SetDefault("defaultshareexpiration", 8760*time.Hour)
 	viper.SetDefault("defaultdownloadableshare", false)
+	viper.SetDefault("enableshop", false)
 	viper.SetDefault("gatrackingid", "")
 	viper.SetDefault("enableinsightscollector", true)
 	viper.SetDefault("enablelogredacting", true)

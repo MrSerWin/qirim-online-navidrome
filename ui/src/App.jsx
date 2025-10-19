@@ -14,6 +14,9 @@ import album from './album'
 import artist from './artist'
 import playlist from './playlist'
 import karaoke from './karaoke'
+import { shopCategory, shopProduct, shopOrder } from './shop'
+import MerchBrowser from './shop/MerchBrowser'
+import UserOrders from './shop/UserOrders'
 // import radio from './radio'
 // import share from './share'
 import library from './library'
@@ -149,6 +152,50 @@ const Admin = (props) => {
           />
         ) : null,
 
+        // Public merch page (available to all users)
+        config.enableShop ? (
+          <Resource
+            name="merch"
+            list={MerchBrowser}
+            options={{ label: 'Наш Мерч' }}
+          />
+        ) : null,
+
+        // User orders page (available to authenticated users)
+        config.enableShop && permissions !== 'guest' ? (
+          <Resource
+            name="my-orders"
+            list={UserOrders}
+            options={{ label: 'Мои заказы' }}
+          />
+        ) : null,
+
+        // Shop resources (admin only)
+        config.enableShop && permissions === 'admin' ? (
+          <Resource
+            name="shop-category"
+            {...shopCategory}
+            options={{ label: 'Shop Categories', subMenu: 'shop' }}
+          />
+        ) : null,
+        config.enableShop && permissions === 'admin' ? (
+          <Resource
+            name="shop-product"
+            {...shopProduct}
+            options={{ label: 'Shop Products', subMenu: 'shop' }}
+          />
+        ) : null,
+        config.enableShop && permissions === 'admin' ? (
+          <Resource
+            name="shop-order"
+            {...shopOrder}
+            options={{ label: 'Shop Orders', subMenu: 'shop' }}
+          />
+        ) : null,
+        // <Resource
+        //   name="shop-order"
+        //   options={{ label: 'Shop Orders' }}
+        // />,
         <Resource name="translation" />,
         <Resource name="genre" />,
         <Resource name="tag" />,
