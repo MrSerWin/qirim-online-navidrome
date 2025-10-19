@@ -25,7 +25,7 @@ const defaultConfig = {
   enableSharing: true,
   shareURL: '',
   defaultDownloadableShare: true,
-  enableShop: true,
+  enableShop: false,
   devSidebarPlaylists: true,
   lastFMEnabled: true,
   listenBrainzEnabled: true,
