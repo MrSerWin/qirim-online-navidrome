@@ -104,12 +104,12 @@ const PlayerToolbar = ({ id, isRadio }) => {
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} allowChanges />
       {isDesktop ? (
         <li className={`${listItemClass} item`}>
-          {saveQueueButton}
+          {/* {saveQueueButton} */}
           {loveButton}
         </li>
       ) : (
         <>
-          <li className={`${listItemClass} item`}>{saveQueueButton}</li>
+          {/* <li className={`${listItemClass} item`}>{saveQueueButton}</li> */}
           <li className={`${listItemClass} item`}>{loveButton}</li>
         </>
       )}
