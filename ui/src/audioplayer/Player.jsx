@@ -100,7 +100,8 @@ const Player = () => {
       theme: playerTheme,
       bounds: 'body',
       playMode: playerState.mode,
-      mode: 'full',
+      mode: isDesktop ? 'full' : 'mini',
+      // mode: 'full',
       loadAudioErrorPlayNext: false,
       autoPlayInitLoadPlayList: true,
       clearPriorAudioLists: false,
@@ -115,8 +116,9 @@ const Player = () => {
       restartCurrentOnPrev: true,
       quietUpdate: true,
       defaultPosition: {
-        top: 300,
-        left: 120,
+        top: isDesktop ? 300 : 70,
+        left: isDesktop ? 120 : undefined,
+        right: isDesktop ? undefined : 20,
       },
       volumeFade: { fadeIn: 200, fadeOut: 200 },
       renderAudioTitle: (audioInfo, isMobile) => (
