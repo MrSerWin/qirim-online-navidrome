@@ -64,14 +64,58 @@ func fullTextExpr(tableName string, s string) Sqlizer {
 	if q == "" {
 		return nil
 	}
+	
+	// Create both exact phrase search and individual word search
+	var conditions []Sqlizer
+	
+	// 1. Exact phrase search (for "song name" queries)
+	conditions = append(conditions, Like{tableName + ".full_text": "%" + q + "%"})
+	
+	// 2. Individual word search (for "song" queries)
 	var sep string
 	if !conf.Server.SearchFullString {
 		sep = " "
 	}
 	parts := strings.Split(q, " ")
-	filters := And{}
-	for _, part := range parts {
-		filters = append(filters, Like{tableName + ".full_text": "%" + sep + part + "%"})
+	if len(parts) > 1 {
+		// For multi-word queries, ensure all words are present
+		filters := And{}
+		for _, part := range parts {
+			filters = append(filters, Like{tableName + ".full_text": "%" + sep + part + "%"})
+		}
+		conditions = append(conditions, filters)
+	} else {
+		// For single word queries, search without separator requirement
+		conditions = append(conditions, Like{tableName + ".full_text": "%" + parts[0] + "%"})
 	}
-	return filters
+	
+	return Or(conditions)
+}
+
+// enhancedSearchExpr provides more flexible search across specific fields
+func enhancedSearchExpr(tableName string, s string, searchFields []string) Sqlizer {
+	q := str.SanitizeStrings(s)
+	if q == "" {
+		return nil
+	}
+	
+	var conditions []Sqlizer
+	
+	// Search in each specified field
+	for _, field := range searchFields {
+		fieldName := tableName + "." + field
+		
+		// 1. Exact phrase match
+		conditions = append(conditions, Like{fieldName: "%" + q + "%"})
+		
+		// 2. Individual word matches
+		parts := strings.Fields(q)
+		for _, part := range parts {
+			if len(part) > 1 { // Skip single characters
+				conditions = append(conditions, Like{fieldName: "%" + part + "%"})
+			}
+		}
+	}
+	
+	return Or(conditions)
 }

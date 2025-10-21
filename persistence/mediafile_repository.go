@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"slices"
+	"strings"
 	"sync"
 	"time"
 
@@ -347,7 +348,40 @@ func (r *mediaFileRepository) Search(q string, offset int, size int, options ...
 			return nil, fmt.Errorf("searching media_file by MBID %q: %w", q, err)
 		}
 	} else {
-		err := r.doSearch(r.selectMediaFile(options...), q, offset, size, &res, "media_file.rowid", "title")
+		// Enhanced search: combine full-text search with field-specific search
+		sq := r.selectMediaFile(options...)
+		q = strings.TrimSpace(q)
+		q = strings.TrimSuffix(q, "*")
+		if len(q) < 2 {
+			return model.MediaFiles{}, nil
+		}
+
+		// Create enhanced search conditions
+		var searchConditions []Sqlizer
+		
+		// 1. Full-text search (existing behavior)
+		if fullTextFilter := fullTextExpr(r.tableName, q); fullTextFilter != nil {
+			searchConditions = append(searchConditions, fullTextFilter)
+		}
+		
+		// 2. Enhanced field-specific search
+		searchFields := []string{"title", "album", "album_artist", "artist"}
+		if enhancedFilter := enhancedSearchExpr(r.tableName, q, searchFields); enhancedFilter != nil {
+			searchConditions = append(searchConditions, enhancedFilter)
+		}
+		
+		// Apply search conditions
+		if len(searchConditions) > 0 {
+			sq = sq.Where(Or(searchConditions))
+			sq = sq.OrderBy("title")
+		} else {
+			sq = sq.OrderBy("media_file.rowid")
+		}
+		
+		sq = sq.Where(Eq{r.tableName + ".missing": false})
+		sq = sq.Limit(uint64(size)).Offset(uint64(offset))
+		
+		err := r.queryAll(sq, &res, model.QueryOptions{Offset: offset})
 		if err != nil {
 			return nil, fmt.Errorf("searching media_file by query %q: %w", q, err)
 		}

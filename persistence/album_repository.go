@@ -362,7 +362,40 @@ func (r *albumRepository) Search(q string, offset int, size int, options ...mode
 			return nil, fmt.Errorf("searching album by MBID %q: %w", q, err)
 		}
 	} else {
-		err := r.doSearch(r.selectAlbum(options...), q, offset, size, &res, "album.rowid", "name")
+		// Enhanced search: combine full-text search with field-specific search
+		sq := r.selectAlbum(options...)
+		q = strings.TrimSpace(q)
+		q = strings.TrimSuffix(q, "*")
+		if len(q) < 2 {
+			return model.Albums{}, nil
+		}
+
+		// Create enhanced search conditions
+		var searchConditions []Sqlizer
+		
+		// 1. Full-text search (existing behavior)
+		if fullTextFilter := fullTextExpr(r.tableName, q); fullTextFilter != nil {
+			searchConditions = append(searchConditions, fullTextFilter)
+		}
+		
+		// 2. Enhanced field-specific search
+		searchFields := []string{"name", "album_artist"}
+		if enhancedFilter := enhancedSearchExpr(r.tableName, q, searchFields); enhancedFilter != nil {
+			searchConditions = append(searchConditions, enhancedFilter)
+		}
+		
+		// Apply search conditions
+		if len(searchConditions) > 0 {
+			sq = sq.Where(Or(searchConditions))
+			sq = sq.OrderBy("name")
+		} else {
+			sq = sq.OrderBy("album.rowid")
+		}
+		
+		sq = sq.Where(Eq{r.tableName + ".missing": false})
+		sq = sq.Limit(uint64(size)).Offset(uint64(offset))
+		
+		err := r.queryAll(sq, &res, model.QueryOptions{Offset: offset})
 		if err != nil {
 			return nil, fmt.Errorf("searching album by query %q: %w", q, err)
 		}

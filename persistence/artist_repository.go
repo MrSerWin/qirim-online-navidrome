@@ -526,9 +526,41 @@ func (r *artistRepository) Search(q string, offset int, size int, options ...mod
 			return nil, fmt.Errorf("searching artist by MBID %q: %w", q, err)
 		}
 	} else {
-		// Natural order for artists is more performant by ID, due to GROUP BY clause in selectArtist
-		err := r.doSearch(r.selectArtist(options...), q, offset, size, &res, "artist.id",
-			"sum(json_extract(stats, '$.total.m')) desc", "name")
+		// Enhanced search: combine full-text search with field-specific search
+		sq := r.selectArtist(options...)
+		q = strings.TrimSpace(q)
+		q = strings.TrimSuffix(q, "*")
+		if len(q) < 2 {
+			return model.Artists{}, nil
+		}
+
+		// Create enhanced search conditions
+		var searchConditions []Sqlizer
+		
+		// 1. Full-text search (existing behavior)
+		if fullTextFilter := fullTextExpr(r.tableName, q); fullTextFilter != nil {
+			searchConditions = append(searchConditions, fullTextFilter)
+		}
+		
+		// 2. Enhanced field-specific search
+		searchFields := []string{"name"}
+		if enhancedFilter := enhancedSearchExpr(r.tableName, q, searchFields); enhancedFilter != nil {
+			searchConditions = append(searchConditions, enhancedFilter)
+		}
+		
+		// Apply search conditions
+		if len(searchConditions) > 0 {
+			sq = sq.Where(Or(searchConditions))
+			sq = sq.OrderBy("sum(json_extract(stats, '$.total.m')) desc", "name")
+		} else {
+			// Natural order for artists is more performant by ID, due to GROUP BY clause in selectArtist
+			sq = sq.OrderBy("artist.id")
+		}
+		
+		sq = sq.Where(Eq{r.tableName + ".missing": false})
+		sq = sq.Limit(uint64(size)).Offset(uint64(offset))
+		
+		err := r.queryAll(sq, &res, model.QueryOptions{Offset: offset})
 		if err != nil {
 			return nil, fmt.Errorf("searching artist by query %q: %w", q, err)
 		}
