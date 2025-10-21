@@ -30,6 +30,27 @@ This is **Navidrome QO** - a custom fork of Navidrome music streaming server wit
 - store all documentation in foder docs
 - store all *.sh in folder scripts
 
+## Maintenance and Monitoring
+
+### Health Checks
+```bash
+./scripts/health-check.sh  # Run comprehensive health check
+```
+
+### Backups
+```bash
+./scripts/backup-database.sh  # Manual database backup
+```
+
+**Recommended: Set up automated daily backups via cron on server:**
+```bash
+# Add to crontab (crontab -e)
+0 2 * * * /opt/navidrome/scripts/backup-database.sh >> /var/log/navidrome-backup.log 2>&1
+```
+
+### Troubleshooting
+See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for common issues and solutions.
+
 ## Development Commands
 
 ### Initial Setup
