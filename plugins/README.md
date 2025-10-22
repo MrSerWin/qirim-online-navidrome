@@ -1758,3 +1758,5 @@ The optimization is transparent to plugin developers and automatically activates
    - Look for error messages in the Navidrome logs
    - Add debug logging to your plugin
    - Check if the error is permission-related before debugging plugin logic
+
+ND_ENABLESHOP=false
