@@ -16,6 +16,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import { IoIosRadio } from 'react-icons/io'
 import { playShuffle, playSimilar, playTopSongs } from './actions.js'
 import { QuickShareButton } from '../common'
+import { generateArtistShareURL } from '../utils/urlGenerator'
 import config from '../config'
 
 const useStyles = makeStyles((theme) => ({
@@ -116,7 +117,7 @@ const ArtistActions = ({ className, record, ...rest }) => {
       </Button>
       {config.enableSharing && (
         <QuickShareButton
-          url={window.location.href}
+          url={generateArtistShareURL(record.id, record.urlAlias, window.location.origin)}
           title={record.name}
           description={`Listen to ${record.name} on Qırım Online`}
           variant="text"

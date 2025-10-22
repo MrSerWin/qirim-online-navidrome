@@ -30,6 +30,7 @@ type dbAlbum struct {
 	Participants string `structs:"-" json:"-"`
 	Tags         string `structs:"-" json:"-"`
 	FolderIDs    string `structs:"-" json:"-"`
+	UrlAlias     string `structs:"-" json:"-"` // Explicitly capture url_alias from DB
 }
 
 func (a *dbAlbum) PostScan() error {
@@ -57,6 +58,8 @@ func (a *dbAlbum) PostScan() error {
 		}
 		a.Album.FolderIDs = ids
 	}
+	// Copy URL alias from DB field to model field
+	a.Album.URLAlias = a.UrlAlias
 	return nil
 }
 
@@ -421,6 +424,29 @@ func (r *albumRepository) EntityName() string {
 
 func (r *albumRepository) NewInstance() interface{} {
 	return &model.Album{}
+}
+
+// IncGlobalPlayCount increments the global play count for an album
+func (r *albumRepository) IncGlobalPlayCount(itemID string, timestamp time.Time) error {
+	upd := Update(r.tableName).Where(Eq{"id": itemID}).
+		Set("global_play_count", Expr("global_play_count+1")).
+		Set("global_last_played", timestamp)
+	_, err := r.executeSQL(upd)
+	return err
+}
+
+// FindByAlias finds an album by its URL alias
+func (r *albumRepository) FindByAlias(alias string) (*model.Album, error) {
+	var res dbAlbum
+	query := r.selectAlbum().
+		Where(Eq{r.tableName + ".url_alias": alias}).
+		Where(Eq{r.tableName + ".missing": false})
+	
+	err := r.queryOne(query, &res)
+	if err != nil {
+		return nil, err
+	}
+	return res.Album, nil
 }
 
 var _ model.AlbumRepository = (*albumRepository)(nil)

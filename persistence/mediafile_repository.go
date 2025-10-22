@@ -32,6 +32,7 @@ type dbMediaFile struct {
 	RgAlbumPeak *float64 `structs:"-" json:"-"`
 	RgTrackGain *float64 `structs:"-" json:"-"`
 	RgTrackPeak *float64 `structs:"-" json:"-"`
+	UrlAlias    string   `structs:"-" json:"-"` // Explicitly capture url_alias from DB
 }
 
 func (m *dbMediaFile) PostScan() error {
@@ -51,6 +52,8 @@ func (m *dbMediaFile) PostScan() error {
 		}
 		m.Genre, m.Genres = m.MediaFile.Tags.ToGenres()
 	}
+	// Copy URL alias from DB field to model field
+	m.MediaFile.URLAlias = m.UrlAlias
 	return nil
 }
 
@@ -407,6 +410,29 @@ func (r *mediaFileRepository) EntityName() string {
 
 func (r *mediaFileRepository) NewInstance() interface{} {
 	return &model.MediaFile{}
+}
+
+// IncGlobalPlayCount increments the global play count for a media file
+func (r *mediaFileRepository) IncGlobalPlayCount(itemID string, timestamp time.Time) error {
+	upd := Update(r.tableName).Where(Eq{"id": itemID}).
+		Set("global_play_count", Expr("global_play_count+1")).
+		Set("global_last_played", timestamp)
+	_, err := r.executeSQL(upd)
+	return err
+}
+
+// FindByAlias finds a media file by its URL alias
+func (r *mediaFileRepository) FindByAlias(alias string) (*model.MediaFile, error) {
+	var res dbMediaFile
+	query := r.selectMediaFile().
+		Where(Eq{r.tableName + ".url_alias": alias}).
+		Where(Eq{r.tableName + ".missing": false})
+	
+	err := r.queryOne(query, &res)
+	if err != nil {
+		return nil, err
+	}
+	return res.MediaFile, nil
 }
 
 var _ model.MediaFileRepository = (*mediaFileRepository)(nil)

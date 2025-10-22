@@ -12,10 +12,14 @@ const ALink = withWidth()((props) => {
   const artistLink = useGetHandleArtistClick(width)
   const dispatch = useDispatch()
 
+  if (!artist.id) {
+    return <span>{artist.name}</span>
+  }
+  
   return (
     <Link
       key={artist.id}
-      to={artistLink(artist.id)}
+      to={artistLink(artist.id, artist.urlAlias)}
       onClick={(e) => {
         e.stopPropagation()
         dispatch(closeExtendedInfoDialog())

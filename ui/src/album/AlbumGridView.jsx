@@ -24,6 +24,7 @@ import { playTracks } from '../actions'
 import { DraggableTypes } from '../consts'
 import clsx from 'clsx'
 import { AlbumDatesField } from './AlbumDatesField.jsx'
+import { generateAlbumURL } from '../utils/urlGenerator'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -282,7 +283,7 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
       <div className={classes.coverWrapper}>
         <Link
           className={classes.link}
-          to={linkToRecord(basePath, record.id, 'show')}
+          to={generateAlbumURL(record.id, record.urlAlias, 'show', false)} // Use ID for navigation
         >
           <Cover record={record} />
         </Link>
@@ -315,7 +316,7 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
 
       <Link
         className={classes.albumLink}
-        to={linkToRecord(basePath, record.id, 'show')}
+        to={generateAlbumURL(record.id, record.urlAlias, 'show', false)} // Use ID for navigation
       >
         <span>
           <Typography className={classes.albumName}>{record.name}</Typography>

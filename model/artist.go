@@ -16,6 +16,7 @@ type Artist struct {
 	SortArtistName  string `structs:"sort_artist_name" json:"sortArtistName,omitempty"`
 	OrderArtistName string `structs:"order_artist_name" json:"orderArtistName,omitempty"`
 	MbzArtistID     string `structs:"mbz_artist_id" json:"mbzArtistId,omitempty"`
+	URLAlias        string `structs:"url_alias" json:"urlAlias"` // URL-friendly alias for the artist
 
 	// Data calculated from files
 	Stats      map[Role]ArtistStats `structs:"-" json:"stats,omitempty"`
@@ -86,4 +87,7 @@ type ArtistRepository interface {
 
 	AnnotatedRepository
 	SearchableRepository[Artists]
+	
+	// URL alias methods
+	FindByAlias(alias string) (*Artist, error)
 }

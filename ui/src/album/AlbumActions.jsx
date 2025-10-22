@@ -27,6 +27,7 @@ import {
 import { formatBytes } from '../utils'
 import config from '../config'
 import { ToggleFieldsMenu, QuickShareButton } from '../common'
+import { generateAlbumShareURL } from '../utils/urlGenerator'
 
 const useStyles = makeStyles({
   toolbar: { display: 'flex', justifyContent: 'space-between', width: '100%' },
@@ -123,7 +124,7 @@ const AlbumActions = ({
           )}
           {config.enableSharing && (
             <QuickShareButton
-              url={window.location.href}
+              url={generateAlbumShareURL(record.id, record.urlAlias, window.location.origin)}
               title={`${record.name} - ${record.albumArtist || record.artist}`}
               description={`Listen to ${record.name} on Qırım Online`}
               variant="text"

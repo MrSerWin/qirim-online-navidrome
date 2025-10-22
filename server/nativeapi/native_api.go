@@ -50,9 +50,9 @@ func (n *Router) routes() http.Handler {
 		r.Use(server.UpdateLastAccessMiddleware(n.ds))
 
 		// Read-only access to content (GET requests only, available to all)
-		n.R(r, "/song", model.MediaFile{}, false)
-		n.R(r, "/album", model.Album{}, false)
-		n.R(r, "/artist", model.Artist{}, false)
+		n.RWithAlias(r, "/song", model.MediaFile{}, false)
+		n.RWithAlias(r, "/album", model.Album{}, false)
+		n.RWithAlias(r, "/artist", model.Artist{}, false)
 		n.R(r, "/genre", model.Genre{}, false)
 
 		// Karaoke: public read, authenticated write
@@ -108,6 +108,14 @@ func (n *Router) R(r chi.Router, pathPrefix string, model interface{}, persistab
 	n.RX(r, pathPrefix, constructor, persistable)
 }
 
+// RWithAlias creates routes with URL alias support
+func (n *Router) RWithAlias(r chi.Router, pathPrefix string, model interface{}, persistable bool) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.Resource(ctx, model)
+	}
+	n.RXWithAlias(r, pathPrefix, constructor, persistable)
+}
+
 func (n *Router) RX(r chi.Router, pathPrefix string, constructor rest.RepositoryConstructor, persistable bool) {
 	r.Route(pathPrefix, func(r chi.Router) {
 		r.Get("/", rest.GetAll(constructor))
@@ -115,6 +123,28 @@ func (n *Router) RX(r chi.Router, pathPrefix string, constructor rest.Repository
 			r.Post("/", rest.Post(constructor))
 		}
 		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+			r.Get("/", rest.Get(constructor))
+			if persistable {
+				r.Put("/", rest.Put(constructor))
+				r.Delete("/", rest.Delete(constructor))
+			}
+		})
+	})
+}
+
+// RXWithAlias creates routes with URL alias support
+func (n *Router) RXWithAlias(r chi.Router, pathPrefix string, constructor rest.RepositoryConstructor, persistable bool) {
+	r.Route(pathPrefix, func(r chi.Router) {
+		// Apply middleware to root routes for query parameter alias resolution
+		r.Use(n.URLAliasMiddleware)
+		
+		r.Get("/", rest.GetAll(constructor))
+		if persistable {
+			r.Post("/", rest.Post(constructor))
+		}
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(n.URLAliasMiddleware)  // MUST be BEFORE URLParamsMiddleware!
 			r.Use(server.URLParamsMiddleware)
 			r.Get("/", rest.Get(constructor))
 			if persistable {

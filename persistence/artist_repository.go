@@ -30,6 +30,7 @@ type dbArtist struct {
 	*model.Artist    `structs:",flatten"`
 	SimilarArtists   string `structs:"-" json:"-"`
 	LibraryStatsJSON string `structs:"-" json:"-"`
+	UrlAlias         string `structs:"-" json:"-"` // Explicitly capture url_alias from DB
 }
 
 type dbSimilarArtist struct {
@@ -91,6 +92,8 @@ func (a *dbArtist) PostScan() error {
 			Name: s.Name,
 		})
 	}
+	// Copy URL alias from DB field to model field
+	a.Artist.URLAlias = a.UrlAlias
 	return nil
 }
 
@@ -595,6 +598,29 @@ func (r *artistRepository) EntityName() string {
 
 func (r *artistRepository) NewInstance() interface{} {
 	return &model.Artist{}
+}
+
+// IncGlobalPlayCount increments the global play count for an artist
+func (r *artistRepository) IncGlobalPlayCount(itemID string, timestamp time.Time) error {
+	upd := Update(r.tableName).Where(Eq{"id": itemID}).
+		Set("global_play_count", Expr("global_play_count+1")).
+		Set("global_last_played", timestamp)
+	_, err := r.executeSQL(upd)
+	return err
+}
+
+// FindByAlias finds an artist by its URL alias
+func (r *artistRepository) FindByAlias(alias string) (*model.Artist, error) {
+	var res dbArtist
+	query := r.selectArtist().
+		Where(Eq{r.tableName + ".url_alias": alias}).
+		Where(Eq{r.tableName + ".missing": false})
+	
+	err := r.queryOne(query, &res)
+	if err != nil {
+		return nil, err
+	}
+	return res.Artist, nil
 }
 
 var _ model.ArtistRepository = (*artistRepository)(nil)

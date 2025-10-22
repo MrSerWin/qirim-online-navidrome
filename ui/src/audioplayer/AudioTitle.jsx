@@ -6,6 +6,7 @@ import { QualityInfo } from '../common'
 import useStyle from './styles'
 import { useDrag } from 'react-dnd'
 import { DraggableTypes } from '../consts'
+import { generateAlbumURL } from '../utils/urlGenerator'
 
 const AudioTitle = React.memo(({ audioInfo, gainInfo, isMobile }) => {
   const classes = useStyle()
@@ -42,7 +43,7 @@ const AudioTitle = React.memo(({ audioInfo, gainInfo, isMobile }) => {
     ? `/radio/${audioInfo.trackId}/show`
     : song.playlistId
       ? `/playlist/${song.playlistId}/show`
-      : `/album/${song.albumId}/show`
+      : generateAlbumURL(song.albumId, song.albumAlias, 'show', false) // Use ID for navigation
 
   return (
     <Link to={linkTo} className={className} ref={dragSongRef}>

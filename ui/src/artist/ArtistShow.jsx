@@ -9,6 +9,7 @@ import {
   Pagination,
   Title as RaTitle,
 } from 'react-admin'
+import { useHistory, useParams } from 'react-router-dom'
 import subsonic from '../subsonic'
 import AlbumGridView from '../album/AlbumGridView'
 import MobileArtistDetails from './MobileArtistDetails'
@@ -85,12 +86,23 @@ const ArtistDetails = (props) => {
 }
 
 const ArtistShowLayout = (props) => {
-  const showContext = useShowContext(props)
+  const { loading, ...showContext } = useShowContext(props)
   const record = useRecordContext()
   const { width } = props
   const [, perPageOptions] = useAlbumsPerPage(width)
   const classes = useStyles()
+  const history = useHistory()
+  const { id } = useParams()
   useResourceRefresh('artist', 'album')
+
+  // If URL contains alias, redirect to UUID-based URL
+  useEffect(() => {
+    // Only redirect when data is loaded and we have a mismatch
+    if (!loading && record && record.id && id !== record.id) {
+      // URL has alias, but record has UUID - redirect to UUID URL
+      history.replace(`/artist/${record.id}/show`)
+    }
+  }, [loading, record, id, history])
 
   const maxPerPage = 90
   let perPage = 0

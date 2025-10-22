@@ -24,6 +24,7 @@ import subsonic from '../subsonic'
 import { useInterval } from '../common'
 import { nowPlayingCountUpdate } from '../actions'
 import config from '../config'
+import { generateAlbumURL, generateArtistURL } from '../utils/urlGenerator'
 
 const useStyles = makeStyles((theme) => ({
   button: { color: theme.palette.text.primary },
@@ -124,7 +125,7 @@ const NowPlayingItem = React.memo(
       <ListItem key={nowPlayingEntry.playerId} className={classes.listItem}>
         <ListItemAvatar>
           <Link
-            to={`/album/${nowPlayingEntry.albumId}/show`}
+            to={generateAlbumURL(nowPlayingEntry.albumId, nowPlayingEntry.albumAlias, 'show', false)} // Use ID for navigation
             onClick={onLinkClick}
           >
             <Avatar
@@ -143,6 +144,7 @@ const NowPlayingItem = React.memo(
                 <Link
                   to={getArtistLink(
                     nowPlayingEntry.albumArtistId || nowPlayingEntry.artistId,
+                    nowPlayingEntry.albumArtistAlias || nowPlayingEntry.artistAlias,
                   )}
                   className={classes.artistLink}
                   onClick={onLinkClick}
@@ -276,10 +278,10 @@ const NowPlayingPanel = () => {
     }
   }, [isSmallScreen, handleMenuClose])
 
-  const getArtistLink = useCallback((artistId) => {
+  const getArtistLink = useCallback((artistId, artistAlias) => {
     if (!artistId) return null
     return config.devShowArtistPage && artistId !== config.variousArtistsId
-      ? `/artist/${artistId}/show`
+      ? generateArtistURL(artistId, artistAlias, 'show', false) // Use ID for navigation
       : `/album?filter={"artist_id":"${artistId}"}&order=ASC&sort=max_year&displayedFilters={"compilation":true}&perPage=15`
   }, [])
 

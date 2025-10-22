@@ -38,6 +38,7 @@ type MediaFile struct {
 	AlbumArtistID string `structs:"album_artist_id" json:"albumArtistId"` // Deprecated: Use Participants instead
 	// AlbumArtist is the display name used for the album artist.
 	AlbumArtist          string   `structs:"album_artist" json:"albumArtist"`
+	URLAlias             string   `structs:"url_alias" json:"urlAlias"` // URL-friendly alias for the song
 	AlbumID              string   `structs:"album_id" json:"albumId"`
 	HasCoverArt          bool     `structs:"has_cover_art" json:"hasCoverArt"`
 	TrackNumber          int      `structs:"track_number" json:"trackNumber"`
@@ -374,4 +375,7 @@ type MediaFileRepository interface {
 	AnnotatedRepository
 	BookmarkableRepository
 	SearchableRepository[MediaFiles]
+	
+	// URL alias methods
+	FindByAlias(alias string) (*MediaFile, error)
 }

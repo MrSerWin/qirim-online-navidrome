@@ -46,6 +46,7 @@ type Album struct {
 	MbzReleaseGroupID    string   `structs:"mbz_release_group_id" json:"mbzReleaseGroupId,omitempty"`
 	FolderIDs            []string `structs:"folder_ids" json:"-" hash:"set"` // All folders that contain media_files for this album
 	ExplicitStatus       string   `structs:"explicit_status" json:"explicitStatus"`
+	URLAlias             string   `structs:"url_alias" json:"urlAlias"`             // URL-friendly alias for the album
 
 	// External metadata fields
 	Description           string     `structs:"description" json:"description,omitempty" hash:"ignore"`
@@ -141,4 +142,7 @@ type AlbumRepository interface {
 
 	AnnotatedRepository
 	SearchableRepository[Albums]
+	
+	// URL alias methods
+	FindByAlias(alias string) (*Album, error)
 }
