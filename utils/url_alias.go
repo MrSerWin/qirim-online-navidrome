@@ -6,6 +6,98 @@ import (
 	"unicode"
 )
 
+// transliterate converts special characters to ASCII equivalents
+func transliterate(input string) string {
+	// Crimean Tatar, Turkish, and other special characters
+	transliterations := map[rune]string{
+		// Crimean Tatar / Turkish
+		'ç': "c", 'Ç': "C",
+		'ğ': "g", 'Ğ': "G",
+		'ñ': "n", 'Ñ': "N",
+		'ö': "o", 'Ö': "O",
+		'ş': "s", 'Ş': "S",
+		'ü': "u", 'Ü': "U",
+		'ı': "i", 'İ': "I",
+
+		// Russian Cyrillic
+		'а': "a", 'А': "A",
+		'б': "b", 'Б': "B",
+		'в': "v", 'В': "V",
+		'г': "g", 'Г': "G",
+		'д': "d", 'Д': "D",
+		'е': "e", 'Е': "E",
+		'ё': "e", 'Ё': "E",
+		'ж': "zh", 'Ж': "Zh",
+		'з': "z", 'З': "Z",
+		'и': "i", 'И': "I",
+		'й': "y", 'Й': "Y",
+		'к': "k", 'К': "K",
+		'л': "l", 'Л': "L",
+		'м': "m", 'М': "M",
+		'н': "n", 'Н': "N",
+		'о': "o", 'О': "O",
+		'п': "p", 'П': "P",
+		'р': "r", 'Р': "R",
+		'с': "s", 'С': "S",
+		'т': "t", 'Т': "T",
+		'у': "u", 'У': "U",
+		'ф': "f", 'Ф': "F",
+		'х': "h", 'Х': "H",
+		'ц': "ts", 'Ц': "Ts",
+		'ч': "ch", 'Ч': "Ch",
+		'ш': "sh", 'Ш': "Sh",
+		'щ': "sch", 'Щ': "Sch",
+		'ъ': "", 'Ъ': "",
+		'ы': "y", 'Ы': "Y",
+		'ь': "", 'Ь': "",
+		'э': "e", 'Э': "E",
+		'ю': "yu", 'Ю': "Yu",
+		'я': "ya", 'Я': "Ya",
+
+		// German umlauts
+		'ä': "ae", 'Ä': "Ae",
+		'ë': "e", 'Ë': "E",
+		'ï': "i", 'Ï': "I",
+
+		// French (excluding ç which is already in Turkish section)
+		'à': "a", 'À': "A",
+		'â': "a", 'Â': "A",
+		'é': "e", 'É': "E",
+		'è': "e", 'È': "E",
+		'ê': "e", 'Ê': "E",
+		'î': "i", 'Î': "I",
+		'ô': "o", 'Ô': "O",
+		'û': "u", 'Û': "U",
+		'ù': "u", 'Ù': "U",
+		'ÿ': "y", 'Ÿ': "Y",
+
+		// Spanish
+		'á': "a", 'Á': "A",
+		'í': "i", 'Í': "I",
+		'ó': "o", 'Ó': "O",
+		'ú': "u", 'Ú': "U",
+
+		// Other common
+		'æ': "ae", 'Æ': "Ae",
+		'œ': "oe", 'Œ': "Oe",
+		'ß': "ss",
+		'ð': "d", 'Ð': "D",
+		'þ': "th", 'Þ': "Th",
+		'ø': "o", 'Ø': "O",
+		'å': "a", 'Å': "A",
+	}
+
+	var result strings.Builder
+	for _, r := range input {
+		if replacement, ok := transliterations[r]; ok {
+			result.WriteString(replacement)
+		} else {
+			result.WriteRune(r)
+		}
+	}
+	return result.String()
+}
+
 // GenerateURLAlias creates a URL-friendly alias from a given string
 // It converts to lowercase, removes special characters, and replaces spaces with hyphens
 func GenerateURLAlias(input string) string {
@@ -13,8 +105,11 @@ func GenerateURLAlias(input string) string {
 		return ""
 	}
 
+	// First, transliterate special characters to ASCII
+	alias := transliterate(input)
+
 	// Convert to lowercase
-	alias := strings.ToLower(input)
+	alias = strings.ToLower(alias)
 
 	// Replace common special characters with their equivalents
 	replacements := map[string]string{
