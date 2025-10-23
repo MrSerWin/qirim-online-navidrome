@@ -326,6 +326,7 @@ export default {
       },
       songTitle: {
         fontWeight: 400,
+        color: '#484848 !important',
       },
       songInfo: {
         fontSize: '0.675rem',
