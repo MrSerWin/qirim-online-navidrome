@@ -20,7 +20,6 @@ import {
   openExtendedInfoDialog,
   openDownloadMenu,
   DOWNLOAD_MENU_SONG,
-  openShareMenu,
 } from '../actions'
 import { LoveButton } from './LoveButton'
 import config from '../config'
@@ -106,48 +105,11 @@ export const SongContextMenu = ({
         setPlaylistAnchorEl(e.currentTarget)
       },
     },
-    share: {
-      enabled: config.enableSharing,
-      label: translate('ra.action.share'),
-      action: (record) =>
-        dispatch(
-          openShareMenu(
-            [record.mediaFileId || record.id],
-            'song',
-            record.title,
-          ),
-        ),
-    },
     download: {
       enabled: config.enableDownloads,
       label: `${translate('ra.action.download')} (${formatBytes(record.size)})`,
       action: (record) =>
         dispatch(openDownloadMenu(record, DOWNLOAD_MENU_SONG)),
-    },
-    info: {
-      enabled: true,
-      label: translate('resources.song.actions.info'),
-      action: async (record) => {
-        let fullRecord = record
-        if (permissions === 'admin' && !record.missing) {
-          try {
-            let id = record.mediaFileId ?? record.id
-            const data = await dataProvider.inspect(id)
-            fullRecord = { ...record, rawTags: data.data.rawTags }
-          } catch (error) {
-            notify(
-              translate('ra.notification.http_error') + ': ' + error.message,
-              {
-                type: 'warning',
-                multiLine: true,
-                duration: 0,
-              },
-            )
-          }
-        }
-
-        dispatch(openExtendedInfoDialog(fullRecord))
-      },
     },
   }
 

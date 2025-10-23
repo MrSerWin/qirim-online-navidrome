@@ -8,6 +8,7 @@ import {
   ReferenceManyField,
   Pagination,
   Title as RaTitle,
+  useDataProvider,
 } from 'react-admin'
 import { useHistory, useParams } from 'react-router-dom'
 import subsonic from '../subsonic'
@@ -87,22 +88,39 @@ const ArtistDetails = (props) => {
 
 const ArtistShowLayout = (props) => {
   const { loading, ...showContext } = useShowContext(props)
-  const record = useRecordContext()
+  const { record, id: showId } = showContext
   const { width } = props
   const [, perPageOptions] = useAlbumsPerPage(width)
   const classes = useStyles()
   const history = useHistory()
   const { id } = useParams()
+  const dataProvider = useDataProvider()
+  const [aliasRecord, setAliasRecord] = useState(null)
   useResourceRefresh('artist', 'album')
+
+  // Load artist data directly if React Admin fails to load it
+  useEffect(() => {
+    if (!loading && !record && id && id !== showId) {
+      dataProvider.getOne('artist', { id })
+        .then((response) => {
+          setAliasRecord(response.data)
+        })
+        .catch((error) => {
+          console.error('Error loading artist:', error)
+        })
+    }
+  }, [loading, record, id, showId, dataProvider])
 
   // If URL contains alias, redirect to UUID-based URL
   useEffect(() => {
+    const currentRecord = record || aliasRecord
+
     // Only redirect when data is loaded and we have a mismatch
-    if (!loading && record && record.id && id !== record.id) {
+    if (!loading && currentRecord && currentRecord.id && id !== currentRecord.id) {
       // URL has alias, but record has UUID - redirect to UUID URL
-      history.replace(`/artist/${record.id}/show`)
+      history.replace(`/artist/${currentRecord.id}/show`)
     }
-  }, [loading, record, id, history])
+  }, [loading, record, aliasRecord, id, showId, history])
 
   const maxPerPage = 90
   let perPage = 0

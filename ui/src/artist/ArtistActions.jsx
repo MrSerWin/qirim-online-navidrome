@@ -115,7 +115,7 @@ const ArtistActions = ({ className, record, ...rest }) => {
       >
         <IoIosRadio className={classes.radioIcon} />
       </Button>
-      {config.enableSharing && (
+      {config.enableSharing && record.id && record.urlAlias && (
         <QuickShareButton
           url={generateArtistShareURL(record.id, record.urlAlias, window.location.origin)}
           title={record.name}
