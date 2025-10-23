@@ -19,7 +19,7 @@ export default defineConfig({
         type: 'module',
       },
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}'],
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
       },
       workbox: {
