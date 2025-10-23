@@ -12,7 +12,7 @@ import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 import { CollapsibleComment, DurationField, SizeField } from '../common'
 import subsonic from '../subsonic'
-
+import QoLogo from '../icons/qo-512x512.png'
 const useStyles = makeStyles(
   (theme) => ({
     root: {
@@ -92,7 +92,7 @@ const PlaylistDetails = (props) => {
   const [imageLoading, setImageLoading] = useState(false)
   const [imageError, setImageError] = useState(false)
 
-  const placeholderUrl = '/album-placeholder.webp'
+  // const placeholderUrl = '/album-placeholder.webp'
   const imageUrl = subsonic.getCoverArtUrl(record, 300, true)
   const fullImageUrl = subsonic.getCoverArtUrl(record)
   const [currentImageUrl, setCurrentImageUrl] = useState(imageUrl)
@@ -112,8 +112,8 @@ const PlaylistDetails = (props) => {
   const handleImageError = useCallback(() => {
     setImageLoading(false)
     setImageError(true)
-    setCurrentImageUrl(placeholderUrl)
-  }, [placeholderUrl])
+    setCurrentImageUrl(QoLogo)
+  }, [QoLogo])
 
   const handleOpenLightbox = useCallback(() => {
     if (!imageError) {
