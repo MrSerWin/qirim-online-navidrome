@@ -92,14 +92,17 @@ const PlaylistDetails = (props) => {
   const [imageLoading, setImageLoading] = useState(false)
   const [imageError, setImageError] = useState(false)
 
+  const placeholderUrl = '/album-placeholder.webp'
   const imageUrl = subsonic.getCoverArtUrl(record, 300, true)
   const fullImageUrl = subsonic.getCoverArtUrl(record)
+  const [currentImageUrl, setCurrentImageUrl] = useState(imageUrl)
 
   // Reset image state when playlist changes
   useEffect(() => {
     setImageLoading(true)
     setImageError(false)
-  }, [record.id])
+    setCurrentImageUrl(imageUrl)
+  }, [record.id, imageUrl])
 
   const handleImageLoad = useCallback(() => {
     setImageLoading(false)
@@ -109,7 +112,8 @@ const PlaylistDetails = (props) => {
   const handleImageError = useCallback(() => {
     setImageLoading(false)
     setImageError(true)
-  }, [])
+    setCurrentImageUrl(placeholderUrl)
+  }, [placeholderUrl])
 
   const handleOpenLightbox = useCallback(() => {
     if (!imageError) {
@@ -126,7 +130,7 @@ const PlaylistDetails = (props) => {
           <CardMedia
             key={record.id} // Force re-render when playlist changes
             component={'img'}
-            src={imageUrl}
+            src={currentImageUrl}
             width="400"
             height="400"
             className={`${classes.cover} ${imageLoading ? classes.coverLoading : ''}`}
