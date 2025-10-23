@@ -6,8 +6,9 @@ import (
 	"unicode"
 )
 
-// transliterate converts special characters to ASCII equivalents
-func transliterate(input string) string {
+// Transliterate converts special characters to ASCII equivalents
+// This is a public function that can be used for both URL aliases and search normalization
+func Transliterate(input string) string {
 	// Crimean Tatar, Turkish, and other special characters
 	transliterations := map[rune]string{
 		// Crimean Tatar / Turkish
@@ -71,11 +72,13 @@ func transliterate(input string) string {
 		'ù': "u", 'Ù': "U",
 		'ÿ': "y", 'Ÿ': "Y",
 
-		// Spanish
+		// Spanish / Portuguese
 		'á': "a", 'Á': "A",
 		'í': "i", 'Í': "I",
 		'ó': "o", 'Ó': "O",
 		'ú': "u", 'Ú': "U",
+		'ã': "a", 'Ã': "A",
+		'õ': "o", 'Õ': "O",
 
 		// Other common
 		'æ': "ae", 'Æ': "Ae",
@@ -106,7 +109,7 @@ func GenerateURLAlias(input string) string {
 	}
 
 	// First, transliterate special characters to ASCII
-	alias := transliterate(input)
+	alias := Transliterate(input)
 
 	// Convert to lowercase
 	alias = strings.ToLower(alias)

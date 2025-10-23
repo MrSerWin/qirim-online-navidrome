@@ -6,9 +6,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/deluan/sanitize"
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/navidrome/navidrome/conf"
+	"github.com/navidrome/navidrome/utils"
 )
 
 var ignoredCharsRegex = regexp.MustCompile("[“”‘’'\"\\[({\\])},]")
@@ -24,7 +24,9 @@ func SanitizeStrings(text ...string) string {
 
 	// Remove special symbols, accents, extra spaces and slashes
 	sanitizedStrings := slashRemover.Replace(Clear(sanitizedText.String()))
-	sanitizedStrings = sanitize.Accents(strings.ToLower(sanitizedStrings))
+	// Use our custom Transliterate function instead of sanitize.Accents for better Turkish/Cyrillic support
+	sanitizedStrings = utils.Transliterate(sanitizedStrings)
+	sanitizedStrings = strings.ToLower(sanitizedStrings)
 	sanitizedStrings = ignoredCharsRegex.ReplaceAllString(sanitizedStrings, "")
 	fullText := strings.Fields(sanitizedStrings)
 
@@ -44,12 +46,12 @@ func SanitizeText(text string) string {
 }
 
 func SanitizeFieldForSorting(originalValue string) string {
-	v := strings.TrimSpace(sanitize.Accents(originalValue))
+	v := strings.TrimSpace(utils.Transliterate(originalValue))
 	return Clear(strings.ToLower(v))
 }
 
 func SanitizeFieldForSortingNoArticle(originalValue string) string {
-	v := strings.TrimSpace(sanitize.Accents(originalValue))
+	v := strings.TrimSpace(utils.Transliterate(originalValue))
 	return Clear(strings.ToLower(strings.TrimSpace(RemoveArticle(v))))
 }
 
