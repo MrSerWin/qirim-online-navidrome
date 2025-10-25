@@ -1,21 +1,25 @@
-import React, { createElement, forwardRef, Fragment } from 'react'
+import React, { createElement, forwardRef, Fragment, useCallback } from 'react'
 import {
   AppBar as RAAppBar,
   MenuItemLink,
   useTranslate,
   usePermissions,
   getResources,
+  useDataProvider,
+  useNotify,
 } from 'react-admin'
 import { MdInfo, MdPerson, MdSupervisorAccount } from 'react-icons/md'
-import { useSelector } from 'react-redux'
-import { makeStyles, MenuItem, ListItemIcon, Divider } from '@material-ui/core'
+import { useSelector, useDispatch } from 'react-redux'
+import { makeStyles, MenuItem, ListItemIcon, Divider, IconButton, Tooltip, Box } from '@material-ui/core'
 import ViewListIcon from '@material-ui/icons/ViewList'
+import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import { Dialogs } from '../dialogs/Dialogs'
 import { AboutDialog } from '../dialogs'
 import PersonalMenu from './PersonalMenu'
 import ActivityPanel from './ActivityPanel'
 import NowPlayingPanel from './NowPlayingPanel'
 import UserMenu from './UserMenu'
+import { playTracks } from '../actions'
 import config from '../config'
 
 const useStyles = makeStyles(
@@ -27,6 +31,13 @@ const useStyles = makeStyles(
       color: theme.palette.text.primary,
     },
     icon: { minWidth: theme.spacing(5) },
+    playButton: {
+      marginRight: theme.spacing(1),
+      color: theme.palette.primary.main,
+      '&:hover': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
   }),
   {
     name: 'NDAppBar',
@@ -72,17 +83,20 @@ const GuestUserMenu = () => {
   const classes = useStyles()
 
   return (
-    <MenuItem
-      className={classes.root}
-      onClick={() => {
-        window.location.hash = '#/login'
-      }}
-    >
-      <ListItemIcon className={classes.icon}>
-        <MdPerson size={24} />
-      </ListItemIcon>
-      {translate('ra.auth.sign_in', { _: 'Sign In' })}
-    </MenuItem>
+    <>
+      <ShufflePlayButton />
+      <MenuItem
+        className={classes.root}
+        onClick={() => {
+          window.location.hash = '#/login'
+        }}
+      >
+        <ListItemIcon className={classes.icon}>
+          <MdPerson size={24} />
+        </ListItemIcon>
+        {translate('ra.auth.sign_in', { _: 'Sign In' })}
+      </MenuItem>
+    </>
   )
 }
 
@@ -144,6 +158,7 @@ const CustomUserMenu = ({ onClick, ...rest }) => {
 
   return (
     <>
+      <ShufflePlayButton />
       {config.devActivityPanel &&
         permissions === 'admin' &&
         config.enableNowPlaying && <NowPlayingPanel />}
@@ -160,6 +175,46 @@ const CustomUserMenu = ({ onClick, ...rest }) => {
       </UserMenu>
       <Dialogs />
     </>
+  )
+}
+
+const ShufflePlayButton = () => {
+  const classes = useStyles()
+  const translate = useTranslate()
+  const dataProvider = useDataProvider()
+  const dispatch = useDispatch()
+  const notify = useNotify()
+
+  const handlePlayClick = useCallback(() => {
+    dataProvider
+      .getList('song', {
+        pagination: { page: 1, perPage: 500 },
+        sort: { field: 'random', order: 'ASC' },
+        filter: { missing: false },
+      })
+      .then((res) => {
+        const data = {}
+        res.data.forEach((song) => {
+          data[song.id] = song
+        })
+        dispatch(playTracks(data))
+      })
+      .catch(() => {
+        notify('ra.page.error', 'warning')
+      })
+  }, [dataProvider, dispatch, notify])
+
+  return (
+    <Tooltip title={translate('resources.song.actions.playNow', { _: 'Play All' })}>
+      <IconButton
+        className={classes.playButton}
+        onClick={handlePlayClick}
+        aria-label={translate('resources.song.actions.playNow', { _: 'Play All' })}
+        size="medium"
+      >
+        <PlayArrowIcon fontSize="large" />
+      </IconButton>
+    </Tooltip>
   )
 }
 
