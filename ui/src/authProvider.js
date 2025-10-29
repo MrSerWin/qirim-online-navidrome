@@ -80,7 +80,18 @@ const authProvider = {
   },
 
   checkError: ({ status }) => {
-    if (status === 401) {
+    if (status === 401 || status === 403) {
+      // For unauthenticated users (no token), just ignore the error
+      // They should be able to browse as guests
+      const isAuthenticated = localStorage.getItem('is-authenticated')
+
+      if (!isAuthenticated) {
+        // Not authenticated - ignore 401/403 and allow guest access
+        return Promise.resolve()
+      }
+
+      // For authenticated users, logout on 401/403
+      // This means their session is invalid
       removeItems()
       return Promise.reject()
     }
