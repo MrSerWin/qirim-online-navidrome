@@ -569,6 +569,34 @@
         }
       }
     },
+    "partners": {
+      "name": "Partners",
+      "title": "Project Partners",
+      "sections": {
+        "partners": "Partners",
+        "resources": "Useful Resources",
+        "support": "Support the Project"
+      },
+      "descriptions": {
+        "anaYurt": "Crimean Tatar Educational Portal",
+        "anaYurtOnline": "Watch movies and cartoons in Crimean Tatar language",
+        "synonymsDict": "Crimean Tatar Synonyms Dictionary",
+        "qirimtatarDict": "Crimean Tatar Dictionary",
+        "qirimJunior": "Susanna Jemileva's Project - Crimean Tatar Language Learning for Children"
+      },
+      "platforms": {
+        "web": "Web",
+        "webLatin": "Web (Latin)",
+        "webCyrillic": "Web (Cyrillic)",
+        "android": "Android",
+        "ios": "iOS"
+      },
+      "support": {
+        "title": "Support Project Development",
+        "description": "Your donations help us develop the platform and preserve Crimean Tatar culture",
+        "copied": "%{label} copied to clipboard"
+      }
+    },
     "albumList": "Albums",
     "playlists": "Playlists",
     "sharedPlaylists": "Shared Playlists",

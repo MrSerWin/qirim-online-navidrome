@@ -3,10 +3,12 @@ import { Route } from 'react-router-dom'
 import Personal from './personal/Personal'
 import ShopBrowser from './shop/ShopBrowser'
 import ShopCheckout from './shop/ShopCheckout'
+import Partners from './partners/Partners'
 import config from './config'
 
 const routes = [
   <Route exact path="/personal" render={() => <Personal />} key={'personal'} />,
+  <Route exact path="/partners" render={() => <Partners />} key={'partners'} />,
 ]
 
 // Add shop routes if enabled

@@ -11,6 +11,7 @@ import { humanize, pluralize } from 'inflection'
 import albumLists from '../album/albumLists'
 import PlaylistsSubMenu from './PlaylistsSubMenu'
 import LibrarySelector from '../common/LibrarySelector'
+import PartnersMenu from './PartnersMenu'
 import config from '../config'
 
 const useStyles = makeStyles((theme) => ({
@@ -127,6 +128,7 @@ const Menu = ({ dense = false }) => {
           renderAlbumMenuItemLink(type, albumLists[type]),
         )}
       </SubMenu>
+
       {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
       {config.devSidebarPlaylists && open ? (
         <>
@@ -141,6 +143,10 @@ const Menu = ({ dense = false }) => {
       ) : (
         resources.filter(subItems('playlist')).map(renderResourceMenuItemLink)
       )}
+
+      <Divider />
+      <PartnersMenu sidebarIsOpen={open} dense={dense} />
+
       {config.enableShop && resources.filter(subItems('shop')).length > 0 && (
         <>
           <Divider />

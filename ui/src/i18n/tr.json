@@ -564,7 +564,34 @@
     "albumList": "Albümler",
     "playlists": "Çalma Listeleri",
     "sharedPlaylists": "Paylaşılan Çalma Listeleri",
-    "about": "Hakkında"
+    "about": "Hakkında",
+    "partners": {
+      "name": "Ortaklar",
+      "title": "Proje Ortakları",
+      "sections": {
+        "partners": "İş Ortaklarımız",
+        "resources": "Faydalı Kaynaklar",
+        "support": "Projeyi Destekleyin"
+      },
+      "descriptions": {
+        "anaYurt": "Kırım Tatar eğitim portalı",
+        "anaYurtOnline": "Kırım Tatar dilinde film ve çizgi film izleyin",
+        "synonymsDict": "Kırım Tatar dili eş anlamlılar sözlüğü",
+        "qirimtatarDict": "Kırım Tatar sözlüğü",
+        "qirimJunior": "Susanna Jemileva'nın projesi - çocuklar için Kırım Tatar dili öğretimi"
+      },
+      "platforms": {
+        "webLatin": "Web (Latin)",
+        "webCyrillic": "Web (Kiril)",
+        "android": "Android",
+        "ios": "iOS"
+      },
+      "support": {
+        "title": "Projeyi Destekleyin",
+        "description": "Kırım Tatar kültürünü korumaya ve geliştirmeye yardımcı olmak isterseniz, kripto para bağışında bulunabilirsiniz:",
+        "copied": "%{label} panoya kopyalandı"
+      }
+    }
   },
   "player": {
     "playListsText": "Çalma Sırası",

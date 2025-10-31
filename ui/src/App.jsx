@@ -170,6 +170,7 @@ const Admin = (props) => {
           />
         ) : null,
 
+
         // Shop resources (admin only)
         config.enableShop && permissions === 'admin' ? (
           <Resource

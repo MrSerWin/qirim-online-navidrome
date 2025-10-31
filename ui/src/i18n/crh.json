@@ -561,6 +561,34 @@
         }
       }
     },
+    "partners": {
+      "name": "Şerikler",
+      "title": "Proyekt Şerikleri",
+      "sections": {
+        "partners": "Şerikler",
+        "resources": "Faydalı Resurslar",
+        "support": "Proyektke Yardım"
+      },
+      "descriptions": {
+        "anaYurt": "Qırımtatar maarif portalı",
+        "anaYurtOnline": "Qırımtatar tilinde filmler ve multfilmler baq",
+        "synonymsDict": "Qırımtatar tiliniñ sinonimler luğatı",
+        "qirimtatarDict": "Qırımtatar luğatı",
+        "qirimJunior": "Susanna Cemileva'nıñ proyekti - balalar içün qırımtatar tiline ögretiş"
+      },
+      "platforms": {
+        "web": "Veb",
+        "webLatin": "Veb (latın)",
+        "webCyrillic": "Veb (kiril)",
+        "android": "Android",
+        "ios": "iOS"
+      },
+      "support": {
+        "title": "Proyektniñ inkişafına yardım etiñiz",
+        "description": "Siziñ yardımlarıñız bizge platformanı inkişaf ettirirge ve qırımtatar medeniyetini saqlarğa yardım ete",
+        "copied": "%{label} buferge kopiyalana"
+      }
+    },
     "albumList": "Albomlar",
     "playlists": "Çalğı cedvelleri",
     "sharedPlaylists": "Paylaşılğan Çalğı cedvelleri",
