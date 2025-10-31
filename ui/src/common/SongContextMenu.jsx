@@ -24,6 +24,7 @@ import {
 import { LoveButton } from './LoveButton'
 import config from '../config'
 import { formatBytes } from '../utils'
+import { generateSongShareURL } from '../utils/urlGenerator'
 import { useRedirect } from 'react-admin'
 
 const useStyles = makeStyles({
@@ -35,9 +36,9 @@ const useStyles = makeStyles({
 const MoreButton = ({ record, onClick, info }) => {
   const handleClick = record.missing
     ? (e) => {
-        info.action(record)
-        e.stopPropagation()
-      }
+      info.action(record)
+      e.stopPropagation()
+    }
     : onClick
   return (
     <IconButton onClick={handleClick} size={'small'}>
@@ -103,6 +104,40 @@ export const SongContextMenu = ({
         (playlists.length > 0 ? ' ►' : ''),
       action: (record, e) => {
         setPlaylistAnchorEl(e.currentTarget)
+      },
+    },
+    share: {
+      enabled: config.enableSharing,
+      label: translate('ra.action.share'),
+      action: async (record) => {
+        const songId = record.mediaFileId || record.id
+        const songAlias = record.urlAlias
+        const shareUrl = generateSongShareURL(songId, songAlias, window.location.origin)
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(shareUrl)
+            notify('message.linkCopied', { type: 'info' })
+          } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea')
+            textArea.value = shareUrl
+            textArea.style.position = 'fixed'
+            textArea.style.left = '-999999px'
+            document.body.appendChild(textArea)
+            textArea.focus()
+            textArea.select()
+            try {
+              document.execCommand('copy')
+              notify('message.linkCopied', { type: 'info' })
+            } catch (err) {
+              notify('ra.message.error', { type: 'warning' })
+            }
+            document.body.removeChild(textArea)
+          }
+        } catch (error) {
+          notify('ra.message.error', { type: 'warning' })
+        }
       },
     },
     download: {
@@ -250,7 +285,7 @@ SongContextMenu.propTypes = {
 }
 
 SongContextMenu.defaultProps = {
-  onAddToPlaylist: () => {},
+  onAddToPlaylist: () => { },
   record: {},
   resource: 'song',
   showLove: true,
