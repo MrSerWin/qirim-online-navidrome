@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **Navidrome QO** - a custom fork of Navidrome music streaming server with custom themes, UI modifications, and OAuth integration for Qirim.Online (qirim.online) and stage environment (qirim.cloud).
+This is **Navidrome QO** - a custom fork of Navidrome music streaming server with custom themes, UI modifications, and OAuth integration for Qirim.Online (qirim.online) and stage environment (YOUR_DOMAIN).
 
 **Key Customizations:**
 - QO Dark/Light themes
@@ -14,6 +14,7 @@ This is **Navidrome QO** - a custom fork of Navidrome music streaming server wit
 - OAuth authentication (Google, Facebook)
 - Custom QO branding/logos
 - Mailcow email server integration
+- **Xray VPN** for secure video calls (VLESS/WebSocket/TLS)
 
 ## Tech Stack
 
@@ -23,6 +24,7 @@ This is **Navidrome QO** - a custom fork of Navidrome music streaming server wit
 - **Deployment:** Docker + Docker Compose
 - **Reverse Proxy:** Nginx with SSL (Let's Encrypt)
 - **Email:** Mailcow (mail.qirim.online)
+- **VPN:** Xray (VLESS/WebSocket/TLS on qirim.online:443/video_bridge_42)
 
 ## Notes for Claude
 - if you give me command to run on server giv it me without ssh root@... because I run it on server directly
@@ -94,7 +96,7 @@ make migration-go   # Create empty Go migration file
 
 ### Deployment
 
-**Stage (qirim.cloud):**
+**Stage (YOUR_DOMAIN):**
 ```bash
 ./rebuild-and-deploy.sh
 ```
@@ -197,7 +199,7 @@ See `docker-compose.qirim-online.yml` for full production config.
 
 ### Deployment
 - `docker-compose.qirim-online.yml` - Production config (qirim.online)
-- `docker-compose.yml` - Stage config (qirim.cloud)
+- `docker-compose.yml` - Stage config (YOUR_DOMAIN)
 - `Dockerfile.simple` - Docker build file
 - `nginx/nginx-qirim-online.conf` - Nginx reverse proxy config for production
 
@@ -207,10 +209,13 @@ See `docker-compose.qirim-online.yml` for full production config.
 - `MAILCOW_SETUP.md` - Mailcow email server setup
 - `PUBLIC_ACCESS_IMPLEMENTATION_PLAN.md` - Plan for proper guest user mode
 - `WHY_GOOGLE_FLAGGED_AS_PHISHING.md` - OAuth false positive analysis
+- `docs/XRAY_VPN_SETUP.md` - Xray VPN full documentation
+- `XRAY_DEPLOYMENT_QUICKSTART.md` - Quick deployment guide for Xray
 
 ### Configuration
 - `navidrome.toml` - Local development config
 - `.env.example` - Environment variables template
+- `xray/config.json` - Xray VPN configuration (UUID, protocols, paths)
 
 ## Common Workflows
 
@@ -235,6 +240,16 @@ See `docker-compose.qirim-online.yml` for full production config.
 1. Edit `ui/src/i18n/en.json` (English) or `ui/src/i18n/ru.json` (Russian)
 2. Use translation key: `translate('ra.auth.privacyPolicy')`
 3. Rebuild UI: `make buildjs`
+
+### Deploying Xray VPN
+1. Create xray folder on server: `mkdir -p /opt/navidrome/xray`
+2. Upload config: `scp xray/config.json root@93.127.197.163:/opt/navidrome/xray/`
+3. Upload docker-compose and nginx configs
+4. Start: `docker compose -f docker-compose.qirim-online.yml up -d xray`
+5. Generate QR: `./scripts/generate-xray-qr.sh`
+6. Send QR code to users
+
+See [XRAY_DEPLOYMENT_QUICKSTART.md](XRAY_DEPLOYMENT_QUICKSTART.md) for details.
 
 ## Testing Changes
 
@@ -265,10 +280,11 @@ ssh root@93.127.197.163 'cd /opt/navidrome && docker compose logs -f navidrome'
 
 ## External Services
 
-- **Stage:** https://qirim.cloud (server: 93.127.197.163)
+- **Stage:** https://YOUR_DOMAIN (server: 93.127.197.163)
 - **Production:** https://qirim.online (server: 93.127.197.163)
 - **Mail Server:** https://mail.qirim.online (Mailcow)
 - **OAuth Redirect:** https://qirim.online/auth/oauth/callback
+- **Xray VPN Endpoint:** https://qirim.online/video_bridge_42 (WebSocket)
 
 ## Support Documents
 
@@ -281,3 +297,8 @@ When deploying, always check:
 - `DEPLOYMENT.md` for step-by-step deployment instructions
 - Docker compose logs for errors
 - Nginx logs on server for proxy issues
+
+When working on Xray VPN, refer to:
+- `XRAY_DEPLOYMENT_QUICKSTART.md` - Quick deployment guide
+- `docs/XRAY_VPN_SETUP.md` - Full technical documentation
+- `scripts/generate-xray-qr.sh` - QR code generator for clients
