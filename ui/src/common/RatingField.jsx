@@ -44,6 +44,13 @@ export const RatingField = ({
     [rate, record.mediaFileId, record.id],
   )
 
+  // Hide for guests (unauthenticated users)
+  const isAuthenticated = localStorage.getItem('is-authenticated') === 'true'
+
+  if (!isAuthenticated) {
+    return null
+  }
+
   return (
     <span onClick={(e) => stopPropagation(e)}>
       <Rating

@@ -1,7 +1,7 @@
 import { jwtDecode } from 'jwt-decode'
 import { baseUrl } from './utils'
 import config from './config'
-import { removeHomeCache } from './utils/removeHomeCache'
+import { removeHomeCache, clearAllUserCaches } from './utils/removeHomeCache'
 
 // config sent from server may contain authentication info, for example when the user is authenticated
 // by a reverse proxy request header
@@ -44,12 +44,21 @@ const authProvider = {
         }
         return response.json()
       })
-      .then((response) => {
+      .then(async (response) => {
         jwtDecode(response.token) // Validate token
         storeAuthenticationInfo(response)
         // Avoid "going to create admin" dialog after logout/login without a refresh
         config.firstTime = false
         removeHomeCache()
+
+        // Wait to ensure localStorage is fully updated before React-Admin makes requests
+        // This prevents race condition where httpClient reads empty token
+        await new Promise(resolve => setTimeout(resolve, 100))
+
+        // Debug: Check if token was stored
+        console.log('[Auth] Login successful, token stored:', !!localStorage.getItem('token'))
+        console.log('[Auth] User ID:', localStorage.getItem('userId'))
+        console.log('[Auth] Role:', localStorage.getItem('role'))
         return response
       })
       .catch((error) => {
@@ -66,6 +75,7 @@ const authProvider = {
 
   logout: () => {
     removeItems()
+    clearAllUserCaches() // Clear all service worker caches (API, images, etc.)
     return Promise.resolve()
   },
 
@@ -128,6 +138,14 @@ const removeItems = () => {
   localStorage.removeItem('subsonic-salt')
   localStorage.removeItem('subsonic-token')
   localStorage.removeItem('is-authenticated')
+  // Clear persisted Redux state (player queue, playlists, library, etc.)
+  localStorage.removeItem('state')
+  // Clear other app-specific data
+  localStorage.removeItem('translation')
+  localStorage.removeItem('shopCart')
+  // Clear replay gain settings (user-specific audio preferences)
+  localStorage.removeItem('replayGainMode')
+  localStorage.removeItem('replayGainPreamp')
 }
 
 export default authProvider

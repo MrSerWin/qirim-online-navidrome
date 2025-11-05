@@ -18,3 +18,28 @@ export const removeHomeCache = async () => {
     console.error('error reading cache', e)
   }
 }
+
+// Clear all user-specific caches on logout
+export const clearAllUserCaches = async () => {
+  try {
+    // Get all cache names
+    const cacheNames = await caches.keys()
+
+    // Clear API cache (contains playlists, songs, albums metadata)
+    const apiCaches = cacheNames.filter((name) =>
+      name.includes('api-cache') || name.includes('images-cache')
+    )
+
+    for (const cacheName of apiCaches) {
+      await caches.delete(cacheName)
+      // eslint-disable-next-line no-console
+      console.log('[Cache] Cleared cache:', cacheName)
+    }
+
+    // Also clear the home cache
+    await removeHomeCache()
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error('error clearing user caches', e)
+  }
+}

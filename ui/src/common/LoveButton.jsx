@@ -39,7 +39,10 @@ export const LoveButton = ({
     [toggleLove],
   )
 
-  if (!config.enableFavourites) {
+  // Hide for guests (unauthenticated users)
+  const isAuthenticated = localStorage.getItem('is-authenticated') === 'true'
+
+  if (!config.enableFavourites || !isAuthenticated) {
     return <></>
   }
   return (

@@ -25,9 +25,11 @@ const PlaylistCreate = (props) => {
     name: `${resourceName}`,
   })
 
-  // Redirect guests to playlist list
+  // Redirect guests to playlist list (only after permissions are loaded)
   useEffect(() => {
-    if (permissions === 'guest') {
+    // Only redirect if permissions are actually loaded and user is a guest
+    // Skip if permissions is undefined (still loading)
+    if (permissions !== undefined && permissions === 'guest') {
       notify('ra.notification.logged_out', 'warning')
       redirect('/playlist')
     }

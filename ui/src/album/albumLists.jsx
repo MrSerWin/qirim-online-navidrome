@@ -14,7 +14,11 @@ import VideoLibraryOutlinedIcon from '@material-ui/icons/VideoLibraryOutlined'
 import config from '../config'
 import DynamicMenuIcon from '../layout/DynamicMenuIcon'
 
-const albumLists = {
+// Function to check if user is authenticated (not a guest)
+const isAuthenticated = () => localStorage.getItem('is-authenticated') === 'true'
+
+// Function to get album lists dynamically based on authentication
+const getAlbumLists = () => ({
   all: {
     icon: (
       <DynamicMenuIcon
@@ -41,7 +45,7 @@ const albumLists = {
   //     params: 'sort=starred_at&order=DESC&filter={"starred":true}',
   //   },
   // }),
-  ...(config.enableStarRating && {
+  ...(config.enableStarRating && isAuthenticated() && {
     topRated: {
       icon: (
         <DynamicMenuIcon
@@ -73,11 +77,15 @@ const albumLists = {
   //   ),
   //   params: 'sort=play_date&order=DESC&filter={"recently_played":true}',
   // },
-  mostPlayed: {
-    icon: <RepeatIcon />,
-    params: 'sort=play_count&order=DESC&filter={"recently_played":true}',
-  },
-}
+  ...(isAuthenticated() && {
+    mostPlayed: {
+      icon: <RepeatIcon />,
+      params: 'sort=play_count&order=DESC&filter={"recently_played":true}',
+    },
+  }),
+})
+
+const albumLists = getAlbumLists()
 
 export default albumLists
 export const defaultAlbumList = 'recentlyAdded'

@@ -13,8 +13,7 @@ import {
 } from 'react-admin'
 import ShuffleIcon from '@material-ui/icons/Shuffle'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
-import { IoIosRadio } from 'react-icons/io'
-import { playShuffle, playSimilar, playTopSongs } from './actions.js'
+import { playShuffle, playTopSongs } from './actions.js'
 import { QuickShareButton } from '../common'
 import { generateArtistShareURL } from '../utils/urlGenerator'
 import config from '../config'
@@ -39,11 +38,6 @@ const useStyles = makeStyles((theme) => ({
       '& .MuiButton-startIcon': {
         marginRight: '4px',
       },
-    },
-  },
-  radioIcon: {
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '1.5rem',
     },
   },
 }))
@@ -76,16 +70,6 @@ const ArtistActions = ({ className, record, ...rest }) => {
     }
   }, [dataProvider, dispatch, record, notify])
 
-  const handleRadio = React.useCallback(async () => {
-    try {
-      await playSimilar(dispatch, notify, record.id)
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error('Error starting radio for artist:', e)
-      notify('ra.page.error', 'warning')
-    }
-  }, [dispatch, notify, record])
-
   return (
     <TopToolbar
       className={`${className} ${classes.toolbar}`}
@@ -106,14 +90,6 @@ const ArtistActions = ({ className, record, ...rest }) => {
         size={isMobile ? 'small' : 'medium'}
       >
         <ShuffleIcon />
-      </Button>
-      <Button
-        onClick={handleRadio}
-        label={translate('resources.artist.actions.radio')}
-        className={classes.button}
-        size={isMobile ? 'small' : 'medium'}
-      >
-        <IoIosRadio className={classes.radioIcon} />
       </Button>
       {config.enableSharing && record.id && record.urlAlias && (
         <QuickShareButton
