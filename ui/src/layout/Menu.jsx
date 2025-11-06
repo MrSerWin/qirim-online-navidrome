@@ -116,6 +116,16 @@ const Menu = ({ dense = false }) => {
       })}
     >
       {open && <LibrarySelector />}
+      {/* Albums - direct link to random albums (no submenu) */}
+      <MenuItemLink
+        to="/album/random"
+        activeClassName={classes.active}
+        primaryText={translate('resources.album.name', { smart_count: 2 })}
+        leftIcon={<AlbumIcon />}
+        sidebarIsOpen={open}
+        dense={dense}
+      />
+      {/* Commented out - old submenu with multiple album views
       <SubMenu
         handleToggle={() => handleToggle('menuAlbumList')}
         isOpen={state.menuAlbumList}
@@ -128,6 +138,7 @@ const Menu = ({ dense = false }) => {
           renderAlbumMenuItemLink(type, albumLists[type]),
         )}
       </SubMenu>
+      */}
 
       {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
       {config.devSidebarPlaylists && open ? (

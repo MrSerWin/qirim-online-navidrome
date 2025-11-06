@@ -55,10 +55,6 @@ const authProvider = {
         // This prevents race condition where httpClient reads empty token
         await new Promise(resolve => setTimeout(resolve, 100))
 
-        // Debug: Check if token was stored
-        console.log('[Auth] Login successful, token stored:', !!localStorage.getItem('token'))
-        console.log('[Auth] User ID:', localStorage.getItem('userId'))
-        console.log('[Auth] Role:', localStorage.getItem('role'))
         return response
       })
       .catch((error) => {

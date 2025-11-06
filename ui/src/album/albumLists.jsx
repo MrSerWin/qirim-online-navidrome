@@ -19,16 +19,17 @@ const isAuthenticated = () => localStorage.getItem('is-authenticated') === 'true
 
 // Function to get album lists dynamically based on authentication
 const getAlbumLists = () => ({
-  all: {
-    icon: (
-      <DynamicMenuIcon
-        path={'album/all'}
-        icon={AlbumOutlinedIcon}
-        activeIcon={AlbumIcon}
-      />
-    ),
-    params: 'sort=playCount&order=ASC&filter={}',
-  },
+  // Commented out - old navigation with multiple album views
+  // all: {
+  //   icon: (
+  //     <DynamicMenuIcon
+  //       path={'album/all'}
+  //       icon={AlbumOutlinedIcon}
+  //       activeIcon={AlbumIcon}
+  //     />
+  //   ),
+  //   params: 'sort=playCount&order=ASC&filter={}',
+  // },
   random: {
     icon: <ShuffleIcon />,
     params: 'sort=random&order=ASC&filter={}',
@@ -45,18 +46,18 @@ const getAlbumLists = () => ({
   //     params: 'sort=starred_at&order=DESC&filter={"starred":true}',
   //   },
   // }),
-  ...(config.enableStarRating && isAuthenticated() && {
-    topRated: {
-      icon: (
-        <DynamicMenuIcon
-          path={'album/topRated'}
-          icon={StarBorderIcon}
-          activeIcon={StarIcon}
-        />
-      ),
-      params: 'sort=rating&order=DESC&filter={"has_rating":true}',
-    },
-  }),
+  // ...(config.enableStarRating && isAuthenticated() && {
+  //   topRated: {
+  //     icon: (
+  //       <DynamicMenuIcon
+  //         path={'album/topRated'}
+  //         icon={StarBorderIcon}
+  //         activeIcon={StarIcon}
+  //       />
+  //     ),
+  //     params: 'sort=rating&order=DESC&filter={"has_rating":true}',
+  //   },
+  // }),
   // recentlyAdded: {
   //   icon: (
   //     <DynamicMenuIcon
@@ -77,15 +78,16 @@ const getAlbumLists = () => ({
   //   ),
   //   params: 'sort=play_date&order=DESC&filter={"recently_played":true}',
   // },
-  ...(isAuthenticated() && {
-    mostPlayed: {
-      icon: <RepeatIcon />,
-      params: 'sort=play_count&order=DESC&filter={"recently_played":true}',
-    },
-  }),
+  // ...(isAuthenticated() && {
+  //   mostPlayed: {
+  //     icon: <RepeatIcon />,
+  //     params: 'sort=play_count&order=DESC&filter={"recently_played":true}',
+  //   },
+  // }),
 })
 
 const albumLists = getAlbumLists()
 
 export default albumLists
-export const defaultAlbumList = 'recentlyAdded'
+// Changed default to 'random' - now /album/random is the default page
+export const defaultAlbumList = 'random'
