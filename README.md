@@ -215,3 +215,6 @@ kill <PID>
 ps aux | grep navidrome
 # или
 curl http://localhost:4533/ping
+
+Tags:
+./scripts/update-music-tags.sh "/путь/к/папке" --yes
