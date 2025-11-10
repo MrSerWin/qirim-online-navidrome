@@ -569,6 +569,11 @@
         }
       }
     },
+    "social": {
+      "vk": "VKontakte",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    },
     "partners": {
       "name": "Partners",
       "title": "Project Partners",

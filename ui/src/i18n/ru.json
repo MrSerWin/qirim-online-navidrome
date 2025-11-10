@@ -565,6 +565,11 @@
         }
       }
     },
+    "social": {
+      "vk": "ВКонтакте",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    },
     "partners": {
       "name": "Партнеры",
       "title": "Партнеры проекта",
