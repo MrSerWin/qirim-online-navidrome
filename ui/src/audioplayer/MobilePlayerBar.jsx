@@ -20,6 +20,7 @@ import {
 } from '@material-ui/icons'
 import { setMobilePlayerMode } from '../actions'
 import subsonic from '../subsonic'
+import defaultCover from '../icons/qo-512x512.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -170,7 +171,7 @@ const MobilePlayerBar = ({ audioInstance, currentTrack, isPlaying, onPlayPause, 
 
   const coverArtUrl = currentTrack.coverArtId
     ? subsonic.getCoverArtUrl(currentTrack.coverArtId, 96)
-    : '/android-chrome-192x192.png'
+    : defaultCover
 
   return (
     <>
