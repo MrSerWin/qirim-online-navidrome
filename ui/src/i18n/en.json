@@ -90,6 +90,10 @@
         "download": "Download",
         "info": "Get Info"
       },
+      "heroButton": {
+        "title": "Shuffle & Play",
+        "subtitle": "Start listening to random songs"
+      },
       "lists": {
         "all": "All",
         "random": "Random",

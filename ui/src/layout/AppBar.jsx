@@ -10,7 +10,7 @@ import {
 } from 'react-admin'
 import { MdInfo, MdPerson, MdSupervisorAccount } from 'react-icons/md'
 import { useSelector, useDispatch } from 'react-redux'
-import { makeStyles, MenuItem, ListItemIcon, Divider, IconButton, Tooltip, Box } from '@material-ui/core'
+import { makeStyles, MenuItem, ListItemIcon, Divider, IconButton, Tooltip, Box, useMediaQuery } from '@material-ui/core'
 import ViewListIcon from '@material-ui/icons/ViewList'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import { Dialogs } from '../dialogs/Dialogs'
@@ -31,11 +31,54 @@ const useStyles = makeStyles(
       color: theme.palette.text.primary,
     },
     icon: { minWidth: theme.spacing(5) },
+    '@keyframes subtlePulse': {
+      '0%': {
+        boxShadow:
+          theme.palette.type === 'dark'
+            ? '0 0 0 0 rgba(136, 192, 208, 0.4)'
+            : '0 0 0 0 rgba(94, 129, 172, 0.4)',
+      },
+      '50%': {
+        boxShadow:
+          theme.palette.type === 'dark'
+            ? '0 0 0 8px rgba(136, 192, 208, 0)'
+            : '0 0 0 8px rgba(94, 129, 172, 0)',
+      },
+      '100%': {
+        boxShadow:
+          theme.palette.type === 'dark'
+            ? '0 0 0 0 rgba(136, 192, 208, 0)'
+            : '0 0 0 0 rgba(94, 129, 172, 0)',
+      },
+    },
     playButton: {
       marginRight: theme.spacing(1),
-      color: theme.palette.primary.main,
+      background:
+        theme.palette.type === 'dark'
+          ? 'linear-gradient(135deg, #5E81AC 0%, #88C0D0 100%)'
+          : 'linear-gradient(135deg, #5E81AC 0%, #81A1C1 100%)',
+      color: '#FFFFFF',
+      borderRadius: '50%',
+      padding: theme.spacing(1),
+      boxShadow:
+        theme.palette.type === 'dark'
+          ? '0 4px 12px rgba(94, 129, 172, 0.3)'
+          : '0 4px 12px rgba(94, 129, 172, 0.25)',
+      transition: 'all 0.3s ease',
+      animation: '$subtlePulse 3s ease-in-out infinite',
       '&:hover': {
-        backgroundColor: theme.palette.action.hover,
+        transform: 'scale(1.1)',
+        boxShadow:
+          theme.palette.type === 'dark'
+            ? '0 6px 16px rgba(94, 129, 172, 0.4)'
+            : '0 6px 16px rgba(94, 129, 172, 0.35)',
+        background:
+          theme.palette.type === 'dark'
+            ? 'linear-gradient(135deg, #5E81AC 0%, #88C0D0 100%)'
+            : 'linear-gradient(135deg, #5E81AC 0%, #81A1C1 100%)',
+      },
+      '&:active': {
+        transform: 'scale(1.05)',
       },
     },
   }),
@@ -184,6 +227,9 @@ const ShufflePlayButton = () => {
   const dataProvider = useDataProvider()
   const dispatch = useDispatch()
   const notify = useNotify()
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'), {
+    noSsr: true,
+  })
 
   const handlePlayClick = useCallback(() => {
     dataProvider
@@ -203,6 +249,11 @@ const ShufflePlayButton = () => {
         notify('ra.page.error', 'warning')
       })
   }, [dataProvider, dispatch, notify])
+
+  // Hide on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   return (
     <Tooltip title={translate('resources.song.actions.playNow', { _: 'Play All' })}>

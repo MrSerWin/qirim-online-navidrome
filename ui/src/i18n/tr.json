@@ -90,6 +90,10 @@
         "download": "İndir",
         "info": "Bilgi Al"
       },
+      "heroButton": {
+        "title": "Müziği Aç",
+        "subtitle": "Rastgele şarkılar dinlemeye başla"
+      },
       "lists": {
         "all": "Tümü",
         "random": "Rastgele",

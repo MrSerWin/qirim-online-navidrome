@@ -90,6 +90,10 @@
         "download": "Yükle",
         "info": "Ma'lumat Al"
       },
+      "heroButton": {
+        "title": "Muzıkanı Qoş",
+        "subtitle": "Tesadüfiy yırlar tıñlamağa başla"
+      },
       "lists": {
         "all": "Episi",
         "random": "Tesadüf",

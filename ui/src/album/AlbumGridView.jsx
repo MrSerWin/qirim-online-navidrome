@@ -25,6 +25,7 @@ import { DraggableTypes } from '../consts'
 import clsx from 'clsx'
 import { AlbumDatesField } from './AlbumDatesField.jsx'
 import { generateAlbumURL } from '../utils/urlGenerator'
+import ShufflePlayHeroButton from './ShufflePlayHeroButton'
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -342,6 +343,7 @@ const LoadedAlbumGrid = ({ ids, data, basePath, width }) => {
   const isArtistView = !!(filterValues && filterValues.artist_id)
   return (
     <div className={classes.root}>
+      <ShufflePlayHeroButton />
       <ImageList
         component={'div'}
         rowHeight={'auto'}
