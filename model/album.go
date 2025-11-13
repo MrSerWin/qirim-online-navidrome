@@ -65,6 +65,10 @@ type Album struct {
 	ImportedAt time.Time `structs:"imported_at" json:"importedAt" hash:"ignore"` // When this album was imported/updated
 	CreatedAt  time.Time `structs:"created_at" json:"createdAt"`                 // Oldest CreatedAt for all songs in this album
 	UpdatedAt  time.Time `structs:"updated_at" json:"updatedAt"`                 // Newest UpdatedAt for all songs in this album
+
+	// Global statistics (across all users, including guests)
+	GlobalPlayCount  int        `structs:"global_play_count" json:"globalPlayCount" hash:"ignore"`
+	GlobalLastPlayed *time.Time `structs:"global_last_played" json:"globalLastPlayed" hash:"ignore"`
 }
 
 func (a Album) CoverArtID() ArtworkID {

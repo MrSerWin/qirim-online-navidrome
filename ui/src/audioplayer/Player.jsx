@@ -49,6 +49,9 @@ const Player = () => {
     )
 
   const { authenticated } = useAuthState()
+  // Check if user is truly authenticated (has valid credentials, not just UNKNOWN user)
+  const username = localStorage.getItem('username')
+  const isReallyAuthenticated = authenticated && username && username !== 'UNKNOWN'
   const visible = authenticated && playerState.queue.length > 0
   const isRadio = playerState.current?.isRadio || false
   const classes = useStyle({
@@ -187,11 +190,23 @@ const Player = () => {
       }
 
       if (!scrobbled) {
-        info.trackId && subsonic.scrobble(info.trackId, startTime)
+        if (info.trackId) {
+          if (isReallyAuthenticated) {
+            // Authenticated user: use regular scrobble (updates both user + global stats)
+            subsonic.scrobble(info.trackId, startTime).catch((err) => {
+              console.error('Scrobble failed:', err)
+            })
+          } else {
+            // Unauthenticated/guest: use globalScrobble (only updates global stats)
+            subsonic.globalScrobble(info.trackId, startTime).catch((err) => {
+              console.error('Global scrobble failed:', err)
+            })
+          }
+        }
         setScrobbled(true)
       }
     },
-    [startTime, scrobbled, nextSong, preloaded],
+    [startTime, scrobbled, nextSong, preloaded, isReallyAuthenticated],
   )
 
   const onAudioVolumeChange = useCallback(

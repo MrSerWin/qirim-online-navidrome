@@ -220,3 +220,36 @@ func (api *Router) scrobblerNowPlaying(ctx context.Context, trackId string, posi
 	err = api.scrobbler.NowPlaying(ctx, clientId, client, trackId, position)
 	return err
 }
+
+// GlobalScrobble handles scrobbling without authentication (only updates global stats)
+func (api *Router) GlobalScrobble(r *http.Request) (*responses.Subsonic, error) {
+	p := req.Params(r)
+	ids, err := p.Strings("id")
+	if err != nil {
+		return nil, err
+	}
+	times, _ := p.Times("time")
+	if len(times) > 0 && len(times) != len(ids) {
+		return nil, newError(responses.ErrorGeneric, "Wrong number of timestamps: %d, should be %d", len(times), len(ids))
+	}
+	ctx := r.Context()
+
+	var submissions []scrobbler.Submission
+	log.Debug(ctx, "Global scrobbling tracks", "ids", ids, "times", times)
+	for i, id := range ids {
+		var t time.Time
+		if len(times) > 0 {
+			t = times[i]
+		} else {
+			t = time.Now()
+		}
+		submissions = append(submissions, scrobbler.Submission{TrackID: id, Timestamp: t})
+	}
+
+	err = api.scrobbler.SubmitGlobalOnly(ctx, submissions)
+	if err != nil {
+		log.Error(ctx, "Error registering global scrobbles", "ids", ids, "times", times, err)
+	}
+
+	return newResponse(), nil
+}

@@ -37,6 +37,10 @@ type Artist struct {
 
 	CreatedAt *time.Time `structs:"created_at" json:"createdAt,omitempty"`
 	UpdatedAt *time.Time `structs:"updated_at" json:"updatedAt,omitempty"`
+
+	// Global statistics (across all users, including guests)
+	GlobalPlayCount  int        `structs:"global_play_count" json:"globalPlayCount"`
+	GlobalLastPlayed *time.Time `structs:"global_last_played" json:"globalLastPlayed"`
 }
 
 type ArtistStats struct {

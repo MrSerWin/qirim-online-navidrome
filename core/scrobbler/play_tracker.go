@@ -35,6 +35,7 @@ type PlayTracker interface {
 	NowPlaying(ctx context.Context, playerId string, playerName string, trackId string, position int) error
 	GetNowPlaying(ctx context.Context) ([]NowPlayingInfo, error)
 	Submit(ctx context.Context, submissions []Submission) error
+	SubmitGlobalOnly(ctx context.Context, submissions []Submission) error
 }
 
 // PluginLoader is a minimal interface for plugin manager usage in PlayTracker
@@ -233,6 +234,13 @@ func (p *playTracker) GetNowPlaying(_ context.Context) ([]NowPlayingInfo, error)
 func (p *playTracker) Submit(ctx context.Context, submissions []Submission) error {
 	username, _ := request.UsernameFrom(ctx)
 	player, _ := request.PlayerFrom(ctx)
+
+	log.Info(ctx, "=== SCROBBLE SUBMIT CALLED ===",
+		"user", username,
+		"player", player.Name,
+		"scrobbleEnabled", player.ScrobbleEnabled,
+		"submissionsCount", len(submissions))
+
 	if !player.ScrobbleEnabled {
 		log.Debug(ctx, "External scrobbling disabled for this player", "player", player.Name, "ip", player.IP, "user", username)
 	}
@@ -240,18 +248,23 @@ func (p *playTracker) Submit(ctx context.Context, submissions []Submission) erro
 	success := 0
 
 	for _, s := range submissions {
+		log.Info(ctx, "Processing submission", "trackID", s.TrackID, "timestamp", s.Timestamp)
+
 		mf, err := p.ds.MediaFile(ctx).GetWithParticipants(s.TrackID)
 		if err != nil {
 			log.Error(ctx, "Cannot find track for scrobbling", "id", s.TrackID, "user", username, err)
 			continue
 		}
+
+		log.Info(ctx, "Found track for scrobbling", "title", mf.Title, "artist", mf.Artist, "albumID", mf.AlbumID)
+
 		err = p.incPlay(ctx, mf, s.Timestamp)
 		if err != nil {
 			log.Error(ctx, "Error updating play counts", "id", mf.ID, "track", mf.Title, "user", username, err)
 		} else {
 			success++
 			event.With("song", mf.ID).With("album", mf.AlbumID).With("artist", mf.AlbumArtistID)
-			log.Info(ctx, "Scrobbled", "title", mf.Title, "artist", mf.Artist, "user", username, "timestamp", s.Timestamp)
+			log.Info(ctx, "✓ Scrobbled successfully", "title", mf.Title, "artist", mf.Artist, "user", username, "timestamp", s.Timestamp)
 			if player.ScrobbleEnabled {
 				p.dispatchScrobble(ctx, mf, s.Timestamp)
 			}
@@ -265,19 +278,121 @@ func (p *playTracker) Submit(ctx context.Context, submissions []Submission) erro
 }
 
 func (p *playTracker) incPlay(ctx context.Context, track *model.MediaFile, timestamp time.Time) error {
+	log.Info(ctx, ">>> incPlay called",
+		"trackID", track.ID,
+		"trackTitle", track.Title,
+		"albumID", track.AlbumID,
+		"timestamp", timestamp)
+
 	return p.ds.WithTx(func(tx model.DataStore) error {
+		// Increment user-specific play count
+		log.Info(ctx, "Incrementing user-specific play count for MediaFile", "trackID", track.ID)
 		err := tx.MediaFile(ctx).IncPlayCount(track.ID, timestamp)
 		if err != nil {
+			log.Error(ctx, "Failed to increment user play count for MediaFile", "trackID", track.ID, err)
 			return err
 		}
+
+		log.Info(ctx, "Incrementing user-specific play count for Album", "albumID", track.AlbumID)
 		err = tx.Album(ctx).IncPlayCount(track.AlbumID, timestamp)
+		if err != nil {
+			log.Error(ctx, "Failed to increment user play count for Album", "albumID", track.AlbumID, err)
+			return err
+		}
+
+		for _, artist := range track.Participants[model.RoleArtist] {
+			log.Info(ctx, "Incrementing user-specific play count for Artist", "artistID", artist.ID, "artistName", artist.Name)
+			err = tx.Artist(ctx).IncPlayCount(artist.ID, timestamp)
+			if err != nil {
+				log.Error(ctx, "Failed to increment user play count for Artist", "artistID", artist.ID, err)
+				return err
+			}
+		}
+
+		// Increment global play count (for all users including guests)
+		log.Info(ctx, ">>> Incrementing GLOBAL play count for MediaFile", "trackID", track.ID)
+		err = tx.MediaFile(ctx).IncGlobalPlayCount(track.ID, timestamp)
+		if err != nil {
+			log.Error(ctx, "Failed to increment GLOBAL play count for MediaFile", "trackID", track.ID, err)
+			return err
+		}
+
+		log.Info(ctx, ">>> Incrementing GLOBAL play count for Album", "albumID", track.AlbumID)
+		err = tx.Album(ctx).IncGlobalPlayCount(track.AlbumID, timestamp)
+		if err != nil {
+			log.Error(ctx, "Failed to increment GLOBAL play count for Album", "albumID", track.AlbumID, err)
+			return err
+		}
+
+		for _, artist := range track.Participants[model.RoleArtist] {
+			log.Info(ctx, ">>> Incrementing GLOBAL play count for Artist", "artistID", artist.ID, "artistName", artist.Name)
+			err = tx.Artist(ctx).IncGlobalPlayCount(artist.ID, timestamp)
+			if err != nil {
+				log.Error(ctx, "Failed to increment GLOBAL play count for Artist", "artistID", artist.ID, err)
+				return err
+			}
+		}
+
+		log.Info(ctx, "✓✓✓ All play counts incremented successfully (user + global)")
+		return nil
+	})
+}
+
+// SubmitGlobalOnly submits scrobbles that only update global statistics (no user-specific tracking)
+// This is used for unauthenticated/guest plays
+func (p *playTracker) SubmitGlobalOnly(ctx context.Context, submissions []Submission) error {
+	log.Debug(ctx, "Processing global scrobbles", "count", len(submissions))
+
+	event := &events.RefreshResource{}
+	success := 0
+
+	for _, s := range submissions {
+		mf, err := p.ds.MediaFile(ctx).GetWithParticipants(s.TrackID)
+		if err != nil {
+			log.Error(ctx, "Cannot find track for global scrobbling", "id", s.TrackID, err)
+			continue
+		}
+
+		err = p.incGlobalPlayOnly(ctx, mf, s.Timestamp)
+		if err != nil {
+			log.Error(ctx, "Error updating global play counts", "id", mf.ID, "track", mf.Title, err)
+		} else {
+			success++
+			event.With("song", mf.ID).With("album", mf.AlbumID).With("artist", mf.AlbumArtistID)
+		}
+	}
+
+	if success > 0 {
+		p.broker.SendMessage(ctx, event)
+	}
+	return nil
+}
+
+// incGlobalPlayOnly increments ONLY global play counts (no user-specific tracking)
+// This is used for unauthenticated/guest plays
+func (p *playTracker) incGlobalPlayOnly(ctx context.Context, track *model.MediaFile, timestamp time.Time) error {
+	return p.ds.WithTx(func(tx model.DataStore) error {
+		// Increment global play count for MediaFile
+		err := tx.MediaFile(ctx).IncGlobalPlayCount(track.ID, timestamp)
 		if err != nil {
 			return err
 		}
-		for _, artist := range track.Participants[model.RoleArtist] {
-			err = tx.Artist(ctx).IncPlayCount(artist.ID, timestamp)
+
+		// Increment global play count for Album
+		err = tx.Album(ctx).IncGlobalPlayCount(track.AlbumID, timestamp)
+		if err != nil {
+			return err
 		}
-		return err
+
+		// Increment global play count for all participating Artists
+		for _, artist := range track.Participants[model.RoleArtist] {
+			err = tx.Artist(ctx).IncGlobalPlayCount(artist.ID, timestamp)
+			if err != nil {
+				return err
+			}
+		}
+
+		return nil
 	})
 }
 

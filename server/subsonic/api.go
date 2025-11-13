@@ -102,6 +102,9 @@ func (api *Router) routes() http.Handler {
 			}
 			hr(r, "getCoverArt", api.GetCoverArt)
 		})
+
+		// Global scrobble endpoint (no authentication required, only updates global stats)
+		h(r, "globalScrobble", api.GlobalScrobble)
 	})
 
 	// Protected

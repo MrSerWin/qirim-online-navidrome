@@ -135,3 +135,14 @@ func (r sqlRepository) cleanAnnotations() error {
 	}
 	return nil
 }
+
+// IncGlobalPlayCount increments the global play count for an item (across all users)
+func (r sqlRepository) IncGlobalPlayCount(itemID string, ts time.Time) error {
+	upd := Update(r.tableName).
+		Where(Eq{"id": itemID}).
+		Set("global_play_count", Expr("global_play_count+1")).
+		Set("global_last_played", ts)
+
+	_, err := r.executeSQL(upd)
+	return err
+}

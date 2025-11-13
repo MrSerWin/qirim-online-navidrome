@@ -12,6 +12,7 @@ type Annotations struct {
 
 type AnnotatedRepository interface {
 	IncPlayCount(itemID string, ts time.Time) error
+	IncGlobalPlayCount(itemID string, ts time.Time) error
 	SetStar(starred bool, itemIDs ...string) error
 	SetRating(rating int, itemID string) error
 	ReassignAnnotation(prevID string, newID string) error

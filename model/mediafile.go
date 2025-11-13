@@ -93,6 +93,10 @@ type MediaFile struct {
 	BirthTime time.Time `structs:"birth_time" json:"birthTime" hash:"ignore"` // Time of file creation (ctime)
 	CreatedAt time.Time `structs:"created_at" json:"createdAt" hash:"ignore"` // Time this entry was created in the DB
 	UpdatedAt time.Time `structs:"updated_at" json:"updatedAt" hash:"ignore"` // Time of file last update (mtime)
+
+	// Global statistics (across all users, including guests)
+	GlobalPlayCount     int        `structs:"global_play_count" json:"globalPlayCount" hash:"ignore"`
+	GlobalLastPlayed    *time.Time `structs:"global_last_played" json:"globalLastPlayed" hash:"ignore"`
 }
 
 func (mf MediaFile) FullTitle() string {
