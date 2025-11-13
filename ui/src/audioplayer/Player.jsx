@@ -24,6 +24,7 @@ import {
   syncQueue,
 } from '../actions'
 import PlayerToolbar from './PlayerToolbar'
+import MobilePlayerBar from './MobilePlayerBar'
 import { sendNotification } from '../utils'
 import subsonic from '../subsonic'
 import locale from './locale'
@@ -42,11 +43,15 @@ const Player = () => {
   const [scrobbled, setScrobbled] = useState(false)
   const [preloaded, setPreload] = useState(false)
   const [audioInstance, setAudioInstance] = useState(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlayerExpanded, setIsPlayerExpanded] = useState(false)
   const isDesktop = useMediaQuery('(min-width:810px)')
   const isMobilePlayer =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent,
     )
+  const mobilePlayerMode = useSelector((state) => state.settings.mobilePlayerMode || 'mini')
+  const useMiniPlayer = mobilePlayerMode === 'mini'
 
   const { authenticated } = useAuthState()
   // Check if user is truly authenticated (has valid credentials, not just UNKNOWN user)
@@ -103,8 +108,7 @@ const Player = () => {
       theme: playerTheme,
       bounds: 'body',
       playMode: playerState.mode,
-      mode: isDesktop ? 'full' : 'mini',
-      // mode: 'full',
+      mode: 'full', // Always use full mode, we control visibility with CSS
       loadAudioErrorPlayNext: false,
       autoPlayInitLoadPlayList: true,
       clearPriorAudioLists: false,
@@ -112,7 +116,7 @@ const Player = () => {
       showDownload: false,
       showLyric: false,
       showReload: false,
-      toggleMode: !isDesktop,
+      toggleMode: !isDesktop && !useMiniPlayer,
       glassBg: false,
       showThemeSwitch: false,
       showMediaSession: true,
@@ -133,7 +137,7 @@ const Player = () => {
       ),
       locale: locale(translate),
     }),
-    [gainInfo, isDesktop, playerTheme, translate, playerState.mode],
+    [gainInfo, isDesktop, useMiniPlayer, playerTheme, translate, playerState.mode],
   )
 
   const options = useMemo(() => {
@@ -150,7 +154,7 @@ const Player = () => {
       defaultVolume: isMobilePlayer ? 1 : playerState.volume,
       showMediaSession: !current.isRadio,
     }
-  }, [playerState, defaultOptions, isMobilePlayer])
+  }, [playerState, defaultOptions, isMobilePlayer, useMiniPlayer, isPlayerExpanded])
 
   const onAudioListsChange = useCallback(
     (_, audioLists, audioInfo) => dispatch(syncQueue(audioInfo, audioLists)),
@@ -191,13 +195,16 @@ const Player = () => {
 
       if (!scrobbled) {
         if (info.trackId) {
+          console.log('[SCROBBLE DEBUG] authenticated:', authenticated, 'username:', username, 'isReallyAuthenticated:', isReallyAuthenticated)
           if (isReallyAuthenticated) {
             // Authenticated user: use regular scrobble (updates both user + global stats)
+            console.log('[SCROBBLE] Using regular scrobble (user + global)')
             subsonic.scrobble(info.trackId, startTime).catch((err) => {
               console.error('Scrobble failed:', err)
             })
           } else {
             // Unauthenticated/guest: use globalScrobble (only updates global stats)
+            console.log('[SCROBBLE] Using globalScrobble (global only)')
             subsonic.globalScrobble(info.trackId, startTime).catch((err) => {
               console.error('Global scrobble failed:', err)
             })
@@ -223,6 +230,7 @@ const Player = () => {
         context.resume()
       }
 
+      setIsPlaying(true)
       dispatch(currentPlaying(info))
       if (startTime === null) {
         setStartTime(Date.now())
@@ -264,7 +272,10 @@ const Player = () => {
   }, [scrobbled, startTime])
 
   const onAudioPause = useCallback(
-    (info) => dispatch(currentPlaying(info)),
+    (info) => {
+      setIsPlaying(false)
+      dispatch(currentPlaying(info))
+    },
     [dispatch],
   )
 
@@ -309,8 +320,43 @@ const Player = () => {
     }
   }, [isMobilePlayer, audioInstance])
 
+  // Mobile player control handlers
+  const handleMobilePlayPause = useCallback(() => {
+    if (audioInstance) {
+      if (isPlaying) {
+        audioInstance.pause()
+      } else {
+        audioInstance.play()
+      }
+    }
+  }, [audioInstance, isPlaying])
+
+  const handleMobileNext = useCallback(() => {
+    if (audioInstance) {
+      const event = new Event('ended')
+      audioInstance.dispatchEvent(event)
+    }
+  }, [audioInstance])
+
+  const handleMobilePrevious = useCallback(() => {
+    if (audioInstance) {
+      if (audioInstance.currentTime > 3) {
+        audioInstance.currentTime = 0
+      } else {
+        // Navigate to previous track
+        const currentIndex = playerState.playIndex
+        if (currentIndex > 0) {
+          audioInstance.src = playerState.queue[currentIndex - 1].musicSrc
+          audioInstance.load()
+          audioInstance.play()
+        }
+      }
+    }
+  }, [audioInstance, playerState])
+
   return (
     <ThemeProvider theme={createMuiTheme(theme)}>
+      {/* Full player - always rendered for audio playback, but hidden when using mini player and not expanded */}
       <ReactJkMusicPlayer
         {...options}
         className={classes.player}
@@ -325,7 +371,56 @@ const Player = () => {
         onCoverClick={onCoverClick}
         onBeforeDestroy={onBeforeDestroy}
         getAudioInstance={setAudioInstance}
+        style={useMiniPlayer && !isPlayerExpanded ? { display: 'none' } : undefined}
       />
+      {/* Mini player bar at bottom - shown when mini player mode is active and player not expanded */}
+      {useMiniPlayer && !isPlayerExpanded && (
+        <MobilePlayerBar
+          audioInstance={audioInstance}
+          currentTrack={playerState.current}
+          isPlaying={isPlaying}
+          onPlayPause={handleMobilePlayPause}
+          onNext={handleMobileNext}
+          onExpand={() => setIsPlayerExpanded(true)}
+        />
+      )}
+      {/* Close button for expanded player - rendered at top level for proper positioning */}
+      {useMiniPlayer && isPlayerExpanded && (
+        <button
+          onClick={() => setIsPlayerExpanded(false)}
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '50%',
+            width: '44px',
+            height: '44px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            fontSize: '28px',
+            fontWeight: 'bold',
+            zIndex: 10000,
+            transition: 'all 0.2s ease',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)'
+            e.currentTarget.style.transform = 'scale(1.1)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(0, 0, 0, 0.6)'
+            e.currentTarget.style.transform = 'scale(1)'
+          }}
+          title="Свернуть плеер"
+        >
+          ×
+        </button>
+      )}
       <GlobalHotKeys handlers={handlers} keyMap={keyMap} allowChanges />
     </ThemeProvider>
   )

@@ -2,12 +2,14 @@ import {
   SET_NOTIFICATIONS_STATE,
   SET_OMITTED_FIELDS,
   SET_TOGGLEABLE_FIELDS,
+  SET_MOBILE_PLAYER_MODE,
 } from '../actions'
 
 const initialState = {
   notifications: false,
   toggleableFields: {},
   omittedFields: {},
+  mobilePlayerMode: 'mini', // 'mini' | 'full' - temporarily set to mini for testing
 }
 
 export const settingsReducer = (previousState = initialState, payload) => {
@@ -33,6 +35,11 @@ export const settingsReducer = (previousState = initialState, payload) => {
           ...previousState.omittedFields,
           ...data,
         },
+      }
+    case SET_MOBILE_PLAYER_MODE:
+      return {
+        ...previousState,
+        mobilePlayerMode: data,
       }
     default:
       return previousState
