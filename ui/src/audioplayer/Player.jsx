@@ -371,10 +371,10 @@ const Player = () => {
         onCoverClick={onCoverClick}
         onBeforeDestroy={onBeforeDestroy}
         getAudioInstance={setAudioInstance}
-        style={useMiniPlayer && !isPlayerExpanded ? { display: 'none' } : undefined}
+        style={isMobilePlayer && useMiniPlayer && !isPlayerExpanded ? { display: 'none' } : undefined}
       />
-      {/* Mini player bar at bottom - shown when mini player mode is active and player not expanded */}
-      {useMiniPlayer && !isPlayerExpanded && (
+      {/* Mini player bar at bottom - shown only on mobile devices when mini player mode is active and player not expanded */}
+      {isMobilePlayer && useMiniPlayer && !isPlayerExpanded && (
         <MobilePlayerBar
           audioInstance={audioInstance}
           currentTrack={playerState.current}
@@ -385,7 +385,7 @@ const Player = () => {
         />
       )}
       {/* Close button for expanded player - rendered at top level for proper positioning */}
-      {useMiniPlayer && isPlayerExpanded && (
+      {isMobilePlayer && useMiniPlayer && isPlayerExpanded && (
         <button
           onClick={() => setIsPlayerExpanded(false)}
           style={{
