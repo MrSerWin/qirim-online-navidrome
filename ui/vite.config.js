@@ -51,22 +51,67 @@ export default defineConfig({
     outDir: 'build',
     sourcemap: false, // Disable sourcemaps in production for security
     minify: 'terser',
+    target: 'es2015', // Better browser support and smaller bundles
+    cssCodeSplit: true, // Split CSS for better caching
     terserOptions: {
       compress: {
         drop_console: true, // Remove console.log in production
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+      },
+      format: {
+        comments: false, // Remove all comments
       },
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-redux'],
-          'material-ui': ['@material-ui/core', '@material-ui/icons'],
-          'react-admin': ['react-admin', 'ra-data-json-server'],
+        manualChunks: (id) => {
+          // React core
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-core'
+          }
+          // Material-UI core
+          if (id.includes('@material-ui/core')) {
+            return 'mui-core'
+          }
+          // Material-UI icons (large, separate chunk)
+          if (id.includes('@material-ui/icons')) {
+            return 'mui-icons'
+          }
+          // React Admin
+          if (id.includes('react-admin') || id.includes('ra-')) {
+            return 'react-admin'
+          }
+          // Music player
+          if (id.includes('navidrome-music-player')) {
+            return 'music-player'
+          }
+          // Other large libraries
+          if (id.includes('node_modules/lodash') || id.includes('node_modules/redux')) {
+            return 'vendor-utils'
+          }
+        },
+        // Optimize chunk naming for better caching
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.css')) {
+            return 'assets/css/[name]-[hash][extname]'
+          }
+          if (/\.(png|jpe?g|svg|gif|webp|ico)$/.test(assetInfo.name)) {
+            return 'assets/img/[name]-[hash][extname]'
+          }
+          if (/\.(woff2?|eot|ttf|otf)$/.test(assetInfo.name)) {
+            return 'assets/fonts/[name]-[hash][extname]'
+          }
+          return 'assets/[name]-[hash][extname]'
         },
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Improve build performance
+    reportCompressedSize: false,
+    cssMinify: true,
   },
   test: {
     globals: true,
