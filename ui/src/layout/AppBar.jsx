@@ -99,7 +99,7 @@ const AboutMenuItem = forwardRef(({ onClick, ...rest }, ref) => {
     onClick && onClick()
     setOpen(false)
   }
-  const label = translate('menu.about')
+  const label = translate('menu.about.name')
   return (
     <>
       <MenuItem ref={ref} onClick={handleOpen} className={classes.root}>
