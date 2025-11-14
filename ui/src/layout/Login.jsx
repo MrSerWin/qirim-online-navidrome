@@ -154,7 +154,7 @@ const FormLogin = ({
           <div className={classes.main}>
             <Card className={classes.card}>
               <div className={classes.avatar}>
-                <img src={logo} className={classes.icon} alt={'logo'} />
+                <img src={logo} className={classes.icon} alt={'logo'} width="150" height="90" />
               </div>
               {/* <div className={classes.systemName}>
                 <a
@@ -328,7 +328,7 @@ const FormSignUp = ({
           <div className={classes.main}>
             <Card className={classes.card}>
               <div className={classes.avatar}>
-                <img src={logo} className={classes.icon} alt={'logo'} />
+                <img src={logo} className={classes.icon} alt={'logo'} width="150" height="90" />
               </div>
               {/* {!showToggle && (
                 <div className={classes.welcome}>

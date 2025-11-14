@@ -4,8 +4,6 @@ import { useTranslate } from 'react-admin'
 import { useSelector } from 'react-redux'
 
 import { makeStyles } from '@material-ui/core/styles'
-// import LogoLight from '../icons/new-logo-no-bg-white.png'
-// import LogoDark from '../icons/new-logo-no-bg.png';
 import LogoLight from '../icons/qo-logo.png'
 import LogoDark from '../icons/qo-logo-dark.png'
 import { AUTO_THEME_ID } from '../consts'
@@ -52,7 +50,7 @@ export const Title = ({ subTitle, args }) => {
   if (isDesktop) {
     return (
       <span className={classes.titleContainer}>
-        <img src={logo} alt="Qırım Online" className={classes.logo} />
+        <img src={logo} alt="Qırım Online" className={classes.logo} width="150" height="90" />
         <span className={classes.titleText}>
           Qırım Online{text ? ` - ${text}` : ''}
         </span>
@@ -61,7 +59,7 @@ export const Title = ({ subTitle, args }) => {
   }
   return (
     <span className={classes.titleContainer}>
-      <img src={logo} alt="Qırım Online" className={classes.logo} />
+      <img src={logo} alt="Qırım Online" className={classes.logo} width="150" height="90" />
       <span className={classes.titleText}>{text ? text : 'Qırım Online'}</span>
     </span>
   )

@@ -14,13 +14,16 @@ export default defineConfig({
       strategies: 'injectManifest',
       srcDir: 'src',
       filename: 'sw.js',
+      registerType: 'autoUpdate',
+      injectRegister: 'inline',
       devOptions: {
         enabled: true,
         type: 'module',
       },
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB,
+        injectionPoint: undefined, // Don't inject SW registration - we'll do it manually async
       },
       workbox: {
         runtimeCaching: [
@@ -53,42 +56,78 @@ export default defineConfig({
     minify: 'terser',
     target: 'es2015', // Better browser support and smaller bundles
     cssCodeSplit: true, // Split CSS for better caching
+
+    // Aggressive tree-shaking and minification
     terserOptions: {
       compress: {
         drop_console: true, // Remove console.log in production
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+        passes: 2, // Run compression twice for better results
+        unused: true, // Remove unused code
+        dead_code: true, // Remove dead code
       },
       format: {
         comments: false, // Remove all comments
       },
+      mangle: {
+        safari10: true, // Better Safari compatibility
+      },
+    },
+
+    // Enable aggressive module preload polyfill
+    modulePreload: {
+      polyfill: true,
     },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // React core
+          // React core (critical - loaded first)
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
             return 'react-core'
           }
-          // Material-UI core
+
+          // Material-UI core (critical for UI)
           if (id.includes('@material-ui/core')) {
             return 'mui-core'
           }
-          // Material-UI icons (large, separate chunk)
+
+          // Material-UI icons (large, separate chunk - not critical)
           if (id.includes('@material-ui/icons')) {
             return 'mui-icons'
           }
-          // React Admin
-          if (id.includes('react-admin') || id.includes('ra-')) {
+
+          // React Admin (large library - split further)
+          if (id.includes('react-admin') || id.includes('ra-core')) {
             return 'react-admin'
           }
+
+          // React Admin UI components (can be lazy loaded)
+          if (id.includes('ra-ui-materialui')) {
+            return 'react-admin-ui'
+          }
+
           // Music player
           if (id.includes('navidrome-music-player')) {
             return 'music-player'
           }
-          // Other large libraries
-          if (id.includes('node_modules/lodash') || id.includes('node_modules/redux')) {
-            return 'vendor-utils'
+
+          // Large utility libraries
+          if (id.includes('node_modules/lodash')) {
+            return 'lodash'
+          }
+          if (id.includes('node_modules/redux')) {
+            return 'redux'
+          }
+
+          // Date/time libraries (often large)
+          if (id.includes('node_modules/date-fns') || id.includes('node_modules/moment')) {
+            return 'date-utils'
+          }
+
+          // All other node_modules
+          if (id.includes('node_modules')) {
+            return 'vendor'
           }
         },
         // Optimize chunk naming for better caching

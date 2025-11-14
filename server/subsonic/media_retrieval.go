@@ -82,6 +82,8 @@ func (api *Router) GetCoverArt(w http.ResponseWriter, r *http.Request) (*respons
 	defer imgReader.Close()
 	w.Header().Set("cache-control", "public, max-age=315360000")
 	w.Header().Set("last-modified", lastUpdate.Format(time.RFC1123))
+	// Set Content-Type to WebP for modern image format
+	w.Header().Set("content-type", "image/webp")
 
 	cnt, err := io.Copy(w, imgReader)
 	if err != nil {

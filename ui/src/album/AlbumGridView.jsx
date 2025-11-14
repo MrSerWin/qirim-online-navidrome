@@ -191,6 +191,7 @@ const Cover = withContentRect('bounds')(({
   record,
   measureRef,
   contentRect,
+  priority,
 }) => {
   // Force height to be the same as the width determined by the GridList
   // noinspection JSSuspiciousNameCombination
@@ -232,13 +233,15 @@ const Cover = withContentRect('bounds')(({
           className={`${classes.cover} ${imageLoading ? classes.coverLoading : ''}`}
           onLoad={handleImageLoad}
           onError={handleImageError}
+          fetchpriority={priority ? 'high' : 'auto'}
+          loading={priority ? 'eager' : 'lazy'}
         />
       </div>
     </div>
   )
 })
 
-const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
+const AlbumGridTile = ({ showArtist, record, basePath, priority, ...props }) => {
   const classes = useStyles()
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'), {
     noSsr: true,
@@ -286,7 +289,7 @@ const AlbumGridTile = ({ showArtist, record, basePath, ...props }) => {
           className={classes.link}
           to={generateAlbumURL(record.id, record.urlAlias, 'show', false)} // Use ID for navigation
         >
-          <Cover record={record} />
+          <Cover record={record} priority={priority} />
         </Link>
 
         {/* Centered play overlay (desktop: appears on hover; mobile: semi-visible) */}
@@ -341,21 +344,24 @@ const LoadedAlbumGrid = ({ ids, data, basePath, width }) => {
   const classes = useStyles()
   const { filterValues } = useListContext()
   const isArtistView = !!(filterValues && filterValues.artist_id)
+  const cols = getColsForWidth(width)
+
   return (
     <div className={classes.root}>
       <ShufflePlayHeroButton />
       <ImageList
         component={'div'}
         rowHeight={'auto'}
-        cols={getColsForWidth(width)}
+        cols={cols}
         gap={20}
       >
-        {ids.map((id) => (
+        {ids.map((id, index) => (
           <ImageListItem className={classes.gridListTile} key={id}>
             <AlbumGridTile
               record={data[id]}
               basePath={basePath}
               showArtist={!isArtistView}
+              priority={index < cols * 2}
             />
           </ImageListItem>
         ))}

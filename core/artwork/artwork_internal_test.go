@@ -257,13 +257,13 @@ var _ = Describe("Artwork", func() {
 				Expect(img.Bounds().Size().X).To(Equal(15))
 				Expect(img.Bounds().Size().Y).To(Equal(15))
 			})
-			It("returns a JPEG if original image is not a PNG", func() {
+			It("returns a WebP if original image is not a PNG", func() {
 				conf.Server.CoverArtPriority = "cover.jpg"
 				r, _, err := aw.Get(context.Background(), alMultipleCovers.CoverArtID(), 200, false)
 				Expect(err).ToNot(HaveOccurred())
 
 				img, format, err := image.Decode(r)
-				Expect(format).To(Equal("jpeg"))
+				Expect(format).To(Equal("webp"))
 				Expect(err).ToNot(HaveOccurred())
 				Expect(img.Bounds().Size().X).To(Equal(200))
 				Expect(img.Bounds().Size().Y).To(Equal(200))
@@ -292,7 +292,7 @@ var _ = Describe("Artwork", func() {
 
 					img, format, err := image.Decode(r)
 					Expect(err).ToNot(HaveOccurred())
-					Expect(format).To(Equal("png"))
+					Expect(format).To(Equal("webp"))
 					Expect(img.Bounds().Size().X).To(Equal(size))
 					Expect(img.Bounds().Size().Y).To(Equal(size))
 				},

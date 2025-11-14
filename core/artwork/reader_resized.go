@@ -5,13 +5,12 @@ import (
 	"context"
 	"fmt"
 	"image"
-	"image/jpeg"
 	"image/png"
 	"io"
 	"time"
 
+	"github.com/chai2010/webp"
 	"github.com/disintegration/imaging"
-	"github.com/navidrome/navidrome/conf"
 	"github.com/navidrome/navidrome/log"
 	"github.com/navidrome/navidrome/model"
 )
@@ -44,9 +43,10 @@ func resizedFromOriginal(ctx context.Context, a *artwork, artID model.ArtworkID,
 func (a *resizedArtworkReader) Key() string {
 	baseKey := fmt.Sprintf("%s.%d", a.cacheKey, a.size)
 	if a.square {
-		return baseKey + ".square"
+		return baseKey + ".square.webp"
 	}
-	return fmt.Sprintf("%s.%d", baseKey, conf.Server.CoverJpegQuality)
+	// WebP quality is fixed at 80 for consistent caching
+	return baseKey + ".webp80"
 }
 
 func (a *resizedArtworkReader) LastUpdated() time.Time {
@@ -107,10 +107,15 @@ func resizeImage(reader io.Reader, size int, square bool) (io.Reader, int, error
 	}
 
 	buf := new(bytes.Buffer)
-	if format == "png" || square {
+	// Use WebP for better compression (except for PNG with transparency)
+	// WebP provides ~30% better compression than JPEG
+	if format == "png" && !square {
+		// Keep PNG if it has transparency and we're not making it square
 		err = png.Encode(buf, resized)
 	} else {
-		err = jpeg.Encode(buf, resized, &jpeg.Options{Quality: conf.Server.CoverJpegQuality})
+		// Use WebP for all other cases (JPEG, square images)
+		// Quality 80 provides good balance between size and quality
+		err = webp.Encode(buf, resized, &webp.Options{Quality: 80, Lossless: false})
 	}
 	return buf, originalSize, err
 }
