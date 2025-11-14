@@ -4,11 +4,13 @@ import Personal from './personal/Personal'
 import ShopBrowser from './shop/ShopBrowser'
 import ShopCheckout from './shop/ShopCheckout'
 import Partners from './partners/Partners'
+import About from './about/About'
 import config from './config'
 
 const routes = [
   <Route exact path="/personal" render={() => <Personal />} key={'personal'} />,
   <Route exact path="/partners" render={() => <Partners />} key={'partners'} />,
+  <Route exact path="/about" render={() => <About />} key={'about'} />,
 ]
 
 // Add shop routes if enabled

@@ -249,7 +249,7 @@ See `docker-compose.qirim-online.yml` for full production config.
 5. Generate QR: `./scripts/generate-xray-qr.sh`
 6. Send QR code to users
 
-See [XRAY_DEPLOYMENT_QUICKSTART.md](XRAY_DEPLOYMENT_QUICKSTART.md) for details.
+See [docs/XRAY_DEPLOYMENT_QUICKSTART.md](docs/XRAY_DEPLOYMENT_QUICKSTART.md) for details.
 
 ## Testing Changes
 
@@ -289,16 +289,19 @@ ssh root@93.127.197.163 'cd /opt/navidrome && docker compose logs -f navidrome'
 ## Support Documents
 
 When working on email/OAuth issues, refer to:
-- `MAILCOW_SETUP.md` - Email server configuration
-- `OAUTH_SETUP.md` - OAuth setup details
-- `WHY_GOOGLE_FLAGGED_AS_PHISHING.md` - OAuth phishing false positive explanation
+- [docs/MAILCOW_SETUP.md](docs/MAILCOW_SETUP.md) - Email server configuration
+- [docs/OAUTH_SETUP.md](docs/OAUTH_SETUP.md) - OAuth setup details
 
 When deploying, always check:
-- `DEPLOYMENT.md` for step-by-step deployment instructions
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) - Step-by-step deployment instructions
+- [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) - Common issues and solutions
 - Docker compose logs for errors
 - Nginx logs on server for proxy issues
 
 When working on Xray VPN, refer to:
-- `XRAY_DEPLOYMENT_QUICKSTART.md` - Quick deployment guide
-- `docs/XRAY_VPN_SETUP.md` - Full technical documentation
+- [docs/XRAY_DEPLOYMENT_QUICKSTART.md](docs/XRAY_DEPLOYMENT_QUICKSTART.md) - Quick deployment guide
+- [docs/XRAY_VPN_SETUP.md](docs/XRAY_VPN_SETUP.md) - Full technical documentation
 - `scripts/generate-xray-qr.sh` - QR code generator for clients
+
+When working on backups, refer to:
+- [docs/BACKUP_SETUP.md](docs/BACKUP_SETUP.md) - Backup configuration and automation

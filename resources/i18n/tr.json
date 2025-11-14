@@ -543,7 +543,51 @@
     "albumList": "Albümler",
     "playlists": "Çalma Listeleri",
     "sharedPlaylists": "Paylaşılan Çalma Listeleri",
-    "about": "Hakkında"
+    "about": {
+      "name": "Hakkımızda",
+      "header": {
+        "title": "Hakkımızda",
+        "subtitle": "Kültürel Mirası Koruyoruz ve Paylaşıyoruz"
+      },
+      "mission": {
+        "title": "Misyonumuz: Korumak ve Paylaşmak",
+        "intro": "Qırım.Online sadece bir web sitesi değil, Kırım Tatar müziğinin en büyük dijital arşividir. Biz bir kültürel devrimin parçasıyız - halkımızın müzikal mirasını koruma, kataloglama ve dünya çapında erişilebilir hale getirme misyonuna adanmış küçük bir ekibiz.",
+        "highlight": "Müziğin geçmişi, bugünü ve geleceği birbirine bağlayan canlı bir bağ olduğuna inanıyoruz. Arşivimiz sadece bir şarkı koleksiyonu değil - bu, kimliğimizin nabzı, nesillerimizin sesi ve dünyaya birlikte yaşadığımız yolculuğun bir kanıtıdır."
+      },
+      "history": {
+        "title": "Nasıl Başladık",
+        "intro": "Qırım.Online'ın hikayesi sıradan bir şekilde başladı. Servin'in, bir Kırım Tatar olarak, neşeli bir topluluk olayında sevdiği Kırım Tatar şarkılarını dinleyebileceği bir yol bulma isteğiyle.",
+        "initial": "Halk müziği ve modern Kırım Tatar sanatçılarından oluşan küçük bir dijital koleksiyon olarak başlayan şey, Servin ve kardeşi Emil tarafından yıllar süren sevgi ve özverili çalışma ile kapsam ve önem açısından muazzam bir şeye dönüştü.",
+        "turning": "Dönüm noktası, arşivimizi daha geniş bir kitleyle paylaşmaya karar verdiğimizde geldi.",
+        "discovery": "İlk proje üzerinde çalışırken, neredeyse bir yan etki olarak, büyük ve özenle kataloglanmış bir Kırım Tatar müziği koleksiyonu oluşturduk. Bir noktada durduk ve aslında elimizde ne kadar büyük bir hazine olduğunu fark ettik. Bu arşiv, sabit disklerde saklanamayacak kadar değerliydi.",
+        "highlight": "Her şarkı sadece bir melodi değil - bu, bir deneyim, bir anı, tarihimizin bir parçası. Ve şimdi bunlar herkesin erişimine açık.",
+        "transformation": "Bir niş hobiden dünyanın her yerinden Kırım Tatar müziği severlerinin paylaştığı, keşfettiği ve kutladığı canlı bir platforma dönüştük."
+      },
+      "founders": {
+        "title": "Kurucularımızı Tanıyın",
+        "intro": "Qırım.Online'ın arkasında, sahip olduğumuz kültürel mirası koruma ve paylaşma tutkusuyla birleşen iki kardeş var:",
+        "servin": {
+          "name": "Servin Osmanov",
+          "role": "Kurucu & Baş Arşivci"
+        },
+        "emil": {
+          "name": "Emil Umerov",
+          "role": "Kurucu"
+        }
+      },
+      "contact": {
+        "title": "İletişim Bilgileri",
+        "website": "Web sitesi",
+        "email": "E-posta",
+        "privacy": "Gizlilik Politikası",
+        "builtOn": "Üzerine inşa edildi"
+      },
+      "cta": {
+        "title": "Kültürel Mirasımızı Koruma Yolculuğuna Katılın",
+        "description": "Qırım.Online sadece bir arşiv değil - geçmişi korurken bugünü kutlayan ve geleceğe ilham veren canlı bir topluluktur.",
+        "thankYou": "Yolculuğumuzun bir parçası olduğunuz için teşekkür ederiz!"
+      }
+    }
   },
   "player": {
     "playListsText": "Çalma Sırası",

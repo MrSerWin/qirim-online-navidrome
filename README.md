@@ -218,3 +218,7 @@ curl http://localhost:4533/ping
 
 Tags:
 ./scripts/update-music-tags.sh "/путь/к/папке" --yes
+
+
+В следующий раз после деплоя запускайте на сервере:
+cd /opt/navidrome && chmod +x scripts/*.sh

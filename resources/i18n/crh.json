@@ -90,6 +90,10 @@
         "download": "Yükle",
         "info": "Ma'lumat Al"
       },
+      "heroButton": {
+        "title": "Muzıkanı Qoş",
+        "subtitle": "Tesadüfiy yırlar tıñlamağa başla"
+      },
       "lists": {
         "all": "Episi",
         "random": "Tesadüf",
@@ -325,22 +329,43 @@
         "scanInProgress": "Tarama devam ete...",
         "noLibrariesAssigned": "Bu qullanıcığa ic bir kütüphane tayınlanmağan"
       }
+    },
+    "karaoke": {
+      "name": "Karaoke |||| Karaoke",
+      "fields": {
+        "title": "Serleva",
+        "artist": "Artist",
+        "youtubeUrl": "YouTube URL",
+        "source": "Menba",
+        "description": "Tasviriy",
+        "createdAt": "Yaratılğan",
+        "updatedAt": "Yañartılğan"
+      },
+      "actions": {
+        "add": "Karaoke Ekle"
+      }
     }
   },
   "ra": {
     "auth": {
-      "welcome1": "Navidrome qurğanıñız içün saolıñız!",
+      "welcome1": "Qırım Online qurğanıñız içün saolıñız!",
       "welcome2": "Başlamaq içün, bir administrator qullanıcısı yaratıñız",
       "confirmPassword": "Parolnı Tasdiqla",
       "buttonCreateAdmin": "Administrator Yarat",
+      "buttonSignUp": "Qayd Ol",
+      "createAccount": "Yañı esap yarat",
+      "needAccount": "Esabıñız yoqmı? Qayd olıñız",
+      "haveAccount": "Esabıñız barmı? Kirgeñiz",
+      "sign_up_error": "Qayd olma muvaffaqıyetsiz oldı, yañıdan deñeñiz",
       "auth_check_error": "Devam etmek içün kirgeñiz",
       "user_menu": "Profil",
       "username": "Qullanıcı adı",
       "password": "Parol",
+      "email": "Elektron poçta",
       "sign_in": "Kirüv",
       "sign_in_error": "Autentifikasiya muvaffaqıyetsiz oldı, yañıdan deñeñiz",
       "logout": "Çıqış",
-      "insightsCollectionNote": "Navidrome, proyektni yaxşılaştırmaq içün\nanonim qullanma ma'lumatını yığa. [Burada]\nköprek bilmek ve ister iseñiz vazgeçmek içün basıñız"
+      "insightsCollectionNote": "Qırım Online, proyektni yaxşılaştırmaq içün\nanonim qullanma ma'lumatını yığa. [Burada]\nköprek bilmek ve ister iseñiz vazgeçmek içün basıñız"
     },
     "validation": {
       "invalidChars": "Faqat arifler ve sayılarnı qullanıñız",
@@ -475,7 +500,7 @@
   "message": {
     "note": "NOT",
     "transcodingDisabled": "Veb interfeysi arqalı transkodlama qonfigurasiyasını deñiştirmek havfsızlıq sebeplerinen qabilsiz etilgen. Transkodlama sıyaqlarını deñiştirmek (tahrirlev yaki eklemek) isterseniñ, servernı %{config} qonfigurasiya sıyağı ilen qayta başlatıñız.",
-    "transcodingEnabled": "Navidrome şimdi %{config} ilen çalışa, bu da veb interfeysi arqalı transkodlama sıyaqlarından sistem buyruqlarını çalıştırmağa imkan bere. Havfsızlıq sebeplerinen bunı qabilsiz etmegиñizni ve ancaq Transkodlama sıyaqlarını qonfigurasiya etken vaqıt qabilleştirmegиñizni tavsiye etemiz.",
+    "transcodingEnabled": "Qırım Online şimdi %{config} ilen çalışa, bu da veb interfeysi arqalı transkodlama sıyaqlarından sistem buyruqlarını çalıştırmağa imkan bere. Havfsızlıq sebeplerinen bunı qabilsiz etmegиñizni ve ancaq Transkodlama sıyaqlarını qonfigurasiya etken vaqıt qabilleştirmegиñizni tavsiye etemiz.",
     "songsAddedToPlaylist": "Çalğı cedveline 1 Yır eklendi |||| Çalğı cedveline %{smart_count} Yır eklendi",
     "noSimilarSongsFound": "Oxşar Yırlar tapılmadı",
     "noTopSongsFound": "Eñ iyi Yırlar tapılmadı",
@@ -487,7 +512,7 @@
     "remove_all_missing_title": "Barça eksik dosyelerni çıqar",
     "remove_all_missing_content": "Ma'lumat bazasından barça eksik dosyelerni çıqarmaq içün eminsiñizmi? Bu, olarga qonusında barça referanslarnı, çalınış sayılarını ve qıymetlendirmelerni qayturmassız olaraq çıqaracaq.",
     "notifications_blocked": "Brauzerıñıznıñ sıyaqlarında bu saife içün bildirimlerge tıyış qoygansıñız",
-    "notifications_not_available": "Bu brauzer masaüstü bildirimlerni desteklemey yaki Navidrome'ge https arqalı kirmeysıñiz",
+    "notifications_not_available": "Bu brauzer masaüstü bildirimlerni desteklemey yaki Qırım Online'ge https arqalı kirmeysıñiz",
     "lastfmLinkSuccess": "Last.fm muvaffaqıyetle bağlandı ve scrobbling qabilleştirildi",
     "lastfmLinkFailure": "Last.fm bağlana olmadı",
     "lastfmUnlinkSuccess": "Last.fm bağı kesildi ve scrobbling qabilsiz etildi",
@@ -540,10 +565,82 @@
         }
       }
     },
+    "partners": {
+      "name": "Şerikler",
+      "title": "Proyekt Şerikleri",
+      "sections": {
+        "partners": "Şerikler",
+        "resources": "Faydalı Resurslar",
+        "support": "Proyektke Yardım"
+      },
+      "descriptions": {
+        "anaYurt": "Qırımtatar maarif portalı",
+        "anaYurtOnline": "Qırımtatar tilinde filmler ve multfilmler baq",
+        "synonymsDict": "Qırımtatar tiliniñ sinonimler luğatı",
+        "qirimtatarDict": "Qırımtatar luğatı",
+        "qirimJunior": "Susanna Cemileva'nıñ proyekti - balalar içün qırımtatar tiline ögretiş"
+      },
+      "platforms": {
+        "web": "Veb",
+        "webLatin": "Veb (latın)",
+        "webCyrillic": "Veb (kiril)",
+        "android": "Android",
+        "ios": "iOS"
+      },
+      "support": {
+        "title": "Proyektniñ inkişafına yardım etiñiz",
+        "description": "Siziñ yardımlarıñız bizge platformanı inkişaf ettirirge ve qırımtatar medeniyetini saqlarğa yardım ete",
+        "copied": "%{label} buferge kopiyalana"
+      }
+    },
+    "about": {
+      "name": "Biz Aqqında",
+      "header": {
+        "title": "Biz Aqqında",
+        "subtitle": "Medeni mirasımıznı saqlaymız ve paylaşamız"
+      },
+      "mission": {
+        "title": "Bizim Missiyamız: Saqlamaq ve Paylaşmaq",
+        "intro": "Qırım.Online — bu sadece bir sayt degil, qırımtatar muzıkasınıñ eñ büyük raqamlı arhivi. Bizim baş maqsetimiz — qırımtatarlarnıñ qadrli muzıkal mirasını yığmaq, saqlamaq ve bütün dünyağa açıq etmek.",
+        "highlight": "Biz inanmız ki, muzıka — bu nesilerni birleştirgen tiri çiziq. Mında siz er şeyni taparsıñız: asırlarnıñ ruhını saqlağan terenlikli, köne halq köylerinden başlap, zamanımıznıñ parlaq kompozitsiyalarına kadar. Biz isteyimiz ki, er kim er vakit bu xazinege toqunabilsin."
+      },
+      "history": {
+        "title": "Bizim ikâyemiz: içtimaiy ağdan muzıkağace",
+        "intro": "Qırım.Onlaynğa yol bugün körgeniñiz kibi doğru degil edi.",
+        "initial": "İlki bizim proyekt tamamen başqa edi — biz qırımtatarlar içün sotsiyal şebeke yaratmaq istedik. Biz oña çoq küç ve vaqıt qoydıq, fikir alışuvı içün tek platforma yaratmağa çalıştıq. Emma, çoqtı oluv kibi, biz qayrılığan aqiqatqa yüzleştik: sotsiyal media dünyasında inanılmaz yüksek rekabet ve gereklisi kibi destekleniş yoq edi, bu proyektni uçurğa bermedi.",
+        "turning": "Bu tecribe soñu ola bile edi, amma yañı başlanğıç oldı.",
+        "discovery": "Birinci leyha üzerinde çalışqanda, deyerlik yan effekt olaraq, biz qırımtatar muzıkasınıñ pek büyük, muqaytlıqnen kataloglaştırılğan kollektsiyasını topladıq. Bir vaqıt toqtap, elimizde asılında nasıl bir hazine olğanını añladıq. Bu arhiv tek qattı disklerde oturmaq içün pek qıymetli edi.",
+        "highlight": "Bu mirasnı medeniyetimizni asretlegen er bir insanğa paylaşmamaq bizge bütünley yañlış köründi.",
+        "transformation": "Böyleliknen, türlenüv olıp keçti. Biz başlanğıç ğayeden uzaqlaşıp, özlerimizni kerçekten de müim olğan şeyge — muzıkamız içün eñ yahşı ve eñ tolu evni yaratmaqqa bağışlamağa qarar berdik. Böyle etip Qırım.Onlayn dünyağa keldi."
+      },
+      "founders": {
+        "title": "Proyekt Temeleyicileri",
+        "intro": "Qırım.Onlaynnıñ peyda oluvında eki inkişaf ettirici ve aveslik — Servin Osmanov ve Emil Ümerov tura. Bu arhivniñ yarıqnı körmege ve ösmege devam etmege imkân bergen olarnıñ ğayreti ve ğayege olğan sadıqlığıdır.",
+        "servin": {
+          "name": "Servin Osmanov",
+          "role": "Unjı ve proyekt arhitektorı"
+        },
+        "emil": {
+          "name": "Emil Umerov",
+          "role": "Unjı ve project kuratorı"
+        }
+      },
+      "contact": {
+        "title": "Kontakt Malümatı",
+        "website": "Veb-sayt",
+        "email": "Elektronlı poçta",
+        "privacy": "Qupiyalıq siyaseti",
+        "builtOn": "Temelinde"
+      },
+      "cta": {
+        "title": "Bizge Qoşılıñız",
+        "description": "Qırım.Online — bu er kün büyügen tiri proyekt. Biz menemnüz ki siz mında. Tıñlañız, yañı şeyler keşfediñiz, dostlar ile paylaşıñız ve bizge özgün medeniyetimizni saqlarğa yardım ediñiz.",
+        "thankYou": "Sizge teşekkür etemiz!"
+      }
+    },
     "albumList": "Albomlar",
     "playlists": "Çalğı cedvelleri",
-    "sharedPlaylists": "Paylaşılğan Çalğı cedvelleri",
-    "about": "Biz Aqqında"
+    "sharedPlaylists": "Paylaşılğan Çalğı cedvelleri"
   },
   "player": {
     "playListsText": "Çalma Sırası",
@@ -571,12 +668,15 @@
     }
   },
   "about": {
-"description": "Qırım.Online - qırımtatar muzıkasınıñ eñ büyük onlayn arhividir!\n\nBizim platformamız em asırlar ruhunı qaplap alğan qadimiy halq yırlarını, em de zemaneviy artistlerniñ canlı hitlerini qaplap alğan unikal ve er taraflama cıyıntıqnı teklif ete. Biz qırımtatarlarnıñ qıymetsiz muzıka mirasını saqlap qalmağa ve bütün dünya diñleyicilerine elverişli yapmağa tırışamız.\n\nQırım.Online – bu tek bir veb-sayt degil; bu aqiqiy raqamlı hazine, er keske bu zengin medeniyetni onıñ tılsımlı avaları yardımınen duymağa imkân bere. Qırımtatar muzıkasınıñ tolu spektrini bir yerde açıñız!",
+    "description": "Qırım.Online - qırımtatar muzıkasınıñ eñ büyük onlayn arhividir!\n\nBizim platformamız em asırlar ruhunı qaplap alğan qadimiy halq yırlarını, em de zemaneviy artistlerniñ canlı hitlerini qaplap alğan unikal ve er taraflama cıyıntıqnı teklif ete. Biz qırımtatarlarnıñ qıymetsiz muzıka mirasını saqlap qalmağa ve bütün dünya diñleyicilerine elverişli yapmağa tırışamız.\n\nQırım.Online – bu tek bir veb-sayt degil; bu aqiqiy raqamlı hazine, er keske bu zengin medeniyetni onıñ tılsımlı avaları yardımınen duymağa imkân bere. Qırımtatar muzıkasınıñ tolu spektrini bir yerde açıñız!",
+
     "links": {
       "homepage": "Ana saife",
       "source": "Menba kodu",
       "featureRequests": "Xususıyet soraşuvları",
       "lastInsightsCollection": "Soñki anlayış toplaması",
+      "website": "Web saife",
+      "email": "Elektron poçta",
       "insights": {
         "disabled": "Qabilsiz",
         "waiting": "Küte"
@@ -615,7 +715,7 @@
     "minutesAgo": "%{smart_count} daqqa evel |||| %{smart_count} daqqa evel"
   },
   "help": {
-    "title": "Navidrome Qısqa Tuşları",
+    "title": "Qırım Online Qısqa Tuşları",
     "hotkeys": {
       "show_help": "Bu Yardımnı Köster",
       "toggle_menu": "Menü Yan Çubuğını Aç/Qapat",

@@ -12,6 +12,7 @@ import albumLists from '../album/albumLists'
 import PlaylistsSubMenu from './PlaylistsSubMenu'
 import LibrarySelector from '../common/LibrarySelector'
 import PartnersMenu from './PartnersMenu'
+import AboutMenu from './AboutMenu'
 import SocialMediaButtons from './SocialMediaButtons'
 import config from '../config'
 
@@ -158,6 +159,7 @@ const Menu = ({ dense = false }) => {
 
       <Divider />
       <PartnersMenu sidebarIsOpen={open} dense={dense} />
+      <AboutMenu sidebarIsOpen={open} dense={dense} />
       <SocialMediaButtons sidebarIsOpen={open} />
 
       {config.enableShop && resources.filter(subItems('shop')).length > 0 && (

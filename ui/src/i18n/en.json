@@ -606,11 +606,55 @@
         "copied": "%{label} copied to clipboard"
       }
     },
+    "about": {
+      "name": "About Us",
+      "header": {
+        "title": "About Us",
+        "subtitle": "Preserving and Sharing Cultural Heritage"
+      },
+      "mission": {
+        "title": "Our Mission: Preserve and Share",
+        "intro": "Qırım.Online is not just a website, but the largest digital archive of Crimean Tatar music. Our main goal is to collect, preserve and make accessible to the whole world the invaluable musical heritage of the Crimean Tatars.",
+        "highlight": "We believe that music is a living thread connecting generations. Here you will find everything: from deep, ancient folk melodies preserving the spirit of centuries, to vibrant compositions of contemporary artists. We strive to make this treasure accessible to everyone at any time."
+      },
+      "history": {
+        "title": "Our Story: From Social Network to Music",
+        "intro": "The path to Qırım.Online as you see it today was not straightforward.",
+        "initial": "Initially, our project was completely different — we started with an ambitious idea of creating a social network for Crimean Tatars. We invested a lot of effort and time, striving to create a unified platform for communication and exchange of ideas. However, as often happens, we faced harsh reality: incredibly high competition in the world of social media and lack of proper support did not allow this project to take off.",
+        "turning": "This experience could have been the end, but it became a new beginning.",
+        "discovery": "While working on the first project, almost as a side effect, we collected a huge, carefully catalogued collection of Crimean Tatar music. At some point we stopped and realized what a treasure we actually had in our hands. This archive was too valuable to just sit on hard drives.",
+        "highlight": "It seemed completely wrong to us not to share this heritage with everyone who cherishes our culture.",
+        "transformation": "Thus the transformation happened. We decided to move away from the initial idea and devote ourselves to what truly matters — creating the best and most complete home for our music. Thus Qırım.Online was born."
+      },
+      "founders": {
+        "title": "Project Founders",
+        "intro": "At the origins of Qırım.Online stand two developers and enthusiasts — Servin Osmanov and Emil Umerov. It is their efforts and dedication to the idea that allowed this archive to see the light and continue to grow.",
+        "servin": {
+          "name": "Servin Osmanov",
+          "role": "Developer and Project Architect"
+        },
+        "emil": {
+          "name": "Emil Umerov",
+          "role": "Developer and Project Curator"
+        }
+      },
+      "contact": {
+        "title": "Contact Information",
+        "website": "Website",
+        "email": "Email",
+        "privacy": "Privacy Policy",
+        "builtOn": "Built on"
+      },
+      "cta": {
+        "title": "Join Us",
+        "description": "Qırım.Online is a living project that grows every day. We are glad you are here. Listen, discover new music, share with friends and help us preserve our unique culture.",
+        "thankYou": "Thank you for being with us!"
+      }
+    },
     "albumList": "Albums",
     "playlists": "Playlists",
     "sharedPlaylists": "Shared Playlists",
-    "shop": "Shop",
-    "about": "About"
+    "shop": "Shop"
   },
   "player": {
     "playListsText": "Play Queue",

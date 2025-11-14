@@ -10,7 +10,7 @@ const useGetLanguageChoices = () => {
   )
 
   // Only show specific languages
-  const allowedLanguages = ['en', 'ru', 'uk', 'crh']
+  const allowedLanguages = ['en', 'ru', 'uk', 'crh', 'tr']
 
   const choices = [{ id: 'en', name: 'English' }]
   if (loaded) {
