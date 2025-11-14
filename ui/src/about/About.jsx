@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     maxWidth: 1200,
     margin: '0 auto',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2, 1.5),
+    },
   },
   header: {
     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -33,6 +36,11 @@ const useStyles = makeStyles((theme) => ({
       bottom: 0,
       opacity: 0.1,
     },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(4, 2),
+      marginBottom: theme.spacing(3),
+      borderRadius: theme.spacing(1),
+    },
   },
   headerTitle: {
     fontSize: '3rem',
@@ -42,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '2rem',
+      fontSize: '1.75rem',
+      marginBottom: theme.spacing(0.5),
     },
   },
   headerSubtitle: {
@@ -52,12 +61,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: 1,
     [theme.breakpoints.down('sm')]: {
-      fontSize: '1.1rem',
+      fontSize: '1rem',
     },
   },
   section: {
     marginBottom: theme.spacing(5),
     animation: '$slideIn 0.6s ease-out backwards',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: theme.spacing(3),
+    },
   },
   '@keyframes slideIn': {
     from: {
@@ -75,6 +87,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
     color: theme.palette.text.primary,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.4rem',
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(1.5),
+    },
   },
   card: {
     padding: theme.spacing(3),
@@ -85,6 +102,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.palette.type === 'dark'
       ? '0 4px 20px rgba(0, 0, 0, 0.3)'
       : '0 4px 20px rgba(0, 0, 0, 0.08)',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
   },
   highlight: {
     background: 'linear-gradient(120deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
@@ -92,6 +113,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1),
     borderLeft: '4px solid #667eea',
     margin: theme.spacing(3, 0),
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2),
+      margin: theme.spacing(2, 0),
+      borderLeftWidth: '3px',
+    },
   },
   founders: {
     display: 'flex',
@@ -99,6 +125,10 @@ const useStyles = makeStyles((theme) => ({
     gap: theme.spacing(3),
     marginTop: theme.spacing(3),
     flexWrap: 'wrap',
+    [theme.breakpoints.down('sm')]: {
+      gap: theme.spacing(2),
+      marginTop: theme.spacing(2),
+    },
   },
   founder: {
     background: theme.palette.type === 'dark'
@@ -115,16 +145,28 @@ const useStyles = makeStyles((theme) => ({
       transform: 'translateY(-5px)',
       boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
     },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2.5),
+      minWidth: '100%',
+      maxWidth: '100%',
+      flex: 'none',
+    },
   },
   founderName: {
     color: '#667eea',
     fontSize: '1.3rem',
     marginBottom: theme.spacing(1),
     fontWeight: 600,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.15rem',
+    },
   },
   founderRole: {
     color: theme.palette.text.secondary,
     fontSize: '0.95rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.9rem',
+    },
   },
   cta: {
     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -133,28 +175,49 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(2),
     textAlign: 'center',
     marginTop: theme.spacing(4),
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(3, 2),
+      marginTop: theme.spacing(3),
+      borderRadius: theme.spacing(1),
+    },
   },
   ctaTitle: {
     color: 'white',
     fontSize: '2rem',
     marginBottom: theme.spacing(2),
     fontWeight: 600,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.5rem',
+      marginBottom: theme.spacing(1.5),
+    },
   },
   ctaText: {
     color: 'white',
     fontSize: '1.2rem',
     marginBottom: 0,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+    },
   },
   ctaThankYou: {
     marginTop: theme.spacing(2),
     fontSize: '1.4rem',
     fontWeight: 600,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1.5),
+      fontSize: '1.15rem',
+    },
   },
   paragraph: {
     fontSize: '1.1rem',
     marginBottom: theme.spacing(2),
     color: theme.palette.text.secondary,
     lineHeight: 1.7,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.95rem',
+      marginBottom: theme.spacing(1.5),
+      lineHeight: 1.6,
+    },
   },
   contactSection: {
     marginTop: theme.spacing(4),
@@ -163,30 +226,54 @@ const useStyles = makeStyles((theme) => ({
       ? 'rgba(255, 255, 255, 0.05)'
       : 'rgba(0, 0, 0, 0.02)',
     borderRadius: theme.spacing(1),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(2),
+      padding: theme.spacing(2),
+    },
   },
   contactTitle: {
     fontSize: '1.5rem',
     fontWeight: 600,
     marginBottom: theme.spacing(2),
     color: theme.palette.text.primary,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.2rem',
+      marginBottom: theme.spacing(1.5),
+    },
   },
   contactItem: {
     display: 'flex',
     alignItems: 'center',
     marginBottom: theme.spacing(1.5),
     fontSize: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      marginBottom: theme.spacing(2),
+      fontSize: '0.9rem',
+    },
   },
   contactLabel: {
     fontWeight: 600,
     marginRight: theme.spacing(1),
     minWidth: 180,
     color: theme.palette.text.primary,
+    [theme.breakpoints.down('sm')]: {
+      minWidth: 'auto',
+      marginRight: 0,
+      marginBottom: theme.spacing(0.5),
+      fontSize: '0.85rem',
+    },
   },
   contactLink: {
     color: '#667eea',
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.9rem',
+      wordBreak: 'break-all',
     },
   },
 }))
