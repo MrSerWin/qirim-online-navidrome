@@ -125,6 +125,39 @@ export default defineConfig({
             return 'date-utils'
           }
 
+          // React Icons - split by icon family to avoid huge bundles
+          // Each icon family is ~100-7000KB, so we split them separately
+          if (id.includes('react-icons/gi')) {
+            return 'icons-gi'  // Game Icons (very large ~7MB)
+          }
+          if (id.includes('react-icons/vsc')) {
+            return 'icons-vsc'  // VS Code Icons (~350KB)
+          }
+          if (id.includes('react-icons/fi')) {
+            return 'icons-fi'  // Feather Icons
+          }
+          if (id.includes('react-icons/bi')) {
+            return 'icons-bi'  // BoxIcons
+          }
+          if (id.includes('react-icons/ri')) {
+            return 'icons-ri'  // Remix Icons
+          }
+          if (id.includes('react-icons/md')) {
+            return 'icons-md'  // Material Design Icons
+          }
+          if (id.includes('react-icons/fa')) {
+            return 'icons-fa'  // Font Awesome
+          }
+          if (id.includes('react-icons/im')) {
+            return 'icons-im'  // IcoMoon
+          }
+          if (id.includes('react-icons/gr')) {
+            return 'icons-gr'  // Grommet Icons
+          }
+          if (id.includes('react-icons')) {
+            return 'icons-other'  // Other icon families
+          }
+
           // All other node_modules
           if (id.includes('node_modules')) {
             return 'vendor'

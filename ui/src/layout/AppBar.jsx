@@ -1,4 +1,4 @@
-import React, { createElement, forwardRef, Fragment, useCallback } from 'react'
+import React, { createElement, forwardRef, Fragment, useCallback, lazy, Suspense } from 'react'
 import {
   AppBar as RAAppBar,
   MenuItemLink,
@@ -16,11 +16,13 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import { Dialogs } from '../dialogs/Dialogs'
 import { AboutDialog } from '../dialogs'
 import PersonalMenu from './PersonalMenu'
-import ActivityPanel from './ActivityPanel'
-import NowPlayingPanel from './NowPlayingPanel'
 import UserMenu from './UserMenu'
 import { playTracks } from '../actions'
 import config from '../config'
+
+// Lazy load admin-only components to reduce initial bundle size
+const ActivityPanel = lazy(() => import('./ActivityPanel'))
+const NowPlayingPanel = lazy(() => import('./NowPlayingPanel'))
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -204,8 +206,16 @@ const CustomUserMenu = ({ onClick, ...rest }) => {
       <ShufflePlayButton />
       {config.devActivityPanel &&
         permissions === 'admin' &&
-        config.enableNowPlaying && <NowPlayingPanel />}
-      {config.devActivityPanel && permissions === 'admin' && <ActivityPanel />}
+        config.enableNowPlaying && (
+          <Suspense fallback={null}>
+            <NowPlayingPanel />
+          </Suspense>
+        )}
+      {config.devActivityPanel && permissions === 'admin' && (
+        <Suspense fallback={null}>
+          <ActivityPanel />
+        </Suspense>
+      )}
       <UserMenu {...rest}>
         <PersonalMenu sidebarIsOpen={true} onClick={onClick} />
         <Divider />

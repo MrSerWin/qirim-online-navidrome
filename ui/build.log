@@ -1,0 +1,52 @@
+
+> build
+> vite build
+
+vite v6.3.5 building for production...
+transforming...
+✓ 8017 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/shop/ShopBrowser.jsx is dynamically imported by /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/routes.jsx but also statically imported by /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/shop/index.js, dynamic import will not move module into another chunk.
+
+[plugin vite:reporter] 
+(!) /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/shop/ShopCheckout.jsx is dynamically imported by /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/routes.jsx but also statically imported by /Volumes/T9/1_dev/1_QO/myQO/navidrome/ui/src/shop/index.js, dynamic import will not move module into another chunk.
+
+build/manifest.webmanifest                     0.87 kB
+build/assets/img/qo-logo-Hnd8YWso.png          4.19 kB
+build/assets/img/qo-logo-dark-DUu-ydoZ.png     4.79 kB
+build/index.html                              12.86 kB
+build/assets/img/qo-512x512-JTJlqew6.png      29.22 kB
+build/assets/css/index-Bn0JdMjP.css            0.50 kB
+build/assets/css/react-core-BMlWO5gf.css       6.28 kB
+build/assets/css/music-player-Dw4fC6gX.css    36.57 kB
+build/assets/js/useInterval-DeQfobqp.js        0.25 kB
+build/assets/js/date-utils-BGe0p8Wp.js         0.77 kB
+build/assets/js/redux-CKr2jhrq.js              3.12 kB
+build/assets/js/Personal-D4wfU1yt.js           3.21 kB
+build/assets/js/ActivityPanel-5nff6Y0S.js      4.36 kB
+build/assets/js/NowPlayingPanel-B46irKJD.js    5.34 kB
+build/assets/js/About-BZProAoc.js              8.85 kB
+build/assets/js/Partners-Mv7XBa4T.js           9.31 kB
+build/assets/js/Privacy-CaXauY51.js           10.91 kB
+build/assets/js/icons-other-DG1oxcMX.js       15.37 kB
+build/assets/js/mui-icons-DHM33GdC.js         33.38 kB
+build/assets/js/lodash-BP0gGLP9.js            45.01 kB
+build/assets/js/music-player-DI972Knm.js      55.61 kB
+build/assets/js/react-admin-BOK2K28g.js      137.58 kB
+build/assets/js/mui-core-JZvoqcTj.js         188.88 kB
+build/assets/js/react-admin-ui-DiWbbxkv.js   194.48 kB
+build/assets/js/vendor-Bu876lG7.js           331.04 kB
+build/assets/js/index-HOfP7qni.js            332.00 kB
+build/assets/js/react-core-xbiyAEaH.js       388.27 kB
+✓ built in 8.54s
+
+PWA v0.21.2
+Building src/sw.js service worker ("es" format)...
+vite v6.3.5 building for production...
+transforming...
+✓ 1 modules transformed.
+rendering chunks...
+computing gzip size...
+build/sw.mjs  3.83 kB │ gzip: 1.57 kB
+✓ built in 525ms
