@@ -23,7 +23,8 @@ export default defineConfig({
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}'],
         maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB,
-        injectionPoint: undefined, // Don't inject SW registration - we'll do it manually async
+        // injectionPoint must be defined for manifest injection to work
+        injectionPoint: null,
       },
       workbox: {
         runtimeCaching: [
@@ -82,8 +83,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // React core (critical - loaded first)
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+          // React core (critical - must be together to avoid circular dependencies)
+          if (id.includes('node_modules/react') ||
+              id.includes('node_modules/react-dom') ||
+              id.includes('node_modules/react-is') ||
+              id.includes('node_modules/scheduler')) {
             return 'react-core'
           }
 

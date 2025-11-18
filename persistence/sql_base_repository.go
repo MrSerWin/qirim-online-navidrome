@@ -432,6 +432,9 @@ func (r sqlRepository) put(id string, m interface{}, colsToUpdate ...string) (ne
 		// To avoid updating the media_file birth_time on each scan. Not the best solution, but it works for now
 		// TODO move to mediafile_repository when each repo has its own upsert method
 		delete(updateValues, "birth_time")
+		// Preserve global play count statistics during rescan (these should only be updated via scrobbling)
+		delete(updateValues, "global_play_count")
+		delete(updateValues, "global_last_played")
 		update := Update(r.tableName).Where(Eq{"id": id}).SetMap(updateValues)
 		count, err := r.executeSQL(update)
 		if err != nil {
