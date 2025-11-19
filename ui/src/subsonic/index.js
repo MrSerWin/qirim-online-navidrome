@@ -42,18 +42,19 @@ const scrobble = (id, time, submission = true, position = null) =>
     }),
   )
 
-// globalScrobble submits scrobble without authentication (only updates global stats)
-// Used for unauthenticated/guest users
+// globalScrobble submits scrobble for guest user (updates global stats)
+// Used for unauthenticated/guest users - uses special UNKNOWN username
 const globalScrobble = (id, time) => {
   const params = new URLSearchParams()
   params.append('f', 'json')
   params.append('v', '1.8.0')
   params.append('c', 'Qırım OnlineUI')
+  params.append('u', 'UNKNOWN')  // Special username for guest scrobbles
   params.append('id', id)
   if (time) {
     params.append('time', time)
   }
-  return httpClient(`/rest/globalScrobble?${params.toString()}`)
+  return httpClient(`/rest/scrobble?${params.toString()}`)
 }
 
 const nowPlaying = (id, position = null) => scrobble(id, null, false, position)
