@@ -41,6 +41,17 @@ const useStyles = makeStyles((theme) => ({
   },
   section: {
     marginBottom: theme.spacing(4),
+    animation: '$slideIn 0.6s ease-out backwards',
+  },
+  '@keyframes slideIn': {
+    from: {
+      opacity: 0,
+      transform: 'translateX(-30px)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
   },
   sectionTitle: {
     fontSize: '1.8rem',

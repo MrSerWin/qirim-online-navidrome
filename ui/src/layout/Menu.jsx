@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Divider, makeStyles } from '@material-ui/core'
+import { Divider, makeStyles, Box } from '@material-ui/core'
 import clsx from 'clsx'
 import { useTranslate, MenuItemLink, getResources } from 'react-admin'
 import ViewListIcon from '@material-ui/icons/ViewList'
@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    paddingBottom: (props) => (props.addPadding ? '80px' : '20px'),
+    paddingBottom: (props) => (props.addPadding ? '160px' : '140px'), // Extra space for fixed bottom section
+    position: 'relative',
   },
   open: {
     width: 240,
@@ -36,6 +37,34 @@ const useStyles = makeStyles((theme) => ({
   active: {
     color: theme.palette.text.primary,
     fontWeight: 'bold',
+  },
+  bottomSection: {
+    position: 'fixed',
+    bottom: 85,
+    left: 0,
+    width: 240,
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  bottomSectionClosed: {
+    width: 55,
+  },
+  smallMenuItem: {
+    '& .MuiListItemText-root': {
+      '& .MuiTypography-root': {
+        fontSize: '0.85rem',
+      },
+    },
+    '& .MuiListItemIcon-root': {
+      minWidth: 40,
+      '& svg': {
+        fontSize: '1.2rem',
+      },
+    },
   },
 }))
 
@@ -160,9 +189,22 @@ const Menu = ({ dense = false }) => {
 
       <Divider />
       <PartnersMenu sidebarIsOpen={open} dense={dense} />
-      <AboutMenu sidebarIsOpen={open} dense={dense} />
-      <PrivacyMenu sidebarIsOpen={open} dense={dense} />
       <SocialMediaButtons sidebarIsOpen={open} />
+
+      {/* Bottom section with Privacy and About - fixed at bottom */}
+      <Box
+        className={clsx(classes.bottomSection, {
+          [classes.bottomSectionClosed]: !open,
+        })}
+      >
+        <Divider />
+        <Box className={classes.smallMenuItem}>
+          <AboutMenu sidebarIsOpen={open} dense={dense} />
+        </Box>
+        <Box className={classes.smallMenuItem}>
+          <PrivacyMenu sidebarIsOpen={open} dense={dense} />
+        </Box>
+      </Box>
 
       {config.enableShop && resources.filter(subItems('shop')).length > 0 && (
         <>
