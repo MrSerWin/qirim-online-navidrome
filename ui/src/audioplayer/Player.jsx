@@ -175,6 +175,19 @@ const Player = () => {
       }
 
       const progress = (info.currentTime / info.duration) * 100
+
+      // Log progress for debugging (but not too often - only at key milestones)
+      if (Math.floor(progress) % 25 === 0 && Math.floor(info.currentTime) % 30 === 0) {
+        console.log('[PLAYER PROGRESS]', {
+          trackId: info.trackId,
+          progress: progress.toFixed(1),
+          currentTime: info.currentTime.toFixed(1),
+          duration: info.duration,
+          scrobbled,
+          preloaded
+        })
+      }
+
       if (isNaN(info.duration) || (progress < 50 && info.currentTime < 240)) {
         return
       }
@@ -195,6 +208,7 @@ const Player = () => {
 
       if (!scrobbled) {
         if (info.trackId) {
+          console.log('[SCROBBLE ON PROGRESS] Conditions met - progress:', progress.toFixed(1), '%, currentTime:', info.currentTime.toFixed(1), 's')
           console.log('[SCROBBLE DEBUG] authenticated:', authenticated, 'username:', username, 'isReallyAuthenticated:', isReallyAuthenticated)
           if (isReallyAuthenticated) {
             // Authenticated user: use regular scrobble (updates both user + global stats)
@@ -213,7 +227,7 @@ const Player = () => {
         setScrobbled(true)
       }
     },
-    [startTime, scrobbled, nextSong, preloaded, isReallyAuthenticated],
+    [startTime, scrobbled, nextSong, preloaded, isReallyAuthenticated, authenticated, username],
   )
 
   const onAudioVolumeChange = useCallback(
@@ -262,14 +276,47 @@ const Player = () => {
     [context, dispatch, showNotifications, startTime],
   )
 
-  const onAudioPlayTrackChange = useCallback(() => {
+  const onAudioPlayTrackChange = useCallback((currentPlayId, audioLists, audioInfo) => {
+    // Before switching tracks, scrobble if not already scrobbled
+    // and the track was played for sufficient time (30% or 30 seconds minimum)
+    if (!scrobbled && startTime && audioInfo) {
+      const playDuration = (Date.now() - startTime) / 1000 // seconds
+      const progress = audioInfo.duration ? (playDuration / audioInfo.duration) * 100 : 0
+
+      // Scrobble if played for at least 30% OR 30 seconds (whichever is shorter)
+      // This is more lenient than the original 50%/4min requirement
+      const shouldScrobble = progress >= 30 || playDuration >= 30
+
+      console.log('[SCROBBLE ON TRACK CHANGE]', {
+        trackId: audioInfo.trackId,
+        playDuration: playDuration.toFixed(1),
+        progress: progress.toFixed(1),
+        shouldScrobble,
+        isReallyAuthenticated
+      })
+
+      if (shouldScrobble && audioInfo.trackId && !audioInfo.isRadio) {
+        if (isReallyAuthenticated) {
+          console.log('[SCROBBLE] Track change - using regular scrobble (user + global)')
+          subsonic.scrobble(audioInfo.trackId, new Date(startTime)).catch((err) => {
+            console.error('Scrobble on track change failed:', err)
+          })
+        } else {
+          console.log('[SCROBBLE] Track change - using globalScrobble (global only)')
+          subsonic.globalScrobble(audioInfo.trackId, new Date(startTime)).catch((err) => {
+            console.error('Global scrobble on track change failed:', err)
+          })
+        }
+      }
+    }
+
     if (scrobbled) {
       setScrobbled(false)
     }
     if (startTime !== null) {
       setStartTime(null)
     }
-  }, [scrobbled, startTime])
+  }, [scrobbled, startTime, isReallyAuthenticated])
 
   const onAudioPause = useCallback(
     (info) => {

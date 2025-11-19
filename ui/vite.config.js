@@ -20,7 +20,9 @@ export default defineConfig({
       },
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webp}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB,
+        // injectionPoint must be defined for manifest injection to work
+        injectionPoint: null,
       },
       workbox: {
         runtimeCaching: [
@@ -57,6 +59,7 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
+    
     rollupOptions: {
       output: {
         manualChunks: {
