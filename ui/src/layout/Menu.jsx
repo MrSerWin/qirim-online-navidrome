@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   bottomSection: {
-    position: 'fixed',
-    bottom: 85,
+    // position: 'fixed',
+    // bottom: 85,
     left: 0,
     width: 240,
     paddingTop: theme.spacing(1),

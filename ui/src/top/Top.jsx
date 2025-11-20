@@ -212,7 +212,7 @@ const Top = (props) => {
           resource="song"
           basePath="/song"
           title=" "
-          sort={{ field: 'playCount', order: 'DESC' }}
+          sort={{ field: 'globalPlayCount', order: 'DESC' }}
           exporter={false}
           bulkActionButtons={false}
           actions={null}
