@@ -638,6 +638,16 @@
         "thankYou": "Дякуємо, що ви з нами!"
       }
     },
+    "top": {
+      "name": "Топ",
+      "title": "Топ 50",
+      "subtitle": "Найбільш прослуховувані треки на Qırım.Online"
+    },
+    "new": {
+      "name": "Нові",
+      "title": "Нові",
+      "subtitle": "50 останніх треків на Qırım.Online"
+    },
     "albumList": "Альбоми",
     "playlists": "Плейлисти",
     "sharedPlaylists": "Спільні плейлисти"

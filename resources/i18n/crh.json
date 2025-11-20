@@ -638,6 +638,16 @@
         "thankYou": "Sizge teşekkür etemiz!"
       }
     },
+    "top": {
+      "name": "TOP 50",
+      "title": "TOP 50",
+      "subtitle": "Qırım.Online'da eñ çoq diñlenilgen yırlar"
+    },
+    "new": {
+      "name": "Yañı",
+      "title": "Yañı",
+      "subtitle": "Qırım.Online'daki soñki 50 yır"
+    },
     "albumList": "Albomlar",
     "playlists": "Çalğı cedvelleri",
     "sharedPlaylists": "Paylaşılğan Çalğı cedvelleri"

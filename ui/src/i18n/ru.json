@@ -602,6 +602,16 @@
         "copied": "%{label} скопирован в буфер обмена"
       }
     },
+    "top": {
+      "name": "Топ",
+      "title": "Топ 50",
+      "subtitle": "Самые прослушиваемые треки на Qırım.Online"
+    },
+    "new": {
+      "name": "Новые",
+      "title": "Новые",
+      "subtitle": "50 последних треков на Qırım.Online"
+    },
     "about": {
       "name": "О нас",
       "header": {

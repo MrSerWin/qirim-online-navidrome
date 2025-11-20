@@ -540,6 +540,16 @@
         }
       }
     },
+    "top": {
+      "name": "En İyiler",
+      "title": "En İyi 50",
+      "subtitle": "Qırım.Online'da en çok dinlenen şarkılar"
+    },
+    "new": {
+      "name": "Yeni",
+      "title": "Yeni",
+      "subtitle": "Qırım.Online'daki en son 50 şarkı"
+    },
     "albumList": "Albümler",
     "playlists": "Çalma Listeleri",
     "sharedPlaylists": "Paylaşılan Çalma Listeleri",

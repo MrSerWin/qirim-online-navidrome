@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     color: theme.palette.text.secondary,
   },
+  active: {
+    color: theme.palette.text.primary,
+    fontWeight: 'bold',
+  },
 }))
 
 const AboutMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
@@ -21,6 +25,7 @@ const AboutMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
       leftIcon={<InfoOutlinedIcon />}
       onClick={onClick}
       className={classes.menuItem}
+      activeClassName={classes.active}
       sidebarIsOpen={sidebarIsOpen}
       dense={dense}
     />

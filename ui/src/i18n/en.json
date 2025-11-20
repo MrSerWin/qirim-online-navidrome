@@ -606,6 +606,16 @@
         "copied": "%{label} copied to clipboard"
       }
     },
+    "top": {
+      "name": "Top",
+      "title": "Top 50",
+      "subtitle": "Most played tracks on Qırım.Online"
+    },
+    "new": {
+      "name": "New",
+      "title": "New",
+      "subtitle": "50 latest tracks on Qırım.Online"
+    },
     "about": {
       "name": "About Us",
       "header": {

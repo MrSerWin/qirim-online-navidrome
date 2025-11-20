@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     color: theme.palette.text.secondary,
   },
+  active: {
+    color: theme.palette.text.primary,
+    fontWeight: 'bold',
+  },
 }))
 
 const PrivacyMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
@@ -20,6 +24,7 @@ const PrivacyMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
       leftIcon={<SecurityIcon />}
       onClick={onClick}
       className={classes.menuItem}
+      activeClassName={classes.active}
       sidebarIsOpen={sidebarIsOpen}
       dense={dense}
     />

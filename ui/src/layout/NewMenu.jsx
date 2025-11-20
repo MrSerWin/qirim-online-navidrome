@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { MenuItemLink, useTranslate } from 'react-admin'
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline'
+import FiberNewIcon from '@material-ui/icons/FiberNew'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -13,16 +13,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PartnersMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
+const NewMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
   const classes = useStyles()
   const translate = useTranslate()
 
   return (
     <MenuItemLink
       ref={ref}
-      to="/partners"
-      primaryText={translate('menu.partners.name')}
-      leftIcon={<PeopleOutlineIcon />}
+      to="/new"
+      primaryText={translate('menu.new.name')}
+      leftIcon={<FiberNewIcon />}
       onClick={onClick}
       className={classes.menuItem}
       activeClassName={classes.active}
@@ -32,6 +32,6 @@ const PartnersMenu = forwardRef(({ onClick, sidebarIsOpen, dense }, ref) => {
   )
 })
 
-PartnersMenu.displayName = 'PartnersMenu'
+NewMenu.displayName = 'NewMenu'
 
-export default PartnersMenu
+export default NewMenu

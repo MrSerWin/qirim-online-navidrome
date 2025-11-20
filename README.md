@@ -217,7 +217,8 @@ ps aux | grep navidrome
 curl http://localhost:4533/ping
 
 Tags:
-./scripts/update-music-tags.sh "/путь/к/папке" --yes
+./scripts/update-music-tags.sh "FOLDER" --yes
+
 
 
 В следующий раз после деплоя запускайте на сервере:

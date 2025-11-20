@@ -6,6 +6,8 @@ import ShopCheckout from './shop/ShopCheckout'
 import Partners from './partners/Partners'
 import About from './about/About'
 import Privacy from './privacy/Privacy'
+import Top from './top/Top'
+import New from './new/New'
 import config from './config'
 
 const routes = [
@@ -13,6 +15,8 @@ const routes = [
   <Route exact path="/partners" render={() => <Partners />} key={'partners'} />,
   <Route exact path="/about" render={() => <About />} key={'about'} />,
   <Route exact path="/privacy" render={() => <Privacy />} key={'privacy'} />,
+  <Route exact path="/top" render={() => <Top />} key={'top'} />,
+  <Route exact path="/new" render={() => <New />} key={'new'} />,
 ]
 
 // Add shop routes if enabled

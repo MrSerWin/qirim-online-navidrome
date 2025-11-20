@@ -14,6 +14,8 @@ import LibrarySelector from '../common/LibrarySelector'
 import PartnersMenu from './PartnersMenu'
 import AboutMenu from './AboutMenu'
 import PrivacyMenu from './PrivacyMenu'
+import TopMenu from './TopMenu'
+import NewMenu from './NewMenu'
 import SocialMediaButtons from './SocialMediaButtons'
 import config from '../config'
 
@@ -171,6 +173,10 @@ const Menu = ({ dense = false }) => {
         )}
       </SubMenu>
       */}
+
+      {/* Top and New tracks */}
+      <TopMenu sidebarIsOpen={open} dense={dense} />
+      <NewMenu sidebarIsOpen={open} dense={dense} />
 
       {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
       {config.devSidebarPlaylists && open ? (
