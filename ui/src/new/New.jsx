@@ -120,9 +120,9 @@ const NewListContent = () => {
   const toggleableFields = useMemo(() => {
     return {
       artist: <ArtistLinkField source="artist" />,
-      createdAt: (
-        <DateField source="createdAt" sortBy="recently_added" showTime label="Добавлено" />
-      ),
+      // createdAt: (
+      //   <DateField source="createdAt" sortBy="recently_added" showTime label="Добавлено" />
+      // ),
       duration: <DurationField source="duration" />,
       rating: (
         <RatingField

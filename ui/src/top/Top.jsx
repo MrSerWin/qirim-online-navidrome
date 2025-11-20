@@ -124,14 +124,14 @@ const TopListContent = () => {
 
   const toggleableFields = useMemo(() => {
     return {
-      rank: (
-        <Box className={classes.rankField}>
-          <FiberManualRecordIcon fontSize="small" style={{ marginRight: 4 }} />
-          #
-        </Box>
-      ),
+      // rank: (
+      //   <Box className={classes.rankField}>
+      //     <FiberManualRecordIcon fontSize="small" style={{ marginRight: 4 }} />
+      //     #
+      //   </Box>
+      // ),
       artist: <ArtistLinkField source="artist" />,
-      playCount: <Box source="playCount" sortable={true} label="Прослушиваний" />,
+      // playCount: <Box source="playCount" sortable={true} label="Прослушиваний" />,
       duration: <DurationField source="duration" />,
       rating: (
         <RatingField
