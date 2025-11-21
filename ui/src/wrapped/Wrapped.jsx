@@ -18,7 +18,8 @@ import { httpClient } from '../dataProvider'
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: '#202021',
+    // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     padding: theme.spacing(4, 2),
   },
   container: {
