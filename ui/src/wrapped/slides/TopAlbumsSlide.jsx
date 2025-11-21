@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(4),
     minHeight: 500,
-    background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    background: 'linear-gradient(135deg, #be2956 0%, #fee140 100%)',
     color: 'white',
   },
   header: {
