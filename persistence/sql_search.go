@@ -64,13 +64,13 @@ func fullTextExpr(tableName string, s string) Sqlizer {
 	if q == "" {
 		return nil
 	}
-	
+
 	// Create both exact phrase search and individual word search
 	var conditions []Sqlizer
-	
+
 	// 1. Exact phrase search (for "song name" queries)
 	conditions = append(conditions, Like{tableName + ".full_text": "%" + q + "%"})
-	
+
 	// 2. Individual word search (for "song" queries)
 	var sep string
 	if !conf.Server.SearchFullString {
@@ -88,34 +88,65 @@ func fullTextExpr(tableName string, s string) Sqlizer {
 		// For single word queries, search without separator requirement
 		conditions = append(conditions, Like{tableName + ".full_text": "%" + parts[0] + "%"})
 	}
-	
+
 	return Or(conditions)
 }
 
 // enhancedSearchExpr provides more flexible search across specific fields
+// It supports both original text and transliterated text for Cyrillic/Turkish input
 func enhancedSearchExpr(tableName string, s string, searchFields []string) Sqlizer {
 	q := str.SanitizeStrings(s)
 	if q == "" {
 		return nil
 	}
-	
+
 	var conditions []Sqlizer
-	
+
+	// Original query (case-insensitive)
+	qLower := strings.ToLower(strings.TrimSpace(s))
+
 	// Search in each specified field
 	for _, field := range searchFields {
 		fieldName := tableName + "." + field
-		
-		// 1. Exact phrase match
+
+		// 1. Exact phrase match (sanitized - this is already transliterated by SanitizeStrings)
+		// This will match: "Сейран" -> "seyran" in full_text
 		conditions = append(conditions, Like{fieldName: "%" + q + "%"})
-		
-		// 2. Individual word matches
+
+		// 2. Exact phrase match (original case-insensitive - for direct field search)
+		// This will match: "сейран" in database if stored as is
+		if qLower != q {
+			conditions = append(conditions, Expr("LOWER("+fieldName+") LIKE ?", "%"+qLower+"%"))
+		}
+
+		// 3. Individual word matches (sanitized)
+		// This will match each word after transliteration
 		parts := strings.Fields(q)
 		for _, part := range parts {
 			if len(part) > 1 { // Skip single characters
 				conditions = append(conditions, Like{fieldName: "%" + part + "%"})
 			}
 		}
+
+		// 4. Individual word matches (original case-insensitive)
+		// This will match each word as typed by user
+		partsOriginal := strings.Fields(qLower)
+		for _, part := range partsOriginal {
+			if len(part) > 1 && !containsString(parts, part) { // Skip if already in sanitized parts
+				conditions = append(conditions, Expr("LOWER("+fieldName+") LIKE ?", "%"+part+"%"))
+			}
+		}
 	}
-	
+
 	return Or(conditions)
+}
+
+// containsString checks if a string exists in a slice
+func containsString(slice []string, s string) bool {
+	for _, item := range slice {
+		if item == s {
+			return true
+		}
+	}
+	return false
 }

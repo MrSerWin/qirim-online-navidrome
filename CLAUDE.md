@@ -15,6 +15,8 @@ This is **Navidrome QO** - a custom fork of Navidrome music streaming server wit
 - Custom QO branding/logos
 - Mailcow email server integration
 - **Xray VPN** for secure video calls (VLESS/WebSocket/TLS)
+- **Enhanced multilingual search** with Cyrillic/Latin transliteration (Crimean Tatar, Turkish, Russian)
+- **Wrapped feature** - Spotify-like year-in-review with public sharing
 
 ## Tech Stack
 
@@ -211,6 +213,9 @@ See `docker-compose.qirim-online.yml` for full production config.
 - `WHY_GOOGLE_FLAGGED_AS_PHISHING.md` - OAuth false positive analysis
 - `docs/XRAY_VPN_SETUP.md` - Xray VPN full documentation
 - `XRAY_DEPLOYMENT_QUICKSTART.md` - Quick deployment guide for Xray
+- `docs/SEARCH_IMPROVEMENTS.md` - Enhanced multilingual search documentation
+- `docs/BACKUP_SETUP.md` - Backup configuration and automation
+- `docs/TROUBLESHOOTING.md` - Common issues and solutions
 
 ### Configuration
 - `navidrome.toml` - Local development config
