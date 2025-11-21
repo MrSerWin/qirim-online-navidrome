@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Divider, makeStyles, Box } from '@material-ui/core'
 import clsx from 'clsx'
-import { useTranslate, MenuItemLink, getResources } from 'react-admin'
+import { useTranslate, MenuItemLink, getResources, usePermissions } from 'react-admin'
 import ViewListIcon from '@material-ui/icons/ViewList'
 import AlbumIcon from '@material-ui/icons/Album'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
@@ -16,6 +16,7 @@ import AboutMenu from './AboutMenu'
 import PrivacyMenu from './PrivacyMenu'
 import TopMenu from './TopMenu'
 import NewMenu from './NewMenu'
+import WrappedMenu from './WrappedMenu'
 import SocialMediaButtons from './SocialMediaButtons'
 import config from '../config'
 
@@ -88,6 +89,7 @@ const Menu = ({ dense = false }) => {
   const queue = useSelector((state) => state.player?.queue)
   const classes = useStyles({ addPadding: queue.length > 0 })
   const resources = useSelector(getResources)
+  const { permissions } = usePermissions()
 
   // TODO State is not persisted in mobile when you close the sidebar menu. Move to redux?
   const [state, setState] = useState({
@@ -177,6 +179,10 @@ const Menu = ({ dense = false }) => {
       {/* Top and New tracks */}
       <TopMenu sidebarIsOpen={open} dense={dense} />
       <NewMenu sidebarIsOpen={open} dense={dense} />
+      {/* Hide Wrapped menu for guest users */}
+      {permissions !== 'guest' && (
+        <WrappedMenu sidebarIsOpen={open} dense={dense} />
+      )}
 
       {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
       {config.devSidebarPlaylists && open ? (

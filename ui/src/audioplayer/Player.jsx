@@ -176,18 +176,6 @@ const Player = () => {
 
       const progress = (info.currentTime / info.duration) * 100
 
-      // Log progress for debugging (but not too often - only at key milestones)
-      if (Math.floor(progress) % 25 === 0 && Math.floor(info.currentTime) % 30 === 0) {
-        console.log('[PLAYER PROGRESS]', {
-          trackId: info.trackId,
-          progress: progress.toFixed(1),
-          currentTime: info.currentTime.toFixed(1),
-          duration: info.duration,
-          scrobbled,
-          preloaded
-        })
-      }
-
       if (isNaN(info.duration) || (progress < 50 && info.currentTime < 240)) {
         return
       }

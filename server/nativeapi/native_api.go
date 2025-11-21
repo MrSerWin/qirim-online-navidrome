@@ -89,6 +89,7 @@ func (n *Router) routes() http.Handler {
 
 		n.addKeepAliveRoute(r)
 		n.addInsightsRoute(r)
+		n.addWrappedRoute(r)
 
 		r.With(adminOnlyMiddleware).Group(func(r chi.Router) {
 			n.addInspectRoute(r)
@@ -347,6 +348,11 @@ func (n *Router) addInsightsRoute(r chi.Router) {
 			_, _ = w.Write([]byte(`{"id":"insights_status", "lastRun":"disabled", "success":false}`))
 		}
 	})
+}
+
+func (n *Router) addWrappedRoute(r chi.Router) {
+	wrappedCtrl := newWrappedController(n.ds)
+	r.Mount("/wrapped", wrappedCtrl.Routes())
 }
 
 // addShopCategoryRoute adds shop category routes with public read and admin write

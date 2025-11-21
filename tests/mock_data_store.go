@@ -254,6 +254,13 @@ func (db *MockDataStore) ShopOrder(ctx context.Context) model.ResourceRepository
 	return struct{ model.ResourceRepository }{}
 }
 
+func (db *MockDataStore) Wrapped(ctx context.Context) model.WrappedRepository {
+	if db.RealDS != nil {
+		return db.RealDS.Wrapped(ctx)
+	}
+	return struct{ model.WrappedRepository }{}
+}
+
 func (db *MockDataStore) WithTx(block func(tx model.DataStore) error, label ...string) error {
 	return block(db)
 }

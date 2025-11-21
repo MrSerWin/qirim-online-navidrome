@@ -680,5 +680,72 @@
       "vol_down": "Sesi Kıs",
       "toggle_love": "Bu şarkıyı favorilere ekle"
     }
+  },
+  "menu": {
+    "wrapped": {
+      "name": "Yılın Özeti"
+    }
+  },
+  "wrapped": {
+    "title": "Yılın Özetiniz",
+    "subtitle": "Müzikteki Yılınız",
+    "noData": "Henüz dinleme verisi yok",
+    "noDataHint": "İstatistikleri görmek için müzik dinlemeye başlayın",
+    "share": "Paylaş",
+    "shareLinkCopied": "Paylaşım bağlantısı kopyalandı!",
+    "goToHome": "Qırım.Online'ı Aç",
+    "stats": {
+      "title": "Yılınız Rakamlarla",
+      "minutes": "Dakika",
+      "tracks": "Parça",
+      "artists": "Sanatçı",
+      "albums": "Albüm"
+    },
+    "topTracks": {
+      "title": "En İyi Parçalar",
+      "subtitle": "En çok dinlenen şarkılar",
+      "plays": "%{count} dinlenme"
+    },
+    "topArtists": {
+      "title": "En İyi Sanatçılar",
+      "subtitle": "En çok dinlenen sanatçılar",
+      "plays": "%{count} dinlenme",
+      "minutes": "%{count} dk"
+    },
+    "topAlbums": {
+      "title": "En İyi Albümler",
+      "subtitle": "Favori albümler",
+      "plays": "%{count} dinlenme"
+    },
+    "badges": {
+      "title": "Başarılar",
+      "subtitle": "Kazanılan ödüller",
+      "rarity": {
+        "legendary": "Efsanevi",
+        "epic": "Destansı",
+        "rare": "Nadir",
+        "common": "Yaygın"
+      }
+    },
+    "community": {
+      "title": "Topluluk İstatistikleri",
+      "percentile": "İlk %{value}%",
+      "percentileLabel": "tüm dinleyiciler arasında",
+      "totalMinutes": "%{minutes} dakika dinlediniz",
+      "message": {
+        "top5": "İlk %5'tesiniz! Müziğe olan sevginiz inanılmaz!",
+        "top10": "İlk %10'dasınız! Harika bir müzik zevkiniz var!",
+        "top25": "İlk %25'tesiniz! Gerçekten müziği seviyorsunuz!",
+        "top50": "İlk %50'desiniz! Müziğin tadını çıkarmaya devam edin!",
+        "default": "Bizimle olduğunuz için teşekkürler! Dinlemeye devam edin!"
+      }
+    }
+  },
+  "error": {
+    "wrapped": {
+      "fetchYears": "Mevcut yıllar yüklenemedi",
+      "fetchStats": "İstatistikler yüklenemedi",
+      "share": "Paylaşım bağlantısı oluşturulamadı"
+    }
   }
 }

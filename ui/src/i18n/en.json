@@ -616,6 +616,9 @@
       "title": "New",
       "subtitle": "50 latest tracks on Qırım.Online"
     },
+    "wrapped": {
+      "name": "Wrapped"
+    },
     "about": {
       "name": "About Us",
       "header": {
@@ -750,6 +753,68 @@
       "vol_up": "Volume Up",
       "vol_down": "Volume Down",
       "toggle_love": "Add this track to favourites"
+    }
+  },
+  "wrapped": {
+    "title": "Your Wrapped",
+    "subtitle": "Your Year in Music",
+    "noData": "No listening data yet",
+    "noDataHint": "Start listening to music to see your Wrapped statistics",
+    "share": "Share",
+    "shareLinkCopied": "Share link copied to clipboard!",
+    "goToHome": "Open Qırım.Online",
+    "stats": {
+      "title": "Your Year in Numbers",
+      "minutes": "Minutes",
+      "tracks": "Tracks",
+      "artists": "Artists",
+      "albums": "Albums"
+    },
+    "topTracks": {
+      "title": "Top Tracks",
+      "subtitle": "Your most played songs",
+      "plays": "%{count} plays"
+    },
+    "topArtists": {
+      "title": "Top Artists",
+      "subtitle": "Your most listened artists",
+      "plays": "%{count} plays",
+      "minutes": "%{count} min"
+    },
+    "topAlbums": {
+      "title": "Top Albums",
+      "subtitle": "Your favorite albums",
+      "plays": "%{count} plays"
+    },
+    "badges": {
+      "title": "Achievements",
+      "subtitle": "Badges you've earned",
+      "rarity": {
+        "legendary": "Legendary",
+        "epic": "Epic",
+        "rare": "Rare",
+        "common": "Common"
+      }
+    },
+    "community": {
+      "title": "Community Stats",
+      "percentile": "Top %{value}%",
+      "percentileLabel": "of all listeners",
+      "totalMinutes": "You listened for %{minutes} minutes",
+      "message": {
+        "top5": "You're in the top 5% of listeners! Your passion for music is incredible!",
+        "top10": "You're in the top 10% of listeners! You have great taste in music!",
+        "top25": "You're in the top 25% of listeners! You really love music!",
+        "top50": "You're in the top 50% of listeners! Keep enjoying the music!",
+        "default": "Thanks for being part of our community! Keep listening!"
+      }
+    }
+  },
+  "error": {
+    "wrapped": {
+      "fetchYears": "Failed to load available years",
+      "fetchStats": "Failed to load wrapped statistics",
+      "share": "Failed to create share link"
     }
   }
 }

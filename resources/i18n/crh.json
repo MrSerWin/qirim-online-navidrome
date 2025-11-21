@@ -546,6 +546,9 @@
     "settings": "Sıyaqlar",
     "version": "Versiya",
     "theme": "Tema",
+    "wrapped": {
+      "name": "Yıllıq İcmal"
+    },
     "personal": {
       "name": "Parametrler",
       "options": {
@@ -736,6 +739,68 @@
       "vol_up": "Sesnı Arttır",
       "vol_down": "Sesnı Azalt",
       "toggle_love": "Bu parçanı sevimlilerge ekle"
+    }
+  },
+  "wrapped": {
+    "title": "Siziñ İcmalıñız",
+    "subtitle": "Muzıkadaki Yılıñız",
+    "noData": "Diñlemek aqqında malümat yoq",
+    "noDataHint": "Statistikanı körmek içün muzıka diñlemege başlañız",
+    "share": "Paylaş",
+    "shareLinkCopied": "Paylaşma linki kopiyalana!",
+    "goToHome": "Qırım.Online'nı Aç",
+    "stats": {
+      "title": "Siziñ Yılıñız Raqamlarda",
+      "minutes": "Daqqa",
+      "tracks": "Parça",
+      "artists": "Artist",
+      "albums": "Albom"
+    },
+    "topTracks": {
+      "title": "Top Parçalar",
+      "subtitle": "Eñ çoq diñlenilgen yırlar",
+      "plays": "%{count} diñleme"
+    },
+    "topArtists": {
+      "title": "Top Artistler",
+      "subtitle": "Eñ çoq diñlenilgen artistler",
+      "plays": "%{count} diñleme",
+      "minutes": "%{count} daq"
+    },
+    "topAlbums": {
+      "title": "Top Albomlar",
+      "subtitle": "Sevimli albomlar",
+      "plays": "%{count} diñleme"
+    },
+    "badges": {
+      "title": "Ödüller",
+      "subtitle": "Qazanılğan mükâfatlar",
+      "rarity": {
+        "legendary": "Efsaneviy",
+        "epic": "Epik",
+        "rare": "Nadir",
+        "common": "Adiy"
+      }
+    },
+    "community": {
+      "title": "Cemaat İstatistikası",
+      "percentile": "Top %{value}%",
+      "percentileLabel": "bütün diñleyiciler arasında",
+      "totalMinutes": "Siz %{minutes} daqqa diñledıñız",
+      "message": {
+        "top5": "Siz top-5% diñleyicilerdeñiz! Muzıkağa sevgiñiz inanılmaz!",
+        "top10": "Siz top-10% diñleyicilerdeñiz! Fevqalade muzıka zevqiñiz bar!",
+        "top25": "Siz top-25% diñleyicilerdeñiz! Kerçekten de muzıkanı seversiñiz!",
+        "top50": "Siz top-50% diñleyicilerdeñiz! Muzıkadan zevq almağa devam ediñiz!",
+        "default": "Biznen olğanıñız içün teşekkür etemiz! Diñlemege devam ediñiz!"
+      }
+    }
+  },
+  "error": {
+    "wrapped": {
+      "fetchYears": "Mevcut yıllar yüklene olmadı",
+      "fetchStats": "Statistika yüklene olmadı",
+      "share": "Paylaşma linki yaratıla olmadı"
     }
   }
 }

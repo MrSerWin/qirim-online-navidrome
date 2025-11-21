@@ -46,6 +46,7 @@ import SharePlayer from './share/SharePlayer'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import missing from './missing/index.js'
+import WrappedPublicShare from './wrapped/WrappedPublicShare'
 
 const history = createHashHistory()
 
@@ -214,6 +215,14 @@ const Admin = (props) => {
 const AppWithHotkeys = () => {
   let language = localStorage.getItem('locale') || 'en'
   document.documentElement.lang = language
+
+  // Check if this is a public wrapped share URL
+  const hash = window.location.hash
+  const wrappedShareMatch = hash.match(/^#\/wrapped\/share\/([a-f0-9-]+)$/i)
+  if (wrappedShareMatch) {
+    return <WrappedPublicShare />
+  }
+
   if (config.enableSharing && shareInfo) {
     return <SharePlayer />
   }

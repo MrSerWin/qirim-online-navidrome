@@ -284,10 +284,34 @@ func (p *playTracker) incPlay(ctx context.Context, track *model.MediaFile, times
 		"albumID", track.AlbumID,
 		"timestamp", timestamp)
 
+	user, _ := request.UserFrom(ctx)
+
 	return p.ds.WithTx(func(tx model.DataStore) error {
+		// Add to play history for Wrapped feature
+		player, _ := request.PlayerFrom(ctx)
+		platform := "web"
+		if player.Client != "" {
+			platform = player.Client
+		}
+		history := &model.PlayHistory{
+			UserID:         user.ID,
+			MediaFileID:    track.ID,
+			PlayedAt:       timestamp,
+			DurationPlayed: int(track.Duration),
+			Completed:      true,
+			Platform:       platform,
+		}
+		err := tx.Wrapped(ctx).AddPlayHistory(history)
+		if err != nil {
+			log.Error(ctx, "Failed to add play history", "trackID", track.ID, "user", user.UserName, err)
+			// Don't fail the whole operation if play history fails
+		} else {
+			log.Debug(ctx, "Added play history entry", "trackID", track.ID, "user", user.UserName)
+		}
+
 		// Increment user-specific play count
 		log.Info(ctx, "Incrementing user-specific play count for MediaFile", "trackID", track.ID)
-		err := tx.MediaFile(ctx).IncPlayCount(track.ID, timestamp)
+		err = tx.MediaFile(ctx).IncPlayCount(track.ID, timestamp)
 		if err != nil {
 			log.Error(ctx, "Failed to increment user play count for MediaFile", "trackID", track.ID, err)
 			return err
