@@ -77,9 +77,9 @@ const translatedResourceName = (resource, translate) =>
     _:
       resource.options && resource.options.label
         ? translate(resource.options.label, {
-            smart_count: 2,
-            _: resource.options.label,
-          })
+          smart_count: 2,
+          _: resource.options.label,
+        })
         : humanize(pluralize(resource.name)),
   })
 
@@ -179,12 +179,15 @@ const Menu = ({ dense = false }) => {
       {/* Top and New tracks */}
       <TopMenu sidebarIsOpen={open} dense={dense} />
       <NewMenu sidebarIsOpen={open} dense={dense} />
+
+
+      {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
+
       {/* Hide Wrapped menu for guest users */}
       {permissions !== 'guest' && (
         <WrappedMenu sidebarIsOpen={open} dense={dense} />
       )}
 
-      {resources.filter(subItems(undefined)).map(renderResourceMenuItemLink)}
       {config.devSidebarPlaylists && open ? (
         <>
           <Divider />
