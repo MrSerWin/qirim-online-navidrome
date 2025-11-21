@@ -9,7 +9,7 @@ import {
   Fade,
   Chip,
 } from '@material-ui/core'
-import { useTranslate } from 'react-admin'
+import { useTranslate, useNotify } from 'react-admin'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import ShareIcon from '@material-ui/icons/Share'
@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
 const WrappedSlides = ({ data, year, showShareButton = true }) => {
   const classes = useStyles()
   const translate = useTranslate()
+  const notify = useNotify()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [direction, setDirection] = useState('next')
 
@@ -159,10 +160,10 @@ const WrappedSlides = ({ data, year, showShareButton = true }) => {
 
       // Copy to clipboard
       await navigator.clipboard.writeText(shareUrl)
-      alert(translate('wrapped.shareLinkCopied'))
+      notify('wrapped.shareLinkCopied', 'info')
     } catch (error) {
       console.error('Error creating share:', error)
-      alert(translate('error.wrapped.share'))
+      notify('error.wrapped.share', 'error')
     }
   }
 
