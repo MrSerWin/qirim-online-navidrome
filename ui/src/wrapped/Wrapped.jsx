@@ -9,7 +9,8 @@ import {
   Card,
   CardContent,
 } from '@material-ui/core'
-import { useTranslate, useDataProvider, useNotify } from 'react-admin'
+import { useTranslate, useDataProvider, useNotify, Title as PageTitle } from 'react-admin'
+import { Title } from '../common/Title'
 import WrappedSlides from './WrappedSlides'
 import config from '../config'
 import { httpClient } from '../dataProvider'
@@ -191,16 +192,18 @@ const Wrapped = () => {
   }
 
   return (
-    <Box className={classes.root}>
-      <Container className={classes.container}>
-        <Box className={classes.header}>
-          <Typography className={classes.title}>
-            🎵 {translate('wrapped.title')}
-          </Typography>
-          <Typography className={classes.subtitle}>
-            {translate('wrapped.subtitle')}
-          </Typography>
-        </Box>
+    <>
+      <PageTitle title={<Title subTitle={translate('menu.wrapped.name')} />} />
+      <Box className={classes.root}>
+        <Container className={classes.container}>
+          <Box className={classes.header}>
+            <Typography className={classes.title}>
+              🎵 {translate('wrapped.title')}
+            </Typography>
+            <Typography className={classes.subtitle}>
+              {translate('wrapped.subtitle')}
+            </Typography>
+          </Box>
 
         <Box className={classes.yearSelector}>
           {availableYears.map((year) => (
@@ -225,6 +228,7 @@ const Wrapped = () => {
         ) : null}
       </Container>
     </Box>
+    </>
   )
 }
 
