@@ -645,7 +645,10 @@
       "minutes": "Минут",
       "tracks": "Треков",
       "artists": "Артистов",
-      "albums": "Альбомов"
+      "albums": "Альбомов",
+      "minutesValue": "%{count} мин",
+      "hoursValue": "%{count} ч",
+      "daysValue": "%{count} дней"
     },
     "topTracks": {
       "title": "Топ треков",

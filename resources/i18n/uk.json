@@ -755,7 +755,10 @@
       "minutes": "Хвилин",
       "tracks": "Треків",
       "artists": "Артистів",
-      "albums": "Альбомів"
+      "albums": "Альбомів",
+      "minutesValue": "%{count} хв",
+      "hoursValue": "%{count} год",
+      "daysValue": "%{count} днів"
     },
     "topTracks": {
       "title": "Топ треків",

@@ -768,7 +768,10 @@
       "minutes": "Minutes",
       "tracks": "Tracks",
       "artists": "Artists",
-      "albums": "Albums"
+      "albums": "Albums",
+      "minutesValue": "%{count} min",
+      "hoursValue": "%{count} hrs",
+      "daysValue": "%{count} days"
     },
     "topTracks": {
       "title": "Top Tracks",

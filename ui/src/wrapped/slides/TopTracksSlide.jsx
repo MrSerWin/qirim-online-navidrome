@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatNumber } from '../../utils/formatters'
 import {
   Box,
   Typography,
@@ -110,7 +111,7 @@ const TopTracksSlide = ({ tracks, year }) => {
                   <br />
                   <Typography component="span" className={classes.playCount}>
                     {translate('wrapped.topTracks.plays', {
-                      count: track.playCount || track.play_count || 0,
+                      count: formatNumber(track.playCount || track.play_count || 0),
                     })}
                   </Typography>
                 </>

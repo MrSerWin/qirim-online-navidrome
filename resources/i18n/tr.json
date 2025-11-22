@@ -699,7 +699,10 @@
       "minutes": "Dakika",
       "tracks": "Parça",
       "artists": "Sanatçı",
-      "albums": "Albüm"
+      "albums": "Albüm",
+      "minutesValue": "%{count} dk",
+      "hoursValue": "%{count} sa",
+      "daysValue": "%{count} gün"
     },
     "topTracks": {
       "title": "En İyi Parçalar",

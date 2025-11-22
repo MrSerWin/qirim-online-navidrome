@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Typography, makeStyles } from '@material-ui/core'
 import { useTranslate } from 'react-admin'
+import { formatMinutes } from '../../utils/formatters'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,7 +97,7 @@ const CommunitySlide = ({ percentile, totalMinutes, year }) => {
 
       <Typography className={classes.stats}>
         {translate('wrapped.community.totalMinutes', {
-          minutes: totalMinutes?.toLocaleString() || 0,
+          minutes: formatMinutes(totalMinutes, translate) || '0',
         })}
       </Typography>
     </Box>

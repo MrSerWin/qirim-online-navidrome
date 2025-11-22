@@ -217,7 +217,7 @@ ps aux | grep navidrome
 curl http://localhost:4533/ping
 
 Tags:
-./scripts/update-music-tags.sh "FOLDER" --yes
+./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Emine Ziadin" --yes
 
 
 

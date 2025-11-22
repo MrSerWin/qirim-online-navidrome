@@ -2,15 +2,24 @@
 #
 # Скрипт обновления мета-тегов аудио файлов
 # Автоматически устанавливает Artist и Album на основе названия папки
-# Title берется из имени файла
+# Title извлекается из имени файла (с улучшенной логикой)
 # Турецкие буквы транслитерируются для совместимости с ID3v1
+# Устанавливает обложку альбома из qo_2000.png
 #
 # Использование:
 #   ./scripts/update-music-tags.sh "/путь/к/папке/с/музыкой"
 #   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Qırım Yankısı"
 #
+# ВАЖНО: Извлечение нескольких артистов из имени файла ВРЕМЕННО ОТКЛЮЧЕНО
+# Функции extract_artists_from_filename() готовы, но закомментированы в коде
+# После ручного исправления имен артистов можно включить в строке 239
+#
 
 set -e
+
+# Путь к обложке альбома
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+COVER_IMAGE="$SCRIPT_DIR/qo_2000.png"
 
 # Цвета
 GREEN='\033[0;32m'
@@ -38,6 +47,78 @@ transliterate_turkish() {
     echo "$text"
 }
 
+# Функция извлечения артистов из имени файла
+# Поддерживает форматы:
+#   "Artist1, Artist2 – Title"
+#   "Artist1 & Artist2 - Title"
+#   "Artist1 feat. Artist2 - Title"
+#   "Artist1 ft. Artist2 - Title"
+#   "Artist1 featuring Artist2 - Title"
+extract_artists_from_filename() {
+    local filename="$1"
+    local artists=""
+
+    # Убрать расширение
+    filename="${filename%.*}"
+
+    # Попробовать найти разделители между артистом и названием
+    # Поддерживаемые разделители: –, -, —
+    local artist_part=""
+
+    if [[ "$filename" =~ ^(.+)[–—-](.+)$ ]]; then
+        artist_part="${BASH_REMATCH[1]}"
+    else
+        # Если нет разделителя, вся строка - это артист
+        artist_part="$filename"
+    fi
+
+    # Убрать пробелы по краям
+    artist_part=$(echo "$artist_part" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    # Проверить на наличие нескольких артистов
+    # Разделители: , & feat. ft. featuring
+    if [[ "$artist_part" =~ ,|\ \&\ |\ feat\.?\ |\ ft\.?\ |\ featuring\  ]]; then
+        # Есть несколько артистов - нормализовать
+        # Заменить все разделители на ;
+        artists="$artist_part"
+        # feat./ft./featuring → ,
+        artists=$(echo "$artists" | sed -E 's/ feat\.? / , /gi; s/ ft\.? / , /gi; s/ featuring / , /gi')
+        # & → ,
+        artists=$(echo "$artists" | sed 's/ & / , /g')
+        # Теперь заменить , на ;
+        artists=$(echo "$artists" | sed 's/ *, */; /g')
+        # Убрать лишние пробелы
+        artists=$(echo "$artists" | sed 's/; */; /g; s/ *;/;/g')
+    else
+        # Один артист
+        artists="$artist_part"
+    fi
+
+    echo "$artists"
+}
+
+# Функция извлечения названия трека из имени файла
+extract_title_from_filename() {
+    local filename="$1"
+    local title=""
+
+    # Убрать расширение
+    filename="${filename%.*}"
+
+    # Попробовать найти разделители между артистом и названием
+    if [[ "$filename" =~ ^(.+)[–—-](.+)$ ]]; then
+        title="${BASH_REMATCH[2]}"
+    else
+        # Если нет разделителя, использовать имя файла
+        title="$filename"
+    fi
+
+    # Убрать пробелы по краям
+    title=$(echo "$title" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+    echo "$title"
+}
+
 print_usage() {
     echo "Использование:"
     echo "  $0 <папка_с_музыкой>"
@@ -47,12 +128,21 @@ print_usage() {
     echo "  $0 '/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Qırım Yankısı'"
     echo ""
     echo "Что делает скрипт:"
-    echo "  - Artist и Album = название папки"
-    echo "  - Title = имя файла без расширения"
+    echo "  - Устанавливает Artist и Album = название папки"
+    echo "  - Извлекает Title из имени файла (после разделителя – или -)"
+    echo "  - Устанавливает обложку альбома из qo_2000.png"
     echo "  - Comment = https://qirim.online/"
     echo "  - Турецкие буквы транслитерируются для ID3v1"
     echo ""
+    echo "Примеры имен файлов:"
+    echo "  'Artist Name – Song Title.mp3' → Title: Song Title"
+    echo "  'Artist Name - Song Title.mp3' → Title: Song Title"
+    echo "  'Song Title.mp3' → Title: Song Title"
+    echo ""
     echo "Поддерживаемые форматы: mp3, flac, m4a, ogg, wav"
+    echo ""
+    echo "ПРИМЕЧАНИЕ: Функция извлечения нескольких артистов из имени файла"
+    echo "временно отключена. Используется название папки для Artist."
 }
 
 # Проверка наличия ffmpeg
@@ -60,6 +150,13 @@ if ! command -v ffmpeg &> /dev/null; then
     echo -e "${RED}Ошибка: ffmpeg не установлен${NC}"
     echo "Установите: brew install ffmpeg"
     exit 1
+fi
+
+# Проверка наличия обложки
+if [ ! -f "$COVER_IMAGE" ]; then
+    echo -e "${YELLOW}Внимание: Обложка не найдена: $COVER_IMAGE${NC}"
+    echo "Продолжаем без установки обложки..."
+    COVER_IMAGE=""
 fi
 
 # Проверка аргументов
@@ -76,18 +173,23 @@ if [ ! -d "$MUSIC_DIR" ]; then
     exit 1
 fi
 
-# Получить название папки (Artist/Album)
+# Получить название папки (Album)
 FOLDER_NAME=$(basename "$MUSIC_DIR")
-ARTIST_ALBUM="$FOLDER_NAME"
-ARTIST_ALBUM_TRANSLITERATED=$(transliterate_turkish "$FOLDER_NAME")
+ALBUM_NAME="$FOLDER_NAME"
+ALBUM_NAME_TRANSLITERATED=$(transliterate_turkish "$FOLDER_NAME")
 
 echo -e "${BLUE}╔════════════════════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║         Обновление мета-тегов аудио файлов            ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "Папка: ${YELLOW}$MUSIC_DIR${NC}"
-echo -e "Artist/Album: ${GREEN}$ARTIST_ALBUM${NC}"
-echo -e "Artist/Album (транслитерация): ${GREEN}$ARTIST_ALBUM_TRANSLITERATED${NC}"
+echo -e "Album: ${GREEN}$ALBUM_NAME${NC}"
+echo -e "Album (транслитерация): ${GREEN}$ALBUM_NAME_TRANSLITERATED${NC}"
+if [ -n "$COVER_IMAGE" ]; then
+    echo -e "Обложка: ${GREEN}$COVER_IMAGE${NC}"
+else
+    echo -e "Обложка: ${YELLOW}не установлена${NC}"
+fi
 echo ""
 
 # Найти все аудио файлы
@@ -128,38 +230,61 @@ errors=0
 while IFS= read -r file; do
     current=$((current + 1))
 
-    # Получить имя файла без расширения
+    # Получить имя файла
     filename=$(basename "$file")
-    name="${filename%.*}"
     extension="${filename##*.}"
 
-    # Транслитерировать название для Title
-    title_transliterated=$(transliterate_turkish "$name")
+    # ВРЕМЕННО ОТКЛЮЧЕНО: Извлечение артистов из имени файла
+    # Используем старый механизм - Artist из названия папки
+    # TODO: Включить после ручного исправления имен артистов
+    # artists=$(extract_artists_from_filename "$filename")
+
+    # Старый механизм: Artist = название папки
+    artists="$ALBUM_NAME"
+
+    # Извлечь название трека из имени файла (с улучшенной логикой)
+    title=$(extract_title_from_filename "$filename")
+
+    # Транслитерировать для совместимости
+    artists_transliterated=$(transliterate_turkish "$artists")
+    title_transliterated=$(transliterate_turkish "$title")
 
     echo -e "${BLUE}[$current/$total]${NC} ${filename}"
+    echo "  Artist: $artists_transliterated (из папки)"
+    echo "  Album: $ALBUM_NAME_TRANSLITERATED"
     echo "  Title: $title_transliterated"
 
     # Временный файл для вывода
     temp_output="${file}.tmp.${extension}"
 
-    # Обновить теги с помощью ffmpeg
-    # -map 0 - копировать все потоки
-    # -c copy - копировать без перекодирования
-    # -id3v2_version 3 - использовать ID3v2.3 (более совместимо)
-    # -metadata - установить теги
+    # Подготовить команду ffmpeg
+    ffmpeg_cmd=(ffmpeg -i "$file")
 
-    if ffmpeg -i "$file" \
-        -map 0 \
-        -c copy \
-        -id3v2_version 3 \
-        -metadata artist="$ARTIST_ALBUM" \
-        -metadata album_artist="$ARTIST_ALBUM" \
-        -metadata album="$ARTIST_ALBUM" \
-        -metadata title="$title_transliterated" \
-        -metadata comment="https://qirim.online/" \
-        "$temp_output" \
-        -y -loglevel error 2>&1; then
+    # Добавить обложку если есть
+    if [ -n "$COVER_IMAGE" ]; then
+        ffmpeg_cmd+=(-i "$COVER_IMAGE")
+        ffmpeg_cmd+=(-map 0 -map 1)
+        ffmpeg_cmd+=(-c copy)
+        ffmpeg_cmd+=(-disposition:v:0 attached_pic)
+    else
+        ffmpeg_cmd+=(-map 0)
+        ffmpeg_cmd+=(-c copy)
+    fi
 
+    # Добавить метаданные
+    ffmpeg_cmd+=(
+        -id3v2_version 3
+        -metadata artist="$artists_transliterated"
+        -metadata album_artist="$artists_transliterated"
+        -metadata album="$ALBUM_NAME_TRANSLITERATED"
+        -metadata title="$title_transliterated"
+        -metadata comment="https://qirim.online/"
+        "$temp_output"
+        -y -loglevel error
+    )
+
+    # Выполнить команду
+    if "${ffmpeg_cmd[@]}" 2>&1; then
         # Заменить оригинальный файл
         mv "$temp_output" "$file"
         echo -e "  ${GREEN}✓ Обновлено${NC}"

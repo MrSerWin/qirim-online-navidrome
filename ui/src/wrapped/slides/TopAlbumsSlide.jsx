@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatNumber } from '../../utils/formatters'
 import {
   Box,
   Typography,
@@ -99,7 +100,7 @@ const TopAlbumsSlide = ({ albums, year }) => {
                   <br />
                   <Typography component="span" className={classes.albumStats}>
                     {translate('wrapped.topAlbums.plays', {
-                      count: album.playCount || album.play_count || 0,
+                      count: formatNumber(album.playCount || album.play_count || 0),
                     })}
                   </Typography>
                 </>

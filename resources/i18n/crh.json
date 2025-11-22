@@ -754,7 +754,10 @@
       "minutes": "Daqqa",
       "tracks": "Parça",
       "artists": "Artist",
-      "albums": "Albom"
+      "albums": "Albom",
+      "minutesValue": "%{count} daq",
+      "hoursValue": "%{count} saat",
+      "daysValue": "%{count} kün"
     },
     "topTracks": {
       "title": "Top Parçalar",
