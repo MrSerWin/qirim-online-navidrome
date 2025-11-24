@@ -761,10 +761,15 @@
     "goToHome": "Открыть Qırım.Online",
     "stats": {
       "title": "Ваш год в цифрах",
-      "minutes": "Минут",
+      "minutes": "мин",
+      "hours": "ч",
+      "days": "дней",
       "tracks": "Треков",
       "artists": "Артистов",
-      "albums": "Альбомов"
+      "albums": "Альбомов",
+      "minutesValue": "%{count} мин",
+      "hoursValue": "%{count} ч",
+      "daysValue": "%{count} дней"
     },
     "topTracks": {
       "title": "Топ треков",
@@ -796,7 +801,7 @@
       "title": "Статистика сообщества",
       "percentile": "Топ %{value}%",
       "percentileLabel": "среди всех слушателей",
-      "totalMinutes": "Вы слушали %{minutes} минут",
+      "totalMinutes": "Вы слушали %{minutes}",
       "message": {
         "top5": "Вы в топ-5% слушателей! Ваша любовь к музыке невероятна!",
         "top10": "Вы в топ-10% слушателей! У вас отличный музыкальный вкус!",

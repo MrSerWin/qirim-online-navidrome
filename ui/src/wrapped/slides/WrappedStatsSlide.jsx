@@ -5,7 +5,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote'
 import AlbumIcon from '@material-ui/icons/Album'
 import PersonIcon from '@material-ui/icons/Person'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
-import { formatNumber, formatMinutes } from '../../utils/formatters'
+import { formatNumber, formatMinutesParts } from '../../utils/formatters'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,11 +65,13 @@ const WrappedStatsSlide = ({ data, year }) => {
   const classes = useStyles()
   const translate = useTranslate()
 
+  const minutesParts = formatMinutesParts(data.totalMinutes, translate)
+
   const stats = [
     {
       icon: <AccessTimeIcon className={classes.statIcon} />,
-      value: formatNumber(data.totalMinutes) || '0',
-      label: translate('wrapped.stats.minutes'),
+      value: minutesParts.value || '0',
+      label: minutesParts.label,
     },
     {
       icon: <MusicNoteIcon className={classes.statIcon} />,

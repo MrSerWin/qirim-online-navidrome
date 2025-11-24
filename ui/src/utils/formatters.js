@@ -84,6 +84,41 @@ export const formatMinutes = (minutes, translate) => {
 }
 
 /**
+ * Format minutes and return separate value and label for styling
+ * Returns: { value: '599', label: 'мин' } or { value: '20', label: 'ч' }
+ */
+export const formatMinutesParts = (minutes, translate) => {
+  if (!minutes || minutes === 0) {
+    return { value: '0', label: translate('wrapped.stats.minutes') }
+  }
+
+  // Less than 10 hours (600 minutes) - show in minutes
+  if (minutes < 600) {
+    return {
+      value: Math.floor(minutes).toString(),
+      label: translate('wrapped.stats.minutes'),
+    }
+  }
+
+  const hours = Math.floor(minutes / 60)
+
+  // Less than 48 hours (2 days) - show in hours
+  if (hours < 48) {
+    return {
+      value: hours.toString(),
+      label: translate('wrapped.stats.hours'),
+    }
+  }
+
+  // 48+ hours - show in days
+  const days = Math.floor(hours / 24)
+  return {
+    value: days.toString(),
+    label: translate('wrapped.stats.days'),
+  }
+}
+
+/**
  * Format play count for display
  * Same as formatNumber but with optional suffix
  */

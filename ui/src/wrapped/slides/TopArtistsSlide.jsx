@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatNumber } from '../../utils/formatters'
+import { formatNumber, formatMinutes } from '../../utils/formatters'
 import {
   Box,
   Typography,
@@ -93,10 +93,12 @@ const TopArtistsSlide = ({ artists, year }) => {
                   {translate('wrapped.topArtists.plays', {
                     count: formatNumber(artist.playCount || artist.play_count || 0),
                   })}
-                  {' • '}
-                  {translate('wrapped.topArtists.minutes', {
-                    count: formatNumber(artist.minutesPlayed || artist.minutes_played || 0),
-                  })}
+                  {artist.minutesPlayed || artist.minutes_played ? (
+                    <>
+                      {' • '}
+                      {formatMinutes(artist.minutesPlayed || artist.minutes_played || 0, translate)}
+                    </>
+                  ) : null}
                 </Typography>
               }
             />

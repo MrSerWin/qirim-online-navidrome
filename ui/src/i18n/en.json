@@ -765,7 +765,9 @@
     "goToHome": "Open Qırım.Online",
     "stats": {
       "title": "Your Year in Numbers",
-      "minutes": "Minutes",
+      "minutes": "min",
+      "hours": "hrs",
+      "days": "days",
       "tracks": "Tracks",
       "artists": "Artists",
       "albums": "Albums",
@@ -803,7 +805,7 @@
       "title": "Community Stats",
       "percentile": "Top %{value}%",
       "percentileLabel": "of all listeners",
-      "totalMinutes": "You listened for %{minutes} minutes",
+      "totalMinutes": "You listened for %{minutes}",
       "message": {
         "top5": "You're in the top 5% of listeners! Your passion for music is incredible!",
         "top10": "You're in the top 10% of listeners! You have great taste in music!",
