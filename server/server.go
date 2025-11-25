@@ -192,6 +192,9 @@ func (s *Server) initRoutes() {
 		r.Use(requestLogger)
 		s.router = r
 	})
+
+	// Mount dynamic sitemap (public, no auth required)
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap.xml"), sitemapHandler(s.ds))
 }
 
 func (s *Server) mountAuthenticationRoutes() chi.Router {
