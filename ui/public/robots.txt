@@ -1,36 +1,82 @@
-# Qirim.Online - Robots.txt
-# Крымскотатарская музыка онлайн
+# Qirim.Online - Крымскотатарская музыка онлайн
+# https://qirim.online
 
 User-agent: *
+
+# Main app - indexable pages
 Allow: /
 Allow: /app/
-Allow: /album/
-Allow: /artist/
-Allow: /playlist/
+Allow: /app/album
+Allow: /app/artist
+Allow: /app/song
+Allow: /app/playlist
+Allow: /app/radio
 
-# Disallow private/admin sections
+# Public shares (shared content)
+Allow: /p/
+
+# Wrapped public shares (year-in-review)
+Allow: /api/wrapped/share/
+
+# Static assets
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /privacy.html
+
+# Disallow private sections (require authentication)
 Disallow: /api/
 Disallow: /rest/
-Disallow: /user/
-Disallow: /settings/
-Disallow: /admin/
-Disallow: /share/
+Disallow: /auth/
 
-# Crawl-delay for all bots
-Crawl-delay: 1
+# Re-allow public API endpoints (override above)
+Allow: /api/wrapped/share/*
+
+# Disallow user-specific and admin paths
+Disallow: /app/settings
+Disallow: /app/user
+Disallow: /app/queue
+Disallow: /app/personal
+Disallow: /app/login
+
+# Disallow streaming and download URLs
+Disallow: /p/s/
+Disallow: /p/d/
+
+# Disallow search result pages with parameters
+Disallow: /*?_start=
+Disallow: /*?_end=
+Disallow: /*?_sort=
+Disallow: /*?filter=
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 2
 
 # Sitemap location
 Sitemap: https://qirim.online/sitemap.xml
 
-# Specific bot rules
+# Googlebot (supports more features)
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+Allow: /api/wrapped/share/*
 Crawl-delay: 1
 
+# Yandex
 User-agent: Yandex
 Allow: /
-Crawl-delay: 1
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+Crawl-delay: 2
+Host: qirim.online
 
+# Bingbot
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+Crawl-delay: 2
