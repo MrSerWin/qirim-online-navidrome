@@ -26,6 +26,7 @@ import config from '../config'
 import { formatBytes } from '../utils'
 import { generateSongShareURL } from '../utils/urlGenerator'
 import { useRedirect } from 'react-admin'
+import { LyricsDialog } from '../lyrics'
 
 const useStyles = makeStyles({
   noWrap: {
@@ -67,6 +68,7 @@ export const SongContextMenu = ({
   const [playlistAnchorEl, setPlaylistAnchorEl] = useState(null)
   const [playlists, setPlaylists] = useState([])
   const [playlistsLoaded, setPlaylistsLoaded] = useState(false)
+  const [lyricsDialogOpen, setLyricsDialogOpen] = useState(false)
   const { permissions } = usePermissions()
   const redirect = useRedirect()
 
@@ -146,6 +148,13 @@ export const SongContextMenu = ({
       action: (record) =>
         dispatch(openDownloadMenu(record, DOWNLOAD_MENU_SONG)),
     },
+    lyrics: {
+      enabled: permissions !== 'guest',
+      label: translate('lyrics.action.addEdit'),
+      action: () => {
+        setLyricsDialogOpen(true)
+      },
+    },
   }
 
   const handleClick = (e) => {
@@ -181,6 +190,10 @@ export const SongContextMenu = ({
     if (key === 'showInPlaylist') {
       // For showInPlaylist, we keep the main menu open and show submenu
       action(record, e)
+    } else if (key === 'lyrics') {
+      // For lyrics, close menu and open dialog
+      setAnchorEl(null)
+      action()
     } else {
       // For other actions, close the main menu
       setAnchorEl(null)
@@ -273,6 +286,12 @@ export const SongContextMenu = ({
           </MenuItem>
         ))}
       </Menu>
+      <LyricsDialog
+        open={lyricsDialogOpen}
+        onClose={() => setLyricsDialogOpen(false)}
+        mediaFileId={record.id}
+        songTitle={record.title}
+      />
     </span>
   )
 }

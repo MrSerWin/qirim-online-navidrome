@@ -1,0 +1,5 @@
+export { LyricsButton } from './LyricsButton'
+export { LyricsDialog } from './LyricsDialog'
+export { LyricsModerationPanel } from './LyricsModerationPanel'
+export { LyricsModerationPage } from './LyricsModerationPage'
+export { lyricsApi } from './lyricsApi'

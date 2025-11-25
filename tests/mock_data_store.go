@@ -261,6 +261,13 @@ func (db *MockDataStore) Wrapped(ctx context.Context) model.WrappedRepository {
 	return struct{ model.WrappedRepository }{}
 }
 
+func (db *MockDataStore) LyricsCrowdsource(ctx context.Context) model.LyricsCrowdsourceRepository {
+	if db.RealDS != nil {
+		return db.RealDS.LyricsCrowdsource(ctx)
+	}
+	return struct{ model.LyricsCrowdsourceRepository }{}
+}
+
 func (db *MockDataStore) WithTx(block func(tx model.DataStore) error, label ...string) error {
 	return block(db)
 }

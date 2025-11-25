@@ -90,6 +90,7 @@ func (n *Router) routes() http.Handler {
 		n.addKeepAliveRoute(r)
 		n.addInsightsRoute(r)
 		n.addWrappedRoute(r)
+		n.addLyricsCrowdsourceRoute(r)
 
 		r.With(adminOnlyMiddleware).Group(func(r chi.Router) {
 			n.addInspectRoute(r)
@@ -353,6 +354,11 @@ func (n *Router) addInsightsRoute(r chi.Router) {
 func (n *Router) addWrappedRoute(r chi.Router) {
 	wrappedCtrl := newWrappedController(n.ds)
 	r.Mount("/wrapped", wrappedCtrl.Routes())
+}
+
+func (n *Router) addLyricsCrowdsourceRoute(r chi.Router) {
+	lyricsCtrl := newLyricsCrowdsourceController(n.ds)
+	r.Mount("/lyrics", lyricsCtrl.Routes())
 }
 
 // addShopCategoryRoute adds shop category routes with public read and admin write

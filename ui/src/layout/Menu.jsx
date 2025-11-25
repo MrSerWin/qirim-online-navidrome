@@ -17,6 +17,7 @@ import PrivacyMenu from './PrivacyMenu'
 import TopMenu from './TopMenu'
 import NewMenu from './NewMenu'
 import WrappedMenu from './WrappedMenu'
+import LyricsModerationMenu from './LyricsModerationMenu'
 import SocialMediaButtons from './SocialMediaButtons'
 import config from '../config'
 
@@ -186,6 +187,11 @@ const Menu = ({ dense = false }) => {
       {/* Hide Wrapped menu for guest users */}
       {permissions !== 'guest' && (
         <WrappedMenu sidebarIsOpen={open} dense={dense} />
+      )}
+
+      {/* Show Lyrics Moderation menu only for admins */}
+      {permissions === 'admin' && (
+        <LyricsModerationMenu sidebarIsOpen={open} dense={dense} />
       )}
 
       {config.devSidebarPlaylists && open ? (

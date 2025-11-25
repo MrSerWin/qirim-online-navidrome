@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { useMediaQuery } from '@material-ui/core'
 import { RiSaveLine } from 'react-icons/ri'
 import { LoveButton, useToggleLove } from '../common'
+import { LyricsViewer } from './LyricsViewer'
 import { openSaveQueueDialog } from '../actions'
 import { keyMap } from '../hotkeys'
 import { makeStyles } from '@material-ui/core/styles'
@@ -104,12 +105,22 @@ const PlayerToolbar = ({ id, isRadio }) => {
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} allowChanges />
       {isDesktop ? (
         <li className={`${listItemClass} item`}>
-          {/* {saveQueueButton} */}
+          <LyricsViewer
+            mediaFileId={id}
+            songTitle={data?.title}
+            isDesktop={isDesktop}
+          />
           {loveButton}
         </li>
       ) : (
         <>
-          {/* <li className={`${listItemClass} item`}>{saveQueueButton}</li> */}
+          <li className={`${listItemClass} item`}>
+            <LyricsViewer
+              mediaFileId={id}
+              songTitle={data?.title}
+              isDesktop={isDesktop}
+            />
+          </li>
           <li className={`${listItemClass} item`}>{loveButton}</li>
         </>
       )}

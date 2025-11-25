@@ -150,6 +150,7 @@ go run scripts/generate_url_aliases.go
 
 # 3. Перезапустить Navidrome
 pkill navidrome
+pkill -f "./navidrome"
 ./navidrome --port 4633
 
 # 4. Запустить фронтенд (в отдельном терминале)

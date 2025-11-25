@@ -43,6 +43,7 @@ type DataStore interface {
 	UserProps(ctx context.Context) UserPropsRepository
 	ScrobbleBuffer(ctx context.Context) ScrobbleBufferRepository
 	Wrapped(ctx context.Context) WrappedRepository
+	LyricsCrowdsource(ctx context.Context) LyricsCrowdsourceRepository
 
 	Resource(ctx context.Context, model interface{}) ResourceRepository
 

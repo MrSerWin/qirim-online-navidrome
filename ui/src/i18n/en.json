@@ -619,6 +619,9 @@
     "wrapped": {
       "name": "Wrapped"
     },
+    "lyricsModeration": {
+      "name": "Lyrics Moderation"
+    },
     "about": {
       "name": "About Us",
       "header": {
@@ -813,6 +816,102 @@
         "top50": "You're in the top 50% of listeners! Keep enjoying the music!",
         "default": "Thanks for being part of our community! Keep listening!"
       }
+    }
+  },
+  "lyrics": {
+    "title": "Lyrics",
+    "noLyrics": "No lyrics available for this song",
+    "action": {
+      "addEdit": "Add/Edit Lyrics",
+      "submit": "Submit",
+      "update": "Update",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "dialog": {
+      "titleAdd": "Add Lyrics",
+      "titleEdit": "Edit Lyrics",
+      "infoAdd": "Submit song lyrics. After moderation, they will be visible to all users.",
+      "infoEdit": "Submit updated lyrics. Changes will require moderation."
+    },
+    "field": {
+      "language": "Language",
+      "content": "Lyrics",
+      "contentPlaceholder": "Enter song lyrics here...",
+      "changeNote": "Change Note",
+      "changeNotePlaceholder": "Describe what you changed...",
+      "changeNoteHelper": "Optional: Explain what was changed in this version"
+    },
+    "success": {
+      "submitted": "Lyrics submitted for moderation",
+      "updated": "Lyrics updated and sent for moderation"
+    },
+    "error": {
+      "loadFailed": "Failed to load lyrics",
+      "submitFailed": "Failed to submit lyrics",
+      "contentRequired": "Lyrics content is required"
+    },
+    "moderation": {
+      "title": "Lyrics Moderation",
+      "description": "Review and moderate user-submitted lyrics",
+      "subtitle": "%{count} pending submissions",
+      "noPending": "No pending lyrics to moderate",
+      "mediaFileId": "Song ID",
+      "submittedBy": "Submitted by",
+      "submittedAt": "Submitted at",
+      "clickToView": "Click to view full lyrics",
+      "copyId": "Copy ID",
+      "idCopied": "ID copied to clipboard",
+      "unknownSong": "Unknown Song",
+      "unknownArtist": "Unknown Artist",
+      "pendingTab": "Pending",
+      "approvedTab": "All Lyrics",
+      "action": {
+        "approve": "Approve",
+        "reject": "Reject"
+      },
+      "dialog": {
+        "viewTitle": "View Lyrics",
+        "rejectTitle": "Reject Lyrics",
+        "rejectMessage": "Please provide a reason for rejection:"
+      },
+      "field": {
+        "rejectNote": "Rejection Reason",
+        "rejectNotePlaceholder": "Explain why these lyrics are being rejected..."
+      },
+      "success": {
+        "approved": "Lyrics approved successfully",
+        "rejected": "Lyrics rejected"
+      },
+      "error": {
+        "loadFailed": "Failed to load pending lyrics",
+        "approveFailed": "Failed to approve lyrics",
+        "rejectFailed": "Failed to reject lyrics"
+      }
+    },
+    "management": {
+      "subtitle": "%{count} approved lyrics",
+      "noApproved": "No approved lyrics yet",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "song": "Song",
+      "artist": "Artist",
+      "content": "Lyrics Content",
+      "language": "Language",
+      "changeNote": "Change Note",
+      "changeNoteHelper": "Describe what was changed",
+      "editTitle": "Edit Lyrics",
+      "deleteConfirmTitle": "Delete Lyrics?",
+      "deleteConfirm": "Are you sure you want to delete these lyrics? This action cannot be undone.",
+      "updated": "Lyrics updated successfully",
+      "deleted": "Lyrics deleted successfully",
+      "saving": "Saving...",
+      "deleting": "Deleting...",
+      "contentRequired": "Lyrics content is required",
+      "loadError": "Failed to load lyrics",
+      "updateError": "Failed to update lyrics",
+      "deleteError": "Failed to delete lyrics"
     }
   },
   "error": {
