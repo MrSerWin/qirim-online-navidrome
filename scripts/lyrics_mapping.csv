@@ -1,0 +1,350 @@
+Source,Lyrics File,Song ID,Song Title,Artist,Album,Score,Status,Has Variants,Variant Rank,File Path
+sattarov,ХАЛИДЕ,D2tdzD1fiyJG4SLAY0Nrty,Hayat-Linda,Hayat,Hayat,0.62,MEDIUM,YES,1/2,scripts/lyrics_sattarov/ХАЛИДЕ.txt
+sattarov,Ялта,D2tdzD1fiyJG4SLAY0Nrty,Hayat-Linda,Hayat,Hayat,0.53,LOW,YES,2/2,scripts/lyrics_sattarov/Ялта.txt
+sattarov,Ягъма ягъмур,Li47oEUqTFWSNd7pEUmwij,Güneş-Yağma yağmur,Güneş,Güneş,0.69,MEDIUM,NO,,scripts/lyrics_sattarov/Ягъма ягъмур.txt
+sattarov,ХАЙДЕ СОЙЛЕ,0nfMgOW4Wusg3dF1FBQJe7,"Hayat-Söyle, dohtur",Hayat,Hayat,0.57,LOW,NO,,scripts/lyrics_sattarov/ХАЙДЕ СОЙЛЕ.txt
+sattarov,Янгъызлыкъ ярасы,gtNA5UCdUvP9n3eGGfxS8M,Vetan-Kezlev haytarması,Vetan,Vetan,0.58,LOW,NO,,scripts/lyrics_sattarov/Янгъызлыкъ ярасы.txt
+sattarov,ЧЫРПЫНЫРДЫ  КАРА  ДЕНИЗ,ZpEG5hBBa93omxSYN55ir5,Dilâver Osmanov-Qara deñiz,Dilâver Osmanov,Dilâver Osmanov,0.52,LOW,NO,,scripts/lyrics_sattarov/ЧЫРПЫНЫРДЫ  КАРА  ДЕНИЗ.txt
+sattarov,Чалбаш бора,pDnOcIaRyZFlzzl1eV4zGf,Güneş-Çalbaş bora,Güneş,Güneş,0.67,MEDIUM,NO,,scripts/lyrics_sattarov/Чалбаш бора.txt
+sattarov,ЧИП-ЧИП-ЧИПЧЕЛЕР,kcDvT4kSIRkPoQzshru2vw,Cipcelerim (Чипчелерим),Bulbul Kids,Bulbul Kids,0.63,MEDIUM,NO,,scripts/lyrics_sattarov/ЧИП-ЧИП-ЧИПЧЕЛЕР.txt
+sattarov,ХОШ КЕЛЬДИНЪИЗ ЭВИМЕ,i5b4eLuG6v33pHflrCAUdH,Balalar-Hoş keldiñiz,Balalar,Balalar,0.59,LOW,NO,,scripts/lyrics_sattarov/ХОШ КЕЛЬДИНЪИЗ ЭВИМЕ.txt
+sattarov,Яйля бою,60WnR49z7BOtFXCnpSHOty,Sato-Yaylâ boyu,Diger,Diger,0.80,HIGH,NO,,scripts/lyrics_sattarov/Яйля бою.txt
+qmusic,009 - GÜNAY – QIRIM DEP AYTALAR,pf1YHsdNkKd4w9lVlLsW8r,Günay-Qırım dep aytalar,Günay,Günay,0.78,MEDIUM,YES,1/2,scripts/lyrics_qmusic/009 - GÜNAY – QIRIM DEP AYTALAR.txt
+sattarov,Чакъырджы да дагъдан энеюр,pf1YHsdNkKd4w9lVlLsW8r,Günay-Qırım dep aytalar,Günay,Günay,0.48,LOW,YES,2/2,scripts/lyrics_sattarov/Чакъырджы да дагъдан энеюр.txt
+sattarov,Шемсие,A62WvFVrWxUfYxsACEbl45,Destan-Anife,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.47,LOW,NO,,scripts/lyrics_sattarov/Шемсие.txt
+sattarov,Эки де чомакъ баласын,8d32xoKpTHpNMtoxo1L2GD,Aqyar-Eki çomaq balası,Aqyar,Aqyar,0.73,MEDIUM,YES,1/2,scripts/lyrics_sattarov/Эки де чомакъ баласын.txt
+crh_lt,Bekir Çoban-Zade - İşçi Balası,8d32xoKpTHpNMtoxo1L2GD,Aqyar-Eki çomaq balası,Aqyar,Aqyar,0.54,LOW,YES,2/2,scripts/lyrics_crh_lt/Bekir Çoban-Zade - İşçi Balası.txt
+sattarov,Эминем мантар топлайыр,o14TTeVL1WJBMqV3UmNZau,Emine Mustafayeva-Yollar,Emine Mustafayeva,Emine Mustafayeva,0.58,LOW,NO,,scripts/lyrics_sattarov/Эминем мантар топлайыр.txt
+sattarov,Язгъа чыкъсам,7QOyTPrc928mFTsjTE4u9J,Yeşil Ada-Yazğa çıqsam,Yeşil Ada,Yeşil Ada,0.61,MEDIUM,NO,,scripts/lyrics_sattarov/Язгъа чыкъсам.txt
+sattarov,ТАТАРЛАРНЫНЪ  АШЛАРЫ,Di79YnZYoIEDE2N4rk2h3e,Lâle-Dağlarnıñ yolları,Lâle,Lâle,0.56,LOW,NO,,scripts/lyrics_sattarov/ТАТАРЛАРНЫНЪ  АШЛАРЫ.txt
+sattarov,Чуфут Къызы,j0bnIIpbfUCMRtbWX2lqz5,Nilüfer-Uç quşçığım,Balalar,Balalar,0.50,LOW,NO,,scripts/lyrics_sattarov/Чуфут Къызы.txt
+sattarov,Эминем,t8wD98Xi336YMq7btKhdIV,Günay-Eminem,Günay,Günay,0.71,MEDIUM,NO,,scripts/lyrics_sattarov/Эминем.txt
+sattarov,Шаматалы келин,JLXkEv4VT4edsNYSgvum1J,FaTima-Aydı kel,FaTima,FaTima,0.64,MEDIUM,YES,1/2,scripts/lyrics_sattarov/Шаматалы келин.txt
+crh_lt,"Unknown - Aydı, kel!",JLXkEv4VT4edsNYSgvum1J,FaTima-Aydı kel,FaTima,FaTima,0.53,LOW,YES,2/2,"scripts/lyrics_crh_lt/Unknown - Aydı, kel!.txt"
+sattarov,Юксек  минарет,hzXAkGxOaEm83XTVXTOPr9,Anara-Yüksek minare,Anara,Anara,0.81,HIGH,NO,,scripts/lyrics_sattarov/Юксек  минарет.txt
+sattarov,Эреджебим,19dCgtOay0KPUrcLxG3KCh,Arsen Osmanov-Erecebim,Arsen Osmanov,Arsen Osmanov,0.55,LOW,NO,,scripts/lyrics_sattarov/Эреджебим.txt
+sattarov,Шу Къавказ,0OwMtmtuXZ1xvjN7pnrs2A,Minus-Dertli qaval,Diger,Diger,0.46,LOW,NO,,scripts/lyrics_sattarov/Шу Къавказ.txt
+sattarov,Эльхамдюллиля,XLRTrFbcdlUFRg0Fsw8289,Ernes Emirasanov-Elhamdülillâ,Ernes Emirasanov,Ernes Emirasanov,0.52,LOW,NO,,scripts/lyrics_sattarov/Эльхамдюллиля.txt
+sattarov,ЭБЕДИЙ,6DADnxcMrC78ShLKVLhYmm,Faeton-Ediye,Faeton,Faeton,0.59,LOW,NO,,scripts/lyrics_sattarov/ЭБЕДИЙ.txt
+sattarov,Чагъыр мени гузелим,T4p705EanJ4Q4T7ksGzrkY,"Azim-Ey, güzel Qırım!",Azim,Azim,0.56,LOW,NO,,scripts/lyrics_sattarov/Чагъыр мени гузелим.txt
+sattarov,ХАЛВАДЖИ,hrCblBWV35UKG0nmjppYqa,Hayat-Elvacı,Hayat,Hayat,0.53,LOW,NO,,scripts/lyrics_sattarov/ХАЛВАДЖИ.txt
+sattarov,Чал атымнынъ тырнагъы,fZsobUwKV3CwYtIeV2kqGO,Salaçıq-Bizim taraf,Salaçıq,Salaçıq,0.49,LOW,NO,,scripts/lyrics_sattarov/Чал атымнынъ тырнагъы.txt
+sattarov,Эдие,jme2WNRg9hArb7rQNIyjCm,Sanat-Ediye,Sanat,Sanat,0.57,LOW,NO,,scripts/lyrics_sattarov/Эдие.txt
+sattarov,Хош кельдыныз мусафирлер,DEjNQUiPmnsSxeU6W14zTa,Qirim Yankisi - Hoşgeldiniz misafirler,Qırım Yankısı,Qırım Yankısı,0.58,LOW,NO,,scripts/lyrics_sattarov/Хош кельдыныз мусафирлер.txt
+qmusic,012 - DESTAN - чимчарай,VAgsa3obVnpe24B94xLas1,Destan-Çimçaray,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.73,MEDIUM,YES,1/2,scripts/lyrics_qmusic/012 - DESTAN - чимчарай.txt
+sattarov,ЧИМЧАРАЙ,VAgsa3obVnpe24B94xLas1,Destan-Çimçaray,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.55,LOW,YES,2/2,scripts/lyrics_sattarov/ЧИМЧАРАЙ.txt
+sattarov,Эп бир,Yfb4R4fpAkk7L24x313yKe,Sevinch - Birdanem ,[Unknown Artist],[Unknown Album],0.45,LOW,NO,,scripts/lyrics_sattarov/Эп бир.txt
+sattarov,Эништем,83DWXfdWNLZjFO81232pdW,Faeton-İsterim,Faeton,Faeton,0.60,MEDIUM,NO,,scripts/lyrics_sattarov/Эништем.txt
+sattarov,Шалашим,GAd50aJ7vQWIqI94G25tFH,ILACIM,Nazife Reizova,Nazife Reizova ve Emine Ziadin,0.62,MEDIUM,NO,,scripts/lyrics_sattarov/Шалашим.txt
+sattarov,Эки чешме,LrdRCq4YoGMj12PkwmNy9l,Minus-Eki çeşme,Diger,Diger,0.61,MEDIUM,NO,,scripts/lyrics_sattarov/Эки чешме.txt
+sattarov,Шинанай,h41A8a7tzwSz5hYcg6k11K,Destan-Şinanay,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.60,MEDIUM,NO,,scripts/lyrics_sattarov/Шинанай.txt
+sattarov,Эм северсинъ эм севмезсинъ,WuJfUPlL3TBXouLctH04F2,Emiliya Ablayeva-Severim seni,Emiliya Ablayeva,Emiliya Ablayeva,0.54,LOW,NO,,scripts/lyrics_sattarov/Эм северсинъ эм севмезсинъ.txt
+sattarov,Ах джаным Эльмаз,8d3sIiZUWGPElgD6g7USgt,"Zamir Osanov-Ah canım, Elmaz",Zamir Osanov,Zamir Osanov,0.70,MEDIUM,NO,,scripts/lyrics_sattarov/Ах джаным Эльмаз.txt
+sattarov,Чынъ,MACy2GnqlDlLBADvcv0MzK,Ayuvciq (Аювчыкъ),Bulbul Kids,Bulbul Kids,0.22,LOW,NO,,scripts/lyrics_sattarov/Чынъ.txt
+sattarov,Чыбын,lGGzZw92b6Ad7y4XFbpI7R,Чайхана,Nazife Reizova,Nazife Reizova ve Emine Ziadin,0.33,LOW,NO,,scripts/lyrics_sattarov/Чыбын.txt
+sattarov,Эльмаз,y6HDnMzIAyUAet8ZvaUxUZ,Selâm-Nazlı,Selâm,Selâm,0.67,MEDIUM,NO,,scripts/lyrics_sattarov/Эльмаз.txt
+sattarov,Xайырсыз,fv7jJf91xYRAjV2LdYGbjY,Seda-Hırsız,Seda,Seda,0.67,MEDIUM,NO,,scripts/lyrics_sattarov/Xайырсыз.txt
+crh_lt,Crimean Tatar Folk - Canay,mHFWoREf2GbAIDEKh0f1OB,Enver İzmaylov-Crimean Tatar Funk,Enver İzmaylov,Enver İzmaylov,0.57,LOW,YES,1/5,scripts/lyrics_crh_lt/Crimean Tatar Folk - Canay.txt
+crh_lt,Crimean Tatar Folk - Джанай,mHFWoREf2GbAIDEKh0f1OB,Enver İzmaylov-Crimean Tatar Funk,Enver İzmaylov,Enver İzmaylov,0.57,LOW,YES,2/5,scripts/lyrics_crh_lt/Crimean Tatar Folk - Джанай.txt
+crh_lt,The Lion King (OST) - Hakuna Matata (Crimean Tatar),mHFWoREf2GbAIDEKh0f1OB,Enver İzmaylov-Crimean Tatar Funk,Enver İzmaylov,Enver İzmaylov,0.47,LOW,YES,3/5,scripts/lyrics_crh_lt/The Lion King (OST) - Hakuna Matata (Crimean Tatar).txt
+crh_lt,The Lion King (OST) - Can you feel the love tonight (Crimean Tatar),mHFWoREf2GbAIDEKh0f1OB,Enver İzmaylov-Crimean Tatar Funk,Enver İzmaylov,Enver İzmaylov,0.45,LOW,YES,4/5,scripts/lyrics_crh_lt/The Lion King (OST) - Can you feel the love tonight (Crimean Tatar).txt
+crh_lt,Mulan (OST) - Senden er asker yapacam [I’ll Make A Man Out Of You (Crimean Tatar)],mHFWoREf2GbAIDEKh0f1OB,Enver İzmaylov-Crimean Tatar Funk,Enver İzmaylov,Enver İzmaylov,0.42,LOW,YES,5/5,scripts/lyrics_crh_lt/Mulan (OST) - Senden er asker yapacam [I’ll Make A Man Out Of You (Crimean Tatar)].txt
+crh_lt,Marlen Settarov - İnci Danesi,yelO6i3D8CjZR7YMcG0oVo,Marlen Settarov-İnci danesi,Marlen Settarov,Marlen Settarov,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Marlen Settarov - İnci Danesi.txt
+crh_lt,Asiye Saale - Kemançemniñ telleri,S0GWwmrqPkyRpBRt1oMT7r,Asiye Saale-Kemançemniñ telleri,Asiye Saale,Asiye Saale,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Kemançemniñ telleri.txt
+crh_lt,Emine Mustafayeva - Вай дили дили,cFnBtIVmpOGNfaINu2nykn,Emine Mustafayeva-Alim,Emine Mustafayeva,Emine Mustafayeva,0.87,HIGH,NO,,scripts/lyrics_crh_lt/Emine Mustafayeva - Вай дили дили.txt
+crh_lt,Tatar Folk - Çıñ,0NCTfYAZ99l312ZYxkEgKk,Qırımtatar Folk Toplulığı-Elvida,Diger,Diger,0.53,LOW,NO,,scripts/lyrics_crh_lt/Tatar Folk - Çıñ.txt
+crh_lt,Asan Hayretdinov - Vatanım,Od5yL8vzGcEvy2iFxbCKHA,Asan Hayretdinov-Vatanım,Asan Hayretdinov,Asan Hayretdinov,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Vatanım.txt
+crh_lt,Afize Yusuf-Qızı - Seni kördükçe,ktonU23PtrjcxnIRDdvsch,Afize Yusuf-qızı-Seni kördükçe,Afize Yusuf-qızı,Afize Yusuf-qızı,0.98,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Seni kördükçe.txt
+crh_lt,Jamala - EKİ ÇEŞME,UDQPBbeMvh8u2R3WDV8eVm,"Jamala-Верше мій, верше",Jamala,Jamala,0.75,MEDIUM,NO,,scripts/lyrics_crh_lt/Jamala - EKİ ÇEŞME.txt
+crh_lt,Şakir Selim - Türkiyede Yaşağan Yurtdaşlarıma,Pt5qbzX7mC10xpYTE8WoMi,Eldar Seytablayev-Yalan aytma,Eldar Seytablayev,Eldar Seytablayev,0.48,LOW,NO,,scripts/lyrics_crh_lt/Şakir Selim - Türkiyede Yaşağan Yurtdaşlarıma.txt
+crh_lt,Afize Kassara - Elmalım,lFZUScB50xCl1hfERr8OfV,Afize Kassara-Elmalım,Afize Kassara,Afize Kassara,1.08,HIGH,YES,1/2,scripts/lyrics_crh_lt/Afize Kassara - Elmalım.txt
+crh_lt,Afize Kassara - Tatarlığım,lFZUScB50xCl1hfERr8OfV,Afize Kassara-Elmalım,Afize Kassara,Afize Kassara,0.87,HIGH,YES,2/2,scripts/lyrics_crh_lt/Afize Kassara - Tatarlığım.txt
+crh_lt,Elnara Küçük - Bu közler,YhrYXZDFzOn9UHKOQPfVC5,Elnara Küçük-Bu közler,Elnara Küçük,Elnara Küçük,0.79,MEDIUM,YES,1/2,scripts/lyrics_crh_lt/Elnara Küçük - Bu közler.txt
+crh_lt,Elnara Küçük - İmkân ber,YhrYXZDFzOn9UHKOQPfVC5,Elnara Küçük-Bu közler,Elnara Küçük,Elnara Küçük,0.62,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Elnara Küçük - İmkân ber.txt
+crh_lt,Aliye Civan - Sensiz,wGWhv6PjpXHeMpHlsNgnoD,Aliye Civan-Sensiz,Aliye Civan,Aliye Civan,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Civan - Sensiz.txt
+crh_lt,Aliye Yakubova - Yağma Yağmur Ягъма ягъмур,4AfoNvg4nGyVtH8mxXWgD2,Aliye Yakubova-Yağma yağmur,Aliye Hacabadinova,Aliye Hacabadinova,0.73,MEDIUM,NO,,scripts/lyrics_crh_lt/Aliye Yakubova - Yağma Yağmur Ягъма ягъмур.txt
+crh_lt,Afize Kassara - Mecbur oldım,kBv3zxrc62l4oKoM40drCM,Afize Kassara-Mecbur oldım,Afize Kassara,Afize Kassara,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Afize Kassara - Mecbur oldım.txt
+crh_lt,Arsen Bekirov - Nazlı yarem,fYbz33zVxk0FHYt3vhcWhD,Arsen Bekirov-Nazlı yarem,Arsen Bekirov,Arsen Bekirov,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Arsen Bekirov - Nazlı yarem.txt
+crh_lt,Bekir Çoban-Zade - Bulutlar,3HEExoMucMhlY4D8pfhBSZ,Femiy Mustafayev-Bulutlar,Femiy Mustafayev,Femiy Mustafayev,0.58,LOW,NO,,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Bulutlar.txt
+crh_lt,Jamala - NOĞAY BEYİTLERY,97TfULUQlhDHjt1KnDjaFU,Jamala-One More Try,Jamala,Jamala,0.70,MEDIUM,NO,,scripts/lyrics_crh_lt/Jamala - NOĞAY BEYİTLERY.txt
+crh_lt,Jamala - 1944,eD801KLuPrYljeLTJ19EHd,Jamala - 1944,Jamala,Jamala,1.10,HIGH,NO,,scripts/lyrics_crh_lt/Jamala - 1944.txt
+crh_lt,Aliye Bekirova - Deñiz Yanında,LtuCcizsX76rmeZLrE97li,Алие Бекирова - Янымда ол,Aliye Bekirova,Aliye Bekirova,0.87,HIGH,YES,1/2,scripts/lyrics_crh_lt/Aliye Bekirova - Deñiz Yanında.txt
+crh_lt,Aliye Bekirova - Amanım Yarım,LtuCcizsX76rmeZLrE97li,Алие Бекирова - Янымда ол,Aliye Bekirova,Aliye Bekirova,0.85,HIGH,YES,2/2,scripts/lyrics_crh_lt/Aliye Bekirova - Amanım Yarım.txt
+crh_lt,"Karolina Cicha - Эй, Гюзел Къырым",syLe88xHlSj92jUoAF5GVQ,"Panair-Ey, güzel Qırım!",Panair,Panair,0.72,MEDIUM,NO,,"scripts/lyrics_crh_lt/Karolina Cicha - Эй, Гюзел Къырым.txt"
+crh_lt,Unknown - Ah fadimem,f92yj4krLc2pM4fjuHR5l8,"Susanna Memetova-Ah, Fatimem",Susanna Memetova,Susanna Memetova,0.59,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Ah fadimem.txt
+crh_lt,Emiliya Ablayeva - Bir top gül,DXL6TgUOSq2dFaM1bepAJk,Emiliya Ablayeva-Bir top gül,Emiliya Ablayeva,Emiliya Ablayeva,1.05,HIGH,NO,,scripts/lyrics_crh_lt/Emiliya Ablayeva - Bir top gül.txt
+crh_lt,Aliye Yakubova - Altın Yüzük Алтын юзюк,5PQJVbJetpWEsYozwpfZp3,Aliye Yakubova-Altın yüzük,Aliye Hacabadinova,Aliye Hacabadinova,0.78,MEDIUM,NO,,scripts/lyrics_crh_lt/Aliye Yakubova - Altın Yüzük Алтын юзюк.txt
+crh_lt,Afize Kassara - Qaranfil,svYRNeLpx86isICzBefRD3,Afize Kassara-Qaranfil,Afize Kassara,Afize Kassara,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Afize Kassara - Qaranfil.txt
+crh_lt,Elnara Küçük - Ayatım,byaULHd7X8PSZ4LGy8G46W,Elnara Küçük-Ayatım,Elnara Küçük,Elnara Küçük,0.81,HIGH,YES,1/2,scripts/lyrics_crh_lt/Elnara Küçük - Ayatım.txt
+crh_lt,Elnara Küçük - Aşıq oldım,byaULHd7X8PSZ4LGy8G46W,Elnara Küçük-Ayatım,Elnara Küçük,Elnara Küçük,0.59,LOW,YES,2/2,scripts/lyrics_crh_lt/Elnara Küçük - Aşıq oldım.txt
+crh_lt,Emine Cevdetova - Sevgi Севги,LXIPtvny3dKvk7ImDWblww,Emine Cevdetova-Sevgi,Emine Cevdetova,Emine Cevdetova,0.95,HIGH,NO,,scripts/lyrics_crh_lt/Emine Cevdetova - Sevgi Севги.txt
+crh_lt,Aliye Yakubova - Ediye,fzYeUpiF8PTlAC6BqusyIv,Aliye Yakubova-Ediye,Aliye Hacabadinova,Aliye Hacabadinova,0.97,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Yakubova - Ediye.txt
+crh_lt,Samida - Yosmam,LeGdtvjvQY1djHF4wmZR0t,Zarema Hanum-Yosmam,Zarema Hanum,Zarema Hanum,0.65,MEDIUM,NO,,scripts/lyrics_crh_lt/Samida - Yosmam.txt
+crh_lt,"Dilâver Bekirov - Ay, çamlar",uVyHi52xhP1w0qAQbgeLPT,"Dilâver Bekirov-Ay, çamlar",Dilâver Bekirov,Dilâver Bekirov,0.92,HIGH,NO,,"scripts/lyrics_crh_lt/Dilâver Bekirov - Ay, çamlar.txt"
+crh_lt,Elvina Yuldaşeva - Aqqan suvlar,4lYS9WrJHfFHO5CezFhfDS,Elvina Yuldaşeva-Aqqan suvlar,Elvina Yuldaşeva,Elvina Yuldaşeva,0.95,HIGH,NO,,scripts/lyrics_crh_lt/Elvina Yuldaşeva - Aqqan suvlar.txt
+crh_lt,Jamala - QARANFİL,U8hT8zJhcddu4wrza0d09E,Anara-Üç qaranfil,Anara,Anara,0.77,MEDIUM,NO,,scripts/lyrics_crh_lt/Jamala - QARANFİL.txt
+crh_lt,"Elvira Sarıhalil - Geceler, uzun geceler Геджелер, узун геджелер",6EK7XQkU9TzbmXL0fAOH39,Elvira Sarıhalil-Geceler uzun geceler,Elvira Sarıhalil,Elvira Sarıhalil,0.87,HIGH,NO,,"scripts/lyrics_crh_lt/Elvira Sarıhalil - Geceler, uzun geceler Геджелер, узун геджелер.txt"
+crh_lt,Crimean Tatar Folk - Ey Güzel Qırım,sL686zXURXwDmarRqdyBFv,"Şükriye Tutkun-Ey, güzel Qırım!",Şükriye Tutkun,Şükriye Tutkun,0.66,MEDIUM,YES,1/2,scripts/lyrics_crh_lt/Crimean Tatar Folk - Ey Güzel Qırım.txt
+crh_lt,Crimean Tatar Folk - Guzel Kırım (Гузель Къырым),sL686zXURXwDmarRqdyBFv,"Şükriye Tutkun-Ey, güzel Qırım!",Şükriye Tutkun,Şükriye Tutkun,0.60,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Crimean Tatar Folk - Guzel Kırım (Гузель Къырым).txt
+crh_lt,Jamala - Way To Home,mPF01ePQVQDiwVqSPHL10y,Jamala-In My Shoes,Jamala,Jamala,0.79,MEDIUM,YES,1/2,scripts/lyrics_crh_lt/Jamala - Way To Home.txt
+crh_lt,Jamala - YOSMAM,mPF01ePQVQDiwVqSPHL10y,Jamala-In My Shoes,Jamala,Jamala,0.77,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Jamala - YOSMAM.txt
+crh_lt,Jamala - Mektüp yazdım,aPtrMGFL8dDtHwLNJO5EfV,Jamala-Mektüp yazdım (Live),Jamala,Jamala,0.92,HIGH,NO,,scripts/lyrics_crh_lt/Jamala - Mektüp yazdım.txt
+crh_lt,Elvina Yuldaşeva - Yosmam,aPpCV8IKjtVGrqiKCqExsw,Elvina Yuldaşeva-Vokaliz,Elvina Yuldaşeva,Elvina Yuldaşeva,0.74,MEDIUM,NO,,scripts/lyrics_crh_lt/Elvina Yuldaşeva - Yosmam.txt
+crh_lt,Afize Yusuf-Qızı - Ahtem,u5i8J6Ilhl98eWWooRg4Zr,Afize Yusuf-qızı-Ahtem,Afize Yusuf-qızı,Afize Yusuf-qızı,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Ahtem.txt
+crh_lt,Unknown - Elimdeki Kemane,JKK7QsAEV771kaq5k1ZKxk,Anara-Elimdeki kemane,Anara,Anara,0.74,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Elimdeki Kemane.txt
+crh_lt,Leniye İzmaylova - Söyleştim tüşümde,6Hgb6zv3sgm4n87zu32Hbr,Leniye İzmaylova-Söyleştim tüşümde,Leniye İzmaylova,Leniye İzmaylova,0.94,HIGH,NO,,scripts/lyrics_crh_lt/Leniye İzmaylova - Söyleştim tüşümde.txt
+crh_lt,Zore Kadıyeva - Qızlar,3YzHoHVYJkoFEafaFT2Zic,Zore Kadıyeva-Qızlar,Zore Kadıyeva,Zore Kadıyeva,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Zore Kadıyeva - Qızlar.txt
+crh_lt,Asan Hayretdinov - Menim olacaqsıñ,CBbNeUfYu4SC0f3Fih4fAx,Asan Hayretdinov ve Aliye Yakubova-Menim olacaqsıñ,Asan Hayretdinov,Asan Hayretdinov,0.87,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Menim olacaqsıñ.txt
+crh_lt,Asan Hayretdinov - Unutma Унутма,CrxXMJm3XRauU6vxRgMdDS,Asan Hayretdinov-Unutma (minus),Asan Hayretdinov,Asan Hayretdinov,0.96,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Unutma Унутма.txt
+crh_lt,Unknown - Men Anamdan Qalğanda,00LP9bGGDyR2e2IpThNo8W,Ankara Haytarma Band-Men anamdan qalğanda,Ankara Haytarma Band,Ankara Haytarma Band,0.65,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Men Anamdan Qalğanda.txt
+crh_lt,Jamala - PENCEREDEN,LHidDhGj4WwffE3nD6ntk8,Jamala-Pencereden,Jamala,Jamala,1.07,HIGH,YES,1/2,scripts/lyrics_crh_lt/Jamala - PENCEREDEN.txt
+crh_lt,Jamala - Pengereden (Пенджереден),LHidDhGj4WwffE3nD6ntk8,Jamala-Pencereden,Jamala,Jamala,0.83,HIGH,YES,2/2,scripts/lyrics_crh_lt/Jamala - Pengereden (Пенджереден).txt
+crh_lt,Afize Yusuf-Qızı - Vatan asreti,sXG0ISgskEMUW302nK8lGy,Afize Yusuf-qızı - Vatan asreti,Afize Yusuf-qızı,Afize Yusuf-qızı,1.10,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Vatan asreti.txt
+crh_lt,"Unknown - Kim, eger biz degil_",ySBrAzJp5XqUCRIPwb5zBd,Seyran 7'62-Kim eger biz degil (Ringtone),Ringtones,Ringtones,0.63,MEDIUM,NO,,"scripts/lyrics_crh_lt/Unknown - Kim, eger biz degil_.txt"
+crh_lt,Unknown - Sağındım (Obiymy),Az7JOcHXXntKqLxCtQS52b,Асан Хайретдинов - Сагъындым,Asan Hayretdinov,Asan Hayretdinov,0.50,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Sağındım (Obiymy).txt
+crh_lt,Güzel - Aqsa qara qanım aqsın,Yd04oBbzRxzGSmqmen6rVE,Güzel-Aqsa qara qanım aqsın,Güzel,Güzel,0.94,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Aqsa qara qanım aqsın.txt
+crh_lt,Jamala - Unutmasan Унутмасанъ,pafWnOpwxclgCS8IwHvud8,Jamala-Unutmasañ,Jamala,Jamala,0.83,HIGH,NO,,scripts/lyrics_crh_lt/Jamala - Unutmasan Унутмасанъ.txt
+crh_lt,"Bekir Çoban-Zade - Tatar tügülmen, degenlerge!",Gq59dm1IQIotIkiU61Sx0p,Bekir Adilov-Buña Yeşil Ada derler,Bekir Adilov,Bekir Adilov,0.49,LOW,NO,,"scripts/lyrics_crh_lt/Bekir Çoban-Zade - Tatar tügülmen, degenlerge!.txt"
+crh_lt,Şakir Selim - Tuvğan tilim! Ana tilim! Kene yaşa!,iuYEkPDfje3OecEbB6L2Id,"Nariman Balich, Elzara Batalova - Kele Bahar",Nariman Baliç,Nariman Baliç,0.52,LOW,NO,,scripts/lyrics_crh_lt/Şakir Selim - Tuvğan tilim! Ana tilim! Kene yaşa!.txt
+crh_lt,Fevzi Aliyev - Ay tavlar,Fk7YNBi7GmFi016cStgOcy,"Fevzi Aliyev-Ay, dağlar",Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.88,HIGH,YES,1/2,scripts/lyrics_crh_lt/Fevzi Aliyev - Ay tavlar.txt
+crh_lt,Fevzi Aliyev - Kırımdaki çadırlar,Fk7YNBi7GmFi016cStgOcy,"Fevzi Aliyev-Ay, dağlar",Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.69,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Fevzi Aliyev - Kırımdaki çadırlar.txt
+crh_lt,Halisa Ablayeva - Noğay beyitleri,HqLrAwANjHC2v0m8gLIdLU,Halisa Ablayeva-Noğay beyitleri,Halisa Ablayeva,Halisa Ablayeva,1.05,HIGH,NO,,scripts/lyrics_crh_lt/Halisa Ablayeva - Noğay beyitleri.txt
+crh_lt,Tangled (OST) - I See The Light (Crimean Tatar),Y2dQUp2UTvRzsfSTHWVxiR,Asiye Saale - Voyaj (Voyage Crimean Tatar cover),Asiye Saale,Asiye Saale,0.49,LOW,YES,1/2,scripts/lyrics_crh_lt/Tangled (OST) - I See The Light (Crimean Tatar).txt
+crh_lt,The Lion King (OST) - Be prepared (Crimean Tatar),Y2dQUp2UTvRzsfSTHWVxiR,Asiye Saale - Voyaj (Voyage Crimean Tatar cover),Asiye Saale,Asiye Saale,0.46,LOW,YES,2/2,scripts/lyrics_crh_lt/The Lion King (OST) - Be prepared (Crimean Tatar).txt
+crh_lt,Susanna Memetova - Ant Etkenmen,mACSwUhH2pfEM5HQNNcm4V,Susanna Memetova-Ant etkenmen,Susanna Memetova,Susanna Memetova,1.08,HIGH,YES,1/2,scripts/lyrics_crh_lt/Susanna Memetova - Ant Etkenmen.txt
+crh_lt,Unknown Artist (Crimean Tatar) - Ant Etkenmen,mACSwUhH2pfEM5HQNNcm4V,Susanna Memetova-Ant etkenmen,Susanna Memetova,Susanna Memetova,0.55,LOW,YES,2/2,scripts/lyrics_crh_lt/Unknown Artist (Crimean Tatar) - Ant Etkenmen.txt
+crh_lt,Emine Mustafayeva - Qaleniñ tübünde,Ev8D5u7iPqruGOu5k8zEVc,Emine Mustafayeva-Qaleniñ tübünde,Emine Mustafayeva,Emine Mustafayeva,0.99,HIGH,NO,,scripts/lyrics_crh_lt/Emine Mustafayeva - Qaleniñ tübünde.txt
+crh_lt,Unknown - Sen de meni yahşı söznen añasıñmı_,dhS1uQXKveurtFvwiPksnz,Minus-On sekizge keldi yaşım,Diger,Diger,0.47,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Sen de meni yahşı söznen añasıñmı_.txt
+crh_lt,Unknown - İnan Sen,szrDR4c2HMbcJoUvdps1cN,Zarema Şirinskaya-İnan sen,Zarema Şirinskaya,Zarema Şirinskaya,0.49,LOW,NO,,scripts/lyrics_crh_lt/Unknown - İnan Sen.txt
+crh_lt,Reana Tarkova - Yalan Sözler,uAzryv3cep587xpbhkuDJ0,Reana Tarkova - Yalan sözler,Reana Tarkova,Reana Tarkova,1.06,HIGH,NO,,scripts/lyrics_crh_lt/Reana Tarkova - Yalan Sözler.txt
+crh_lt,Halisa Ablayeva - Vatanım Ватаным,OJam5rUeO612XKAMMekRmR,Halisa Ablayeva-Ana-baba,Halisa Ablayeva,Halisa Ablayeva,0.82,HIGH,NO,,scripts/lyrics_crh_lt/Halisa Ablayeva - Vatanım Ватаным.txt
+crh_lt,Güzel - Men seni sevem,StHO8A03ERtDnTiA9uC4hq,Güzel-Men seni sevem,Güzel,Güzel,0.92,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Men seni sevem.txt
+crh_lt,Soviet Patriotic_Folk Songs - Не гузель ярашыр,B8WbsCVBlsrYzvUjLuadpI,Zeynep Lömanova-Ne güzel yaraşır,Zeynep Lömanova,Zeynep Lömanova,0.49,LOW,NO,,scripts/lyrics_crh_lt/Soviet Patriotic_Folk Songs - Не гузель ярашыр.txt
+crh_lt,Unknown - Дагъдан энди бир къозу,E1h8xwJwLqdmDDgfvskLWT,Susanna Memetova-Dağdan endi bir qozu,Susanna Memetova,Susanna Memetova,0.72,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Дагъдан энди бир къозу.txt
+crh_lt,Elvira Sarıhalil - Qayadan Endim Bugüñ,2ygJMm2BDTDsOD8UAZulqV,Elvira Sarıhalil-Qayadan endim,Elvira Sarıhalil,Elvira Sarıhalil,0.99,HIGH,YES,1/2,scripts/lyrics_crh_lt/Elvira Sarıhalil - Qayadan Endim Bugüñ.txt
+crh_lt,Elvira Sarıhalil - On Birinci Ayadañ,2ygJMm2BDTDsOD8UAZulqV,Elvira Sarıhalil-Qayadan endim,Elvira Sarıhalil,Elvira Sarıhalil,0.77,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Elvira Sarıhalil - On Birinci Ayadañ.txt
+crh_lt,Susanna Memetova - Чуфут Къызы,dRZb7MhSuADY5tMR0iL0Av,Susanna Memetova-Çufut qızı,Susanna Memetova,Susanna Memetova,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Susanna Memetova - Чуфут Къызы.txt
+crh_lt,"Jamala - HEM SEVERSİÑ, HEM SEVMEZSİÑ",0kZWWYs36eG1X75LdlLhgD,Jamala-For Every Heart,Jamala,Jamala,0.62,MEDIUM,NO,,"scripts/lyrics_crh_lt/Jamala - HEM SEVERSİÑ, HEM SEVMEZSİÑ.txt"
+crh_lt,Elzara Batalova - Dünyağa keldik,CiPtaopNFV0mJxUD90t91b,Elzara Batalova ve Nariman Baliç-Dünyağa keldik,Elzara Batalova,Elzara Batalova,0.84,HIGH,NO,,scripts/lyrics_crh_lt/Elzara Batalova - Dünyağa keldik.txt
+crh_lt,Unknown - Kelin,NFJltJS3eNrhLyKqZvfx2v,Güneş-O közleriñ,Güneş,Güneş,0.57,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Kelin.txt
+crh_lt,"Unknown - Ey, güzel Qırım",838zVignehi7gG5niC182o,"Günay-Ey, güzel Qırım!",Günay,Günay,0.73,MEDIUM,YES,1/2,"scripts/lyrics_crh_lt/Unknown - Ey, güzel Qırım.txt"
+crh_lt,Unknown - Ey Güzel Kırım,838zVignehi7gG5niC182o,"Günay-Ey, güzel Qırım!",Günay,Günay,0.68,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Unknown - Ey Güzel Kırım.txt
+crh_lt,Asan Hayretdinov - Arzum menim,siW17lHVwmB6M44VV6QJOt,Asan Hayretdinov-Arzum menim,Asan Hayretdinov,Asan Hayretdinov,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Arzum menim.txt
+crh_lt,Jamala - ALIM,EFqrDwEvcJi77xOXQi4dtD,Jamala-Alas,Jamala,Jamala,0.86,HIGH,YES,1/4,scripts/lyrics_crh_lt/Jamala - ALIM.txt
+crh_lt,Jamala - BAHAR KELSE,EFqrDwEvcJi77xOXQi4dtD,Jamala-Alas,Jamala,Jamala,0.74,MEDIUM,YES,2/4,scripts/lyrics_crh_lt/Jamala - BAHAR KELSE.txt
+crh_lt,Jamala - ÇALBAŞ BORA,EFqrDwEvcJi77xOXQi4dtD,Jamala-Alas,Jamala,Jamala,0.74,MEDIUM,YES,3/4,scripts/lyrics_crh_lt/Jamala - ÇALBAŞ BORA.txt
+qmusic,063 - JAMALA - GOAL,EFqrDwEvcJi77xOXQi4dtD,Jamala-Alas,Jamala,Jamala,0.74,MEDIUM,YES,4/4,scripts/lyrics_qmusic/063 - JAMALA - GOAL.txt
+crh_lt,Güzel - Qırım,9MuXekFxpl9Qw4SObpJzWy,Güzel-Qırım,Güzel,Güzel,0.86,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Qırım.txt
+crh_lt,Zeynep Lumanova - Em Seversıñ,TtANxvpF2KWW9dq7Y3ncai,Zeynep Lömanova-Em seversiñ,Zeynep Lömanova,Zeynep Lömanova,0.87,HIGH,NO,,scripts/lyrics_crh_lt/Zeynep Lumanova - Em Seversıñ.txt
+crh_lt,"Güzel - Maña seni unut, deyler",IdXEH2sA04AEwuaXNMDjeQ,Güzel-Maña seni unut deyler (remix),Güzel,Güzel,0.81,HIGH,NO,,"scripts/lyrics_crh_lt/Güzel - Maña seni unut, deyler.txt"
+crh_lt,Server Kakura - Ağlama Kelin,8GIxd54hyaMUNiKjbRae1i,Server Kakura-Ağlama kelin,Server Kakura,Server Kakura,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Server Kakura - Ağlama Kelin.txt
+crh_lt,Sevil Memetova - Dohtur,1sXfhGJMYodzrNXPdzjghS,Sevil Memetova-Dohtur (Live),Sevil Memetova,Sevil Memetova,0.97,HIGH,NO,,scripts/lyrics_crh_lt/Sevil Memetova - Dohtur.txt
+crh_lt,Marlen Settarov - Dülberim,Eqx4tfPk8AscAqo7nQvP1a,Marlen Settarov-Dülberim,Marlen Settarov,Marlen Settarov,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Marlen Settarov - Dülberim.txt
+crh_lt,Arsen Bekirov - Tabi güzelim,RBtfiucNCOANzaUmuhtu1q,Arsen Bekirov-Oyna güzel,Arsen Bekirov,Arsen Bekirov,0.88,HIGH,NO,,scripts/lyrics_crh_lt/Arsen Bekirov - Tabi güzelim.txt
+crh_lt,Zore Kadıyeva - Qırımtatar qadınları,ewHJlgGyV8J7Ce8aseRMRI,Zore Kadıyeva-Qırımtatar qadınları,Zore Kadıyeva,Zore Kadıyeva,1.09,HIGH,NO,,scripts/lyrics_crh_lt/Zore Kadıyeva - Qırımtatar qadınları.txt
+crh_lt,"Rustem Memetov - Ey, Güzelim(Эй, гузелим)",XC37LFxsJO5glJzTJKGhdl,"Rustem Memetov ve Gülizar Bekirova-Ey, güzelim",Rustem Memetov,Rustem Memetov,0.86,HIGH,NO,,"scripts/lyrics_crh_lt/Rustem Memetov - Ey, Güzelim(Эй, гузелим).txt"
+crh_lt,Bekir Çoban-Zade - Yaz Talası,8j3qHZoHco75lbeG6fw50K,Sakine Nalbantova-Evel baar yaz ayları,Sakine Nalbantova,Sakine Nalbantova,0.54,LOW,NO,,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Yaz Talası.txt
+crh_lt,Elvira Sarıhalil - Sudaq'ın Yaluları,op3V42HRkHgDWInmnQkJgj,Elvira Sarıhalil-Dağlarnıñ yolları,Elvira Sarıhalil,Elvira Sarıhalil,0.92,HIGH,NO,,scripts/lyrics_crh_lt/Elvira Sarıhalil - Sudaq'ın Yaluları.txt
+crh_lt,Marlen Settarov - Yüregiñni aç Юрегимны ач,GOVjnteDqvejflACKD3c41,Marlen Settarov-Yüregiñni aç,Marlen Settarov,Marlen Settarov,0.81,HIGH,NO,,scripts/lyrics_crh_lt/Marlen Settarov - Yüregiñni aç Юрегимны ач.txt
+crh_lt,Nazife Reizova - Araba qapı,Y0GTgXaExpmurucP6AJ0v7,Nazife Reizova-Araba qapı,Nazife Reizova,Nazife Reizova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Nazife Reizova - Araba qapı.txt
+crh_lt,Unknown - Qırım. Vatan. Millet,gQtFXVVppVttRFVhBjhPaR,SEYRAN762  - QrmVatanMillet,Seyran 7'62,Seyran 7'62,0.64,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Qırım. Vatan. Millet.txt
+crh_lt,Ediye Topçi - Seni maña ğayet güzel dediler,tAgPNRmaRwdTaEmG09PGeZ,Ediye Topçi-Seni maña ğayet güzel dediler,Ediye Topçi,Ediye Topçi,0.89,HIGH,NO,,scripts/lyrics_crh_lt/Ediye Topçi - Seni maña ğayet güzel dediler.txt
+crh_lt,Güzel - Millet,KKQmYCOB3NziHxw0oB5E71,Güzel-Millet,Güzel,Güzel,0.87,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Millet.txt
+crh_lt,Elzara Batalova - Qalaylı Qazan,hgH1oJkQJzdnvRSGEwwwaK,Elzara Batalova-Ялта,Elzara Batalova,Elzara Batalova,0.83,HIGH,NO,,scripts/lyrics_crh_lt/Elzara Batalova - Qalaylı Qazan.txt
+crh_lt,Glen Hansard - Take Heart,9CRvj7OsPTjZxXJCl74cCT,Emine Kasarayeva-Kim arar,Emine Kasarayeva,Emine Kasarayeva,0.51,LOW,NO,,scripts/lyrics_crh_lt/Glen Hansard - Take Heart.txt
+crh_lt,Jamala - GİDER İSEÑ,vrGXS2rgvzRDDriWuis5QX,Jamala-Gopher (Live),Jamala,Jamala,0.81,HIGH,NO,,scripts/lyrics_crh_lt/Jamala - GİDER İSEÑ.txt
+crh_lt,Fevzi Bilalov - Salğır Boyu,wi0lQ8q0wsRzIzFjpb2dDm,Fevzi Bilâlov-Salğır boyu,Fevzi Bilâlov,Fevzi Bilâlov,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Fevzi Bilalov - Salğır Boyu.txt
+crh_lt,Güzel - Sevgi tura taş temelde,hrgEEdwC3yBtfjh76mF6oB,Güzel-Sevgi tura taş temelde,Güzel,Güzel,0.91,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Sevgi tura taş temelde.txt
+crh_lt,Unknown - Qaytıp kel maña,rRssFfQPZXPEfOgnWCWvQn,Aliye Cepparova-Qaytıp kel maña,Aliye Cepparova,Aliye Cepparova,0.57,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Qaytıp kel maña.txt
+crh_lt,Emiliya Ablayeva - Sağınuv,2UeTnjPNOvepgtyFiHepdj,Emiliya Ablayeva-Sağınuv,Emiliya Ablayeva,Emiliya Ablayeva,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Emiliya Ablayeva - Sağınuv.txt
+crh_lt,Unknown - Tek seni seveyim,iu5GdgDsl2rsnqJeKdBUTe,Zera Kenjikayeva-Tek seni seveyim,Zera Kenjikayeva,Zera Kenjikayeva,0.64,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Tek seni seveyim.txt
+crh_lt,Bekir Çoban-Zade - Ana Tilim,VZwONLFilH9ugS4zMkDxjJ,Bekir Adilov-Sevimli anam,Bekir Adilov,Bekir Adilov,0.57,LOW,YES,1/2,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Ana Tilim.txt
+crh_lt,Bekir Çoban-Zade - Qarı Ana,VZwONLFilH9ugS4zMkDxjJ,Bekir Adilov-Sevimli anam,Bekir Adilov,Bekir Adilov,0.54,LOW,YES,2/2,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Qarı Ana.txt
+crh_lt,Crimean Tatar Folk - Seyt Osman Saray Saldırğan,HsiU8dF69bjScSJ3hcCNr0,Yırlağan Til-Seyt-Osman saray saldırğan,Yırlağan Til,Yırlağan Til,0.73,MEDIUM,NO,,scripts/lyrics_crh_lt/Crimean Tatar Folk - Seyt Osman Saray Saldırğan.txt
+crh_lt,Asiye Saale - Usul-usul,oq0xf3pvu4R8vXRh26UDkD,Asiye Saale-Usul-usul,Asiye Saale,Asiye Saale,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Usul-usul.txt
+crh_lt,Afize Kassara - Ay oğlan tatarmısıñ,adJjnYT4a8gk2pnYgjKwH9,"Afize Kassara-Ay, oğlan, tatarmısıñ",Afize Kassara,Afize Kassara,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Afize Kassara - Ay oğlan tatarmısıñ.txt
+crh_lt,Leniye İzmaylova - Padişa qızları,PbJf9TKjIXhx9MeKc3zY6Y,Leniye İzmaylova ve Güzel-Padişa qızları,Leniye İzmaylova,Leniye İzmaylova,0.96,HIGH,NO,,scripts/lyrics_crh_lt/Leniye İzmaylova - Padişa qızları.txt
+crh_lt,Aliye Civan - Yeşil yapraq,J9btH9TLeaL5SnxszlNIYB,Aliye Civan-Yeşil yapraq,Aliye Civan,Aliye Civan,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Civan - Yeşil yapraq.txt
+crh_lt,Jamala - DAĞLARNIÑ YOLLARI,Xuftay5Un77Fftns4Upgsu,Jamala & DakhaBrakha-Заманили,Jamala,Jamala,0.70,MEDIUM,YES,1/2,scripts/lyrics_crh_lt/Jamala - DAĞLARNIÑ YOLLARI.txt
+crh_lt,Jamala - ARAFAT DAĞINDAN,Xuftay5Un77Fftns4Upgsu,Jamala & DakhaBrakha-Заманили,Jamala,Jamala,0.68,MEDIUM,YES,2/2,scripts/lyrics_crh_lt/Jamala - ARAFAT DAĞINDAN.txt
+crh_lt,Afize Yusuf-Qızı - Qarasuvnıñ dört köşesi,SiAKYmifvtP70sfX2r2jkX,Afize Yusuf-qızı-Qarasuvnıñ dört köşesi,Afize Yusuf-qızı,Afize Yusuf-qızı,0.98,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Qarasuvnıñ dört köşesi.txt
+crh_lt,Emine Mustafayeva - Малелер(Хайдым дерелерине),3SM2dxjJN82ioufgOdslKK,Emine Mustafayeva-Kelmeseñ de,Emine Mustafayeva,Emine Mustafayeva,0.76,MEDIUM,NO,,scripts/lyrics_crh_lt/Emine Mustafayeva - Малелер(Хайдым дерелерине).txt
+crh_lt,Sabriye Erecepova - Sevdim seni,RwaLdg29TKSDMTUqL67TXF,Sabriye Erecepova-Sevdim seni,Sabriye Erecepova,Sabriye Erecepova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Sabriye Erecepova - Sevdim seni.txt
+crh_lt,Emine Mustafayeva - Vatan yırı,YOT6RJyDGkZdqxP4g2orYT,Emine Mustafayeva-Vatan yırı,Emine Mustafayeva,Emine Mustafayeva,1.08,HIGH,YES,1/2,scripts/lyrics_crh_lt/Emine Mustafayeva - Vatan yırı.txt
+crh_lt,Emine Mustafayeva - Тавгъа бардым,YOT6RJyDGkZdqxP4g2orYT,Emine Mustafayeva-Vatan yırı,Emine Mustafayeva,Emine Mustafayeva,0.87,HIGH,YES,2/2,scripts/lyrics_crh_lt/Emine Mustafayeva - Тавгъа бардым.txt
+crh_lt,Halisa Ablayeva - Adalar sailinde,iFwOT2Ak6rjEp8ioCK1GBq,Halisa Ablayeva-Adalar sailinde,Halisa Ablayeva,Halisa Ablayeva,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Halisa Ablayeva - Adalar sailinde.txt
+crh_lt,"Zore Kadıyeva - Ah, kelinim",M48KJvVJrDl5GmpJmBdbqK,"Zore Kadıyeva-Ah, kelinim",Zore Kadıyeva,Zore Kadıyeva,1.08,HIGH,NO,,"scripts/lyrics_crh_lt/Zore Kadıyeva - Ah, kelinim.txt"
+crh_lt,Asan Hayretdinov - Seni kördim (Сени корьдим),KYxsGkE54Qlgt6CzhbXT6A,Asan Hayretdinov-Seni kördim,Asan Hayretdinov,Asan Hayretdinov,0.91,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Seni kördim (Сени корьдим).txt
+crh_lt,Unknown Artist (Crimean Tatar) - Oneki de ordek,LZ7jNSoUvwQa9nAUvyUHfZ,Nariman Balich - Quslar Avada (feat. Asiye Saale) ,[Unknown Artist],[Unknown Album],0.49,LOW,YES,1/2,scripts/lyrics_crh_lt/Unknown Artist (Crimean Tatar) - Oneki de ordek.txt
+crh_lt,Anthems of the Eastern Bloc and Yugoslavia - Anthem of the Crimean Autonomous SSR - Къызыл Аскер Маршы (Qızıl Asker Marşı),LZ7jNSoUvwQa9nAUvyUHfZ,Nariman Balich - Quslar Avada (feat. Asiye Saale) ,[Unknown Artist],[Unknown Album],0.35,LOW,YES,2/2,scripts/lyrics_crh_lt/Anthems of the Eastern Bloc and Yugoslavia - Anthem of the Crimean Autonomous SSR - Къызыл Аскер Маршы (Qızıl Asker Marşı).txt
+crh_lt,Ivanka Chervinska - Dohtur Civanım,u0FkTKXV7iioToi3b2sD2T,Ankara Haytarma Band-Tım-tım,Ankara Haytarma Band,Ankara Haytarma Band,0.52,LOW,NO,,scripts/lyrics_crh_lt/Ivanka Chervinska - Dohtur Civanım.txt
+crh_lt,Unknown - Yalvaram,TOTtQh1XLL1MHfjc6jn0Jm,Asan Umerov-Yalvaram,Asan Umerov,Asan Umerov,0.57,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Yalvaram.txt
+crh_lt,Lenara Osmanova - Biz,0YtFl8s28yFlKcUN3h1Zbx,Lenara Osmanova-Biz,Lenara Osmanova,Lenara Osmanova,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Lenara Osmanova - Biz.txt
+crh_lt,The Lion King (OST) - Мен азырым къырал олмагъа _ Men azırım qıral olmağa [I Just Can't Wait to be King],2j6wd9zwh1zYQ9pBIkpot5,"Cezair ve Rasim Kurtiyev-Toy olsun, bayram olsun (Crimean song)",Cezair,Cezair,0.36,LOW,NO,,scripts/lyrics_crh_lt/The Lion King (OST) - Мен азырым къырал олмагъа _ Men azırım qıral olmağa [I Just Can't Wait to be King].txt
+crh_lt,Asiye Saale - Meni ğamdan azat eyle,qzWX9uMLVUpiiIq3eMWYIp,Asiye Saale-Meni ğamdan azat eyle,Asiye Saale,Asiye Saale,1.05,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Meni ğamdan azat eyle.txt
+crh_lt,Ediye Topçi - Baar kelse,vTXPFGpTpjGETQnNqaCdC6,Ediye Topçi-Baar kelse,Ediye Topçi,Ediye Topçi,0.93,HIGH,NO,,scripts/lyrics_crh_lt/Ediye Topçi - Baar kelse.txt
+crh_lt,Unknown - Джанай,Rwoo3SmzBhkG2Rv0COdsYU,Yalçın Faik-Al qoyan canay,Yalçın Faik,Yalçın Faik,0.53,LOW,YES,1/2,scripts/lyrics_crh_lt/Unknown - Джанай.txt
+qmusic,021 - Al qoyan canay çal qoyan canay,Rwoo3SmzBhkG2Rv0COdsYU,Yalçın Faik-Al qoyan canay,Yalçın Faik,Yalçın Faik,0.51,LOW,YES,2/2,scripts/lyrics_qmusic/021 - Al qoyan canay çal qoyan canay.txt
+crh_lt,Elzara Batalova - Bizim taraf,4QcWVGcP3dew714b2ybYhf,Elzara Batalova-Bizim taraf,Elzara Batalova,Elzara Batalova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Elzara Batalova - Bizim taraf.txt
+crh_lt,Asiye Saale - Ağla meni (Su qayadan süzülür),a4bZFa2gzDTujQleaYSyje,Asiye Saale - Agla meni (Su qayadan suzulur),Asiye Saale,Asiye Saale,1.00,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Ağla meni (Su qayadan süzülür).txt
+crh_lt,Unknown - Uzaq Yoldan,lOzKGdWHd3lyQtaRlXEH8q,Zarema Şirinskaya-Uzaq yoldan,Zarema Şirinskaya,Zarema Şirinskaya,0.55,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Uzaq Yoldan.txt
+crh_lt,Elzara Batalova - Qarşıdan fener kelir,GgPwRw9CqeuDasTSzDeTmR,Elzara Batalova-Qarşıdan fener kelir (Minareler tübünde),Elzara Batalova,Elzara Batalova,0.86,HIGH,NO,,scripts/lyrics_crh_lt/Elzara Batalova - Qarşıdan fener kelir.txt
+crh_lt,Bekir Çoban-Zade - Til Ükü,PrD4hZs1dVwL6KLlcXPiF6,Dilâver Osmanov-Badem terek,Dilâver Osmanov,Dilâver Osmanov,0.49,LOW,NO,,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Til Ükü.txt
+crh_lt,Reyana Kadırova - Arnavutlar eker baqla,SBJvQhtJ4i974yvgdMnQW7,Reyana Kadırova-Arnavutlar eker baqla,Reyana Kadırova,Reyana Kadırova,1.09,HIGH,NO,,scripts/lyrics_crh_lt/Reyana Kadırova - Arnavutlar eker baqla.txt
+crh_lt,Memet Niyazi - Tatar Barmı Dep Sorağanlarğa,sLQWLgXvfwa7kHzj5nRF0d,"Gülizar Ümerova (Uzunlar, 1915)-Tatar barmı dep kim soray (halq icrası)",Halq icrası,Halq icrası,0.55,LOW,NO,,scripts/lyrics_crh_lt/Memet Niyazi - Tatar Barmı Dep Sorağanlarğa.txt
+crh_lt,Anonim qırım - Чалашым,8lUBJzKuEhMEDFwmzn0sNt,Qırım - Mataylar,Qırım,Qırım,0.63,MEDIUM,NO,,scripts/lyrics_crh_lt/Anonim qırım - Чалашым.txt
+crh_lt,Raziye Seytablayeva - Ana Vatanım,Br05gLjwIdtg0NVyS4xd1b,Raziye Seytablayeva-Anam,Raziye Seytablayeva,Raziye Seytablayeva,0.95,HIGH,NO,,scripts/lyrics_crh_lt/Raziye Seytablayeva - Ana Vatanım.txt
+crh_lt,The Lord's Prayer - Бизим Коклердеки Бабамыз,zvkar3WqNeMdIF1EbMQssu,Elnara Küçük-Közleri aldatmaz,Elnara Küçük,Elnara Küçük,0.46,LOW,NO,,scripts/lyrics_crh_lt/The Lord's Prayer - Бизим Коклердеки Бабамыз.txt
+crh_lt,Leniye İzmaylova - Qınalı da parmaqlarıñ,tTFU7hP5yKzWDj5yAuqh0F,Leniye İzmaylova-Qınalı parmaqlarıñ,Leniye İzmaylova,Leniye İzmaylova,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Leniye İzmaylova - Qınalı da parmaqlarıñ.txt
+crh_lt,Zore Kadıyeva - Diñle meni,2RGfKTetf74yFnj8F26f5l,Zore Kadıyeva-Diñle meni,Zore Kadıyeva,Zore Kadıyeva,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Zore Kadıyeva - Diñle meni.txt
+crh_lt,"Asiye Saale - Gidene baq, gidene",mhc4Tx0hFaTJn0aCod0uEc,"Asiye Saale - Gidene baq, gidene",Asiye Saale,Asiye Saale,1.10,HIGH,NO,,"scripts/lyrics_crh_lt/Asiye Saale - Gidene baq, gidene.txt"
+crh_lt,Reana Tarkova - Qızçıgım,aFxyNqevtc6ZJeklQlvCbu,Reana Tarkova-Qızçığım,Reana Tarkova,Reana Tarkova,1.03,HIGH,NO,,scripts/lyrics_crh_lt/Reana Tarkova - Qızçıgım.txt
+crh_lt,Unknown - Men anamnıñ bir qızı edim,lpG3neijGiUsGlWeJXkqbO,Anara-Men anamnıñ bir qızı edim,Anara,Anara,0.79,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - Men anamnıñ bir qızı edim.txt
+crh_lt,Susanna Memetova - Suv aqar tınıq-tınıq,svDX6Ff4LtWZ5RKixZvIdm,Susanna Memetova-Suv aqar tınıq-tınıq,Susanna Memetova,Susanna Memetova,1.09,HIGH,NO,,scripts/lyrics_crh_lt/Susanna Memetova - Suv aqar tınıq-tınıq.txt
+crh_lt,Aliye Civan - Alime (Sıra-sıra Cezveler),P6Ywuaz4qq53AcvnsBwbOz,Aliye Civan-Alime (Sıra-sıra cezveler),Aliye Civan,Aliye Civan,1.09,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Civan - Alime (Sıra-sıra Cezveler).txt
+crh_lt,Afize Kassara - Pencereden quş uçtı,bgysV7QLqp5dmCbMuziABh,Afize Kassara-Pencereden quş uçtı,Afize Kassara,Afize Kassara,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Afize Kassara - Pencereden quş uçtı.txt
+crh_lt,Edvin Eddy - Yarem sensiñ,YCshUPFtK4THK4COkYwN65,Marlen Settarov-Körem seni,Marlen Settarov,Marlen Settarov,0.54,LOW,NO,,scripts/lyrics_crh_lt/Edvin Eddy - Yarem sensiñ.txt
+crh_lt,Crimean Tatar Folk - Шу Ялтадан,Wbrz1sFnlQxjWWYqjdiWLx,Nuran Taş-Şu Yaltadan,Diger,Diger,0.64,MEDIUM,YES,1/2,scripts/lyrics_crh_lt/Crimean Tatar Folk - Шу Ялтадан.txt
+crh_lt,Unknown - Şu Yalta'dan Taş Yükledim,Wbrz1sFnlQxjWWYqjdiWLx,Nuran Taş-Şu Yaltadan,Diger,Diger,0.50,LOW,YES,2/2,scripts/lyrics_crh_lt/Unknown - Şu Yalta'dan Taş Yükledim.txt
+crh_lt,Rustem Memetov - Üskütniñ Dağları(Уськютнинъ дагълары),glDFD5HW7Q9sc1I3Vk2Rb4,Rustem Memetov-Üskütniñ dağları,Rustem Memetov,Rustem Memetov,0.77,MEDIUM,NO,,scripts/lyrics_crh_lt/Rustem Memetov - Üskütniñ Dağları(Уськютнинъ дагълары).txt
+crh_lt,Unknown - Boysunmağan,5PGXGHhxDnJnXMhv4qj2cI,Yalçın Faik-Yol boyunda,Yalçın Faik,Yalçın Faik,0.49,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Boysunmağan.txt
+crh_lt,Susanna Memetova - Qaranfil,jG7kAJeYw0yGZyds1o9pIQ,Susanna Memetova-Qaranfil,Susanna Memetova,Susanna Memetova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Susanna Memetova - Qaranfil.txt
+crh_lt,Crimean Tatar Folk - Bahchalarda kestane Багъчаларда кестане,FHqDEt03ClE1gnZUZYDV4H,Marlen Settarov-Bağçalarda kestane,Marlen Settarov,Marlen Settarov,0.58,LOW,NO,,scripts/lyrics_crh_lt/Crimean Tatar Folk - Bahchalarda kestane Багъчаларда кестане.txt
+crh_lt,Eshnight - Suvuq (Сувукъ),h7j3AVSzXreMTHndP2Gg1B,Eshnight-Suvuq,Eshnight,Eshnight,0.89,HIGH,NO,,scripts/lyrics_crh_lt/Eshnight - Suvuq (Сувукъ).txt
+crh_lt,Şefika Tatarisova - Qızılçıqlar,g6yJMUvBTCucgtaz3SoPGl,Şefika Tatarisova-Qızılçıqlar,Şefika Tatarisova,Şefika Tatarisova,0.91,HIGH,NO,,scripts/lyrics_crh_lt/Şefika Tatarisova - Qızılçıqlar.txt
+crh_lt,Eşref Şemizade - Közyaş Divar,6B65UGLV0nq6dMFwZC4Nsu,Ernes Emirasanov-Meni yaqma,Ernes Emirasanov,Ernes Emirasanov,0.49,LOW,NO,,scripts/lyrics_crh_lt/Eşref Şemizade - Közyaş Divar.txt
+qmusic,061 - LENARA OSMANOVA - BEYAZ GEMİ,nUEthfrWpcwI2qSu02oeEK,Lenara Osmanova-Beyaz gemi,Lenara Osmanova,Lenara Osmanova,1.01,HIGH,YES,1/2,scripts/lyrics_qmusic/061 - LENARA OSMANOVA - BEYAZ GEMİ.txt
+crh_lt,Lenara Osmanova - Beyaz Gemi Беяз геми,nUEthfrWpcwI2qSu02oeEK,Lenara Osmanova-Beyaz gemi,Lenara Osmanova,Lenara Osmanova,0.91,HIGH,YES,2/2,scripts/lyrics_crh_lt/Lenara Osmanova - Beyaz Gemi Беяз геми.txt
+crh_lt,Asan Hayretdinov - Yanımdasıñ,rWj5fhbDTgEqmjiwLBkqWd,Asan Hayretdinov-Yanımdasıñ,Asan Hayretdinov,Asan Hayretdinov,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Yanımdasıñ.txt
+crh_lt,"National Anthems & Patriotic Songs - Crimean People's Republic, National Anthem of (1917~1918) - Ant etkenmen",qcZqZ7JyfRbDJDlLkEwnyF,Qırım Halqınıñ Milliy Marşı-Crimean's National Anthem,Gimn,Gimn,0.39,LOW,NO,,"scripts/lyrics_crh_lt/National Anthems & Patriotic Songs - Crimean People's Republic, National Anthem of (1917~1918) - Ant etkenmen.txt"
+crh_lt,Sevil - Kelecekke İnan,EDqDwO8IQr7wsNx6dqQsvA,Sevil Memetova-Here I am,Sevil Memetova,Sevil Memetova,0.60,MEDIUM,NO,,scripts/lyrics_crh_lt/Sevil - Kelecekke İnan.txt
+crh_lt,Unknown - biz qırım dan çıqqanda,s7Svm8Tp83MpEFZn9JX6OG,Revan-Biz Qırımdan çıqqanda,Diger,Diger,0.75,MEDIUM,NO,,scripts/lyrics_crh_lt/Unknown - biz qırım dan çıqqanda.txt
+crh_lt,Reyana Kadırova - Tavğa bardım,GCDwfFXydasnBLWDhaRuo3,Reyana Kadırova-Tavğa bardım,Reyana Kadırova,Reyana Kadırova,1.05,HIGH,YES,1/2,scripts/lyrics_crh_lt/Reyana Kadırova - Tavğa bardım.txt
+crh_lt,Unknown - Tavğa bardım,GCDwfFXydasnBLWDhaRuo3,Reyana Kadırova-Tavğa bardım,Reyana Kadırova,Reyana Kadırova,0.60,LOW,YES,2/2,scripts/lyrics_crh_lt/Unknown - Tavğa bardım.txt
+crh_lt,Raziye Seytablayeva - Sevda oldım,PK0TKo0YRn25PU3vIqgdhJ,Raziye Seytablayeva - Sevda oldım,Raziye Seytablayeva,Raziye Seytablayeva,1.10,HIGH,NO,,scripts/lyrics_crh_lt/Raziye Seytablayeva - Sevda oldım.txt
+crh_lt,Jamala - Ana Vatan,0mjOlIU5UcUNCJv0h0ZT7K,Jamala-Jamaica,Jamala,Jamala,0.72,MEDIUM,NO,,scripts/lyrics_crh_lt/Jamala - Ana Vatan.txt
+crh_lt,Afize Yusuf-Qızı - Deñiz dalğasız olmaz,MuK8B1OBUOnl7ujJVDM0by,Afize Yusuf-qızı-Deñiz dalğasız olmaz,Afize Yusuf-qızı,Afize Yusuf-qızı,1.03,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Deñiz dalğasız olmaz.txt
+crh_lt,Arslanbek Sultanbekov - Родина,fGLcd5PdrXaw1OUjalDwEo,Ruslan Arslanbekov-Sultaniye,Ruslan Arslanbekov,Ruslan Arslanbekov,0.58,LOW,NO,,scripts/lyrics_crh_lt/Arslanbek Sultanbekov - Родина.txt
+crh_lt,Jamala - Meni ğamdan azat eyle,SRe6TN9CrK3yFAZXL7derV,Jamala-Meni ğamdan azat eyle,Jamala,Jamala,1.05,HIGH,NO,,scripts/lyrics_crh_lt/Jamala - Meni ğamdan azat eyle.txt
+crh_lt,Zore Kadıyeva - Bayraq,RUbDUuuo6hi857eXlj9a74,Zore Kadıyeva-Bayraq,Zore Kadıyeva,Zore Kadıyeva,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Zore Kadıyeva - Bayraq.txt
+crh_lt,Ediye Topçi - Qolda filcanım,xWnzFuR5bTGArTmGlnCQua,Ediye Topçi-Qolda filcanım,Ediye Topçi,Ediye Topçi,0.94,HIGH,NO,,scripts/lyrics_crh_lt/Ediye Topçi - Qolda filcanım.txt
+crh_lt,Mulan (OST) - Neci var karşımda yol alan [Reflection],0qUYVMvXMxrGdqUHbtVYUM,Mamet Kharkhara - Baydarava yollari,Mamet Kharkhara,Mamet Kharkhara,0.47,LOW,NO,,scripts/lyrics_crh_lt/Mulan (OST) - Neci var karşımda yol alan [Reflection].txt
+crh_lt,Asan Bilâlov - Baydarava Yolları,yOBFmZJULcfX4Q5g0nJM4f,Fevzi Bilâlov-Baydarava yolları,Fevzi Bilâlov,Fevzi Bilâlov,0.81,HIGH,NO,,scripts/lyrics_crh_lt/Asan Bilâlov - Baydarava Yolları.txt
+crh_lt,Güzel - Melegimsiñ мелегимсинъ,OPTvKKXAxxqzUroogUP0lw,Güzel-Melegimsiñ,Güzel,Güzel,0.62,MEDIUM,NO,,scripts/lyrics_crh_lt/Güzel - Melegimsiñ мелегимсинъ.txt
+crh_lt,Güzel - Yel olsam,1pP6WjuAHt6rFapxmAO4nk,Güzel-Yel olsam,Güzel,Güzel,0.90,HIGH,YES,1/2,scripts/lyrics_crh_lt/Güzel - Yel olsam.txt
+qmusic,008 - GÜZEL – YEL OLSAM,1pP6WjuAHt6rFapxmAO4nk,Güzel-Yel olsam,Güzel,Güzel,0.79,MEDIUM,YES,2/2,scripts/lyrics_qmusic/008 - GÜZEL – YEL OLSAM.txt
+crh_lt,Soviet Patriotic_Folk Songs - Шеитлернинъ Хатрына,SJ03NYuYQO7CCtVTyztYSD,Server Kakura-Totayköy horanı ve haytarma,Server Kakura,Server Kakura,0.47,LOW,NO,,scripts/lyrics_crh_lt/Soviet Patriotic_Folk Songs - Шеитлернинъ Хатрына.txt
+crh_lt,Soviet Patriotic_Folk Songs - Qızıl asker marşı,CmrPvXpKCp5MADgsfS44i4,Şevket Zmorka-Rock haytarma,Şevket Zmorka,Şevket Zmorka,0.43,LOW,NO,,scripts/lyrics_crh_lt/Soviet Patriotic_Folk Songs - Qızıl asker marşı.txt
+crh_lt,Unknown - Sen eñ güzelsiñ,o2twQ8pzSouxeUE5zwVbsi,Aliye Cepparova-Sen eñ güzelsiñ,Aliye Cepparova,Aliye Cepparova,0.49,LOW,NO,,scripts/lyrics_crh_lt/Unknown - Sen eñ güzelsiñ.txt
+crh_lt,Aliye Yakubova - Erecebim,iLOIPsXYf3wewlrp8cLvX2,Aliye Yakubova-Erecebim,Aliye Hacabadinova,Aliye Hacabadinova,0.98,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Yakubova - Erecebim.txt
+crh_lt,Raziye Seytablayeva - Şaq-şaq,IqUk4aIh9xk2BOQd6whfOd,Raziye Seytablayeva - Şaq-şaq,Raziye Seytablayeva,Raziye Seytablayeva,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Raziye Seytablayeva - Şaq-şaq.txt
+crh_lt,Emine Mustafayeva - Dostum,KRXr4Erom5DpsEGQ8aNCkR,Emine Mustafayeva-Dostum,Emine Mustafayeva,Emine Mustafayeva,1.08,HIGH,YES,1/2,scripts/lyrics_crh_lt/Emine Mustafayeva - Dostum.txt
+qmusic,052 - EMİNE MUSTAFAYEVA - DOSTUM,KRXr4Erom5DpsEGQ8aNCkR,Emine Mustafayeva-Dostum,Emine Mustafayeva,Emine Mustafayeva,1.00,HIGH,YES,2/2,scripts/lyrics_qmusic/052 - EMİNE MUSTAFAYEVA - DOSTUM.txt
+crh_lt,Evelina (Ukraine) - Sevgi yeli,2H5EaK0r3jgWdfPtl4q5tP,Server Kakura-Sevgilim,Server Kakura,Server Kakura,0.60,LOW,NO,,scripts/lyrics_crh_lt/Evelina (Ukraine) - Sevgi yeli.txt
+crh_lt,Afize Yusuf-Qızı - Beşik yırı,1VSPWVGzvPeSMH9aj7HbPC,Afize Yusuf-qızı-Beşik yırı,Afize Yusuf-qızı,Afize Yusuf-qızı,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Beşik yırı.txt
+qmusic,026 - NOĞAY BEYİTLERİ-3,jYAdwpgHywW67DUygYQRsd,Dilâver Osmanov-Noğay beyitleri,Dilâver Osmanov,Dilâver Osmanov,0.60,MEDIUM,YES,1/4,scripts/lyrics_qmusic/026 - NOĞAY BEYİTLERİ-3.txt
+qmusic,027 - NOĞAY BEYİTLERİ-4,jYAdwpgHywW67DUygYQRsd,Dilâver Osmanov-Noğay beyitleri,Dilâver Osmanov,Dilâver Osmanov,0.60,MEDIUM,YES,2/4,scripts/lyrics_qmusic/027 - NOĞAY BEYİTLERİ-4.txt
+qmusic,025 - NOĞAY BEYİTLERİ-2,jYAdwpgHywW67DUygYQRsd,Dilâver Osmanov-Noğay beyitleri,Dilâver Osmanov,Dilâver Osmanov,0.60,MEDIUM,YES,3/4,scripts/lyrics_qmusic/025 - NOĞAY BEYİTLERİ-2.txt
+crh_lt,Unknown - Ногъай беитлери,jYAdwpgHywW67DUygYQRsd,Dilâver Osmanov-Noğay beyitleri,Dilâver Osmanov,Dilâver Osmanov,0.58,LOW,YES,4/4,scripts/lyrics_crh_lt/Unknown - Ногъай беитлери.txt
+crh_lt,Asiye Saale - Seit-Asan,KCrarFRKXtpslMVLVrmdDY,Asiye Saale-Seitasan,Asiye Saale,Asiye Saale,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Seit-Asan.txt
+crh_lt,Zeynep Seytumerova - Aldatma qıznı,5ciPlg5z38UkPi8kcNQdf3,Zeynep Seytumerova-Aldatma qıznı,Zeynep Seytumerova,Zeynep Seytumerova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Zeynep Seytumerova - Aldatma qıznı.txt
+crh_lt,Raziye Seytablayeva - Eki pugu,lLPv3rJiwhpAk20lIlgRcj,Raziye Seytablayeva-Eki puğu,Raziye Seytablayeva,Raziye Seytablayeva,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Raziye Seytablayeva - Eki pugu.txt
+crh_lt,Tatar Folk - Bağçalarda kestane,X14AIPBEAvznoNss33ipXa,Belbek-Bağçalarda kestane,Belbek,Belbek,0.68,MEDIUM,NO,,scripts/lyrics_crh_lt/Tatar Folk - Bağçalarda kestane.txt
+crh_lt,Elnara Küçük - Sevgiñ ateş kibi,wRH67WFR2V9kIKIO5kH72M,Elnara Küçük-Sevgiñ ateş kibi,Elnara Küçük,Elnara Küçük,0.81,HIGH,NO,,scripts/lyrics_crh_lt/Elnara Küçük - Sevgiñ ateş kibi.txt
+crh_lt,Halisa Ablayeva - Къаленинъ тюбюнде,N2QjRe6HCmQEYN2Q1EYGxd,Halisa Ablayeva-Qaleniñ tübünde,Halisa Ablayeva,Halisa Ablayeva,1.02,HIGH,NO,,scripts/lyrics_crh_lt/Halisa Ablayeva - Къаленинъ тюбюнде.txt
+crh_lt,"Rustem Memetov - Kel, Mavı Közlüm(Кель, мавы козьлюм)",HVBLUq6K4bu0pLLQvohXGN,"Rustem Memetov-Kel, mavı közlüm",Rustem Memetov,Rustem Memetov,0.87,HIGH,NO,,"scripts/lyrics_crh_lt/Rustem Memetov - Kel, Mavı Közlüm(Кель, мавы козьлюм).txt"
+crh_lt,Unknown Artist (Crimean Tatar) - Şeitlerniñ Hatrına,uHp93r0rsWi7Bv0R6pVhmD,FortRoyalBeatz-Crimean Tatar Trap (2013 Mix),FortRoyalBeatz (EmCiEl),FortRoyalBeatz (EmCiEl),0.48,LOW,NO,,scripts/lyrics_crh_lt/Unknown Artist (Crimean Tatar) - Şeitlerniñ Hatrına.txt
+crh_lt,Aliye Yakubova - Yosmam,yjbsX6hTPe1kVphk3UQ1No,Aliye Yakubova-Yosmam,Aliye Hacabadinova,Aliye Hacabadinova,0.98,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Yakubova - Yosmam.txt
+crh_lt,Anonim qırım - Эки чешме,A3wlh3SWDditpSMFDzmebx,Qırım-Tım-tım (eski),Qırım,Qırım,0.57,LOW,NO,,scripts/lyrics_crh_lt/Anonim qırım - Эки чешме.txt
+crh_lt,The Lion King (OST) - Yarıqqa qaranlıq [Circle of Life],QAdgKUHomCT46ivbLXe4of,Alim Osmanov (Qara Deñiz)-Nazlı Leylâm (Öt bülbülim),Alim Osmanov (Qara Deñiz),Alim Osmanov (Qara Deñiz),0.46,LOW,NO,,scripts/lyrics_crh_lt/The Lion King (OST) - Yarıqqa qaranlıq [Circle of Life].txt
+crh_lt,"National Anthems & Patriotic Songs - Crimean Tatars, Anthem of the - Ant Etkenmen",LpLHHslqaWKYOdYaBEOINu,Seytabla Memetov ve Dilâver Settarov-Ant etkenmen,Seytabla Memetov,Seytabla Memetov,0.46,LOW,NO,,"scripts/lyrics_crh_lt/National Anthems & Patriotic Songs - Crimean Tatars, Anthem of the - Ant Etkenmen.txt"
+crh_lt,Soviet Patriotic_Folk Songs - Порт-Артур,Rk5NVISZdbt6X9UtAktkKr,Destan-Port-Artur,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.51,LOW,NO,,scripts/lyrics_crh_lt/Soviet Patriotic_Folk Songs - Порт-Артур.txt
+crh_lt,Arsen Bekirov - Sağınam,3Khgn79b7d64KVssNUsvzh,Arsen Bekirov-Sağınam,Arsen Bekirov,Arsen Bekirov,1.03,HIGH,NO,,scripts/lyrics_crh_lt/Arsen Bekirov - Sağınam.txt
+crh_lt,Sabriye Erecepova - Qaynana ve kelin,ALDRnrUw01An9xtJqS6T7v,Sabriye Erecepova-Qaynana ve kelin,Sabriye Erecepova,Sabriye Erecepova,1.09,HIGH,NO,,scripts/lyrics_crh_lt/Sabriye Erecepova - Qaynana ve kelin.txt
+crh_lt,Emine Mustafayeva - Üç gögercin,jScmhV8Lhs2kGDBs9yLD2w,Emine Mustafayeva-Yaz keçti,Emine Mustafayeva,Emine Mustafayeva,0.86,HIGH,NO,,scripts/lyrics_crh_lt/Emine Mustafayeva - Üç gögercin.txt
+crh_lt,Emiliya Ablayeva - Elvida,kp8cv5INf25Os2ahRDQt8i,Emiliya Ablayeva-Elvida,Emiliya Ablayeva,Emiliya Ablayeva,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Emiliya Ablayeva - Elvida.txt
+crh_lt,Lenara Osmanova - Ateş Атеш,2ajprHgTYgwlRCiIKBErYP,Lenara Osmanova-Ateş,Lenara Osmanova,Lenara Osmanova,0.92,HIGH,NO,,scripts/lyrics_crh_lt/Lenara Osmanova - Ateş Атеш.txt
+crh_lt,Asiye Saale - Doğğan yerim dağ-dereler,kO9BIEM7SlJMxkVQbLF4Qb,Асие Саале - Догъгъан ерим дагъ-дерелер,Asiye Saale,Asiye Saale,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Doğğan yerim dağ-dereler.txt
+crh_lt,Zeynep Lumanova - Bahşış yüzük (Altın yüzük),jYUG5t2p5wxFwFTCTnkdvo,Zeynep Lömanova-Altın yüzük,Zeynep Lömanova,Zeynep Lömanova,0.70,MEDIUM,NO,,scripts/lyrics_crh_lt/Zeynep Lumanova - Bahşış yüzük (Altın yüzük).txt
+crh_lt,Asiye Saale - Küzde yapraq tökülür,SXJpKkjatueQka7i1olhWT,Asiye Saale ve ATR ansambli-Küzde yapraq tökülür,Asiye Saale,Asiye Saale,0.81,HIGH,NO,,scripts/lyrics_crh_lt/Asiye Saale - Küzde yapraq tökülür.txt
+crh_lt,Jamala - KENE ALDI ĞAM BENİ,8q2sd93UksONRtcWjqZEQo,Jamala-Обещание (Safinteam Remix),Jamala,Jamala,0.71,MEDIUM,NO,,scripts/lyrics_crh_lt/Jamala - KENE ALDI ĞAM BENİ.txt
+crh_lt,"Güzel - Ayt, canım Айт джаным",wpUNvN5Per13aQfX8G4JSS,"Güzel-Ayt, canım",Güzel,Güzel,0.67,MEDIUM,NO,,"scripts/lyrics_crh_lt/Güzel - Ayt, canım Айт джаным.txt"
+crh_lt,Crimean Tatar Folk - Alemge deñişmem,26LjJOYHiKyQmkF40rMkwD,Nariman Baliç-Qara deñiz,Nariman Baliç,Nariman Baliç,0.49,LOW,NO,,scripts/lyrics_crh_lt/Crimean Tatar Folk - Alemge deñişmem.txt
+crh_lt,"Sergey Kutanin - Ey, Güzel Qırım",zKfiMnXSBgzCrMBQMBI5Qt,"Pervan-Ey, güzel Qırım!",Diger,Diger,0.69,MEDIUM,NO,,"scripts/lyrics_crh_lt/Sergey Kutanin - Ey, Güzel Qırım.txt"
+crh_lt,Dilyara Tukyanji - Men Bu Gece Bir Tüş Kördim,mP6TIpC5TW1NFsqg5Vzi2p,Dilyara Tukyanji - Men bu gece bir t&#252;&#351; k&#246;rdim,Dilyara Tukyanji,Dilyara Tukyanji,0.97,HIGH,NO,,scripts/lyrics_crh_lt/Dilyara Tukyanji - Men Bu Gece Bir Tüş Kördim.txt
+crh_lt,Elvina Yuldaşeva - Vatanım Qırım,jS7TMEgU9Z5c37knwpswm2,Elvina Yuldaşeva-Vatanım Qırım,Elvina Yuldaşeva,Elvina Yuldaşeva,0.95,HIGH,NO,,scripts/lyrics_crh_lt/Elvina Yuldaşeva - Vatanım Qırım.txt
+crh_lt,Dilyara Tukyanji - Ayşem,o0xqUhVE9HsfHYMBChg8AC,Dilyara Tukyanji - Ay&#351;em,Dilyara Tukyanji,Dilyara Tukyanji,1.01,HIGH,NO,,scripts/lyrics_crh_lt/Dilyara Tukyanji - Ayşem.txt
+crh_lt,Unknown - Qırım Qızı,hxM0wtfRLjtPr6NuT0UpOR,Günay-Qırım qızı,Günay,Günay,0.73,MEDIUM,YES,1/3,scripts/lyrics_crh_lt/Unknown - Qırım Qızı.txt
+qmusic,054 - Къырым къызы,hxM0wtfRLjtPr6NuT0UpOR,Günay-Qırım qızı,Günay,Günay,0.69,MEDIUM,YES,2/3,scripts/lyrics_qmusic/054 - Къырым къызы.txt
+qmusic,010 - GÜNAY – QIRIM QIZI,hxM0wtfRLjtPr6NuT0UpOR,Günay-Qırım qızı,Günay,Günay,0.57,LOW,YES,3/3,scripts/lyrics_qmusic/010 - GÜNAY – QIRIM QIZI.txt
+crh_lt,Üsniye İbraimova - Terligim,OKv8g2yuiaRQQZqbEKbiR0,Üsniye İbraimova-Terligim,Üsniye İbraimova,Üsniye İbraimova,1.08,HIGH,NO,,scripts/lyrics_crh_lt/Üsniye İbraimova - Terligim.txt
+crh_lt,Eshnight - Nege Kerek (Неге Керек),Z8TiS7j2XlbvMtyJesesaN,Eshnight-Nege kerek,Eshnight,Eshnight,0.85,HIGH,NO,,scripts/lyrics_crh_lt/Eshnight - Nege Kerek (Неге Керек).txt
+crh_lt,Üriye Kermençikli - Anteresi ala beñzeyür,z09asVvGxdaCmsywxQjvHx,Üriye Kermençikli-Anterisi ala beñzeyur,Üriye Kermençikli,Üriye Kermençikli,0.86,HIGH,NO,,scripts/lyrics_crh_lt/Üriye Kermençikli - Anteresi ala beñzeyür.txt
+crh_lt,Şefika Tatarisova - Qaranfil,BN0jatdxu5YXCJziRMSLDt,Şefika Tatarisova-Qaranfil,Şefika Tatarisova,Şefika Tatarisova,0.94,HIGH,NO,,scripts/lyrics_crh_lt/Şefika Tatarisova - Qaranfil.txt
+crh_lt,"Elzara Batalova - Em seversiñ, em sevmezsiñ",dDZMAwMaB3fTRRoKrPMeBY,Elzara Batalova-Em seversiñ (Live),Elzara Batalova,Elzara Batalova,0.86,HIGH,NO,,"scripts/lyrics_crh_lt/Elzara Batalova - Em seversiñ, em sevmezsiñ.txt"
+crh_lt,"Karolina Cicha - Сыра-сыра джезвелер (Sira, sira djezveler)",xBPCWnTtthIxgonYn0ZjoY,Elina Sosnovskaya - Sira-sira djezveler ,Elina Sosnovskaya,Elina Sosnovskaya,0.59,LOW,NO,,"scripts/lyrics_crh_lt/Karolina Cicha - Сыра-сыра джезвелер (Sira, sira djezveler).txt"
+crh_lt,Afize Yusuf-Qızı - Yürekten,f3PvkTuY2eKf43CqMHrL2N,Afize Yusuf-qızı-Yürekten,Afize Yusuf-qızı,Afize Yusuf-qızı,1.04,HIGH,NO,,scripts/lyrics_crh_lt/Afize Yusuf-Qızı - Yürekten.txt
+crh_lt,Marlen Settarov - İç suçlu degilsiñ sen,2ExFInaxJEHRixBI3eIC4A,Marlen Settarov-İç suçlu degilsiñ sen,Marlen Settarov,Marlen Settarov,1.00,HIGH,NO,,scripts/lyrics_crh_lt/Marlen Settarov - İç suçlu degilsiñ sen.txt
+crh_lt,Asan Hayretdinov - Sevgi ikâyesi,sKSJ6Yjli6NCPrEejVJxEw,Asan Hayretdinov-Sevgi ikâyesi,Asan Hayretdinov,Asan Hayretdinov,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Asan Hayretdinov - Sevgi ikâyesi.txt
+crh_lt,Güzel - Sevgi dağları,85XksWTF69TZ4JrbTXC4eQ,Güzel-Sevgi dağları,Güzel,Güzel,0.86,HIGH,NO,,scripts/lyrics_crh_lt/Güzel - Sevgi dağları.txt
+crh_lt,Reyana Kadırova - Dağdan endi bir qozu,qVUfSgtjFm5oC0QMCXX1vb,Reyana Kadırova-Dağdan endi bir qozu,Reyana Kadırova,Reyana Kadırova,1.06,HIGH,NO,,scripts/lyrics_crh_lt/Reyana Kadırova - Dağdan endi bir qozu.txt
+crh_lt,Bekir Çoban-Zade - Tuvğan Til,yfy9V48JenOBhvTo3WhORV,Riza Yusuf-Tuvğan til,Riza Yusuf,Riza Yusuf,0.57,LOW,NO,,scripts/lyrics_crh_lt/Bekir Çoban-Zade - Tuvğan Til.txt
+crh_lt,Güzel - Zumrut зумрут,tHeFX7jzqp0ahbNFgNpbj9,Güzel-Zumrut,Güzel,Güzel,0.67,MEDIUM,NO,,scripts/lyrics_crh_lt/Güzel - Zumrut зумрут.txt
+crh_lt,Zore Kadıyeva - Körbegim,a3YOIkyD65R6sTeL9a2pxG,Zore Kadıyeva-Körbegim,Zore Kadıyeva,Zore Kadıyeva,1.03,HIGH,NO,,scripts/lyrics_crh_lt/Zore Kadıyeva - Körbegim.txt
+crh_lt,Faun - UMAY,0jSxFpeS8TSIH4BpbQXDeW,Uçan-Su-Matay,Uçan-Su,Uçan-Su,0.60,MEDIUM,NO,,scripts/lyrics_crh_lt/Faun - UMAY.txt
+crh_lt,Aliye Bekirova - Vatanda Sevip Yaşa,LRdxHvE7H8ZzcboE7qjbbp,Aliye Bekirova - Vatanda sevip yaşa,Aliye Bekirova,Aliye Bekirova,1.07,HIGH,NO,,scripts/lyrics_crh_lt/Aliye Bekirova - Vatanda Sevip Yaşa.txt
+crh_lt,Crimean Tatar Folk - Port Arthur,hvTwVOHKoT9nrpEXJJC8ZW,Qirim Yankisi - Порт-Артур,Qırım Yankısı,Qırım Yankısı,0.60,MEDIUM,NO,,scripts/lyrics_crh_lt/Crimean Tatar Folk - Port Arthur.txt
+crh_lt,Asiye Saale - Çalıquşu (Королёк – птичка певчая),NV1re3Y7sVGm8hZRNS68fJ,Asiye Saale &amp; Nariman Balich - &#199;al&#305;qu&#351;u (Королёк птичка певчая) (Muzut.net) ,[Unknown Artist],[Unknown Album],0.67,MEDIUM,NO,,scripts/lyrics_crh_lt/Asiye Saale - Çalıquşu (Королёк – птичка певчая).txt
+qmusic,038 - Quote,jBZ4wJ6XwoGbDiSQYmnxab,Asan Umerov-Rustem,Asan Umerov,Asan Umerov,0.38,LOW,YES,1/4,scripts/lyrics_qmusic/038 - Quote.txt
+qmusic,044 - Quote,jBZ4wJ6XwoGbDiSQYmnxab,Asan Umerov-Rustem,Asan Umerov,Asan Umerov,0.38,LOW,YES,2/4,scripts/lyrics_qmusic/044 - Quote.txt
+qmusic,057 - Quote,jBZ4wJ6XwoGbDiSQYmnxab,Asan Umerov-Rustem,Asan Umerov,Asan Umerov,0.38,LOW,YES,3/4,scripts/lyrics_qmusic/057 - Quote.txt
+qmusic,059 - Quote,jBZ4wJ6XwoGbDiSQYmnxab,Asan Umerov-Rustem,Asan Umerov,Asan Umerov,0.38,LOW,YES,4/4,scripts/lyrics_qmusic/059 - Quote.txt
+qmusic,030 - Bayrach,ch9yJIkShIA2DCB0T9AMkH,Bayram-Haytarma,Bayram,Bayram,0.48,LOW,NO,,scripts/lyrics_qmusic/030 - Bayrach.txt
+qmusic,018 - FAETON - MEMLEKETİM,2ZEYCm7ocSjonFPYlf1fQJ,Faeton-Memleketim,Faeton,Faeton,0.96,HIGH,NO,,scripts/lyrics_qmusic/018 - FAETON - MEMLEKETİM.txt
+qmusic,062 - SERVER KAKURA - EBABİL,KlUtqKzU71XkmQiwVbk1Wf,Server Kakura-Ebabil,Server Kakura,Server Kakura,0.98,HIGH,NO,,scripts/lyrics_qmusic/062 - SERVER KAKURA - EBABİL.txt
+qmusic,"040 - Cılama, kelin, cılama,",FtlHQR8NpoxOexHGmzinrF,Salaçıq-Ağlama kelin,Salaçıq,Salaçıq,0.57,LOW,NO,,"scripts/lyrics_qmusic/040 - Cılama, kelin, cılama,.txt"
+qmusic,035 - O-skin,NlNRZJMQfdGVt7DuIuUaVy,Arsen Osmanov-Kiçkene,Arsen Osmanov,Arsen Osmanov,0.41,LOW,NO,,scripts/lyrics_qmusic/035 - O-skin.txt
+qmusic,014 - ._ЯЛАН СЁЗЛЕР_,H8X8b3C7hFaM1SSRB9tFpl,Reana Tarkova-Yalan sözler,Reana Tarkova,Reana Tarkova,0.62,MEDIUM,NO,,scripts/lyrics_qmusic/014 - ._ЯЛАН СЁЗЛЕР_.txt
+qmusic,015 - Селям алейкум))))пожалуйста напишите слова из,Y9bA7s85tvp57W6tjGLn2E,Alim Hakimov-Прості слова,Alim Hakimov,Alim Hakimov,0.49,LOW,NO,,scripts/lyrics_qmusic/015 - Селям алейкум))))пожалуйста напишите слова из.txt
+qmusic,043 - Селям алейкум джемаат. _шеер чокъ,Psh46CTsLplueh3U3La7AN,Qatırşa-Saray-Mına selâm aleyküm (Crimean song),Qatırşa-Saray,Qatırşa-Saray,0.52,LOW,YES,1/3,scripts/lyrics_qmusic/043 - Селям алейкум джемаат. _шеер чокъ.txt
+qmusic,065 - селям алейкум! срочно нужна минусовка,Psh46CTsLplueh3U3La7AN,Qatırşa-Saray-Mına selâm aleyküm (Crimean song),Qatırşa-Saray,Qatırşa-Saray,0.48,LOW,YES,2/3,scripts/lyrics_qmusic/065 - селям алейкум! срочно нужна минусовка.txt
+qmusic,"037 - Всем селям!!! Люди, у кого",Psh46CTsLplueh3U3La7AN,Qatırşa-Saray-Mına selâm aleyküm (Crimean song),Qatırşa-Saray,Qatırşa-Saray,0.45,LOW,YES,3/3,"scripts/lyrics_qmusic/037 - Всем селям!!! Люди, у кого.txt"
+qmusic,056 - EM SEVERSİÑ,c5B9Hm9PmMLqm5G0El2l2J,Minaret-Em seversiñ,Minaret,Minaret,0.61,MEDIUM,YES,1/2,scripts/lyrics_qmusic/056 - EM SEVERSİÑ.txt
+qmusic,058 - Em Seversiñ,c5B9Hm9PmMLqm5G0El2l2J,Minaret-Em seversiñ,Minaret,Minaret,0.61,MEDIUM,YES,2/2,scripts/lyrics_qmusic/058 - Em Seversiñ.txt
+qmusic,017 - EMİLİYA ABLAYEVA - DOSTUM,UGmw0YBivt6NwcKmXuKaDr,Emiliya Ablayeva-Dostum,Emiliya Ablayeva,Emiliya Ablayeva,1.00,HIGH,NO,,scripts/lyrics_qmusic/017 - EMİLİYA ABLAYEVA - DOSTUM.txt
+qmusic,028 - RiverRat! чокъ сагъол акъай.,RPf3u5J573DRwGMut1A1SR,Dilâver Osmanov-Salaçıq,Dilâver Osmanov,Dilâver Osmanov,0.45,LOW,NO,,scripts/lyrics_qmusic/028 - RiverRat! чокъ сагъол акъай..txt
+qmusic,020 - On Eki De Ördek,7ShQKn3C2NMAul7kxwgkrP,İbrahim Dülger-On eki ördek,Diger,Diger,0.53,LOW,YES,1/3,scripts/lyrics_qmusic/020 - On Eki De Ördek.txt
+qmusic,064 - ON İKİ ÖRDEK,7ShQKn3C2NMAul7kxwgkrP,İbrahim Dülger-On eki ördek,Diger,Diger,0.52,LOW,YES,2/3,scripts/lyrics_qmusic/064 - ON İKİ ÖRDEK.txt
+qmusic,022 - Oneki de ördek,7ShQKn3C2NMAul7kxwgkrP,İbrahim Dülger-On eki ördek,Diger,Diger,0.50,LOW,YES,3/3,scripts/lyrics_qmusic/022 - Oneki de ördek.txt
+qmusic,048 - Sana dargın değilim gidişlerin bir anlık öfke,Nm4OqL0umipUBn2gvLoiyO,Reyana Kadırova-Ne işlerin var idi (Live),Reyana Kadırova,Reyana Kadırova,0.44,LOW,NO,,scripts/lyrics_qmusic/048 - Sana dargın değilim gidişlerin bir anlık öfke.txt
+qmusic,051 - Bu da bir manalı yır (qaraçayca),c2135uqC9s9mC7zXRwxwB3,Dilâver Osmanov-Qınalı parmaqlarıñ,Dilâver Osmanov,Dilâver Osmanov,0.45,LOW,NO,,scripts/lyrics_qmusic/051 - Bu da bir manalı yır (qaraçayca).txt
+qmusic,"053 - ELZARA BATALOVA - EY, OĞLAN",DrT9Mqi7i5YvfmONesL2Fs,"Elzara Batalova-Ey, oğlan",Elzara Batalova,Elzara Batalova,0.96,HIGH,NO,,"scripts/lyrics_qmusic/053 - ELZARA BATALOVA - EY, OĞLAN.txt"
+qmusic,"005 - Азиз анам, нелер япып",Bs1Fal8EoUKn3DegEjt7NZ,DJ Azzy-Yan-yana (Electro House),DJ Azzy,DJ Azzy,0.49,LOW,NO,,"scripts/lyrics_qmusic/005 - Азиз анам, нелер япып.txt"
+qmusic,042 - Танъ йылдызы,XKewcUx99CsywKUnLSLETt,Esma-Tañ yıldızı,Esma,Esma,0.67,MEDIUM,NO,,scripts/lyrics_qmusic/042 - Танъ йылдызы.txt
+qmusic,024 - Сайгъылы Достлар.. Быр де Ногъай Бейитлерин сёзлерини язсаныз... Сагъолунъыз,cIwq1ntM3om8fXJRRDlpuL,Halq Çalğı Aletleriniñ Ansambli-Navrez avası,Diger,Diger,0.41,LOW,NO,,scripts/lyrics_qmusic/024 - Сайгъылы Достлар.. Быр де Ногъай Бейитлерин сёзлерини язсаныз... Сагъолунъыз.txt
+qmusic,004 - От Барабашки,LTBo5E4rmcq4dpWnnI0hv3,Taraf-Rumba,Taraf,Taraf,0.46,LOW,YES,1/2,scripts/lyrics_qmusic/004 - От Барабашки.txt
+qmusic,003 - От Барабашки,LTBo5E4rmcq4dpWnnI0hv3,Taraf-Rumba,Taraf,Taraf,0.46,LOW,YES,2/2,scripts/lyrics_qmusic/003 - От Барабашки.txt
+qmusic,032 - Dünyada her şeşek maalinde açar,Ppc7g01qkQvSM55d3K5WeQ,Nariman Baliç-Nesil haytarması,Nariman Baliç,Nariman Baliç,0.44,LOW,NO,,scripts/lyrics_qmusic/032 - Dünyada her şeşek maalinde açar.txt
+qmusic,033 - Баллар кене селям алейкум... мына,xdjcPQHqydCAaFdaw0KzHG,Yalçın Faik-Mına selâm aleyküm,Yalçın Faik,Yalçın Faik,0.59,LOW,NO,,scripts/lyrics_qmusic/033 - Баллар кене селям алейкум... мына.txt
+qmusic,011 - Izzet - Fraon,TyJSw4reGSqyi9whwTjybA,İzzet-My Friend,İzzet,İzzet,0.72,MEDIUM,NO,,scripts/lyrics_qmusic/011 - Izzet - Fraon.txt
+qmusic,034 - Mina selâm aleyküm,PGrrnzje1s0BnVsOeKDbZR,Qirim Yankisi - Mina selâm aleykum,Qırım Yankısı,Qırım Yankısı,0.64,MEDIUM,NO,,scripts/lyrics_qmusic/034 - Mina selâm aleyküm.txt
+qmusic,045 - QINALI PARMAQ,EDNnIQ9jxKIzfHmYGPCdoG,Yıldız Ayhan-Qınalı parmaq,Yıldız Ayhan,Yıldız Ayhan,0.57,LOW,NO,,scripts/lyrics_qmusic/045 - QINALI PARMAQ.txt
+qmusic,013 - Destan - Ай чалашым,AWM9y6YSOssXvSALNLeTH3,"Destan-Ay, çalaşım",Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.76,MEDIUM,NO,,scripts/lyrics_qmusic/013 - Destan - Ай чалашым.txt
+qmusic,049 - Server Kakura - Qırımım,zElSbaR7NPzz3wNOn3tegY,Server Kakura - Qırımım,Server Kakura,Server Kakura,1.01,HIGH,NO,,scripts/lyrics_qmusic/049 - Server Kakura - Qırımım.txt
+qmusic,047 - Bağdad kibi şeer yohtur,o7kcquYFNZ3wapQ6kZwoVk,Adam İsmail-Tierro Noura,Adam İsmail,Adam İsmail,0.48,LOW,NO,,scripts/lyrics_qmusic/047 - Bağdad kibi şeer yohtur.txt
+qmusic,"036 - Men pıçağım qayırdım, qorazım soydım, alay",6nt2ZnqFOiIIwprAVb8Csv,Raya Levi (Qırımçaq)-Bir horazım bar edi (halq icrası),Halq icrası,Halq icrası,0.41,LOW,NO,,"scripts/lyrics_qmusic/036 - Men pıçağım qayırdım, qorazım soydım, alay.txt"
+qmusic,001 - Здесь будем выкладывать тексты песен.,G9kUVbXYFXabr6ODUVPzWQ,Edem Polâkov-Atım terlendi,Edem Polâkov,Edem Polâkov,0.48,LOW,NO,,scripts/lyrics_qmusic/001 - Здесь будем выкладывать тексты песен..txt
+qmusic,031 - Yalcin Faik - Ant etkenmen aytaman,mQf6c6YZj0VoSiV6Qw92jz,Yalçın Faik-Ant etkenmen aytaman,Yalçın Faik,Yalçın Faik,0.90,HIGH,NO,,scripts/lyrics_qmusic/031 - Yalcin Faik - Ant etkenmen aytaman.txt
+qmusic,"041 - Ay, oğlan, tatarmısın_",A3f1dv2DysFLeFeJcUDxux,"Emine Koç-Ay, oğlan, tatarmısıñ",Dilâra Emirüseinova,Dilâra Emirüseinova,0.75,MEDIUM,NO,,"scripts/lyrics_qmusic/041 - Ay, oğlan, tatarmısın_.txt"
+qmusic,023 - Mına bunı pek begenem_,qiinPcqwvwSNW5sQ1IYTcK,Dilâra Mahmudova-Men seni begenem,Dilâra Mahmudova,Dilâra Mahmudova,0.46,LOW,NO,,scripts/lyrics_qmusic/023 - Mına bunı pek begenem_.txt
+qmusic,002 - От Татлы Ногая,gR345TVKHi7roitNvyzVN7,Salaçıq-Плановая,Salaçıq,Salaçıq,0.46,LOW,NO,,scripts/lyrics_qmusic/002 - От Татлы Ногая.txt
+qmusic,016 - Эдип Асанов,FnP5SVh1MLLwRyjS2qI6J9,Arsen Asanov-Quş,Arsen Asanov,Arsen Asanov,0.53,LOW,NO,,scripts/lyrics_qmusic/016 - Эдип Асанов.txt
+qmusic,060 - EDİP ASANOV - MEYHANECİ,K2wYGgmCUkeZti3VrovfQO,Edip Bağçasaraylı-Meyhaneci,Edip Bağçasaraylı,Edip Bağçasaraylı,0.67,MEDIUM,NO,,scripts/lyrics_qmusic/060 - EDİP ASANOV - MEYHANECİ.txt
+qmusic,050 - NAZİFE REİZOVA - GİDENE BAH GİDENE,HEZP1fIoDfIs2ngG9ptbBt,Nazife Reizova - Gidene baq gidene,Nazife Reizova,Nazife Reizova,1.01,HIGH,NO,,scripts/lyrics_qmusic/050 - NAZİFE REİZOVA - GİDENE BAH GİDENE.txt
+qmusic,"055 - Он секиз майыс геджесинде эмир окъулды,",3iZFE4KZrVmKxTDr70u8TH,Alim Osmanov-On sekiz mayıs gecesinde (eski),Alim Osmanov (Qara Deñiz),Alim Osmanov (Qara Deñiz),0.69,MEDIUM,NO,,"scripts/lyrics_qmusic/055 - Он секиз майыс геджесинде эмир окъулды,.txt"
+qmusic,039 - KELİN TÜRKÜSİ,DPx2oBMD6tmz6QCoUYqYTJ,Fevzi Aliyev-Kelin haytarması,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.44,LOW,NO,,scripts/lyrics_qmusic/039 - KELİN TÜRKÜSİ.txt
+qmusic,"019 - Достлар, селям алейкум!",kxzDPBYjbdlNeh2ydBZsiV,Diaspora-Mına selâm aleyküm,Diger,Diger,0.65,MEDIUM,NO,,"scripts/lyrics_qmusic/019 - Достлар, селям алейкум!.txt"
+qmusic,"006 - Ай нуры пенджеремде, хаялим сени",puXVQymvrrmPfEeCmvyXaP,Zarema Halitova-Sevem seni,Zarema Khalitova,Zarema Khalitova,0.50,LOW,NO,,"scripts/lyrics_qmusic/006 - Ай нуры пенджеремде, хаялим сени.txt"
+qmusic,046 - RİKA ÇİNGİZ - AT MENİ,QgBZFOuhSePMkQSUsvYQeF,Rika Çingiz-At meni,Rika Çingiz,Rika Çingiz,0.83,HIGH,NO,,scripts/lyrics_qmusic/046 - RİKA ÇİNGİZ - AT MENİ.txt
+qmusic,029 - Arabası tınğırday,1BqfSH8X7za3hJT72PksJ9,Destan-Arabası tıñqırday,Destan (Fevzi Aliyev),Destan (Fevzi Aliyev),0.73,MEDIUM,NO,,scripts/lyrics_qmusic/029 - Arabası tınğırday.txt
+qmusic,007 - ZAREMA - ''HOP'' SÖYLE,cRkRLPhBOnDcw9ckuBJ26x,Zarema-Atak (DJ Senol remix),Zarema,Zarema,0.59,LOW,NO,,scripts/lyrics_qmusic/007 - ZAREMA - ''HOP'' SÖYLE.txt

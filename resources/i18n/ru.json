@@ -646,8 +646,8 @@
       "tracks": "Треков",
       "artists": "Артистов",
       "albums": "Альбомов",
-      "minutesValue": "%{count} мин",
-      "hoursValue": "%{count} ч",
+      "minutesValue": "%{count} минут",
+      "hoursValue": "%{count} часов",
       "daysValue": "%{count} дней"
     },
     "topTracks": {
@@ -659,7 +659,7 @@
       "title": "Топ артистов",
       "subtitle": "Самые слушаемые артисты",
       "plays": "%{count} прослушиваний",
-      "minutes": "%{count} мин"
+      "minutes": "%{count} минут"
     },
     "topAlbums": {
       "title": "Топ альбомов",

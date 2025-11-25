@@ -756,8 +756,8 @@
       "tracks": "Треків",
       "artists": "Артистів",
       "albums": "Альбомів",
-      "minutesValue": "%{count} хв",
-      "hoursValue": "%{count} год",
+      "minutesValue": "%{count} хвилин",
+      "hoursValue": "%{count} годин",
       "daysValue": "%{count} днів"
     },
     "topTracks": {
@@ -769,7 +769,7 @@
       "title": "Топ артистів",
       "subtitle": "Найбільш слухані артисти",
       "plays": "%{count} прослуховувань",
-      "minutes": "%{count} хв"
+      "minutes": "%{count} хвилин"
     },
     "topAlbums": {
       "title": "Топ альбомів",

@@ -755,7 +755,7 @@
       "tracks": "Parça",
       "artists": "Artist",
       "albums": "Albom",
-      "minutesValue": "%{count} daq",
+      "minutesValue": "%{count} daqqa",
       "hoursValue": "%{count} saat",
       "daysValue": "%{count} kün"
     },
@@ -768,7 +768,7 @@
       "title": "Top Artistler",
       "subtitle": "Eñ çoq diñlenilgen artistler",
       "plays": "%{count} diñleme",
-      "minutes": "%{count} daq"
+      "minutes": "%{count} daqqa"
     },
     "topAlbums": {
       "title": "Top Albomlar",

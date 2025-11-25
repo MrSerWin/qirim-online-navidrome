@@ -700,8 +700,8 @@
       "tracks": "Parça",
       "artists": "Sanatçı",
       "albums": "Albüm",
-      "minutesValue": "%{count} dk",
-      "hoursValue": "%{count} sa",
+      "minutesValue": "%{count} dakika",
+      "hoursValue": "%{count} saat",
       "daysValue": "%{count} gün"
     },
     "topTracks": {
@@ -713,7 +713,7 @@
       "title": "En İyi Sanatçılar",
       "subtitle": "En çok dinlenen sanatçılar",
       "plays": "%{count} dinlenme",
-      "minutes": "%{count} dk"
+      "minutes": "%{count} dakika"
     },
     "topAlbums": {
       "title": "En İyi Albümler",
