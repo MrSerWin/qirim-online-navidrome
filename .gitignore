@@ -68,3 +68,13 @@ DEPLOYMENT.md
 nginx.zip
 
 xray-qr-code.png
+
+# Instagram to VK sync
+scripts/instagram-to-vk/config.json
+scripts/instagram-to-vk/published.json
+scripts/instagram-to-vk/session/
+scripts/instagram-to-vk/downloads/
+scripts/instagram-to-vk/venv/
+scripts/instagram-to-vk/*.log
+
+scripts/instagram-to-vk/cookie.txt

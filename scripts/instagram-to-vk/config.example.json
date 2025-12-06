@@ -1,0 +1,18 @@
+{
+    "instagram": {
+        "username": "qirim.online",
+        "session_username": "INSTA_USERNAME_HERE"
+    },
+    "vk": {
+        "access_token": "VK_TOKEN_HERE",
+        "group_id": 139603784,
+        "api_version": "5.199"
+    },
+    "settings": {
+        "default_hashtags": "#qirimonline #qirim #music #anayurt #millet #qirimtatar #MenimQırım #QırımtatarSongs #QırımHeritage #QırımtatarMuzikası",
+        "website_link": "https://qirim.online/",
+        "max_posts_per_run": 5,
+        "download_videos": true,
+        "download_reels": true
+    }
+}
