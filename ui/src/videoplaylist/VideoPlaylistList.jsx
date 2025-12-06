@@ -7,9 +7,11 @@ import {
   DateField,
   SearchInput,
   useRecordContext,
+  useTranslate,
 } from 'react-admin'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import { Title } from '../common'
 
 const useStyles = makeStyles((theme) => ({
   thumbnail: {
@@ -69,6 +71,12 @@ const filters = [
   <SearchInput source="q" alwaysOn />,
 ]
 
+const VideoPlaylistListTitle = () => {
+  const translate = useTranslate()
+  const title = translate('resources.video-playlist.name', { smart_count: 2 })
+  return <Title subTitle={title} args={{ smart_count: 2 }} />
+}
+
 const VideoPlaylistList = (props) => {
   return (
     <List
@@ -77,6 +85,7 @@ const VideoPlaylistList = (props) => {
       sort={{ field: 'createdAt', order: 'DESC' }}
       perPage={25}
       exporter={false}
+      title={<VideoPlaylistListTitle />}
     >
       <Datagrid rowClick="show">
         <ThumbnailField label="resources.video-playlist.fields.thumbnail" />
