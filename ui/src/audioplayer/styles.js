@@ -87,6 +87,33 @@ const useStyle = makeStyles(
       '& .react-jinke-music-player-mobile-progress': {
         display: (props) => (props.isRadio ? 'none' : 'flex'),
       },
+      // Style for close button on mobile player modal
+      '& .react-jinke-music-player-mobile': {
+        position: 'relative',
+      },
+      '& .react-jinke-music-player-mobile .music-player-mobile-close': {
+        position: 'absolute',
+        top: '15px',
+        right: '15px',
+        width: '40px',
+        height: '40px',
+        background: 'rgba(0, 0, 0, 0.5)',
+        border: '2px solid rgba(255, 255, 255, 0.3)',
+        borderRadius: '50%',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        fontSize: '24px',
+        fontWeight: 'bold',
+        zIndex: 10000,
+        transition: 'all 0.2s ease',
+        '&:hover': {
+          background: 'rgba(0, 0, 0, 0.7)',
+          transform: 'scale(1.1)',
+        },
+      },
     },
   }),
   { name: 'NDAudioPlayer' },

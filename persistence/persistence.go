@@ -69,6 +69,14 @@ func (s *SQLStore) Karaoke(ctx context.Context) model.KaraokeRepository {
 	return NewKaraokeRepository(ctx, s.getDBXBuilder())
 }
 
+func (s *SQLStore) VideoClip(ctx context.Context) model.VideoClipRepository {
+	return NewVideoClipRepository(ctx, s.getDBXBuilder())
+}
+
+func (s *SQLStore) VideoPlaylist(ctx context.Context) model.VideoPlaylistRepository {
+	return NewVideoPlaylistRepository(ctx, s.getDBXBuilder())
+}
+
 func (s *SQLStore) ShopCategory(ctx context.Context) model.ResourceRepository {
 	return NewShopCategoryRepository(ctx, s.getDBXBuilder())
 }
@@ -135,6 +143,10 @@ func (s *SQLStore) Resource(ctx context.Context, m interface{}) model.ResourceRe
 		return s.Radio(ctx).(model.ResourceRepository)
 	case model.KaraokeSong:
 		return s.Karaoke(ctx).(model.ResourceRepository)
+	case model.VideoClip:
+		return s.VideoClip(ctx).(model.ResourceRepository)
+	case model.VideoPlaylist:
+		return s.VideoPlaylist(ctx).(model.ResourceRepository)
 	case model.ShopCategory:
 		return s.ShopCategory(ctx)
 	case model.ShopProduct:

@@ -344,6 +344,43 @@
       "actions": {
         "add": "Добавить караоке"
       }
+    },
+    "videoClip": {
+      "name": "Клипы |||| Клипы",
+      "fields": {
+        "title": "Название",
+        "artist": "Исполнитель",
+        "channelName": "Канал",
+        "description": "Описание",
+        "duration": "Длительность",
+        "viewCount": "Просмотры",
+        "publishedAt": "Опубликовано",
+        "createdAt": "Добавлено"
+      }
+    },
+    "video-clip": {
+      "name": "Клипы |||| Клипы",
+      "fields": {
+        "title": "Название",
+        "artist": "Исполнитель",
+        "channelName": "Канал",
+        "description": "Описание",
+        "duration": "Длительность",
+        "viewCount": "Просмотры",
+        "publishedAt": "Опубликовано",
+        "createdAt": "Добавлено"
+      }
+    },
+    "video-playlist": {
+      "name": "Плейлисты видео |||| Плейлисты видео",
+      "fields": {
+        "title": "Название",
+        "thumbnail": "Обложка",
+        "channelName": "Канал",
+        "description": "Описание",
+        "videoCount": "Видео",
+        "createdAt": "Добавлено"
+      }
     }
   },
   "ra": {

@@ -27,6 +27,8 @@ type MockDataStore struct {
 	MockedScrobbleBuffer model.ScrobbleBufferRepository
 	MockedRadio          model.RadioRepository
 	MockedKaraoke        model.KaraokeRepository
+	MockedVideoClip      model.VideoClipRepository
+	MockedVideoPlaylist  model.VideoPlaylistRepository
 	scrobbleBufferMu     sync.Mutex
 	repoMu               sync.Mutex
 }
@@ -231,6 +233,28 @@ func (db *MockDataStore) Karaoke(ctx context.Context) model.KaraokeRepository {
 		}
 	}
 	return db.MockedKaraoke
+}
+
+func (db *MockDataStore) VideoClip(ctx context.Context) model.VideoClipRepository {
+	if db.MockedVideoClip == nil {
+		if db.RealDS != nil {
+			db.MockedVideoClip = db.RealDS.VideoClip(ctx)
+		} else {
+			db.MockedVideoClip = struct{ model.VideoClipRepository }{}
+		}
+	}
+	return db.MockedVideoClip
+}
+
+func (db *MockDataStore) VideoPlaylist(ctx context.Context) model.VideoPlaylistRepository {
+	if db.MockedVideoPlaylist == nil {
+		if db.RealDS != nil {
+			db.MockedVideoPlaylist = db.RealDS.VideoPlaylist(ctx)
+		} else {
+			db.MockedVideoPlaylist = struct{ model.VideoPlaylistRepository }{}
+		}
+	}
+	return db.MockedVideoPlaylist
 }
 
 func (db *MockDataStore) ShopCategory(ctx context.Context) model.ResourceRepository {

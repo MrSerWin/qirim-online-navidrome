@@ -14,6 +14,8 @@ import album from './album'
 import artist from './artist'
 import playlist from './playlist'
 import karaoke from './karaoke'
+import videoClip from './videoclip'
+import videoPlaylist from './videoplaylist'
 import { shopCategory, shopProduct, shopOrder } from './shop'
 import MerchBrowser from './shop/MerchBrowser'
 import UserOrders from './shop/UserOrders'
@@ -108,6 +110,14 @@ const Admin = (props) => {
         <Resource
           name="karaoke"
           {...(permissions === 'admin' ? karaoke.admin : karaoke.all)}
+        />,
+        <Resource
+          name="video-clip"
+          {...(permissions === 'admin' ? videoClip.admin : videoClip.all)}
+        />,
+        <Resource
+          name="video-playlist"
+          {...(permissions === 'admin' ? videoPlaylist.admin : videoPlaylist.all)}
         />,
         // <Resource
         //   name="radio"

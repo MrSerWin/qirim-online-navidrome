@@ -1,0 +1,21 @@
+{
+    "database_path": "/opt/navidrome/data/navidrome.db",
+    "max_videos_per_channel": 50,
+    "channels": [
+        {
+            "name": "Example Channel",
+            "url": "https://www.youtube.com/@examplechannel",
+            "max_videos": 30,
+            "sync_playlists": true
+        }
+    ],
+    "playlists": [
+        {
+            "name": "Example Playlist",
+            "url": "https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxx"
+        }
+    ],
+    "artist_extraction": {
+        "patterns": []
+    }
+}

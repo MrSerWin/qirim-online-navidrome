@@ -14,6 +14,7 @@ import ReactJkMusicPlayer from 'navidrome-music-player'
 import 'navidrome-music-player/assets/index.css'
 import useCurrentTheme from '../themes/useCurrentTheme'
 import config from '../config'
+import { PAUSE_AUDIO_EVENT, PAUSE_VIDEO_EVENT } from '../videoclip/VideoClipShow'
 import useStyle from './styles'
 import AudioTitle from './AudioTitle'
 import {
@@ -232,6 +233,9 @@ const Player = () => {
         context.resume()
       }
 
+      // Pause video player when audio starts
+      window.dispatchEvent(new CustomEvent(PAUSE_VIDEO_EVENT))
+
       setIsPlaying(true)
       dispatch(currentPlaying(info))
       if (startTime === null) {
@@ -354,6 +358,52 @@ const Player = () => {
       audioInstance.volume = 1
     }
   }, [isMobilePlayer, audioInstance])
+
+  // Listen for video play event to pause audio
+  useEffect(() => {
+    const handlePauseAudio = () => {
+      if (audioInstance && isPlaying) {
+        audioInstance.pause()
+      }
+    }
+
+    window.addEventListener(PAUSE_AUDIO_EVENT, handlePauseAudio)
+    return () => {
+      window.removeEventListener(PAUSE_AUDIO_EVENT, handlePauseAudio)
+    }
+  }, [audioInstance, isPlaying])
+
+  // Add close button to mobile player modal (react-jinke-music-player-mobile)
+  useEffect(() => {
+    const addCloseButton = () => {
+      const mobilePlayer = document.querySelector('.react-jinke-music-player-mobile')
+      if (mobilePlayer && !mobilePlayer.querySelector('.music-player-mobile-close')) {
+        const closeBtn = document.createElement('button')
+        closeBtn.className = 'music-player-mobile-close'
+        closeBtn.innerHTML = '×'
+        closeBtn.onclick = () => {
+          // Find and click the existing toggle/minimize button
+          const toggleBtn = document.querySelector('.react-jinke-music-player-mobile-toggle, .react-jinke-music-player-mobile-operation .items')
+          if (toggleBtn) {
+            toggleBtn.click()
+          }
+        }
+        mobilePlayer.appendChild(closeBtn)
+      }
+    }
+
+    // Use MutationObserver to detect when mobile player appears
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(() => {
+        addCloseButton()
+      })
+    })
+
+    observer.observe(document.body, { childList: true, subtree: true })
+    addCloseButton() // Initial check
+
+    return () => observer.disconnect()
+  }, [])
 
   // Mobile player control handlers
   const handleMobilePlayPause = useCallback(() => {

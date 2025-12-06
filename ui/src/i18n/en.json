@@ -344,6 +344,43 @@
       "actions": {
         "add": "Add Karaoke"
       }
+    },
+    "videoClip": {
+      "name": "Clips |||| Clips",
+      "fields": {
+        "title": "Title",
+        "artist": "Artist",
+        "channelName": "Channel",
+        "description": "Description",
+        "duration": "Duration",
+        "viewCount": "Views",
+        "publishedAt": "Published",
+        "createdAt": "Added"
+      }
+    },
+    "video-clip": {
+      "name": "Clips |||| Clips",
+      "fields": {
+        "title": "Title",
+        "artist": "Artist",
+        "channelName": "Channel",
+        "description": "Description",
+        "duration": "Duration",
+        "viewCount": "Views",
+        "publishedAt": "Published",
+        "createdAt": "Added"
+      }
+    },
+    "video-playlist": {
+      "name": "Video Playlists |||| Video Playlists",
+      "fields": {
+        "title": "Title",
+        "thumbnail": "Thumbnail",
+        "channelName": "Channel",
+        "description": "Description",
+        "videoCount": "Videos",
+        "createdAt": "Added"
+      }
     }
   },
   "ra": {
