@@ -1,11 +1,13 @@
 import React from 'react'
 import { Filter, SearchInput, Pagination, useTranslate } from 'react-admin'
-import { withWidth } from '@material-ui/core'
+import { withWidth, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay'
+import { useHistory } from 'react-router-dom'
 import { List, Title } from '../common'
 import VideoClipGridView from './VideoClipGridView'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   searchComponent: {
     width: '100%',
   },
@@ -16,7 +18,16 @@ const useStyles = makeStyles({
       width: '100%',
     },
   },
-})
+  actionsContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(1, 2),
+    gap: theme.spacing(1),
+  },
+  playlistButton: {
+    textTransform: 'none',
+  },
+}))
 
 const VideoClipFilter = (props) => {
   const classes = useStyles()
@@ -39,22 +50,45 @@ const VideoClipListTitle = () => {
   return <Title subTitle={title} args={{ smart_count: 2 }} />
 }
 
+const VideoClipListActions = () => {
+  const classes = useStyles()
+  const history = useHistory()
+  const translate = useTranslate()
+
+  return (
+    <div className={classes.actionsContainer}>
+      <Button
+        className={classes.playlistButton}
+        startIcon={<PlaylistPlayIcon />}
+        onClick={() => history.push('/video-playlist')}
+        size="small"
+        color="primary"
+      >
+        {translate('resources.video-playlist.name', { smart_count: 2, _: 'Playlists' })}
+      </Button>
+    </div>
+  )
+}
+
 const VideoClipList = (props) => {
   const { width } = props
 
   return (
-    <List
-      {...props}
-      exporter={false}
-      bulkActionButtons={false}
-      filters={<VideoClipFilter />}
-      perPage={24}
-      pagination={<Pagination rowsPerPageOptions={[12, 24, 48, 96]} />}
-      title={<VideoClipListTitle />}
-      sort={{ field: 'createdAt', order: 'DESC' }}
-    >
-      <VideoClipGridView width={width} />
-    </List>
+    <>
+      <VideoClipListActions />
+      <List
+        {...props}
+        exporter={false}
+        bulkActionButtons={false}
+        filters={<VideoClipFilter />}
+        perPage={24}
+        pagination={<Pagination rowsPerPageOptions={[12, 24, 48, 96]} />}
+        title={<VideoClipListTitle />}
+        sort={{ field: 'createdAt', order: 'DESC' }}
+      >
+        <VideoClipGridView width={width} />
+      </List>
+    </>
   )
 }
 

@@ -22,9 +22,15 @@ import sqlite3
 import argparse
 import uuid
 import re
+import time
+import random
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Tuple
+
+# Delay between requests to avoid rate limiting (seconds)
+REQUEST_DELAY_MIN = 1.0
+REQUEST_DELAY_MAX = 3.0
 
 # Try to import yt-dlp
 try:
@@ -37,6 +43,7 @@ except ImportError:
 SCRIPT_DIR = Path(__file__).parent
 CONFIG_FILE = SCRIPT_DIR / "config.json"
 SYNC_LOG_FILE = SCRIPT_DIR / "sync.log"
+COOKIES_FILE = SCRIPT_DIR / "cookies.txt"
 
 # Colors for output
 class Colors:
@@ -97,6 +104,10 @@ class YouTubeClient:
             'extract_flat': True,
             'ignoreerrors': True,
         }
+        # Add cookies if file exists
+        if COOKIES_FILE.exists():
+            self.ydl_opts['cookiefile'] = str(COOKIES_FILE)
+            log_info(f"Using cookies from {COOKIES_FILE}")
 
     def extract_video_id(self, url: str) -> Optional[str]:
         """Extract video ID from various YouTube URL formats"""
@@ -284,6 +295,10 @@ class YouTubeClient:
 
     def get_video_details(self, video_id: str) -> Optional[Dict]:
         """Get detailed info about a specific video"""
+        # Add random delay to avoid rate limiting
+        delay = random.uniform(REQUEST_DELAY_MIN, REQUEST_DELAY_MAX)
+        time.sleep(delay)
+
         opts = {
             **self.ydl_opts,
             'extract_flat': False,
