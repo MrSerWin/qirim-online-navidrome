@@ -532,3 +532,27 @@ For Navidrome core issues, see the [official documentation](https://www.navidrom
 **Based on:** Navidrome v0.58.0
 **Platform:** https://qirim.online
 **Last Updated:** 2025-01-23
+
+
+TOP50
+sqlite3 /opt/navidrome/data/navidrome.db "SELECT title, artist, global_play_count FROM media_file WHERE global_play_count > 0 ORDER BY global_play_count DESC LIMIT 50;"
+
+Sync
+Использование:
+cd scripts/youtube-sync
+pip install -r requirements.txt
+
+# Скопируй и настрой конфиг
+cp config.example.json config.json
+
+# Проверь настройки
+python sync.py --check
+
+# Тестовый запуск
+python sync.py --dry-run
+
+# Синхронизация
+python sync.py
+
+# Cron (раз в день в 3:00):
+# 0 3 * * * cd /opt/navidrome/scripts/youtube-sync && python sync.py >> sync.log 2>&1

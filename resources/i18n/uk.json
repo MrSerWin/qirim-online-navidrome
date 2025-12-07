@@ -242,6 +242,30 @@
         "playNow": "Відтворити зараз"
       }
     },
+    "video-clip": {
+      "name": "Кліпи |||| Кліпи |||| Кліпів",
+      "fields": {
+        "title": "Назва",
+        "artist": "Виконавець",
+        "channelName": "Канал",
+        "description": "Опис",
+        "duration": "Тривалість",
+        "viewCount": "Перегляди",
+        "publishedAt": "Опубліковано",
+        "createdAt": "Додано"
+      }
+    },
+    "video-playlist": {
+      "name": "Відеоплейлисти |||| Відеоплейлисти |||| Відеоплейлистів",
+      "fields": {
+        "title": "Назва",
+        "thumbnail": "Мініатюра",
+        "channelName": "Канал",
+        "description": "Опис",
+        "videoCount": "Відео",
+        "createdAt": "Додано"
+      }
+    },
     "share": {
       "name": "Поділитися |||| Поділитися |||| Поділитися",
       "fields": {

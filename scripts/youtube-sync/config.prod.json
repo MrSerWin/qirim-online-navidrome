@@ -1,0 +1,115 @@
+{
+    "database_path": "/data/navidrome.db",
+    "max_videos_per_channel": 100,
+    "channels": [
+        {
+            "name": "Crimean Music",
+            "url": "https://www.youtube.com/@CrimeanMusic",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Qırım Muzıka",
+            "url": "https://www.youtube.com/channel/UC9-acVkqo1RefU5rzrX98lw",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Mustafa Emir DJ",
+            "url": "https://www.youtube.com/@MustafaEmirDJ",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Nariman Balich",
+            "url": "https://www.youtube.com/@NarimanBalich",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Meydan Taqimi",
+            "url": "https://www.youtube.com/@meydantaqimi4253",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Crimean Tatar Music",
+            "url": "https://www.youtube.com/channel/UCSTCoj2_gozpoT0QH-fELQw",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Ансамбль Къалабалыкъ",
+            "url": "https://www.youtube.com/@%D0%90%D0%BD%D1%81%D0%B0%D0%BC%D0%B1%D0%BB%D1%8C%D0%9A%D1%8A%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D0%BB%D1%8B%D0%BA%D1%8A",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Асие Саале",
+            "url": "https://www.youtube.com/@%D0%90%D1%81%D0%B8%D0%B5%D0%A1%D0%B0%D0%B0%D0%BB%D0%B5",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Dilyara Tukyanji",
+            "url": "https://www.youtube.com/@dilyara_tukyanji",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Амет Ремзиев",
+            "url": "https://www.youtube.com/@%D0%90%D0%BC%D0%B5%D1%82%D0%A0%D0%B5%D0%BC%D0%B7%D0%B8%D0%B5%D0%B2",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Aliye Sefershaeva",
+            "url": "https://www.youtube.com/@aliyesefershaeva6737",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Temirqaya",
+            "url": "https://www.youtube.com/@temirqaya",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Alimart Crimea",
+            "url": "https://www.youtube.com/@alimartcrimea5228",
+            "max_videos": 100,
+            "sync_playlists": true
+        },
+        {
+            "name": "Yırla Sazım",
+            "url": "https://www.youtube.com/@YIRLASAZIM",
+            "max_videos": 100,
+            "sync_playlists": true
+        }
+    ],
+    "playlists": [
+        {
+            "name": "Crimean Tatar Songs Collection 1",
+            "url": "https://www.youtube.com/playlist?list=PLTAybvdvrtB4wFkW904eGD5LkMM-_2J-7"
+        },
+        {
+            "name": "Crimean Tatar Songs Collection 2",
+            "url": "https://www.youtube.com/playlist?list=PLTAybvdvrtB4_on5h-Zo89AzXtZ-9DMG6"
+        },
+        {
+            "name": "Crimean Tatar Songs Collection 3",
+            "url": "https://www.youtube.com/playlist?list=PLTAybvdvrtB5U5F_DeyHIUR_FUDvKtokL"
+        },
+        {
+            "name": "Концерты - Collection 1",
+            "url": "https://www.youtube.com/playlist?list=PLTAybvdvrtB64jv_QaB91N9QvZILnombF"
+        },
+        {
+            "name": "Концерты - Collection 2",
+            "url": "https://www.youtube.com/playlist?list=PLfBhLJ5G-NVsruhwAupVb3DaHNQkj2Q9T"
+        }
+    ],
+    "artist_extraction": {
+        "patterns": []
+    }
+}

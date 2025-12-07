@@ -242,6 +242,30 @@
         "playNow": "Şimdi Çal"
       }
     },
+    "video-clip": {
+      "name": "Klipler |||| Klipler",
+      "fields": {
+        "title": "Adı",
+        "artist": "İcraçı",
+        "channelName": "Kanal",
+        "description": "Tasvir",
+        "duration": "Uzunluq",
+        "viewCount": "Baquvlar",
+        "publishedAt": "Neşir etildi",
+        "createdAt": "Qoşulğan"
+      }
+    },
+    "video-playlist": {
+      "name": "Video Çalğı Cedvelleri |||| Video Çalğı Cedvelleri",
+      "fields": {
+        "title": "Adı",
+        "thumbnail": "Kiçik Resim",
+        "channelName": "Kanal",
+        "description": "Tasvir",
+        "videoCount": "Videolar",
+        "createdAt": "Qoşulğan"
+      }
+    },
     "share": {
       "name": "Paylaşma |||| Paylaşmalar",
       "fields": {

@@ -78,3 +78,5 @@ scripts/instagram-to-vk/venv/
 scripts/instagram-to-vk/*.log
 
 scripts/instagram-to-vk/cookie.txt
+
+scripts/youtube-sync/sync.log

@@ -34,6 +34,8 @@ type DataStore interface {
 	Player(ctx context.Context) PlayerRepository
 	Radio(ctx context.Context) RadioRepository
 	Karaoke(ctx context.Context) KaraokeRepository
+	VideoClip(ctx context.Context) VideoClipRepository
+	VideoPlaylist(ctx context.Context) VideoPlaylistRepository
 	ShopCategory(ctx context.Context) ResourceRepository
 	ShopProduct(ctx context.Context) ResourceRepository
 	ShopOrder(ctx context.Context) ResourceRepository

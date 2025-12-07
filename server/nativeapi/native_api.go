@@ -58,6 +58,10 @@ func (n *Router) routes() http.Handler {
 		// Karaoke: public read, authenticated write
 		n.addKaraokeRoute(r)
 
+		// Video Clips: public read, admin write
+		n.addVideoClipRoute(r)
+		n.addVideoPlaylistRoute(r)
+
 		// Shop: public read for categories/products, admin write
 		// Orders: public create, admin manage
 		if conf.Server.EnableShop {
@@ -438,6 +442,140 @@ func (n *Router) addShopOrderRoute(r chi.Router) {
 			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
 		})
 	})
+}
+
+// addVideoClipRoute adds video clip routes with public read and admin write
+func (n *Router) addVideoClipRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.Resource(ctx, model.VideoClip{})
+	}
+
+	r.Route("/video-clip", func(r chi.Router) {
+		// GET requests - available to all (public)
+		r.Get("/", rest.GetAll(constructor))
+
+		// POST requests - require admin privileges
+		r.With(adminOnlyMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
+			r.Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - require admin privileges
+			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))
+			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
+		})
+	})
+}
+
+// addVideoPlaylistRoute adds video playlist routes with public read and admin write
+func (n *Router) addVideoPlaylistRoute(r chi.Router) {
+	constructor := func(ctx context.Context) rest.Repository {
+		return n.ds.Resource(ctx, model.VideoPlaylist{})
+	}
+
+	r.Route("/video-playlist", func(r chi.Router) {
+		// GET requests - available to all (public)
+		r.Get("/", rest.GetAll(constructor))
+
+		// POST requests - require admin privileges
+		r.With(adminOnlyMiddleware).Post("/", rest.Post(constructor))
+
+		r.Route("/{id}", func(r chi.Router) {
+			r.Use(server.URLParamsMiddleware)
+
+			// GET - available to all (public)
+			r.Get("/", rest.Get(constructor))
+
+			// PUT/DELETE - require admin privileges
+			r.With(adminOnlyMiddleware).Put("/", rest.Put(constructor))
+			r.With(adminOnlyMiddleware).Delete("/", rest.Delete(constructor))
+
+			// Playlist clips management
+			r.Route("/clips", func(r chi.Router) {
+				r.Get("/", n.getVideoPlaylistClips)
+				r.With(adminOnlyMiddleware).Post("/", n.addVideoPlaylistClip)
+				r.With(adminOnlyMiddleware).Delete("/{clipId}", n.removeVideoPlaylistClip)
+			})
+		})
+	})
+}
+
+// getVideoPlaylistClips returns all clips in a playlist
+func (n *Router) getVideoPlaylistClips(w http.ResponseWriter, r *http.Request) {
+	playlistID := chi.URLParam(r, "id")
+	if playlistID == "" {
+		http.Error(w, "Playlist ID required", http.StatusBadRequest)
+		return
+	}
+
+	repo := n.ds.VideoPlaylist(r.Context())
+	clips, err := repo.GetClips(playlistID)
+	if err != nil {
+		log.Error(r.Context(), "Error getting playlist clips", "playlistId", playlistID, err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	resp, err := json.Marshal(clips)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_, _ = w.Write(resp)
+}
+
+// addVideoPlaylistClip adds a clip to a playlist
+func (n *Router) addVideoPlaylistClip(w http.ResponseWriter, r *http.Request) {
+	playlistID := chi.URLParam(r, "id")
+	if playlistID == "" {
+		http.Error(w, "Playlist ID required", http.StatusBadRequest)
+		return
+	}
+
+	var req struct {
+		ClipID   string `json:"clipId"`
+		Position int    `json:"position"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	repo := n.ds.VideoPlaylist(r.Context())
+	if err := repo.AddClip(playlistID, req.ClipID, req.Position); err != nil {
+		log.Error(r.Context(), "Error adding clip to playlist", "playlistId", playlistID, "clipId", req.ClipID, err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusCreated)
+	_, _ = w.Write([]byte(`{"status":"ok"}`))
+}
+
+// removeVideoPlaylistClip removes a clip from a playlist
+func (n *Router) removeVideoPlaylistClip(w http.ResponseWriter, r *http.Request) {
+	playlistID := chi.URLParam(r, "id")
+	clipID := chi.URLParam(r, "clipId")
+
+	if playlistID == "" || clipID == "" {
+		http.Error(w, "Playlist ID and Clip ID required", http.StatusBadRequest)
+		return
+	}
+
+	repo := n.ds.VideoPlaylist(r.Context())
+	if err := repo.RemoveClip(playlistID, clipID); err != nil {
+		log.Error(r.Context(), "Error removing clip from playlist", "playlistId", playlistID, "clipId", clipID, err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	_, _ = w.Write([]byte(`{"status":"ok"}`))
 }
 
 // Middleware to ensure user is authenticated (not guest)

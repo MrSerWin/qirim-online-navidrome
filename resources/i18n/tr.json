@@ -238,6 +238,30 @@
         "playNow": "Şimdi Çal"
       }
     },
+    "video-clip": {
+      "name": "Klipler |||| Klipler",
+      "fields": {
+        "title": "Başlık",
+        "artist": "Sanatçı",
+        "channelName": "Kanal",
+        "description": "Açıklama",
+        "duration": "Süre",
+        "viewCount": "Görüntülenmeler",
+        "publishedAt": "Yayınlandı",
+        "createdAt": "Eklendi"
+      }
+    },
+    "video-playlist": {
+      "name": "Video Oynatma Listeleri |||| Video Oynatma Listeleri",
+      "fields": {
+        "title": "Başlık",
+        "thumbnail": "Küçük Resim",
+        "channelName": "Kanal",
+        "description": "Açıklama",
+        "videoCount": "Videolar",
+        "createdAt": "Eklendi"
+      }
+    },
     "share": {
       "name": "Paylaşım |||| Paylaşımlar",
       "fields": {
