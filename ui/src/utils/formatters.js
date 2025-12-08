@@ -86,6 +86,13 @@ export const formatMinutes = (minutes, translate) => {
 /**
  * Format minutes and return separate value and label for styling
  * Returns: { value: '599', label: 'мин' } or { value: '20', label: 'ч' }
+ * Always shows hours (never days) for better visual impact
+ * Examples:
+ *   59 minutes -> "59 мин"
+ *   600 minutes (10 hours) -> "10 ч"
+ *   3000 minutes (50 hours) -> "50 ч"
+ *   24000 minutes (400 hours) -> "400 ч"
+ *   63000 minutes (1050 hours) -> "1К ч"
  */
 export const formatMinutesParts = (minutes, translate) => {
   if (!minutes || minutes === 0) {
@@ -100,21 +107,36 @@ export const formatMinutesParts = (minutes, translate) => {
     }
   }
 
-  const hours = Math.floor(minutes / 60)
+  const hours = minutes / 60
 
-  // Less than 48 hours (2 days) - show in hours
-  if (hours < 48) {
-    return {
-      value: hours.toString(),
-      label: translate('wrapped.stats.hours'),
+  // Format hours with K suffix for 1000+
+  let formattedHours
+  if (hours >= 1000) {
+    // 1000+ hours - show as "1K", "1.5K", "10K"
+    const k = hours / 1000
+    if (hours >= 10000) {
+      formattedHours = `${Math.round(k)}K`
+    } else {
+      // Show one decimal for 1K-9.9K
+      formattedHours = `${k.toFixed(1).replace(/\.0$/, '')}K`
+    }
+  } else {
+    // Less than 1000 hours - show with decimal if needed
+    if (hours >= 100) {
+      formattedHours = Math.round(hours).toString()
+    } else if (hours >= 10) {
+      // 10-99 hours - show without decimal
+      formattedHours = Math.round(hours).toString()
+    } else {
+      // Less than 10 hours - show one decimal if not whole
+      const rounded = Math.round(hours * 10) / 10
+      formattedHours = rounded % 1 === 0 ? Math.floor(rounded).toString() : rounded.toFixed(1)
     }
   }
 
-  // 48+ hours - show in days
-  const days = Math.floor(hours / 24)
   return {
-    value: days.toString(),
-    label: translate('wrapped.stats.days'),
+    value: formattedHours,
+    label: translate('wrapped.stats.hours'),
   }
 }
 
