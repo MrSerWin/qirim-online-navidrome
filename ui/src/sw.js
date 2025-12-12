@@ -224,11 +224,38 @@ const apiHandler = async ({ url, request, event }) => {
   }
 }
 
+// NetworkFirst handler for dynamic data that changes frequently
+const networkFirstHandler = async ({ url, request, event }) => {
+  const cache = await caches.open('api-cache-v1')
+
+  try {
+    // Try network first
+    const response = await fetch(request)
+    if (response.ok) {
+      cache.put(request, response.clone())
+    }
+    return response
+  } catch (error) {
+    // Fallback to cache if offline
+    const cachedResponse = await cache.match(request)
+    if (cachedResponse) {
+      return cachedResponse
+    }
+    throw error
+  }
+}
+
+// Wrapped API - always fetch fresh data (NetworkFirst)
+workbox.routing.registerRoute(({ url }) => {
+  return url.pathname.startsWith('/api/wrapped/')
+}, networkFirstHandler)
+
 // Cache API metadata (songs, albums, playlists)
 workbox.routing.registerRoute(({ url }) => {
   return (
     (url.pathname.startsWith('/api/') || url.pathname.startsWith('/rest/')) &&
-    !url.pathname.includes('/stream')
+    !url.pathname.includes('/stream') &&
+    !url.pathname.startsWith('/api/wrapped/')
   )
 }, apiHandler)
 
