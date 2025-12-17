@@ -243,11 +243,14 @@ while IFS= read -r file; do
     artists="$ALBUM_NAME"
 
     # Извлечь название трека из имени файла (с улучшенной логикой)
-    title=$(extract_title_from_filename "$filename")
+    song_title=$(extract_title_from_filename "$filename")
 
     # Транслитерировать для совместимости
     artists_transliterated=$(transliterate_turkish "$artists")
-    title_transliterated=$(transliterate_turkish "$title")
+    song_title_transliterated=$(transliterate_turkish "$song_title")
+
+    # Title = "Artist - Song Title" для лучшего отображения
+    title_transliterated="${artists_transliterated} - ${song_title_transliterated}"
 
     echo -e "${BLUE}[$current/$total]${NC} ${filename}"
     echo "  Artist: $artists_transliterated (из папки)"
