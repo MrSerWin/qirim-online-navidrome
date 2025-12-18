@@ -87,12 +87,9 @@ const useStyle = makeStyles(
       '& .react-jinke-music-player-mobile-progress': {
         display: (props) => (props.isRadio ? 'none' : 'flex'),
       },
-      // Style for close button on mobile player modal
-      '& .react-jinke-music-player-mobile': {
-        position: 'relative',
-      },
+      // Close button for mobile player (uses fixed position to work with library's fixed overlay)
       '& .react-jinke-music-player-mobile .music-player-mobile-close': {
-        position: 'absolute',
+        position: 'fixed',
         top: '15px',
         right: '15px',
         width: '40px',

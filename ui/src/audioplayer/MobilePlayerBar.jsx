@@ -165,7 +165,8 @@ const MobilePlayerBar = ({ audioInstance, currentTrack, isPlaying, onPlayPause, 
     setQueueOpen(false)
   }
 
-  if (!visible || !currentTrack) {
+  // Hide player if no queue, no track, or track has no name (e.g., invalid/empty track)
+  if (!visible || !currentTrack || !currentTrack.name) {
     return null
   }
 
@@ -186,15 +187,19 @@ const MobilePlayerBar = ({ audioInstance, currentTrack, isPlaying, onPlayPause, 
           className={classes.coverArt}
         />
 
-        {/* Track Info */}
-        <Box className={classes.trackInfo}>
-          <Typography className={classes.trackTitle}>
-            {currentTrack.name || 'Unknown Track'}
-          </Typography>
-          <Typography className={classes.trackArtist}>
-            {currentTrack.singer || 'Unknown Artist'}
-          </Typography>
-        </Box>
+        {/* Track Info - hide when no track name (e.g., video clips) */}
+        {currentTrack.name && (
+          <Box className={classes.trackInfo}>
+            <Typography className={classes.trackTitle}>
+              {currentTrack.name}
+            </Typography>
+            {currentTrack.singer && (
+              <Typography className={classes.trackArtist}>
+                {currentTrack.singer}
+              </Typography>
+            )}
+          </Box>
+        )}
 
         {/* Playback Controls */}
         <Box className={classes.controls}>

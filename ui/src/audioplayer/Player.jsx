@@ -47,6 +47,7 @@ const Player = () => {
   const [audioInstance, setAudioInstance] = useState(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPlayerExpanded, setIsPlayerExpanded] = useState(false)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const isDesktop = useMediaQuery('(min-width:810px)')
   const isMobilePlayer =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -252,6 +253,8 @@ const Player = () => {
       // Pause video player when audio starts
       window.dispatchEvent(new CustomEvent(PAUSE_VIDEO_EVENT))
 
+      // Audio is playing, so video is not the active player
+      setIsVideoPlaying(false)
       setIsPlaying(true)
       dispatch(currentPlaying(info))
       if (startTime === null) {
@@ -375,12 +378,14 @@ const Player = () => {
     }
   }, [isMobilePlayer, audioInstance])
 
-  // Listen for video play event to pause audio
+  // Listen for video play event to pause audio and hide mobile player bar
   useEffect(() => {
     const handlePauseAudio = () => {
       if (audioInstance && isPlaying) {
         audioInstance.pause()
       }
+      // Mark that video is playing - hide mobile player bar
+      setIsVideoPlaying(true)
     }
 
     window.addEventListener(PAUSE_AUDIO_EVENT, handlePauseAudio)
@@ -474,8 +479,8 @@ const Player = () => {
         getAudioInstance={setAudioInstance}
         style={isMobilePlayer && useMiniPlayer && !isPlayerExpanded ? { display: 'none' } : undefined}
       />
-      {/* Mini player bar at bottom - shown only on mobile devices when mini player mode is active and player not expanded */}
-      {isMobilePlayer && useMiniPlayer && !isPlayerExpanded && (
+      {/* Mini player bar at bottom - shown only on mobile devices when mini player mode is active, player not expanded, and video is not playing */}
+      {isMobilePlayer && useMiniPlayer && !isPlayerExpanded && !isVideoPlaying && (
         <MobilePlayerBar
           audioInstance={audioInstance}
           currentTrack={playerState.current}
