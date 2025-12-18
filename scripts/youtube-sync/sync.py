@@ -13,6 +13,8 @@ Usage:
     python sync.py --batch FILE            # Import videos from URL list file
     python sync.py --dry-run               # Show what would be added (no changes)
     python sync.py --check                 # Check configuration
+
+    source venv/bin/activate
 """
 
 import os

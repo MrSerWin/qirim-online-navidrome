@@ -32,6 +32,7 @@ import locale from './locale'
 import { keyMap } from '../hotkeys'
 import keyHandlers from './keyHandlers'
 import { calculateGain } from '../utils/calculateReplayGain'
+import useBackgroundPlayback from './useBackgroundPlayback'
 
 const Player = () => {
   const theme = useCurrentTheme()
@@ -71,6 +72,21 @@ const Player = () => {
   const gainInfo = useSelector((state) => state.replayGain)
   const [context, setContext] = useState(null)
   const [gainNode, setGainNode] = useState(null)
+
+  // Handle background playback recovery
+  const handleRecoveryNeeded = useCallback((reason) => {
+    console.log('[Player] Recovery needed:', reason)
+    // If auth expired, the authProvider will handle redirect to login
+    // For playback issues, we just log for now - the hooks will try to recover
+  }, [])
+
+  // Use background playback hook for keeping session alive and handling visibility changes
+  useBackgroundPlayback({
+    audioInstance,
+    isPlaying,
+    currentTrack: playerState.current,
+    onRecoveryNeeded: handleRecoveryNeeded,
+  })
 
   useEffect(() => {
     if (

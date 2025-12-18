@@ -14,6 +14,7 @@ const newEventStream = async () => {
 
 let eventStream
 let reconnectTimer
+let dispatchFunction = null
 const RECONNECT_DELAY = 5000
 
 const setupHandlers = (stream, dispatchFn) => {
@@ -44,6 +45,7 @@ const scheduleReconnect = (dispatchFn) => {
 
 const connect = async (dispatchFn) => {
   try {
+    dispatchFunction = dispatchFn
     const stream = await newEventStream()
     eventStream = stream
     setupHandlers(stream, dispatchFn)
@@ -55,6 +57,32 @@ const connect = async (dispatchFn) => {
     console.log(`Error connecting to server:`, e)
     scheduleReconnect(dispatchFn)
   }
+}
+
+// Check and reconnect EventStream if needed (called on visibility change)
+const checkAndReconnect = () => {
+  if (!dispatchFunction) return
+
+  // Check if EventStream is in a bad state
+  if (!eventStream || eventStream.readyState === EventSource.CLOSED) {
+    console.log('[EventStream] Stream closed, reconnecting...')
+    connect(dispatchFunction)
+  } else if (eventStream.readyState === EventSource.CONNECTING) {
+    console.log('[EventStream] Stream connecting...')
+  } else {
+    console.log('[EventStream] Stream healthy, readyState:', eventStream.readyState)
+  }
+}
+
+// Setup visibility change handler for automatic reconnection
+const setupVisibilityHandler = () => {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      console.log('[EventStream] Tab visible, checking connection...')
+      // Small delay to let browser settle
+      setTimeout(checkAndReconnect, 500)
+    }
+  })
 }
 
 const eventHandler = (dispatchFn) => (event) => {
@@ -98,6 +126,8 @@ const startEventStreamNew = async (dispatchFn) => {
     eventStream.close()
     eventStream = null
   }
+  // Setup visibility handler once
+  setupVisibilityHandler()
   return connect(dispatchFn)
 }
 
