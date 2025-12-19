@@ -127,7 +127,7 @@ const Player = () => {
       bounds: 'body',
       playMode: playerState.mode,
       mode: 'full', // Always use full mode, we control visibility with CSS
-      loadAudioErrorPlayNext: false,
+      loadAudioErrorPlayNext: true,
       autoPlayInitLoadPlayList: true,
       clearPriorAudioLists: false,
       showDestroy: true,
@@ -363,6 +363,12 @@ const Player = () => {
     })
   }, [dispatch])
 
+  const onAudioError = useCallback((errMsg, currentPlayId, audioLists, audioInfo) => {
+    console.error('[Player] Audio error:', errMsg)
+    console.error('[Player] Failed track:', audioInfo?.name, 'ID:', audioInfo?.trackId)
+    // The player will automatically try next track due to loadAudioErrorPlayNext: true
+  }, [])
+
   if (!visible) {
     document.title = 'Qırım Online'
   }
@@ -474,6 +480,7 @@ const Player = () => {
         onAudioPause={onAudioPause}
         onPlayModeChange={(mode) => dispatch(setPlayMode(mode))}
         onAudioEnded={onAudioEnded}
+        onAudioError={onAudioError}
         onCoverClick={onCoverClick}
         onBeforeDestroy={onBeforeDestroy}
         getAudioInstance={setAudioInstance}
