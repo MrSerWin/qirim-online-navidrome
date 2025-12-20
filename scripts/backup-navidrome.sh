@@ -29,12 +29,13 @@ if [ ! -d "$SOURCE_DIR" ]; then
     exit 1
 fi
 
-# Create backup (exclude music folder)
+# Create backup (exclude music folder and caches)
 log "Creating backup: $BACKUP_FILE"
-log "Excluding: music, cache, backups"
+log "Excluding: music, cache, data/cache, data/backups"
 
 tar -czf "$BACKUP_FILE" \
     --exclude="music" \
+    --exclude="cache" \
     --exclude="data/cache" \
     --exclude="data/backups" \
     -C /opt \

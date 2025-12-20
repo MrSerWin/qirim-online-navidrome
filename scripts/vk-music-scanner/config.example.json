@@ -1,0 +1,34 @@
+{
+    "vk": {
+        "_comment": "Authentication methods: 'standalone' (OAuth app), 'vkpymusic' (login/password), 'auto' (try both)",
+        "auth_method": "auto",
+
+        "_comment_standalone": "Standalone app settings (preferred method)",
+        "app_id": "",
+        "standalone_token": "",
+
+        "_comment_vkpymusic": "Login/password for vkpymusic (fallback method)",
+        "login": "",
+        "password": "",
+        "token": ""
+    },
+    "telegram": {
+        "bot_token": "",
+        "chat_id": ""
+    },
+    "navidrome": {
+        "db_path": "/opt/navidrome/data/navidrome.db",
+        "music_dir": "/music"
+    },
+    "settings": {
+        "check_interval_hours": 24,
+        "min_track_duration_sec": 60,
+        "max_tracks_per_artist": 50,
+        "download_bitrate": 320
+    },
+    "artist_mappings": {
+        "_comment": "Map artist names for better search (Cyrillic <-> Latin)",
+        "Эльвира Сариева": ["Elvira Sarieva", "Эльвира Сарыева"],
+        "Диляра Вапаева": ["Dilyara Vapaieva"]
+    }
+}

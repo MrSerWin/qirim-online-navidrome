@@ -80,3 +80,8 @@ scripts/instagram-to-vk/*.log
 scripts/instagram-to-vk/cookie.txt
 
 scripts/youtube-sync/sync.log
+
+scripts/vk-music-scanner/venv/
+scripts/vk-music-scanner/config.json
+
+*.log

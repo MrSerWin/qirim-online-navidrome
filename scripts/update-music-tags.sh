@@ -8,7 +8,8 @@
 #
 # Использование:
 #   ./scripts/update-music-tags.sh "/путь/к/папке/с/музыкой"
-#   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Qırım Yankısı"
+#   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/QırımYankısı"
+#   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Zore Kadıyeva"
 #
 # ВАЖНО: Извлечение нескольких артистов из имени файла ВРЕМЕННО ОТКЛЮЧЕНО
 # Функции extract_artists_from_filename() готовы, но закомментированы в коде

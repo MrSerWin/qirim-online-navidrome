@@ -1,0 +1,8 @@
+# Required
+requests>=2.28.0
+
+# Optional - for Telegram notifications
+python-telegram-bot>=20.0
+
+# Optional - for login/password authentication (Kate Mobile token)
+# vkpymusic>=3.0.0
