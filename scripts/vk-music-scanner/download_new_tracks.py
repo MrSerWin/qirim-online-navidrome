@@ -12,10 +12,12 @@ from pathlib import Path
 from datetime import datetime
 
 # Configuration
-MUSIC_DIR = Path("/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar")
-DOWNLOAD_LOG = Path("downloaded_tracks.json")
-NEW_TRACKS_FILE = Path("new_tracks_found.json")
-COVER_IMAGE = Path("/Volumes/T9/1_dev/1_QO/myQO/navidrome/scripts/qo_2000.png")
+SCRIPT_DIR = Path(__file__).parent
+DOWNLOADS_DIR = SCRIPT_DIR / "downloads"
+DOWNLOAD_LOG = SCRIPT_DIR / "downloaded_tracks.json"
+NEW_TRACKS_FILE = SCRIPT_DIR / "new_tracks_found.json"
+COVER_IMAGE = SCRIPT_DIR.parent / "qo_2000.png"
+DOWNLOAD_HISTORY_FILE = SCRIPT_DIR / "download_history.json"
 
 
 def sanitize_filename(name: str) -> str:
@@ -50,16 +52,20 @@ def transliterate_turkish(text: str) -> str:
 
 
 def get_artist_folder(artist_name: str) -> Path:
-    """Get or create folder for artist"""
+    """Get or create folder for artist in downloads directory"""
     folder_name = sanitize_filename(artist_name)
 
+    # Ensure downloads directory exists
+    DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
+
     # Check if folder already exists (case-insensitive)
-    for existing in MUSIC_DIR.iterdir():
-        if existing.is_dir() and existing.name.lower() == folder_name.lower():
-            return existing
+    if DOWNLOADS_DIR.exists():
+        for existing in DOWNLOADS_DIR.iterdir():
+            if existing.is_dir() and existing.name.lower() == folder_name.lower():
+                return existing
 
     # Create new folder
-    folder_path = MUSIC_DIR / folder_name
+    folder_path = DOWNLOADS_DIR / folder_name
     folder_path.mkdir(parents=True, exist_ok=True)
     return folder_path
 
@@ -163,6 +169,38 @@ def save_download_log(log: dict):
         json.dump(log, f, ensure_ascii=False, indent=2)
 
 
+def normalize_text(text: str) -> str:
+    """Normalize text for comparison"""
+    if not text:
+        return ""
+    import unicodedata
+    text = text.lower()
+    text = unicodedata.normalize('NFKD', text)
+    text = re.sub(r'[^\w\s]', '', text)
+    text = ' '.join(text.split())
+    return text
+
+
+def get_track_key(artist: str, title: str) -> str:
+    """Generate normalized key for track"""
+    return f"{normalize_text(artist)}|{normalize_text(title)}"
+
+
+def load_download_history() -> set:
+    """Load history of previously downloaded tracks"""
+    if DOWNLOAD_HISTORY_FILE.exists():
+        with open(DOWNLOAD_HISTORY_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return set(data.get('downloaded', []))
+    return set()
+
+
+def save_download_history(history: set):
+    """Save download history"""
+    with open(DOWNLOAD_HISTORY_FILE, 'w', encoding='utf-8') as f:
+        json.dump({'downloaded': list(history)}, f, ensure_ascii=False, indent=2)
+
+
 def main():
     print("=" * 70)
     print("VK MUSIC DOWNLOADER")
@@ -183,7 +221,7 @@ def main():
         tracks = json.load(f)
 
     print(f"\n📋 Found {len(tracks)} tracks to download")
-    print(f"📁 Music directory: {MUSIC_DIR}")
+    print(f"📁 Downloads directory: {DOWNLOADS_DIR}")
     print("-" * 70)
 
     # Group by artist
@@ -196,6 +234,7 @@ def main():
 
     # Download tracks
     download_log = load_download_log()
+    download_history = load_download_history()
     downloaded = []
     errors = []
     skipped = 0
@@ -232,12 +271,17 @@ def main():
                         'downloaded_at': datetime.now().isoformat(),
                         'tag_error': True
                     })
+
+                # Add to download history (so it won't be found again)
+                track_key = get_track_key(track['artist'], track['title'])
+                download_history.add(track_key)
             elif filepath is None:
                 skipped += 1
 
-    # Save log
+    # Save log and history
     download_log['tracks'].extend(downloaded)
     save_download_log(download_log)
+    save_download_history(download_history)
 
     # Summary
     print("\n" + "=" * 70)
@@ -249,8 +293,8 @@ def main():
         print(f"✗ Errors: {len(errors)}")
 
     if downloaded:
-        print(f"\n📁 Tracks saved to: {MUSIC_DIR}")
-        print("\n🔄 To trigger Navidrome rescan, restart the container or wait for auto-scan")
+        print(f"\n📁 Tracks saved to: {DOWNLOADS_DIR}")
+        print("\n📌 To add to library, move files to music folder and rescan Navidrome")
 
 
 if __name__ == '__main__':

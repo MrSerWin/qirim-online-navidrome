@@ -8,6 +8,7 @@ import sqlite3
 import json
 import re
 import unicodedata
+from pathlib import Path
 from vkpymusic import Service
 
 KATE_USER_AGENT = "KateMobileAndroid/56 lite-460 (Android 9; SDK 28; arm64-v8a; HUAWEI COL-L29; en)"
@@ -17,6 +18,54 @@ with open('config.json', 'r') as f:
     config = json.load(f)
 
 DB_PATH = '/Volumes/T9/1_dev/1_QO/myQO/navidrome-data/navidrome.db'
+DOWNLOAD_HISTORY_FILE = Path('download_history.json')
+
+
+def load_download_history() -> set:
+    """Load history of previously downloaded tracks (artist|title normalized)"""
+    if DOWNLOAD_HISTORY_FILE.exists():
+        with open(DOWNLOAD_HISTORY_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return set(data.get('downloaded', []))
+    return set()
+
+
+def save_download_history(history: set):
+    """Save download history"""
+    with open(DOWNLOAD_HISTORY_FILE, 'w', encoding='utf-8') as f:
+        json.dump({'downloaded': list(history)}, f, ensure_ascii=False, indent=2)
+
+
+def get_track_key(artist: str, title: str) -> str:
+    """Generate normalized key for track"""
+    return f"{normalize_text(artist)}|{normalize_text(title)}"
+
+
+def is_ignored_artist(artist: str) -> bool:
+    """Check if artist is in ignore list"""
+    ignore_config = config.get('ignore', {})
+    ignored_artists = ignore_config.get('artists', [])
+
+    artist_lower = artist.lower()
+    for ignored in ignored_artists:
+        if ignored.lower() in artist_lower or artist_lower in ignored.lower():
+            return True
+    return False
+
+
+def is_ignored_track(artist: str, title: str) -> bool:
+    """Check if specific track is in ignore list"""
+    ignore_config = config.get('ignore', {})
+    ignored_tracks = ignore_config.get('tracks', [])
+
+    artist_norm = normalize_text(artist)
+    title_norm = normalize_text(title)
+
+    for ignored in ignored_tracks:
+        if (normalize_text(ignored.get('artist', '')) == artist_norm and
+            normalize_text(ignored.get('title', '')) == title_norm):
+            return True
+    return False
 
 
 def normalize_text(text: str) -> str:
@@ -128,6 +177,16 @@ def main():
     print("VK NEW TRACKS FINDER")
     print("=" * 70)
 
+    # Load download history
+    download_history = load_download_history()
+    print(f"📋 Download history: {len(download_history)} tracks\n")
+
+    # Load ignore lists
+    ignore_config = config.get('ignore', {})
+    ignored_artists = ignore_config.get('artists', [])
+    ignored_tracks = ignore_config.get('tracks', [])
+    print(f"🚫 Ignore list: {len(ignored_artists)} artists, {len(ignored_tracks)} tracks\n")
+
     # Initialize VK service
     token = config['vk']['token']
     service = Service(user_agent=KATE_USER_AGENT, token=token)
@@ -146,8 +205,15 @@ def main():
     print("-" * 70)
 
     all_new_tracks = []
+    skipped_ignored = 0
+    skipped_history = 0
 
     for artist_name, artist_data in top_artists[:50]:  # Limit to first 50 for testing
+        # Skip ignored artists
+        if is_ignored_artist(artist_name):
+            print(f"\n⏭ {artist_name} (ignored artist)")
+            continue
+
         existing_tracks = artist_data['tracks']
 
         print(f"\n🔍 {artist_name} ({artist_data['count']} existing tracks)")
@@ -162,6 +228,22 @@ def main():
         new_tracks = []
         for track in matching_tracks:
             if track['duration'] >= 60:  # At least 1 minute
+                # Check ignore list (artist from VK result)
+                if is_ignored_artist(track['artist']):
+                    skipped_ignored += 1
+                    continue
+
+                # Check ignored tracks
+                if is_ignored_track(track['artist'], track['title']):
+                    skipped_ignored += 1
+                    continue
+
+                # Check download history
+                track_key = get_track_key(track['artist'], track['title'])
+                if track_key in download_history:
+                    skipped_history += 1
+                    continue
+
                 if is_track_new(track['title'], existing_tracks):
                     new_tracks.append(track)
 
@@ -185,6 +267,7 @@ def main():
 
     print("\n" + "=" * 70)
     print(f"SUMMARY: Found {len(all_new_tracks)} new tracks")
+    print(f"         Skipped: {skipped_ignored} ignored, {skipped_history} from history")
     print("=" * 70)
 
     if all_new_tracks:

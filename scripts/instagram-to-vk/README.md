@@ -38,15 +38,22 @@ cp config.example.json config.json
 }
 ```
 
-### 3. Получить VK токен
+### 3. Получить VK токен (Kate Mobile)
 
-1. Создайте Standalone-приложение: https://vk.com/editapp?act=create
-2. Получите токен с правами: `photos,video,wall,groups,offline`
-3. Перейдите по ссылке (замените CLIENT_ID):
-   ```
-   https://oauth.vk.com/authorize?client_id=CLIENT_ID&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=photos,video,wall,groups,offline&response_type=token&v=5.199
-   ```
-4. Скопируйте `access_token` из URL
+**Рекомендуемый способ** — используй Kate Mobile OAuth:
+
+```bash
+cd ../vk-music-scanner
+source venv/bin/activate
+python3 get_kate_token.py
+```
+
+1. Откроется браузер с VK OAuth
+2. Залогинься и разреши доступ Kate Mobile
+3. Скопируй токен из URL после редиректа
+4. Вставь в `config.json` → `vk.access_token`
+
+**Примечание:** Токен действует ~24 часа. При ошибке `invalid access_token` — получи новый
 
 ### 4. Авторизоваться в Instagram
 

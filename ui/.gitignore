@@ -5,3 +5,4 @@ build/*
 !build/.gitkeep
 /coverage/
 public/3rdparty/workbox
+*.mp3
