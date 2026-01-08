@@ -2057,7 +2057,28 @@
       "db_artist": "Susanna Memetova",
       "path": "/Volumes/T9/1_dev/1_QO/myQO/navidrome/scripts/vk-music-scanner/downloads/Susanna Memetova/Susanna Memetova - Vatan aqqında.mp3",
       "downloaded_at": "2026-01-07T14:19:41.451156"
+    },
+    {
+      "artist": "Leniye İzmaylova ve DJ Bebek",
+      "title": "Disco Party (remix 2020)",
+      "db_artist": "Leniye İzmaylova",
+      "path": "/Volumes/T9/1_dev/1_QO/myQO/navidrome/scripts/vk-music-scanner/downloads/Leniye İzmaylova/Leniye İzmaylova ve DJ Bebek - Disco Party (remix 2020).mp3",
+      "downloaded_at": "2026-01-08T07:51:16.153696"
+    },
+    {
+      "artist": "Leniye İzmaylova",
+      "title": "Ana sesi (Giray)",
+      "db_artist": "Leniye İzmaylova",
+      "path": "/Volumes/T9/1_dev/1_QO/myQO/navidrome/scripts/vk-music-scanner/downloads/Leniye İzmaylova/Leniye İzmaylova - Ana sesi (Giray).mp3",
+      "downloaded_at": "2026-01-08T07:51:19.342318"
+    },
+    {
+      "artist": "Enver İzmaylov ve Leniye İzmaylova",
+      "title": "Колобок",
+      "db_artist": "Leniye İzmaylova",
+      "path": "/Volumes/T9/1_dev/1_QO/myQO/navidrome/scripts/vk-music-scanner/downloads/Leniye İzmaylova/Enver İzmaylov ve Leniye İzmaylova - Колобок.mp3",
+      "downloaded_at": "2026-01-08T07:51:22.778783"
     }
   ],
-  "last_run": "2026-01-07T14:22:07.623572"
+  "last_run": "2026-01-08T07:51:22.778906"
 }
