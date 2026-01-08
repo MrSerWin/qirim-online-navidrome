@@ -119,6 +119,13 @@ func CreatePublicRouter() *public.Router {
 	return router
 }
 
+func CreateSongPagesRouter() *public.SongRouter {
+	sqlDB := db.Db()
+	dataStore := persistence.New(sqlDB)
+	songRouter := public.NewSongRouter(dataStore)
+	return songRouter
+}
+
 func CreateLastFMRouter() *lastfm.Router {
 	sqlDB := db.Db()
 	dataStore := persistence.New(sqlDB)

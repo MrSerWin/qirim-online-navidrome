@@ -51,6 +51,7 @@ func (pub *Router) routes() http.Handler {
 			}
 			r.HandleFunc("/img/{id}", pub.handleImages)
 		})
+
 		if conf.Server.EnableSharing {
 			r.HandleFunc("/s/{id}", pub.handleStream)
 			if conf.Server.EnableDownloads {

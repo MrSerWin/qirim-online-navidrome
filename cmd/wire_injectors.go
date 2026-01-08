@@ -79,6 +79,13 @@ func CreatePublicRouter() *public.Router {
 	))
 }
 
+func CreateSongPagesRouter() *public.SongRouter {
+	panic(wire.Build(
+		allProviders,
+		public.NewSongRouter,
+	))
+}
+
 func CreateLastFMRouter() *lastfm.Router {
 	panic(wire.Build(
 		allProviders,
