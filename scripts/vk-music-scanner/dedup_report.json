@@ -1,0 +1,568 @@
+{
+  "timestamp": "2026-01-07T17:52:54.420894",
+  "unique": [
+    {
+      "file": "downloads/Güneş/DEEP HOUSE _ Ugur Can Yenal, Gunes Taskiran - You Against Me (Original Mix).mp3",
+      "artist": "DEEP HOUSE _ Ugur Can Yenal, Gunes Taskiran",
+      "title": "You Against Me (Original Mix)",
+      "artist_folder": "Güneş"
+    },
+    {
+      "file": "downloads/Güneş/Burcu Gunes - Sahilden.mp3",
+      "artist": "Burcu Gunes",
+      "title": "Sahilden",
+      "artist_folder": "Güneş"
+    },
+    {
+      "file": "downloads/Elzara Batalova/Elzara Batalova - Sabriye (CT).mp3",
+      "artist": "Elzara Batalova",
+      "title": "Sabriye (CT)",
+      "artist_folder": "Elzara Batalova"
+    },
+    {
+      "file": "downloads/Nariman Baliç/Nariman Balich - Sefer.mp3",
+      "artist": "Nariman Balich",
+      "title": "Sefer",
+      "artist_folder": "Nariman Baliç"
+    },
+    {
+      "file": "downloads/Jamala/Jamala feat. alyona alyona - Забирай.mp3",
+      "artist": "Jamala feat. alyona alyona",
+      "title": "Забирай",
+      "artist_folder": "Jamala"
+    },
+    {
+      "file": "downloads/Jamala/Jamala - Жалi (feat. Alyona Alyona).mp3",
+      "artist": "Jamala",
+      "title": "Жалi (feat. Alyona Alyona)",
+      "artist_folder": "Jamala"
+    },
+    {
+      "file": "downloads/Jamala/Jamala - Сумую (Morphom Remix).mp3",
+      "artist": "Jamala",
+      "title": "Сумую (Morphom Remix)",
+      "artist_folder": "Jamala"
+    },
+    {
+      "file": "downloads/Jamala/Jamala - Иные (Танцы на ТНТ, 3 сезон).mp3",
+      "artist": "Jamala",
+      "title": "Иные (Танцы на ТНТ, 3 сезон)",
+      "artist_folder": "Jamala"
+    },
+    {
+      "file": "downloads/Dilâra Mahmudova/Диляра Махмудова_ Dilâra Mahmudova_DagJi music _Seniñ içün_ (2015) - _Seniñ içün_ _ Сенинъ ичун (Prod. Tematik 2015).mp3",
+      "artist": "Диляра Махмудова_ Dilâra Mahmudova_DagJi music _Seniñ içün_ (2015)",
+      "title": "_Seniñ içün_ _ Сенинъ ичун (Prod. Tematik 2015)",
+      "artist_folder": "Dilâra Mahmudova"
+    },
+    {
+      "file": "downloads/Seyran 7'62/Seyran 7’62,  Dilyara Mahmudova-Dagzhi, MGL, Elyana Ablyazimova, Dmitry Bosulaev, Elena Kotnisheva, Feride Ablyazova - Vatanim Qırım.mp3",
+      "artist": "Seyran 7’62,  Dilyara Mahmudova-Dagzhi, MGL, Elyana Ablyazimova, Dmitry Bosulaev, Elena Kotnisheva, Feride Ablyazova",
+      "title": "Vatanim Qırım",
+      "artist_folder": "Seyran 7'62"
+    },
+    {
+      "file": "downloads/DJ Bebek/dj bebek - dj Bebek Qaitarmasi (produced by dj bebek 2016).mp3",
+      "artist": "dj bebek",
+      "title": "dj Bebek Qaitarmasi (produced by dj bebek 2016)",
+      "artist_folder": "DJ Bebek"
+    },
+    {
+      "file": "downloads/DJ Bebek/dj bebek & Эльзара Баталова - Эй Оглан (radio edit 2011).mp3",
+      "artist": "dj bebek & Эльзара Баталова",
+      "title": "Эй Оглан (radio edit 2011)",
+      "artist_folder": "DJ Bebek"
+    },
+    {
+      "file": "downloads/Emine Mustafayeva/Emine Mustafayeva - Üç gögercin (minus).mp3",
+      "artist": "Emine Mustafayeva",
+      "title": "Üç gögercin (minus)",
+      "artist_folder": "Emine Mustafayeva"
+    },
+    {
+      "file": "downloads/Balalar/Balalar - Baar.mp3",
+      "artist": "Balalar",
+      "title": "Baar",
+      "artist_folder": "Balalar"
+    },
+    {
+      "file": "downloads/Arsen Osmanov/Arsen Osmanov & Enver Zaman - Yani Yil 2022.mp3",
+      "artist": "Arsen Osmanov & Enver Zaman",
+      "title": "Yani Yil 2022",
+      "artist_folder": "Arsen Osmanov"
+    },
+    {
+      "file": "downloads/Susanna Memetova/Susanna Memetova - Ural dağı (N I Y E T).mp3",
+      "artist": "Susanna Memetova",
+      "title": "Ural dağı (N I Y E T)",
+      "artist_folder": "Susanna Memetova"
+    },
+    {
+      "file": "downloads/Susanna Memetova/Susanna Memetova - Vatan aqqında.mp3",
+      "artist": "Susanna Memetova",
+      "title": "Vatan aqqında",
+      "artist_folder": "Susanna Memetova"
+    },
+    {
+      "file": "downloads/Server Kakura/Server Kakura - Bayrağım (CT).mp3",
+      "artist": "Server Kakura",
+      "title": "Bayrağım (CT)",
+      "artist_folder": "Server Kakura"
+    },
+    {
+      "file": "downloads/Server Kakura/Server Kakura - Хайырлы яшлар олсун!.mp3",
+      "artist": "Server Kakura",
+      "title": "Хайырлы яшлар олсун!",
+      "artist_folder": "Server Kakura"
+    },
+    {
+      "file": "downloads/Server Kakura/SERVER KAKURA - sabalar hayır.mp3",
+      "artist": "SERVER KAKURA",
+      "title": "sabalar hayır",
+      "artist_folder": "Server Kakura"
+    },
+    {
+      "file": "downloads/ATR ansambli/ATR ansambli - Saba erte.mp3",
+      "artist": "ATR ansambli",
+      "title": "Saba erte",
+      "artist_folder": "ATR ansambli"
+    },
+    {
+      "file": "downloads/Sevil Memetova/Sevil Memetova - Dohtur civanım (Live).mp3",
+      "artist": "Sevil Memetova",
+      "title": "Dohtur civanım (Live)",
+      "artist_folder": "Sevil Memetova"
+    },
+    {
+      "file": "downloads/Qarasuv/Qarasuv - Aydı da canım.mp3",
+      "artist": "Qarasuv",
+      "title": "Aydı da canım",
+      "artist_folder": "Qarasuv"
+    },
+    {
+      "file": "downloads/Dilâver Osmanov/OsMan - Dr.UGS.mp3",
+      "artist": "OsMan",
+      "title": "Dr.UGS",
+      "artist_folder": "Dilâver Osmanov"
+    },
+    {
+      "file": "downloads/Dilâver Osmanov/OsMan - Wet.mp3",
+      "artist": "OsMan",
+      "title": "Wet",
+      "artist_folder": "Dilâver Osmanov"
+    },
+    {
+      "file": "downloads/Dilâver Osmanov/Dilaver Osmanov - Karadeniz.mp3",
+      "artist": "Dilaver Osmanov",
+      "title": "Karadeniz",
+      "artist_folder": "Dilâver Osmanov"
+    }
+  ],
+  "duplicates": [
+    {
+      "file": "downloads/Güneş/Selami Sahin& Burcu Gunes - Ben Birtek Kadin Sevdim.mp3",
+      "artist": "Selami Sahin& Burcu Gunes",
+      "title": "Ben Birtek Kadin Sevdim",
+      "artist_folder": "Güneş",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Güneş/Selami Sahin& Burcu Gunes - Ben Birtek Kadin Sevdim.mp3",
+      "existing_artist": "Selami Sahin& Burcu Gunes",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Elzara Batalova/Elzara Batalova - Yalta.mp3",
+      "artist": "Elzara Batalova",
+      "title": "Yalta",
+      "artist_folder": "Elzara Batalova",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Elzara Batalova/Elzara Batalova - Yalta.mp3",
+      "existing_artist": "Elzara Batalova",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Rustem Memetov/Rustem Memetov - Vatan Qırım.mp3",
+      "artist": "Rustem Memetov",
+      "title": "Vatan Qırım",
+      "artist_folder": "Rustem Memetov",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Rustem Memetov/Rustem Memetov - Milletim QIRIM.mp3",
+      "existing_artist": "Rustem Memetov",
+      "score": 80.0,
+      "reasons": [
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Nariman Baliç/Nariman Balic - Borino oro.mp3",
+      "artist": "Nariman Balic",
+      "title": "Borino oro",
+      "artist_folder": "Nariman Baliç",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Balic - Borino oro.mp3",
+      "existing_artist": "Nariman Balic",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Nariman Baliç/Nariman Balich - Şeñ Haytarma (feat. Aliye Bekirova).mp3",
+      "artist": "Nariman Balich",
+      "title": "Şeñ Haytarma (feat. Aliye Bekirova)",
+      "artist_folder": "Nariman Baliç",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Balich - Şeñ Haytarma (feat. Aliye Bekirova).mp3",
+      "existing_artist": "Nariman Balich",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Jamala/Jamala (Джамала) - 1944 (Евровидение 2016 Украина).mp3",
+      "artist": "Jamala (Джамала)",
+      "title": "1944 (Евровидение 2016 Украина)",
+      "artist_folder": "Jamala",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Jamala/Jamala - 1944.mp3",
+      "existing_artist": "Jamala",
+      "score": 112.93357926160343,
+      "reasons": [
+        "title:90%",
+        "artist:90%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Jamala/Jamala (Джамала) - I'm Like a Bird (All or Nothing '2013).mp3",
+      "artist": "Jamala (Джамала)",
+      "title": "I'm Like a Bird (All or Nothing '2013)",
+      "artist_folder": "Jamala",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Jamala/Jamala (Джамала) - I'm Like a Bird (All or Nothing '2013).mp3",
+      "existing_artist": "Jamala (Джамала)",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Asiye Saale/Emil Memetov ve Asiye Saale - ARU haytarması.mp3",
+      "artist": "Emil Memetov ve Asiye Saale",
+      "title": "ARU haytarması",
+      "artist_folder": "Asiye Saale",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Asiye Saale/Emil Memetov ve Asiye Saale - ARU haytarmas&#305; .mp3",
+      "existing_artist": "Emil Memetov ve Asiye Saale",
+      "score": 113.54838709677419,
+      "reasons": [
+        "title:84%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Qırım/Qırım toy avası - Dolu.mp3",
+      "artist": "Qırım toy avası",
+      "title": "Dolu",
+      "artist_folder": "Qırım",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Minaret/Minaret-Dolu.mp3",
+      "existing_artist": "",
+      "score": 85.3802188639761,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:99%"
+      ]
+    },
+    {
+      "file": "downloads/Seyran 7'62/Seyran 7'62 - Böyle olurmı aslı_.mp3",
+      "artist": "Seyran 7'62",
+      "title": "Böyle olurmı aslı_",
+      "artist_folder": "Seyran 7'62",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Seyran 7'62/Seyran 7'62 - Böyle olurmı aslı_.mp3",
+      "existing_artist": "Seyran 7'62",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Seyran 7'62/Seyran 7'62 - Noqtai nazarım (крымскотатарский рэп).mp3",
+      "artist": "Seyran 7'62",
+      "title": "Noqtai nazarım (крымскотатарский рэп)",
+      "artist_folder": "Seyran 7'62",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Seyran 7'62/SEYRAN7'62 - Noqtai nazarim .mp3",
+      "existing_artist": "SEYRAN7'62",
+      "score": 114.47446599758895,
+      "reasons": [
+        "title:90%",
+        "artist:95%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/Нариман Балич ве Dj Bebek - Яшлар авасы.mp3",
+      "artist": "Нариман Балич ве Dj Bebek",
+      "title": "Яшлар авасы",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Balich, Dj Bebek - Yaşlar Avası.mp3",
+      "existing_artist": "Nariman Balich, Dj Bebek",
+      "score": 104.30181871308002,
+      "reasons": [
+        "title:100%",
+        "artist:92%",
+        "duration:0.8s",
+        "audio:73%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/DJ BEBEK - радио Meydan.mp3",
+      "artist": "DJ BEBEK",
+      "title": "радио Meydan",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/DJ Bebek/DJ Bebek-Radio Meydan (full version).mp3",
+      "existing_artist": "",
+      "score": 85.49465981012658,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:98%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/Эльнара Кучук feat. Dj Bebek - Къызылчыкълар.mp3",
+      "artist": "Эльнара Кучук feat. Dj Bebek",
+      "title": "Къызылчыкълар",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/DJ Bebek/Эльнара Кучук & dj bebek - Къызылчикълар (produced by dj bebek 2012).mp3",
+      "existing_artist": "Эльнара Кучук & dj bebek",
+      "score": 112.80851063829788,
+      "reasons": [
+        "title:90%",
+        "artist:89%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/Nariman Baliç ve DJ Bebek - Dostlar avası.mp3",
+      "artist": "Nariman Baliç ve DJ Bebek",
+      "title": "Dostlar avası",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Baliç ve DJ Bebek-Dostlar avası.mp3",
+      "existing_artist": "",
+      "score": 85.5282832278481,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:98%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/DJ BEBEK - радио Мейдан.mp3",
+      "artist": "DJ BEBEK",
+      "title": "радио Мейдан",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/DJ Bebek/DJ Bebek-Radio Meydan (full version).mp3",
+      "existing_artist": "",
+      "score": 85.49465981012658,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:98%"
+      ]
+    },
+    {
+      "file": "downloads/DJ Bebek/Нариман Балич ве Dj Bebek - Машалла хайтармасы.mp3",
+      "artist": "Нариман Балич ве Dj Bebek",
+      "title": "Машалла хайтармасы",
+      "artist_folder": "DJ Bebek",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Baliç ve DJ Bebek-Maşalla haytarması.mp3",
+      "existing_artist": "",
+      "score": 85.53817246835443,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:98%"
+      ]
+    },
+    {
+      "file": "downloads/Emine Mustafayeva/Emine Mustafayeva - Qaleniñ tübünde (СТ).mp3",
+      "artist": "Emine Mustafayeva",
+      "title": "Qaleniñ tübünde (СТ)",
+      "artist_folder": "Emine Mustafayeva",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Emine Mustafayeva/Emine Mustafayeva - Qaleniñ tübünde (СТ).mp3",
+      "existing_artist": "Emine Mustafayeva",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Sabriye Erecepova/Sabriye Erecepova - Tütüncü Qız.mp3",
+      "artist": "Sabriye Erecepova",
+      "title": "Tütüncü Qız",
+      "artist_folder": "Sabriye Erecepova",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Sabriye Erecepova/Sabriye Erecepova - Tütüncü Qız.mp3",
+      "existing_artist": "Sabriye Erecepova",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Alim Osmanov (Qara Deñiz)/Alim Osmanov (Qara Deñiz) - В Симферополе (live).mp3",
+      "artist": "Alim Osmanov (Qara Deñiz)",
+      "title": "В Симферополе (live)",
+      "artist_folder": "Alim Osmanov (Qara Deñiz)",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Alim Osmanov (Qara Deñiz)/Alim Osmanov (Qara Deñiz) - В Симферополе (live).mp3",
+      "existing_artist": "Alim Osmanov (Qara Deñiz)",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/ATR ansambli/Afize Kassara ve ATR ansambli - Ben giderim Batuma.mp3",
+      "artist": "Afize Kassara ve ATR ansambli",
+      "title": "Ben giderim Batuma",
+      "artist_folder": "ATR ansambli",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Afize Kassara/Afize Kassara ve ATR ansambli-Ben giderim Batuma.mp3",
+      "existing_artist": "",
+      "score": 85.51344936708861,
+      "reasons": [
+        "title:90%",
+        "duration:0.0s",
+        "audio:98%"
+      ]
+    },
+    {
+      "file": "downloads/ATR ansambli/Raziye Seytablayeva ve ATR ansambli - Bağçalarda börülce.mp3",
+      "artist": "Raziye Seytablayeva ve ATR ansambli",
+      "title": "Bağçalarda börülce",
+      "artist_folder": "ATR ansambli",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/ATR ansambli/Raziye Seytablayeva ve ATR ansambli - Bağçalarda börülce.mp3",
+      "existing_artist": "Raziye Seytablayeva ve ATR ansambli",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Reyana Kadırova/Reyana Kadırova ve Maqam - Ketirdiler Kevseri (İlâhi).mp3",
+      "artist": "Reyana Kadırova ve Maqam",
+      "title": "Ketirdiler Kevseri (İlâhi)",
+      "artist_folder": "Reyana Kadırova",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Reyana Kadırova/Reyana Kadırova ve Maqam - Ketirdiler Kevseri (İlâhi).mp3",
+      "existing_artist": "Reyana Kadırova ve Maqam",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    },
+    {
+      "file": "downloads/Qarasuv/Qarasuv - Ayşem.mp3",
+      "artist": "Qarasuv",
+      "title": "Ayşem",
+      "artist_folder": "Qarasuv",
+      "existing_file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Qarasuv/Qarasuv - Ayşem.mp3",
+      "existing_artist": "Qarasuv",
+      "score": 120.0,
+      "reasons": [
+        "title:100%",
+        "artist:100%",
+        "duration:0.0s",
+        "audio:100%"
+      ]
+    }
+  ],
+  "uncertain": [
+    {
+      "file": "downloads/DJ Bebek/Nariman Baliз ve DJ Bebek - Maalla haytarmas.mp3",
+      "artist": "Nariman Baliз ve DJ Bebek",
+      "title": "Maalla haytarmas",
+      "artist_folder": "DJ Bebek",
+      "potential_match": {
+        "file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Balich - Alet Haytarması.mp3",
+        "artist": "Nariman Balich",
+        "title": "Alet Haytarması",
+        "reasons": [
+          "title:77%",
+          "artist:62%",
+          "duration:2.8s"
+        ]
+      }
+    },
+    {
+      "file": "downloads/DJ Bebek/Нариман Балич ве Dj Bebek - Той авасы танец в школе3.mp3",
+      "artist": "Нариман Балич ве Dj Bebek",
+      "title": "Той авасы танец в школе3",
+      "artist_folder": "DJ Bebek",
+      "potential_match": {
+        "file": "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Nariman Baliç/Nariman Balich - Toy Avası.mp3",
+        "artist": "Nariman Balich",
+        "title": "Toy Avası",
+        "reasons": [
+          "title:90%",
+          "artist:67%",
+          "duration:1.0s"
+        ]
+      }
+    }
+  ],
+  "artists": [
+    "ATR ansambli",
+    "Arsen Osmanov",
+    "Balalar",
+    "DJ Bebek",
+    "Dilâra Mahmudova",
+    "Dilâver Osmanov",
+    "Elzara Batalova",
+    "Emine Mustafayeva",
+    "Güneş",
+    "Jamala",
+    "Nariman Baliç",
+    "Qarasuv",
+    "Server Kakura",
+    "Sevil Memetova",
+    "Seyran 7'62",
+    "Susanna Memetova"
+  ]
+}
