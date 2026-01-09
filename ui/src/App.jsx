@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import ReactGA from 'react-ga'
 import { Provider } from 'react-redux'
 import { createHashHistory } from 'history'
@@ -49,6 +50,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
 import missing from './missing/index.js'
 import WrappedPublicShare from './wrapped/WrappedPublicShare'
+import DeviceLogin from './layout/DeviceLogin'
 
 const history = createHashHistory()
 
@@ -223,14 +225,29 @@ const Admin = (props) => {
 }
 
 const AppWithHotkeys = () => {
+  const [hash, setHash] = useState(window.location.hash)
+
+  // Listen for hash changes to handle navigation to special pages
+  useEffect(() => {
+    const handleHashChange = () => {
+      setHash(window.location.hash)
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
   let language = localStorage.getItem('locale') || 'en'
   document.documentElement.lang = language
 
   // Check if this is a public wrapped share URL
-  const hash = window.location.hash
   const wrappedShareMatch = hash.match(/^#\/wrapped\/share\/([a-f0-9-]+)$/i)
   if (wrappedShareMatch) {
     return <WrappedPublicShare />
+  }
+
+  // Check if this is device login (QR code) - public page, no auth required
+  if (hash.startsWith('#/device/login')) {
+    return <DeviceLogin />
   }
 
   if (config.enableSharing && shareInfo) {

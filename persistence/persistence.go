@@ -121,6 +121,10 @@ func (s *SQLStore) LyricsCrowdsource(ctx context.Context) model.LyricsCrowdsourc
 	return NewLyricsCrowdsourceRepository(ctx, s.getDBXBuilder())
 }
 
+func (s *SQLStore) DeviceAuth(ctx context.Context) model.DeviceAuthRepository {
+	return NewDeviceAuthRepository(ctx, s.getDBXBuilder())
+}
+
 func (s *SQLStore) Resource(ctx context.Context, m interface{}) model.ResourceRepository {
 	switch m.(type) {
 	case model.User:

@@ -292,6 +292,13 @@ func (db *MockDataStore) LyricsCrowdsource(ctx context.Context) model.LyricsCrow
 	return struct{ model.LyricsCrowdsourceRepository }{}
 }
 
+func (db *MockDataStore) DeviceAuth(ctx context.Context) model.DeviceAuthRepository {
+	if db.RealDS != nil {
+		return db.RealDS.DeviceAuth(ctx)
+	}
+	return struct{ model.DeviceAuthRepository }{}
+}
+
 func (db *MockDataStore) WithTx(block func(tx model.DataStore) error, label ...string) error {
 	return block(db)
 }

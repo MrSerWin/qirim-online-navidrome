@@ -12,9 +12,11 @@ import Wrapped from './wrapped/Wrapped'
 import WrappedPublicShare from './wrapped/WrappedPublicShare'
 import { LyricsModerationPage } from './lyrics'
 import SongLyrics from './song/SongLyrics'
+import DeviceGrant from './layout/DeviceGrant'
 import config from './config'
 
 const routes = [
+  <Route exact path="/device/grant" render={() => <DeviceGrant />} key={'device-grant'} />,
   <Route exact path="/personal" render={() => <Personal />} key={'personal'} />,
   <Route exact path="/partners" render={() => <Partners />} key={'partners'} />,
   <Route exact path="/about" render={() => <About />} key={'about'} />,

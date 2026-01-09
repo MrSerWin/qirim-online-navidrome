@@ -219,6 +219,17 @@ const FormLogin = ({
                 </CardActions>
               )}
               <OAuthButtons />
+              <CardActions className={classes.actions}>
+                <Button
+                  variant="text"
+                  onClick={() => { window.location.hash = '/device/login' }}
+                  disabled={loading}
+                  fullWidth
+                  size="small"
+                >
+                  {translate('ra.auth.loginWithQR', { _: 'Login with QR Code' })}
+                </Button>
+              </CardActions>
               <div className={classes.privacyLink}>
                 <Link
                   href="/privacy.html"

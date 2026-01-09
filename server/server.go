@@ -231,6 +231,16 @@ func (s *Server) mountAuthenticationRoutes() chi.Router {
 				oauthCallback(s.ds, provider)(w, r)
 			})
 		}
+
+		// Device authorization (QR login) routes
+		r.Get("/device", deviceAuthStart(s.ds))
+		r.Get("/device/poll", deviceAuthPoll(s.ds))
+		r.Get("/device/info", deviceAuthInfo(s.ds))
+		// Grant requires authentication
+		r.Group(func(r chi.Router) {
+			r.Use(Authenticator(s.ds))
+			r.Post("/device/grant", deviceAuthGrant(s.ds))
+		})
 	})
 }
 

@@ -55,6 +55,16 @@ const authProvider = {
         // This prevents race condition where httpClient reads empty token
         await new Promise(resolve => setTimeout(resolve, 100))
 
+        // Check if we need to redirect back to device grant page
+        const deviceGrantReturnUrl = sessionStorage.getItem('deviceGrantReturnUrl')
+        if (deviceGrantReturnUrl) {
+          sessionStorage.removeItem('deviceGrantReturnUrl')
+          // Use setTimeout to let react-admin finish its login flow first
+          setTimeout(() => {
+            window.location.hash = deviceGrantReturnUrl
+          }, 200)
+        }
+
         return response
       })
       .catch((error) => {

@@ -1,4 +1,9 @@
 export const removeHomeCache = async () => {
+  // Cache API is only available in secure contexts (HTTPS or localhost)
+  if (typeof caches === 'undefined') {
+    return
+  }
+
   try {
     const workboxKey = (await caches.keys()).find((key) =>
       key.startsWith('workbox-precache'),
@@ -21,6 +26,11 @@ export const removeHomeCache = async () => {
 
 // Clear all user-specific caches on logout
 export const clearAllUserCaches = async () => {
+  // Cache API is only available in secure contexts (HTTPS or localhost)
+  if (typeof caches === 'undefined') {
+    return
+  }
+
   try {
     // Get all cache names
     const cacheNames = await caches.keys()
