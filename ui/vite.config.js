@@ -44,7 +44,10 @@ export default defineConfig({
     host: true,
     port: frontendPort,
     proxy: {
-      '^/(auth|api|rest|backgrounds)/.*': 'http://localhost:' + backendPort,
+      '^/(auth|api|rest|backgrounds|song|share|sitemap\\.xml|robots\\.txt)/.*': 'http://localhost:' + backendPort,
+      '^/song/': 'http://localhost:' + backendPort,
+      '^/sitemap.xml': 'http://localhost:' + backendPort,
+      '^/robots.txt': 'http://localhost:' + backendPort,
     },
   },
   base: './',

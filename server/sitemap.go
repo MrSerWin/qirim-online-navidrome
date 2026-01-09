@@ -78,21 +78,18 @@ func sitemapHandler(ds model.DataStore) http.HandlerFunc {
 			}
 		}
 
-		// Get all songs with lyrics for SEO pages
-		songs, err := ds.MediaFile(ctx).GetAll()
+		// Get all songs with approved crowdsource lyrics for SEO pages
+		approvedLyrics, err := ds.LyricsCrowdsource(ctx).GetAllApproved(10000, 0)
 		if err != nil {
-			log.Error(ctx, "Error getting songs for sitemap", err)
+			log.Error(ctx, "Error getting approved lyrics for sitemap", err)
 		} else {
-			for _, song := range songs {
-				// Only include songs that have lyrics
-				if song.Lyrics != "" {
-					songURL := SitemapURL{
-						Loc:        fmt.Sprintf("%s/song/%s", baseURL, song.ID),
-						ChangeFreq: "monthly",
-						Priority:   "0.5",
-					}
-					urls = append(urls, songURL)
+			for _, lyrics := range approvedLyrics {
+				songURL := SitemapURL{
+					Loc:        fmt.Sprintf("%s/song/%s", baseURL, lyrics.MediaFileID),
+					ChangeFreq: "monthly",
+					Priority:   "0.5",
 				}
+				urls = append(urls, songURL)
 			}
 		}
 

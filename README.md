@@ -275,6 +275,9 @@ Full configuration guide: [`docs/OAUTH_SETUP.md`](docs/OAUTH_SETUP.md)
 
 ## 🧪 Testing
 
+# Остановить
+pkill -f "vite" && pkill -f "navidrome"
+
 ```bash
 # Run Go tests
 make test

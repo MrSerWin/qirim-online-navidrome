@@ -41,7 +41,8 @@ func New(ds model.DataStore, broker events.Broker, insights metrics.Insights) *S
 	auth.Init(s.ds)
 	s.initRoutes()
 	s.mountAuthenticationRoutes()
-	s.mountRootRedirector()
+	// Note: mountRootRedirector is called later in Run() after all other routers are mounted
+	// to ensure that the catch-all /* route doesn't intercept specific routes like /song
 	checkFFmpegInstallation()
 	checkExternalCredentials()
 	return s
@@ -59,6 +60,9 @@ func (s *Server) MountRouter(description, urlPath string, subRouter http.Handler
 func (s *Server) Run(ctx context.Context, addr string, port int, tlsCert string, tlsKey string) error {
 	// Mount the router for the frontend assets
 	s.MountRouter("WebUI", consts.URLPathUI, s.frontendAssetsHandler())
+
+	// Mount root redirector LAST to ensure specific routes like /song are not intercepted
+	s.mountRootRedirector()
 
 	// Create a new http.Server with the specified read header timeout and handler
 	server := &http.Server{
@@ -233,8 +237,17 @@ func (s *Server) mountAuthenticationRoutes() chi.Router {
 // Serve UI app assets
 func (s *Server) mountRootRedirector() {
 	r := s.router
-	// Redirect root to UI URL
-	r.Get("/*", func(w http.ResponseWriter, r *http.Request) {
+	// Serve static assets from root for SEO pages
+	assets := ui.BuildAssets()
+	staticFiles := []string{"qo-logo.png", "album-placeholder.webp", "artist-placeholder.webp", "favicon.ico"}
+	for _, file := range staticFiles {
+		fileName := file
+		r.Get("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
+			http.ServeFileFS(w, r, assets, fileName)
+		})
+	}
+	// Redirect root to UI URL (but not specific routes like /song, /api, /share, etc.)
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, s.appRoot+"/", http.StatusFound)
 	})
 	r.Get(s.appRoot, func(w http.ResponseWriter, r *http.Request) {

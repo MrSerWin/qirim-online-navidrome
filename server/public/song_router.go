@@ -3,6 +3,8 @@ package public
 import (
 	"html/template"
 	"net/http"
+	"strings"
+	"time"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/navidrome/navidrome/model"
@@ -48,23 +50,43 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// Get lyrics
-	lyricsText := extractLyricsText(mf)
+	// Get lyrics from crowdsource (approved) first, fallback to media_file
+	var lyricsText string
+	crowdsourceLyrics, err := sr.ds.LyricsCrowdsource(r.Context()).GetApproved(mf.ID)
+	if err == nil && crowdsourceLyrics != nil && crowdsourceLyrics.Content != "" {
+		// Clean up lyrics: remove comment lines starting with #
+		lines := strings.Split(crowdsourceLyrics.Content, "\n")
+		var cleanLines []string
+		for _, line := range lines {
+			trimmed := strings.TrimSpace(line)
+			if !strings.HasPrefix(trimmed, "#") {
+				cleanLines = append(cleanLines, line)
+			}
+		}
+		lyricsText = strings.TrimSpace(strings.Join(cleanLines, "\n"))
+	} else {
+		// Fallback to media_file lyrics
+		lyricsText = extractLyricsText(mf)
+	}
 
 	// Build page data
 	data := SongPageData{
 		Title:        mf.Title,
 		Artist:       mf.Artist,
+		ArtistID:     mf.ArtistID,
 		Album:        mf.Album,
+		AlbumID:      mf.AlbumID,
 		Year:         mf.Year,
 		Duration:     formatDuration(mf.Duration),
 		Lyrics:       lyricsText,
 		LyricsHTML:   template.HTML(formatLyricsHTML(lyricsText)),
 		ImageURL:     "/share/img/" + mf.AlbumID,
 		SongURL:      "/app/#/song/" + mf.ID + "/show",
+		LyricsURL:    "/app/#/song/" + mf.ID + "/lyrics",
 		CanonicalURL: "/song/" + mf.ID,
 		SiteName:     "Qirim.Online",
 		Description:  mf.Title + " — " + mf.Artist + ". Текст песни и музыка на Qirim.Online",
+		CurrentYear:  time.Now().Year(),
 	}
 
 	// Render the template

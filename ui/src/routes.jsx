@@ -11,6 +11,7 @@ import New from './new/New'
 import Wrapped from './wrapped/Wrapped'
 import WrappedPublicShare from './wrapped/WrappedPublicShare'
 import { LyricsModerationPage } from './lyrics'
+import SongLyrics from './song/SongLyrics'
 import config from './config'
 
 const routes = [
@@ -23,6 +24,7 @@ const routes = [
   <Route exact path="/wrapped" render={() => <Wrapped />} key={'wrapped'} />,
   <Route exact path="/wrapped/share/:shareId" render={() => <WrappedPublicShare />} key={'wrapped-share'} />,
   <Route exact path="/lyrics-moderation" render={() => <LyricsModerationPage />} key={'lyrics-moderation'} />,
+  <Route exact path="/song/:id/lyrics" render={() => <SongLyrics />} key={'song-lyrics'} />,
 ]
 
 // Add shop routes if enabled
