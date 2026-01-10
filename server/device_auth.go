@@ -163,8 +163,8 @@ func deviceAuthPoll(ds model.DataStore) func(w http.ResponseWriter, r *http.Requ
 			return
 
 		case model.DeviceAuthStatusGranted:
-			// Get user and generate token
-			user, err := ds.User(r.Context()).Get(deviceAuth.UserID)
+			// Get user with password (needed for subsonic token generation)
+			user, err := ds.User(r.Context()).GetWithPassword(deviceAuth.UserID)
 			if err != nil {
 				log.Error(r, "Failed to get user for device auth", err)
 				_ = rest.RespondWithError(w, http.StatusInternalServerError, "Failed to get user")
@@ -189,10 +189,15 @@ func deviceAuthPoll(ds model.DataStore) func(w http.ResponseWriter, r *http.Requ
 			}
 			if salt, ok := payload["subsonicSalt"].(string); ok {
 				response.SubsonicSalt = salt
+			} else {
+				log.Warn(r, "subsonicSalt not found in payload")
 			}
 			if token, ok := payload["subsonicToken"].(string); ok {
 				response.SubsonicToken = token
+			} else {
+				log.Warn(r, "subsonicToken not found in payload")
 			}
+			log.Info(r, "Device auth granted", "user", user.UserName, "hasSalt", response.SubsonicSalt != "", "hasToken", response.SubsonicToken != "")
 
 			// Clean up the device auth entry
 			_ = ds.DeviceAuth(r.Context()).Cleanup()

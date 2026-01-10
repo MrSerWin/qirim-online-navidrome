@@ -193,6 +193,15 @@ func (r *userRepository) FindByUsernameWithPassword(username string) (*model.Use
 	return usr, nil
 }
 
+func (r *userRepository) GetWithPassword(id string) (*model.User, error) {
+	usr, err := r.Get(id)
+	if err != nil {
+		return nil, err
+	}
+	_ = r.decryptPassword(usr)
+	return usr, nil
+}
+
 // OAuth provider lookup methods
 
 func (r *userRepository) FindByGoogleID(googleID string) (*model.User, error) {

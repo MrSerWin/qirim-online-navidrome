@@ -169,14 +169,21 @@ const DeviceLoginContent = () => {
 
       if (data.status === 'granted') {
         // Login successful - save auth data in the same format as authProvider.js
+        console.log('[DeviceLogin] Received auth data:', {
+          hasToken: !!data.token,
+          hasSubsonicSalt: !!data.subsonicSalt,
+          hasSubsonicToken: !!data.subsonicToken,
+          data
+        })
         localStorage.setItem('token', data.token)
         localStorage.setItem('userId', data.id)
         localStorage.setItem('name', data.name)
         localStorage.setItem('username', data.username)
         localStorage.setItem('role', data.isAdmin ? 'admin' : 'regular')
-        localStorage.setItem('subsonic-salt', data.subsonicSalt)
-        localStorage.setItem('subsonic-token', data.subsonicToken)
+        localStorage.setItem('subsonic-salt', data.subsonicSalt || '')
+        localStorage.setItem('subsonic-token', data.subsonicToken || '')
         localStorage.setItem('is-authenticated', 'true')
+        console.log('[DeviceLogin] Auth data saved to localStorage')
         // Redirect to main app
         window.location.hash = '/'
         window.location.reload()

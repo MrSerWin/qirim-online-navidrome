@@ -58,6 +58,8 @@ type UserRepository interface {
 	FindByUsername(username string) (*User, error)
 	// FindByUsernameWithPassword is the same as above, but also returns the decrypted password
 	FindByUsernameWithPassword(username string) (*User, error)
+	// GetWithPassword is the same as Get, but also returns the decrypted password
+	GetWithPassword(id string) (*User, error)
 
 	// OAuth provider lookup methods
 	FindByGoogleID(googleID string) (*User, error)

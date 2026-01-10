@@ -70,6 +70,10 @@ func (u *MockedUserRepo) Get(id string) (*model.User, error) {
 	return nil, model.ErrNotFound
 }
 
+func (u *MockedUserRepo) GetWithPassword(id string) (*model.User, error) {
+	return u.Get(id)
+}
+
 func (u *MockedUserRepo) UpdateLastLoginAt(id string) error {
 	for _, usr := range u.Data {
 		if usr.ID == id {
