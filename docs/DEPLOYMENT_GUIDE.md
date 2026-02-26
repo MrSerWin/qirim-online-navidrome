@@ -246,50 +246,155 @@ curl -s -o /dev/null -w "%{http_code}" https://sevil.chat             # 200
 
 ## Деплой Share App (ana-yurt.dev)
 
+### Архитектура
+
+Share App — монорепо с workspaces:
+- `packages/server` — Next.js приложение (backend + frontend)
+- `packages/shared` — общие типы и утилиты
+- `packages/desktop` — macOS десктоп клиент (НЕ деплоится на сервер)
+
+Next.js использует `output: 'standalone'` — это значит:
+- Статические файлы (`_next/static/`) **не** обслуживаются Node.js сервером
+- Они расшариваются через volume и обслуживаются nginx напрямую
+- Путь на хосте: `/opt/share-app/data/next-static/`
+
 ### Первый деплой
 
+#### 1. Загрузить файлы на сервер
+
+**Важно**: НЕ копировать весь проект (`scp -r`). Загружать только нужные файлы:
+
 ```bash
-# 1. Загрузить код на сервер
-scp -r /Volumes/T9/1_dev/share-app root@93.127.197.163:/opt/share-app
+# Создать директорию
+mkdir -p /opt/share-app
 
-# 2. Настроить .env
+# С локальной машины — структурные файлы
+scp /Volumes/T9/1_dev/share-app/package.json root@93.127.197.163:/opt/share-app/
+scp /Volumes/T9/1_dev/share-app/package-lock.json root@93.127.197.163:/opt/share-app/
+scp /Volumes/T9/1_dev/share-app/tsconfig.base.json root@93.127.197.163:/opt/share-app/
+scp /Volumes/T9/1_dev/share-app/docker-compose.yml root@93.127.197.163:/opt/share-app/
+scp /Volumes/T9/1_dev/share-app/.env.example root@93.127.197.163:/opt/share-app/
+
+# Только server и shared пакеты (НЕ desktop!)
+scp -r /Volumes/T9/1_dev/share-app/packages/server root@93.127.197.163:/opt/share-app/packages/
+scp -r /Volumes/T9/1_dev/share-app/packages/shared root@93.127.197.163:/opt/share-app/packages/
+```
+
+#### 2. Настроить .env
+
+```bash
 cp /opt/share-app/.env.example /opt/share-app/.env
-# Отредактировать .env (DB_PASSWORD, NEXTAUTH_SECRET, etc.)
+nano /opt/share-app/.env
+```
 
-# 3. Загрузить лендинг
-# Файлы лендинга должны быть в /opt/share-app/website/
+**Критически важно**: `DB_PASSWORD` должен генерироваться через `openssl rand -hex 32` (НЕ `-base64`!). Base64 содержит `/` и `=`, которые ломают DATABASE_URL.
 
-# 4. Настроить DNS
-# Направить ana-yurt.dev и shareapp.ana-yurt.dev на 93.127.197.163
+```bash
+# Генерация безопасных секретов
+openssl rand -hex 32  # для DB_PASSWORD
+openssl rand -hex 32  # для NEXTAUTH_SECRET
+openssl rand -hex 32  # для CRON_SECRET
+```
 
-# 5. Получить SSL сертификаты
+#### 3. Загрузить лендинг
+
+Файлы лендинга должны быть в `/opt/share-app/website/`.
+
+#### 4. Создать директорию для статических файлов
+
+```bash
+mkdir -p /opt/share-app/data/next-static
+chown -R 1001:1001 /opt/share-app/data/next-static
+```
+
+Контейнер работает от пользователя `nextjs` (uid 1001), поэтому ему нужны права на запись.
+
+#### 5. Настроить DNS
+
+Направить `ana-yurt.dev` и `shareapp.ana-yurt.dev` на `93.127.197.163`.
+
+**Если домен на Cloudflare**: выставить режим "DNS only" (серая иконка), НЕ "Proxied" (оранжевая). Иначе certbot не сможет получить сертификат — ACME challenge пойдёт через Cloudflare.
+
+#### 6. Получить SSL сертификаты
+
+```bash
 certbot certonly --webroot -w /var/www/certbot -d ana-yurt.dev -d www.ana-yurt.dev
 certbot certonly --webroot -w /var/www/certbot -d shareapp.ana-yurt.dev
+```
 
-# 6. Раскомментировать HTTPS блоки в nginx конфигах
-#    50-ana-yurt-dev.conf — убрать # перед server { listen 443 ... }
-#    60-shareapp.conf — убрать # перед server { listen 443 ... }
+#### 7. Раскомментировать HTTPS блоки в nginx конфигах
+
+- `50-ana-yurt-dev.conf` — раскомментировать HTTPS server block
+- `60-shareapp.conf` — раскомментировать HTTPS server block
+
+```bash
 nginx -t && systemctl reload nginx
+```
 
-# 7. Запустить контейнеры
+#### 8. Собрать и запустить контейнеры
+
+```bash
 cd /opt/share-app
+docker compose build server
 docker compose up -d
 ```
+
+Проверить логи:
+```bash
+docker compose logs --tail=20 server
+```
+
+Должно быть: "No pending migrations to apply", "Syncing static files...", "Starting server..."
 
 ### Последующие обновления
 
 ```bash
+# 1. Загрузить обновлённые файлы (с локальной машины)
+scp -r /Volumes/T9/1_dev/share-app/packages/server root@93.127.197.163:/opt/share-app/packages/
+scp -r /Volumes/T9/1_dev/share-app/packages/shared root@93.127.197.163:/opt/share-app/packages/
+
+# 2. На сервере: пересобрать и перезапустить
 cd /opt/share-app
 docker compose build server
 docker compose up -d server
 ```
 
+### Docker-специфика Share App
+
+**Dockerfile** (`packages/server/Dockerfile`) — multi-stage build:
+1. `deps` — установка npm dependencies
+2. `shared-builder` — сборка shared пакета
+3. `builder` — генерация Prisma клиента + сборка Next.js
+4. `runner` — production образ
+
+**Важные моменты**:
+- Standalone node_modules в монорепо содержит симлинки → полные `node_modules` копируются из builder поверх standalone
+- Статические файлы (`_next/static`) копируются ПОСЛЕ `node_modules` чтобы не были перезаписаны
+- Prisma CLI нужен для миграций при старте → используется из `./node_modules/prisma/build/index.js`
+- `docker-entrypoint.sh` сначала запускает миграции, потом синхронизирует статику в shared volume, потом стартует сервер
+
+**Если сервер крутится в restart loop**:
+```bash
+docker compose logs --tail=50 server
+```
+
+Частые причины:
+- `prisma: not found` — entrypoint использует `npx prisma` вместо прямого пути
+- `MODULE_NOT_FOUND: next` — standalone симлинки сломаны, нужен полный node_modules
+- `P1013: invalid port number` — спецсимволы в DB_PASSWORD (см. выше)
+- `P1000: Authentication failed` — postgres volume хранит старый пароль, нужно пересоздать:
+  ```bash
+  docker compose down
+  docker volume rm share-app_pgdata
+  docker compose up -d
+  ```
+
 ### Проверка
 
 ```bash
-curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3001         # Share App
-curl -s -o /dev/null -w "%{http_code}" https://ana-yurt.dev           # Landing
-curl -s -o /dev/null -w "%{http_code}" https://shareapp.ana-yurt.dev  # App
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3001         # Share App (200)
+curl -s -o /dev/null -w "%{http_code}" https://ana-yurt.dev           # Landing (200)
+curl -s -o /dev/null -w "%{http_code}" https://shareapp.ana-yurt.dev  # App (200)
 ```
 
 ---
@@ -303,14 +408,14 @@ curl -s -o /dev/null -w "%{http_code}" https://shareapp.ana-yurt.dev  # App
 | qirim.online | Активен, автообновление |
 | mail.qirim.online | Активен, автообновление |
 | sevil.chat | Активен, автообновление |
-| ana-yurt.dev | Ожидает DNS + certbot |
-| shareapp.ana-yurt.dev | Ожидает DNS + certbot |
+| ana-yurt.dev | Активен, автообновление |
+| shareapp.ana-yurt.dev | Активен, автообновление |
 | qirim.cloud | Ожидает DNS + certbot |
 
 ### Проверка сроков
 
 ```bash
-for domain in qirim.online mail.qirim.online sevil.chat; do
+for domain in qirim.online mail.qirim.online sevil.chat ana-yurt.dev shareapp.ana-yurt.dev; do
   expiry=$(openssl x509 -enddate -noout -in "/etc/letsencrypt/live/$domain/cert.pem" 2>/dev/null | cut -d= -f2)
   echo "$domain: $expiry"
 done
@@ -361,6 +466,7 @@ nginx -t && systemctl reload nginx
 - **Nginx работает на хосте**, не в Docker. Поэтому `systemctl reload nginx`, а не `docker exec`
 - Certbot использует webroot `/var/www/certbot` — HTTP server block каждого сайта имеет `location /.well-known/acme-challenge/` для этого
 - Не удаляй HTTP server блоки — они нужны для ACME challenge при обновлении сертификатов
+- **Cloudflare**: если домен на Cloudflare, перед получением сертификата выставить "DNS only" (серая иконка). Cloudflare Proxy перехватывает ACME challenge и certbot получит ошибку
 
 ---
 
@@ -515,7 +621,7 @@ echo "=== Share App ==="
 curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3001
 
 echo "=== HTTPS (external) ==="
-for site in qirim.online mail.qirim.online sevil.chat; do
+for site in qirim.online mail.qirim.online sevil.chat ana-yurt.dev shareapp.ana-yurt.dev; do
   code=$(curl -s -o /dev/null -w "%{http_code}" "https://$site")
   echo "$site: $code"
 done

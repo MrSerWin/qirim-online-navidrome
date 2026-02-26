@@ -133,10 +133,13 @@ services:
 |----------|-------|
 | Docker compose | `/opt/share-app/docker-compose.yml` |
 | Server container | `share-app-server` |
-| Server host port | `127.0.0.1:3001 → 3001` (Next.js) |
+| Server host port | `127.0.0.1:3001 → 3001` (Next.js standalone) |
 | Landing page | Static files at `/opt/share-app/website/` |
+| Next.js static files | `/opt/share-app/data/next-static/` (shared volume → nginx) |
 | Nginx configs | `50-ana-yurt-dev.conf` + `60-shareapp.conf` |
-| **Status** | HTTPS blocks commented out until DNS set and certs obtained |
+| **Status** | Active, HTTPS enabled |
+
+**Next.js standalone**: Node.js сервер не обслуживает `_next/static/` файлы. Они копируются в shared volume (`data/next-static/`) при старте контейнера и обслуживаются nginx напрямую через `location /_next/static/`.
 
 ### 5. qirim.cloud (placeholder)
 
@@ -159,13 +162,13 @@ services:
 | qirim.online | Active | Auto-renewed |
 | mail.qirim.online | Active | Auto-renewed |
 | sevil.chat | Active | Auto-renewed |
-| ana-yurt.dev | Pending | Obtain after DNS points to 93.127.197.163 |
-| shareapp.ana-yurt.dev | Pending | Obtain after DNS points to 93.127.197.163 |
+| ana-yurt.dev | Active | Auto-renewed |
+| shareapp.ana-yurt.dev | Active | Auto-renewed |
 | qirim.cloud | Pending | Obtain after DNS points to 93.127.197.163 |
 
 ### Check certificate expiry
 ```bash
-for domain in qirim.online mail.qirim.online sevil.chat; do
+for domain in qirim.online mail.qirim.online sevil.chat ana-yurt.dev shareapp.ana-yurt.dev; do
   expiry=$(openssl x509 -enddate -noout -in "/etc/letsencrypt/live/$domain/cert.pem" 2>/dev/null | cut -d= -f2)
   echo "$domain: $expiry"
 done
