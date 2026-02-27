@@ -367,10 +367,12 @@ class NavidromeDB:
                 SELECT
                     a.id,
                     a.name,
-                    a.song_count,
-                    a.album_count
+                    COUNT(mf.id) as song_count
                 FROM artist a
-                WHERE a.song_count > 0
+                JOIN media_file_artists mfa ON a.id = mfa.artist_id
+                JOIN media_file mf ON mfa.media_file_id = mf.id
+                GROUP BY a.id
+                HAVING song_count > 0
                 ORDER BY a.name
             """)
 
@@ -568,7 +570,7 @@ class VKMusicScanner:
         """Search using vkpymusic library"""
         tracks = self.service.search_songs_by_text(text=query, count=count)
         return [{
-            'id': track.id,
+            'id': track.track_id,
             'owner_id': track.owner_id,
             'artist': track.artist,
             'title': track.title,

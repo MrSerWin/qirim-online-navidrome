@@ -18,10 +18,11 @@ DOMAINS=(
     "qirim.online"
     "mail.qirim.online"
     "sevil.chat"
+    "admin.qirim.online"
     # Uncomment after DNS is set and certs obtained:
-    # "ana-yurt.dev"
-    # "shareapp.ana-yurt.dev"
-    # "qirim.cloud"
+    "ana-yurt.dev"
+    "shareapp.ana-yurt.dev"
+    "qirim.cloud"
 )
 
 echo "$LOG_PREFIX Starting certificate renewal check..."

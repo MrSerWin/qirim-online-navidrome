@@ -1,0 +1,1764 @@
+{
+  "tracks": {
+    "02e15e2acfa68d2bfb8cebe1c17e9229": {
+      "artist": "#samumbeatz",
+      "title": "Shia",
+      "downloaded_at": "2026-02-27T08:31:56.826584"
+    },
+    "f261f0c80f0199c6fe2b6407935ed43d": {
+      "artist": "samumbeatz",
+      "title": "Samum",
+      "downloaded_at": "2026-02-27T08:32:22.269207"
+    },
+    "32f291081cc5ae35436bbe0712cffd04": {
+      "artist": "samumbeatz",
+      "title": "Dura (Я дура ты дурак)",
+      "downloaded_at": "2026-02-27T08:32:39.703614"
+    },
+    "0937c20a61da87f82be53eda9bf17e28": {
+      "artist": "samumbeatz",
+      "title": "Online",
+      "downloaded_at": "2026-02-27T08:32:48.186910"
+    },
+    "8c95881b72f05bc3b424fb75ae61d0fd": {
+      "artist": "#samumbeatz",
+      "title": "Strangers Are Coming...",
+      "downloaded_at": "2026-02-27T08:32:51.787201"
+    },
+    "9ea9b4587268cbd740ab06949fc896d6": {
+      "artist": "samumbeatz",
+      "title": "Glad",
+      "downloaded_at": "2026-02-27T08:32:55.720299"
+    },
+    "0dffd45ca47b5a6729be647539572a1f": {
+      "artist": "samumbeatz",
+      "title": "Angels Love",
+      "downloaded_at": "2026-02-27T08:32:59.647079"
+    },
+    "31e0e9cb2f1fd1de034b705ba6690df8": {
+      "artist": "samumbeatz",
+      "title": "Break It Off",
+      "downloaded_at": "2026-02-27T08:33:17.403343"
+    },
+    "6ec2dcfda198d91bb88b5f2753a7edaa": {
+      "artist": "#samumbeatz",
+      "title": "afterdeath",
+      "downloaded_at": "2026-02-27T08:33:34.043811"
+    },
+    "fca759d8044afda2d744e2a2eef1221f": {
+      "artist": "samumbeatz",
+      "title": "Tea",
+      "downloaded_at": "2026-02-27T08:33:46.449627"
+    },
+    "5b456fc84108bbebe75e023308a12457": {
+      "artist": "#samumbeatz",
+      "title": "Freefly",
+      "downloaded_at": "2026-02-27T08:35:05.097888"
+    },
+    "24d12e1e3d25521f8a531f4d5ef9fe34": {
+      "artist": "samumbeatz",
+      "title": "Perptual",
+      "downloaded_at": "2026-02-27T08:35:27.943406"
+    },
+    "28c3531904734a856607458b52b6d2d9": {
+      "artist": "samumbeatz",
+      "title": "For Peoples",
+      "downloaded_at": "2026-02-27T08:35:46.954002"
+    },
+    "b0a186f905e8708757f7818acc2a724b": {
+      "artist": "#samumbeatz",
+      "title": "One Day",
+      "downloaded_at": "2026-02-27T08:35:55.602538"
+    },
+    "cb42bcd91b7587f648e4677a7bfa8ad7": {
+      "artist": "samumbeatz",
+      "title": "PIMP",
+      "downloaded_at": "2026-02-27T08:36:03.398821"
+    },
+    "852c80ff805484efdabd4f6e3e11544a": {
+      "artist": "samumbeatz",
+      "title": "Papers",
+      "downloaded_at": "2026-02-27T08:36:13.777085"
+    },
+    "7d883a963a21c940135ac2b383c6a487": {
+      "artist": "samumbeatz",
+      "title": "Falling",
+      "downloaded_at": "2026-02-27T08:36:42.572781"
+    },
+    "94065d27014abbd52e4c0109c9e1305c": {
+      "artist": "#samumbeatz",
+      "title": "High Priority",
+      "downloaded_at": "2026-02-27T08:36:51.876059"
+    },
+    "7fe776e9a4746634c5ffac3b519698b3": {
+      "artist": "samumbeatz",
+      "title": "Goodbye",
+      "downloaded_at": "2026-02-27T08:37:11.702761"
+    },
+    "fa689a0fdbe206f130b99af9333d4a97": {
+      "artist": "samumbeatz",
+      "title": "Rain",
+      "downloaded_at": "2026-02-27T08:37:15.419030"
+    },
+    "a8c05eb990f16362f1cfb0b8c144ae95": {
+      "artist": "samumbeatz",
+      "title": "On Air",
+      "downloaded_at": "2026-02-27T08:37:25.658353"
+    },
+    "2ee12d03eb5a72b829c01be96f68abb0": {
+      "artist": "samumbeatz",
+      "title": "In Your Eyes",
+      "downloaded_at": "2026-02-27T08:37:38.156197"
+    },
+    "3a37fa606131f31754554f36f6a71dff": {
+      "artist": "samumbeatz",
+      "title": "GangBang",
+      "downloaded_at": "2026-02-27T08:37:49.476036"
+    },
+    "426b8ab4f22ec52f15c372a83f3404e8": {
+      "artist": "samumbeatz",
+      "title": "Hello Punch",
+      "downloaded_at": "2026-02-27T08:37:57.143724"
+    },
+    "d016345efc8614ef4450f082728467cf": {
+      "artist": "samumbeatz",
+      "title": "Red",
+      "downloaded_at": "2026-02-27T08:38:08.478935"
+    },
+    "e1cacf7a0c1b53ee905333e07cecae06": {
+      "artist": "samumbeatz",
+      "title": "For People",
+      "downloaded_at": "2026-02-27T08:38:16.780974"
+    },
+    "698f0aa1bb14bee17c199a107512b621": {
+      "artist": "samumbeatz",
+      "title": "Wings",
+      "downloaded_at": "2026-02-27T08:38:26.236998"
+    },
+    "052daf44edac1afaf20bd69e13dce121": {
+      "artist": "samumbeatz",
+      "title": "Feel Me High",
+      "downloaded_at": "2026-02-27T08:38:36.322393"
+    },
+    "d77f9d9bad00bbd355e08fcefb9c1521": {
+      "artist": "samumbeatz",
+      "title": "Real",
+      "downloaded_at": "2026-02-27T08:38:57.126146"
+    },
+    "4cd8d6a0f7046688cb9f8f07de86bfb5": {
+      "artist": "samumbeatz",
+      "title": "Me Blocked",
+      "downloaded_at": "2026-02-27T08:39:04.886162"
+    },
+    "fcfbe20480fc73de37ba25279142d422": {
+      "artist": "samumbeatz",
+      "title": "The Rat",
+      "downloaded_at": "2026-02-27T08:39:15.707773"
+    },
+    "d862c44562a910ba0afd242e5fe73a8d": {
+      "artist": "samumbeatz",
+      "title": "Gonna Fly",
+      "downloaded_at": "2026-02-27T08:39:19.279407"
+    },
+    "0831b0f38fedafa9909a104c01085aec": {
+      "artist": "samumbeatz",
+      "title": "Who Is",
+      "downloaded_at": "2026-02-27T08:39:22.896967"
+    },
+    "c473456f0e3e1ee67b49218a5b0f4f6c": {
+      "artist": "samumbeatz",
+      "title": "In The Way",
+      "downloaded_at": "2026-02-27T08:39:26.487096"
+    },
+    "74ccf18de53ed37a5d5f9a1104b3c1c6": {
+      "artist": "samumbeatz",
+      "title": "Snoop Around",
+      "downloaded_at": "2026-02-27T08:39:36.869349"
+    },
+    "68debb5b753143b78a20816fec8cd358": {
+      "artist": "samumbeatz",
+      "title": "Something Cool",
+      "downloaded_at": "2026-02-27T08:39:52.116805"
+    },
+    "be740f4319a8b30cbb07a211d6fd656b": {
+      "artist": "samumbeatz",
+      "title": "Break Your Heart",
+      "downloaded_at": "2026-02-27T08:40:00.156568"
+    },
+    "e18fb4d63708356e6fb0860b67107192": {
+      "artist": "samumbeatz",
+      "title": "Cry Baby Cry",
+      "downloaded_at": "2026-02-27T08:42:50.198743"
+    },
+    "85f4b3875234eab7e3b9eb250548ba83": {
+      "artist": "samumbeatz",
+      "title": "Demon Festival",
+      "downloaded_at": "2026-02-27T08:42:59.594688"
+    },
+    "a96decd4008c04066b15819c6991d81c": {
+      "artist": "samumbeatz",
+      "title": "So Young For Die [BONUS]",
+      "downloaded_at": "2026-02-27T08:43:08.664910"
+    },
+    "f9a874c4b837c7f9cfc40808eeabc37d": {
+      "artist": "samumbeatz",
+      "title": "Rainfall",
+      "downloaded_at": "2026-02-27T08:43:22.358646"
+    },
+    "913709daeef5a83b56be105b6ae0f091": {
+      "artist": "samumbeatz",
+      "title": "Get Up",
+      "downloaded_at": "2026-02-27T08:43:30.788517"
+    },
+    "4f24f0806459d7f350e7a670b5cf9726": {
+      "artist": "samumbeatz",
+      "title": "Under My Skin",
+      "downloaded_at": "2026-02-27T08:43:37.265425"
+    },
+    "9ec86b06e77d1da51a764841fa5c438c": {
+      "artist": "samumbeatz",
+      "title": "Leave The Lights On",
+      "downloaded_at": "2026-02-27T08:43:40.800023"
+    },
+    "4d3a9b05e66c79feb09ecf29edc452db": {
+      "artist": "085",
+      "title": "085",
+      "downloaded_at": "2026-02-27T08:43:48.450504"
+    },
+    "36dc9e7f280a712cfed42e85c6ae4ac2": {
+      "artist": "Dj Bebek",
+      "title": "Party from Bebek",
+      "downloaded_at": "2026-02-27T08:44:16.889380"
+    },
+    "67bce2fbb9b1bdcaf3fd68fe4e667ba2": {
+      "artist": "Dj Bebek",
+      "title": "Эльвина",
+      "downloaded_at": "2026-02-27T08:44:28.792922"
+    },
+    "1f422806c3315ec3b8f7ccd744bc3ce1": {
+      "artist": "ATR ansambli",
+      "title": "Qızlar oyunı ve haytarma",
+      "downloaded_at": "2026-02-27T08:44:44.621348"
+    },
+    "30632c45c065d31c76a1f0dad0065aeb": {
+      "artist": "ATR ANSAMBLİ",
+      "title": "addial nağmesi",
+      "downloaded_at": "2026-02-27T08:44:58.103353"
+    },
+    "f16fc37fec037d782ce822202f4f34b7": {
+      "artist": "Asan Umerov ve ATR ansambli",
+      "title": "Şamatalı kelin",
+      "downloaded_at": "2026-02-27T08:45:05.843496"
+    },
+    "844664010cd760a1e94f8752b7a9d941": {
+      "artist": "ATR ansambli",
+      "title": "Aqmescit çeşmesi",
+      "downloaded_at": "2026-02-27T08:45:17.333291"
+    },
+    "045afce3b634ba34dfb937255778d342": {
+      "artist": "ATR ANSAMBLİ",
+      "title": "boyka qaytarması",
+      "downloaded_at": "2026-02-27T08:45:26.608049"
+    },
+    "644decfa4c614715ebcb906a38803a39": {
+      "artist": "ATR ansambli",
+      "title": "Çiftetelli (instrumental)",
+      "downloaded_at": "2026-02-27T08:45:37.754126"
+    },
+    "ea17a415abde12a1de7a009bef4b0f2c": {
+      "artist": "ATR ANSAMBLİ",
+      "title": "ağır ava ve qaytarma",
+      "downloaded_at": "2026-02-27T08:45:46.692909"
+    },
+    "dc6ca27f906447b0719058a5251cf37d": {
+      "artist": "Elzara Batalova ve ATR ansambli",
+      "title": "Dağlarnıñ yolları (live)",
+      "downloaded_at": "2026-02-27T08:45:52.037636"
+    },
+    "c170636e868dcd0af4b58c5ffc9bc2ea": {
+      "artist": "ATR ansambli",
+      "title": "Saba erte",
+      "downloaded_at": "2026-02-27T08:45:55.947527"
+    },
+    "0e71df561cf1fd4d60e4d28e5f5ca0d6": {
+      "artist": "ATR ANSAMBLİ",
+      "title": "seydane köz ve qaytarma",
+      "downloaded_at": "2026-02-27T08:46:06.170543"
+    },
+    "ac117ca74788e8111df3073c957c9fa4": {
+      "artist": "ATR ANSAMBLİ",
+      "title": "Bağçasaray tabana dolusı",
+      "downloaded_at": "2026-02-27T08:48:03.589706"
+    },
+    "b19e63194c269feca4458b7a19fb21de": {
+      "artist": "ATR ansambli",
+      "title": "Ag?r ava ve haytarma",
+      "downloaded_at": "2026-02-27T08:48:07.852547"
+    },
+    "c8a8ebb1f697386835a3c9467aac5f95": {
+      "artist": "ATR ansambli",
+      "title": "Bağçasaray saz semaisi",
+      "downloaded_at": "2026-02-27T08:48:46.480001"
+    },
+    "484d6df0efd1f6852719bc7b967ec62f": {
+      "artist": "ATR ansambli",
+      "title": "Doğğan yerim dağ-dereler (İstek)",
+      "downloaded_at": "2026-02-27T08:48:59.320746"
+    },
+    "88124dc022c878eca7264d753a653472": {
+      "artist": "ATR ansambli",
+      "title": "Ağır ava ve haytarma",
+      "downloaded_at": "2026-02-27T08:50:03.428621"
+    },
+    "bc2c7bde94c483da5fdbf007ed783928": {
+      "artist": "ATR ansambli",
+      "title": "Köy haytarması",
+      "downloaded_at": "2026-02-27T08:50:09.630581"
+    },
+    "171f7018cee0d4f6f1563fcc8f02a74f": {
+      "artist": "ATR ANSAMBLİ VE ASAN BİLÂLOV",
+      "title": "men bostancı degilim",
+      "downloaded_at": "2026-02-27T08:50:13.966004"
+    },
+    "a1e032b395df600a617cf0315b347602": {
+      "artist": "ATR ansambli",
+      "title": "Yüzümciler",
+      "downloaded_at": "2026-02-27T08:50:23.042688"
+    },
+    "15dc70571b862dc98d91abd49ef89f22": {
+      "artist": "ATR ansambli",
+      "title": "Saz semaisi",
+      "downloaded_at": "2026-02-27T08:50:34.361832"
+    },
+    "c06da283697e216fa214309027ff6875": {
+      "artist": "ATR ansambli",
+      "title": "Ayuvcılar oyunı ve Çalğı çalsa",
+      "downloaded_at": "2026-02-27T08:52:19.395315"
+    },
+    "52dc914316b573210eb0f403dabfa9b5": {
+      "artist": "ATR ansambli",
+      "title": "Stakan avası",
+      "downloaded_at": "2026-02-27T08:52:24.245362"
+    },
+    "cb6702406790413c4bbe0554ed397608": {
+      "artist": "ATR ansambli",
+      "title": "Vari ava ve yarım ava",
+      "downloaded_at": "2026-02-27T08:52:27.555725"
+    },
+    "f0e0b9b2844652c2b66736de715ed60d": {
+      "artist": "ATR ansambli",
+      "title": "Seni kördükçe (ud, santır ve dare avası)",
+      "downloaded_at": "2026-02-27T08:52:34.912245"
+    },
+    "aa01a6e6e01e52c2ea307e7fa987b5bd": {
+      "artist": "ATR ansambli",
+      "title": "Qızılçıqlar (instrumental)",
+      "downloaded_at": "2026-02-27T08:52:51.956482"
+    },
+    "98c3638382f6de494a9acc405e21c20d": {
+      "artist": "ATR ansambli",
+      "title": "Seni kördükçe",
+      "downloaded_at": "2026-02-27T08:54:12.584279"
+    },
+    "1ff05a6fd7c22883f2e748386a1096b8": {
+      "artist": "ATR ansambli",
+      "title": "Qırımçaq oyun avası",
+      "downloaded_at": "2026-02-27T08:54:37.942615"
+    },
+    "e606adfd372f684b76754411f1136cc6": {
+      "artist": "ATR ansambli",
+      "title": "Teke zorlatması",
+      "downloaded_at": "2026-02-27T08:54:41.158046"
+    },
+    "b151fe4fc50e498aa1ade46793f00c42": {
+      "artist": "ATR ansambli",
+      "title": "Uşaq oyun avası",
+      "downloaded_at": "2026-02-27T08:54:44.522606"
+    },
+    "7b4f3a532e00d106e127118b33d6faab": {
+      "artist": "ATR ansambli",
+      "title": "Boyka haytarması",
+      "downloaded_at": "2026-02-27T08:54:47.729645"
+    },
+    "72be9d4a5e9c90b4e2009febdc8f1c8d": {
+      "artist": "ATR ANSAMBLİ VE ALİM OSMANOV",
+      "title": "er dilde bitmez nağmesı",
+      "downloaded_at": "2026-02-27T08:56:41.518076"
+    },
+    "ef141a318ffd8a7e018c1b2ca9c8ee31": {
+      "artist": "Asan Bilâlov ve ATR ansambli",
+      "title": "İstanbuldan nar gelir",
+      "downloaded_at": "2026-02-27T08:57:03.308558"
+    },
+    "90774d83f52c3e224035da5268e83451": {
+      "artist": "Raziye Seytablayeva ve ATR ansambli",
+      "title": "Bağçalarda berülce",
+      "downloaded_at": "2026-02-27T08:57:14.984478"
+    },
+    "e9d3d0a8db7f8e38f0b69839f1947e9f": {
+      "artist": "ATR ansambli",
+      "title": "Mahur peşrevi",
+      "downloaded_at": "2026-02-27T08:57:26.460814"
+    },
+    "8185dd68292cb396f280b0a29908987c": {
+      "artist": "ATR ansambli",
+      "title": "Atım ölse",
+      "downloaded_at": "2026-02-27T08:58:15.529554"
+    },
+    "a3c85085bc7e5b6ed2551b90ea94675d": {
+      "artist": "ATR ansambli",
+      "title": "Mavilem (mey avası)",
+      "downloaded_at": "2026-02-27T08:58:40.117343"
+    },
+    "9bb90535459d6d1d98829021c0c53a02": {
+      "artist": "ATR Ansambli",
+      "title": "Port Artur",
+      "downloaded_at": "2026-02-27T08:58:48.650001"
+    },
+    "f0f4bee3d9a825f9ba45e0176c35ff43": {
+      "artist": "Afize Kassara ve ATR ansambli",
+      "title": "Bugün aynıñ on dörti",
+      "downloaded_at": "2026-02-27T08:58:51.795902"
+    },
+    "ec977df236e4822e3823f85e99c03735": {
+      "artist": "ATR ansambli",
+      "title": "Akız nedir bu güzellik",
+      "downloaded_at": "2026-02-27T08:58:59.779288"
+    },
+    "ee710bac054a4c8ff3e9f284faad6712": {
+      "artist": "ATR ansambli",
+      "title": "Qarasuv Kefege baqar",
+      "downloaded_at": "2026-02-27T08:59:11.748285"
+    },
+    "83f91dfca7417aa54693cb775fecfbad": {
+      "artist": "ATR ansambli",
+      "title": "AyuvcÄ±lar oyunÄ± ve ÃalÄÄ±",
+      "downloaded_at": "2026-02-27T08:59:20.343052"
+    },
+    "7830801d0fdb411bcdf53d7e8a9871a1": {
+      "artist": "Ablâz Gerey",
+      "title": "Elvacı (produced by DJ Bebek)",
+      "downloaded_at": "2026-02-27T09:00:59.666312"
+    },
+    "f60e1b2dfb21e600c16d3a8196dcf753": {
+      "artist": "Ablâz Gerey ve Amet İbragimov",
+      "title": "Yeşilim aman",
+      "downloaded_at": "2026-02-27T09:01:02.891528"
+    },
+    "2c7c82ff643d1b0deb2df258260d7f71": {
+      "artist": "Adam İsmail",
+      "title": "Seniñ qışıñ",
+      "downloaded_at": "2026-02-27T09:03:11.512861"
+    },
+    "5264dd8d7da61be294185b44597ba83e": {
+      "artist": "Adam İsmail",
+      "title": "Hayaller",
+      "downloaded_at": "2026-02-27T09:03:15.682303"
+    },
+    "54081aace0a0e47021c026bd33cf4a19": {
+      "artist": "Adam İsmail",
+      "title": "Tierro Noura",
+      "downloaded_at": "2026-02-27T09:03:20.103972"
+    },
+    "b302cc63e83a28e9579a861921c866b1": {
+      "artist": "Adam İsmail",
+      "title": "Mesafe",
+      "downloaded_at": "2026-02-27T09:03:33.795625"
+    },
+    "3d1678b3842307fd29caf2f7961ae75f": {
+      "artist": "Adam İsmail",
+      "title": "Same heart frequency",
+      "downloaded_at": "2026-02-27T09:03:45.570900"
+    },
+    "3ed349e773098645fe08bfac5e79bb43": {
+      "artist": "Adam İsmail",
+      "title": "Tena ev",
+      "downloaded_at": "2026-02-27T09:04:02.255722"
+    },
+    "70c9879fae96c201044da4f6790b4589": {
+      "artist": "Adam İsmail",
+      "title": "My wonderwall ^_^",
+      "downloaded_at": "2026-02-27T09:04:23.882925"
+    },
+    "caabe36a42492dc2cee096e96d353cec": {
+      "artist": "Adil",
+      "title": "18",
+      "downloaded_at": "2026-02-27T09:04:38.746920"
+    },
+    "eee2489874ff5ed395a5451fde4d9d33": {
+      "artist": "Adil",
+      "title": "Сердце Мое (Amergaliev remix)",
+      "downloaded_at": "2026-02-27T09:04:47.318757"
+    },
+    "b64a6a2ad863e1f95305ef0a606956a2": {
+      "artist": "Afize Kassara",
+      "title": "Pencereden quş uçtı",
+      "downloaded_at": "2026-02-27T09:05:11.801453"
+    },
+    "d2357a16413e1859b8d00363e05ea444": {
+      "artist": "Afize Kassara",
+      "title": "Ocaq başı",
+      "downloaded_at": "2026-02-27T09:05:19.135219"
+    },
+    "f6250ec3095045fab47b0dfbec0bef8e": {
+      "artist": "Afize Kassara",
+      "title": "Qırım türküsi (Qara bulut)",
+      "downloaded_at": "2026-02-27T09:05:23.390324"
+    },
+    "ceb3c60239cca1886681c284b1cd6e1e": {
+      "artist": "Afize Kassara",
+      "title": "Qaynana yırı",
+      "downloaded_at": "2026-02-27T09:05:31.450410"
+    },
+    "ada6a946b49a52f1c9aacc86c42f54d9": {
+      "artist": "Afize Kassara",
+      "title": "Penceresi yola qarşı",
+      "downloaded_at": "2026-02-27T09:05:51.289116"
+    },
+    "9a5e313a42525977ec343d1bac890e24": {
+      "artist": "Afize Kassara",
+      "title": "Elmalım",
+      "downloaded_at": "2026-02-27T09:06:08.072256"
+    },
+    "742caeeba7e1ff5417b5aadb36507f1c": {
+      "artist": "Afize Kassara ve Emine Kasarayeva",
+      "title": "Alime (Sıra-sıra cezveler)",
+      "downloaded_at": "2026-02-27T09:06:51.705432"
+    },
+    "cae12408498c840e47b812cc3d1b0c1d": {
+      "artist": "Afize Kassara",
+      "title": "Tañ yıldızı",
+      "downloaded_at": "2026-02-27T09:07:04.364310"
+    },
+    "b524832da0dd1940b4d578279773dd62": {
+      "artist": "Afize Kassara",
+      "title": "Bilâl oğlan",
+      "downloaded_at": "2026-02-27T09:07:15.340368"
+    },
+    "8e04f8930654538374e900738063f179": {
+      "artist": "dj bebek feat. Mustafa Emir, Afize Kassara",
+      "title": "Aradım",
+      "downloaded_at": "2026-02-27T09:07:31.851204"
+    },
+    "57e38cfc306bd95cf0bf32a4f3bd1723": {
+      "artist": "Afize Kassara",
+      "title": "O közleriñ yaqtı meni",
+      "downloaded_at": "2026-02-27T09:07:36.840647"
+    },
+    "1d033e1a8f37da368b38fb4b26c01b73": {
+      "artist": "Afize Kassara ve Maqam",
+      "title": "Bağçalarda kestane (Live)",
+      "downloaded_at": "2026-02-27T09:07:40.343226"
+    },
+    "f11d00e754ad2e46c785ef332c308443": {
+      "artist": "Afize Kassara ve Maqam",
+      "title": "Yağmur yağa (Live)",
+      "downloaded_at": "2026-02-27T09:07:44.714298"
+    },
+    "3a4a70d3d928f8d882f7b71d3803356f": {
+      "artist": "Afize Kassara",
+      "title": "Men Giderim Batuma",
+      "downloaded_at": "2026-02-27T09:07:49.879480"
+    },
+    "b66d245819c0a0bd497475b70db76247": {
+      "artist": "Afize Kassara",
+      "title": "Yüksek tepelere (CT)",
+      "downloaded_at": "2026-02-27T09:08:01.975192"
+    },
+    "d2b434ca559f5e045c7b088f8ccb958d": {
+      "artist": "Afize Kassara",
+      "title": "Degirmenci",
+      "downloaded_at": "2026-02-27T09:08:14.075337"
+    },
+    "c1c01082212ef5e87fc818e15e8e6222": {
+      "artist": "Afize Kassara",
+      "title": "Ak Deniz Kenarinda",
+      "downloaded_at": "2026-02-27T09:08:29.625078"
+    },
+    "ed5449c2cf5cfe03a3258601f3f7168b": {
+      "artist": "Afize Kassara",
+      "title": "Yalınıñ kenarında",
+      "downloaded_at": "2026-02-27T09:08:38.945764"
+    },
+    "ecd8724297403fcba4f66d4e68611f28": {
+      "artist": "Afize Kassara",
+      "title": "Şu Yaltadan",
+      "downloaded_at": "2026-02-27T09:08:51.431548"
+    },
+    "fedc72f15c92c4fdc61f8b2e908a59fd": {
+      "artist": "Afize Kassara",
+      "title": "Berber tükânı",
+      "downloaded_at": "2026-02-27T09:09:00.547566"
+    },
+    "895c9d43bc3e8f283e9a077f5310aced": {
+      "artist": "Afize Kassara",
+      "title": "Soframızda",
+      "downloaded_at": "2026-02-27T09:09:15.796747"
+    },
+    "24b8c005cde65c8971f457757bf7152c": {
+      "artist": "Afize Kassara ve ATR ansambli",
+      "title": "Kiramet parçaları",
+      "downloaded_at": "2026-02-27T09:09:43.033183"
+    },
+    "9d5a7f082f023f2759aa706e6cb2f1f3": {
+      "artist": "Afize Kassara",
+      "title": "Odjaq Bashi",
+      "downloaded_at": "2026-02-27T09:09:53.737689"
+    },
+    "f946f7c1fa0bf02ffa997dda29a60f78": {
+      "artist": "Afize Kassara",
+      "title": "Sudagy Yollari",
+      "downloaded_at": "2026-02-27T09:10:13.656737"
+    },
+    "8beb95e1c94c63ea4e67120883ba5c4d": {
+      "artist": "Afize Kassara",
+      "title": "O koz'lerin yaqti beni",
+      "downloaded_at": "2026-02-27T09:10:29.324647"
+    },
+    "a67c96cdb7c6a6f36fd98fd83cf7fae8": {
+      "artist": "Afize Kassara",
+      "title": "Çıqıp yükseklerden baqma",
+      "downloaded_at": "2026-02-27T09:10:47.192466"
+    },
+    "2d5ab80f0e87ced7019ec8d13bbbe394": {
+      "artist": "Afize Kassara",
+      "title": "Qadifeden kisesi",
+      "downloaded_at": "2026-02-27T09:11:58.346055"
+    },
+    "3e3221e93a22c4f04ec4781aa20f8662": {
+      "artist": "Afize Kassara",
+      "title": "Qaranfil",
+      "downloaded_at": "2026-02-27T09:13:32.872724"
+    },
+    "d18b182b54e0722f4d342c4543ee4024": {
+      "artist": "Afize Kassara",
+      "title": "Altın yüzük (Live)",
+      "downloaded_at": "2026-02-27T09:15:28.546158"
+    },
+    "7b2ee276130976a1e04b217663827864": {
+      "artist": "Afize Kassara",
+      "title": "Mavı kiydim (Qırımçaq yırı)",
+      "downloaded_at": "2026-02-27T09:15:48.349145"
+    },
+    "4bb30c0dad681eac3813cc157a4002ea": {
+      "artist": "Afize Kassara",
+      "title": "Uch qaranfil",
+      "downloaded_at": "2026-02-27T09:16:12.113958"
+    },
+    "883ec95c483dbdcdb507617e309d229e": {
+      "artist": "Afize Kassara ve Maqam",
+      "title": "Terligim (Live)",
+      "downloaded_at": "2026-02-27T09:16:16.433499"
+    },
+    "260c17c2f63596ec9d4cd9ffd49400cf": {
+      "artist": "Afize Kassara",
+      "title": "Som sırmadan",
+      "downloaded_at": "2026-02-27T09:16:20.174313"
+    },
+    "a194da68ff5872cc75d7e2e8dd615d8c": {
+      "artist": "Afize Kassara",
+      "title": "Bugün aynıñ on dörti",
+      "downloaded_at": "2026-02-27T09:16:30.039745"
+    },
+    "24e95901574f80add55b66f642e5e1d2": {
+      "artist": "Afize Kassara",
+      "title": "Deste-deste qamışlar",
+      "downloaded_at": "2026-02-27T09:17:14.589376"
+    },
+    "2017e918457bf310ff58dfe859bbd603": {
+      "artist": "Afize Kassara ve ATR ansambli",
+      "title": "Tevbeye kel",
+      "downloaded_at": "2026-02-27T09:17:24.081120"
+    },
+    "d3f0ad45ecdfceb293a02fd21cc42c2b": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Baar kelse (2014)",
+      "downloaded_at": "2026-02-27T09:19:52.216884"
+    },
+    "a9f0dfa657e38495297688c95da1d190": {
+      "artist": "Seyran7--39-62 ve Afize Yusuf-Qızı",
+      "title": "Qırımda yaşa",
+      "downloaded_at": "2026-02-27T09:20:13.827952"
+    },
+    "794d05c8828546fd93feddd37ef6dba7": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Erecebim",
+      "downloaded_at": "2026-02-27T09:20:26.537906"
+    },
+    "a9a73a95a669fb3fafe7d955e0112e56": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Vatan asreti",
+      "downloaded_at": "2026-02-27T09:20:39.423058"
+    },
+    "6fba4a6812e2ae725379b3583ea9ec08": {
+      "artist": "Seyran7'62 ve Afize Yusuf-Qızı",
+      "title": "Qırımda yaşa",
+      "downloaded_at": "2026-02-27T09:20:45.103327"
+    },
+    "2b1be8028e9ae56f3f16486306d3a141": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Vatan asreti (n)",
+      "downloaded_at": "2026-02-27T09:22:50.514719"
+    },
+    "12b9835a9ad44d6e1374f3dc0f8fa9b7": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Qarasuvnıñ dört köşesi",
+      "downloaded_at": "2026-02-27T09:22:56.365000"
+    },
+    "015c1151fc67312ae54bab9fa15489b1": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Beşik yırı   (крымскотатарская колыбельная)",
+      "downloaded_at": "2026-02-27T09:23:03.867412"
+    },
+    "e3b9bd451cbc21f1e860e1536e59a322": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "BAHAR KELSE (2014)",
+      "downloaded_at": "2026-02-27T09:23:12.621692"
+    },
+    "1b4dccc3ba4ac50e28175fa464344242": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Suv aqar tınıq-tınıq",
+      "downloaded_at": "2026-02-27T09:23:29.990986"
+    },
+    "04ccfc435700e151d524e7cc678412ed": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Dua",
+      "downloaded_at": "2026-02-27T09:24:09.141609"
+    },
+    "271e12a8c18866882ab52612ad3b4448": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Seni kördükçe",
+      "downloaded_at": "2026-02-27T09:24:52.959715"
+    },
+    "510691a24508f903592685445fedc0a5": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Demirciler",
+      "downloaded_at": "2026-02-27T09:25:10.573988"
+    },
+    "1774591e6d2a175416eb0a8fd5af0d53": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Ereсebim",
+      "downloaded_at": "2026-02-27T09:25:14.419981"
+    },
+    "683bb3044eae4b61080b60ca22df7dc8": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Dan-dini (aynenni)",
+      "downloaded_at": "2026-02-27T09:25:17.888435"
+    },
+    "9948c07c5a34571689353eb84ca35f18": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "İç bir bülbül",
+      "downloaded_at": "2026-02-27T09:25:30.233823"
+    },
+    "d9ca2ac7b4400ae2741dc35967f678c7": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Deñiz dalğasız olmaz",
+      "downloaded_at": "2026-02-27T09:27:56.658900"
+    },
+    "6eee4b6c6f28b675f79893cca81c7afe": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Alim, Alim demekten",
+      "downloaded_at": "2026-02-27T09:28:10.936781"
+    },
+    "f2e999303cf5f9b8f50d7e851ca83cd9": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Yürekten",
+      "downloaded_at": "2026-02-27T09:28:34.730645"
+    },
+    "1b28eb8431b0ef9f41c0f2c57e7f1fbc": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Qadifeden kisesi (2012)",
+      "downloaded_at": "2026-02-27T09:29:18.937963"
+    },
+    "8c5e053c80fbabb4672e52e7b18b646a": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Suvuqsuvdan (2017 mayıs 18)",
+      "downloaded_at": "2026-02-27T09:29:23.080466"
+    },
+    "04c5928513412b9ac58ab77bc250c12b": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Baar kelse (minus)",
+      "downloaded_at": "2026-02-27T09:29:29.382787"
+    },
+    "8e588e293282b876578dd9e0db58ea9c": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Sen menim yüregimde",
+      "downloaded_at": "2026-02-27T09:31:28.535098"
+    },
+    "4eaab04576cd4f408fb87b0619e16ef6": {
+      "artist": "Afize Yusuf-qızı",
+      "title": "Vatan asreti (Крымская музыка) (online-audio-converter.com)",
+      "downloaded_at": "2026-02-27T09:31:32.230764"
+    },
+    "549ffb5e2cf3d1dfbe613bb0a1016b6b": {
+      "artist": "Ahmed Saidov",
+      "title": "Merdane",
+      "downloaded_at": "2026-02-27T09:31:41.076942"
+    },
+    "49a96a604acdf8b90f3ed3e9226e5dc8": {
+      "artist": "SAIDOV",
+      "title": "Rockstar ( 8D )",
+      "downloaded_at": "2026-02-27T09:31:44.513770"
+    },
+    "7a040a2ea7c4e6fd2b6259dbab73d10c": {
+      "artist": "SAIDOV",
+      "title": "№1",
+      "downloaded_at": "2026-02-27T09:31:47.871320"
+    },
+    "f6f29baa313378bead668eddc474e944": {
+      "artist": "SAIDOV",
+      "title": "в чем сила",
+      "downloaded_at": "2026-02-27T09:31:51.589167"
+    },
+    "e081d3509d37aefc5b874c2ccbeeb0d3": {
+      "artist": "SAIDOV",
+      "title": "Saphire",
+      "downloaded_at": "2026-02-27T09:32:06.621936"
+    },
+    "2174149ae49e9c4546e8d3a396a7a766": {
+      "artist": "SAIDOV",
+      "title": "П....❤....С",
+      "downloaded_at": "2026-02-27T09:32:18.549691"
+    },
+    "db105bf46764d305859f77b6b0bb08d8": {
+      "artist": "SAIDOV",
+      "title": "by 1bulan1",
+      "downloaded_at": "2026-02-27T09:32:28.292923"
+    },
+    "33f1eb2499118ca978b502af88a025e0": {
+      "artist": "Ahtem Bulatov",
+      "title": "Kökköz haytarması",
+      "downloaded_at": "2026-02-27T09:35:47.448530"
+    },
+    "783f0b7c4c84799024d0563bd0a36ac3": {
+      "artist": "Ahtem Bulatov",
+      "title": "Bağçasaray qaytarması",
+      "downloaded_at": "2026-02-27T09:35:51.335572"
+    },
+    "d8b5eda34f106d7df8c76e5bbcc0b18a": {
+      "artist": "Ahtem Bulatov",
+      "title": "Bağçasaray haytarması",
+      "downloaded_at": "2026-02-27T09:35:58.149898"
+    },
+    "2b93f8480c4b29246b4d6a05d7245b52": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Aynenni",
+      "downloaded_at": "2026-02-27T09:36:35.772385"
+    },
+    "e10cc9bae71a9dadce0f012fef14576e": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Ah, demesem",
+      "downloaded_at": "2026-02-27T09:36:49.622792"
+    },
+    "a9cfdd62610cf5bf594ee403c157307c": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Ayneni",
+      "downloaded_at": "2026-02-27T09:37:22.604351"
+    },
+    "6a20f4d8b7de7cf5cfcb0528e16cb728": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Elif dedim be dedim",
+      "downloaded_at": "2026-02-27T09:38:42.579163"
+    },
+    "6924847236470fdc8f0bf062d4f45d2b": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Sevemez kimse seni",
+      "downloaded_at": "2026-02-27T09:41:32.277475"
+    },
+    "eab749fe171019c9e6007a8426fb0fb7": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Sağındım",
+      "downloaded_at": "2026-02-27T09:42:04.292470"
+    },
+    "7486fbc3797a8bc4415d101d3324aa9b": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Унутмам сени, анам",
+      "downloaded_at": "2026-02-27T09:42:19.975284"
+    },
+    "bf6bdc8b30e0b3d744baeee4d9384714": {
+      "artist": "Aksana Amet-Mustafa ve Hayat",
+      "title": "Yalgızım",
+      "downloaded_at": "2026-02-27T09:42:24.498924"
+    },
+    "f7fd6d0fca08630f9373b21d2f68faec": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Arafat dağından",
+      "downloaded_at": "2026-02-27T09:42:28.817502"
+    },
+    "bae6b6cb6e16740b78d980711e34a6a9": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Abayı yaktım",
+      "downloaded_at": "2026-02-27T09:42:59.203472"
+    },
+    "591f4f353ec5f5d53e04793dec8d3a82": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Yok, yok, yalan deme",
+      "downloaded_at": "2026-02-27T09:44:22.773376"
+    },
+    "9a2d7ed07ac3857b8e13cb6a0913d26f": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Elif dedim be dedim (live)",
+      "downloaded_at": "2026-02-27T09:45:08.948239"
+    },
+    "4ef83b3d4e9d0104b032e1c9f9dc6f61": {
+      "artist": "Aksana Amet-Mustafa",
+      "title": "Közlerim duman da duman (live)",
+      "downloaded_at": "2026-02-27T09:46:57.231870"
+    },
+    "b1c082aba86eeb7384bf1e80729ea3de": {
+      "artist": "Alim Abibulayev",
+      "title": "Qızılçıq cıya-cıya",
+      "downloaded_at": "2026-02-27T09:48:13.732443"
+    },
+    "952508d39e734e3b030bbe2f77caafc7": {
+      "artist": "Alim Abibulayev",
+      "title": "Gülnara",
+      "downloaded_at": "2026-02-27T09:48:57.272621"
+    },
+    "58f174d74d66901b15f388cf71f1c9d6": {
+      "artist": "Alim Abibulayev",
+      "title": "Kene de qaytamız Vetanım saña (N I Y E T)",
+      "downloaded_at": "2026-02-27T09:49:01.429432"
+    },
+    "0f5762d376705b818248cebd0b5fe0e9": {
+      "artist": "Alim Abibulayev",
+      "title": "Ateş yana",
+      "downloaded_at": "2026-02-27T09:49:09.014651"
+    },
+    "c08af35818c0fbcd8d45d2ad83fb7114": {
+      "artist": "Alim Hakimov",
+      "title": "What You Want From Me",
+      "downloaded_at": "2026-02-27T09:49:59.061426"
+    },
+    "18b778ce69d0e595e45de685def03cd1": {
+      "artist": "Alim Hakimov",
+      "title": "Прості слова",
+      "downloaded_at": "2026-02-27T09:50:37.368154"
+    },
+    "26532da7d60b2f0f70c488aaf4fc6dcb": {
+      "artist": "Alim Hakimov",
+      "title": "Бах творит",
+      "downloaded_at": "2026-02-27T09:50:51.945420"
+    },
+    "82e9f51c3da36f53693108c6368e0c48": {
+      "artist": "ALIME ARIF",
+      "title": "Ümüt",
+      "downloaded_at": "2026-02-27T09:53:18.818967"
+    },
+    "82be92ba5ced2daa01f5756c77bafeb8": {
+      "artist": "ALIME ARIF, 6TNX",
+      "title": "YAREM",
+      "downloaded_at": "2026-02-27T09:53:26.560436"
+    },
+    "30af946c1fb26f543f38378b521548ad": {
+      "artist": "Alime Mustafayeva",
+      "title": "Diñle güzel",
+      "downloaded_at": "2026-02-27T09:53:54.117083"
+    },
+    "483e84fc23e4c6ddfb97fcc6aa9257e7": {
+      "artist": "Alime Mustafayeva",
+      "title": "O közleriñ",
+      "downloaded_at": "2026-02-27T09:54:11.528412"
+    },
+    "91225b764f1e7b48ac720bc679e1ac64": {
+      "artist": "Alime Mustafayeva",
+      "title": "Aynenni",
+      "downloaded_at": "2026-02-27T09:54:30.001478"
+    },
+    "be91432c83bdfcab17fb020a801a7c64": {
+      "artist": "Alime Mustafayeva",
+      "title": "Oğlan",
+      "downloaded_at": "2026-02-27T09:54:52.939515"
+    },
+    "c6f90a571038795c90674dbfc5007047": {
+      "artist": "Aliye Bekirova & Nariman Balich",
+      "title": "Yaşasın Yaşlar",
+      "downloaded_at": "2026-02-27T09:55:25.805986"
+    },
+    "b6b021331bc68c68dd5bad16df286c57": {
+      "artist": "Aliye Bekirova",
+      "title": "Dohtur (Tatlı Ses kontserti. Live)",
+      "downloaded_at": "2026-02-27T09:55:30.837003"
+    },
+    "ea9b2bc2745193aa929015541b466909": {
+      "artist": "Aliye Bekirova/Алие Бекирова",
+      "title": "Dohtur/Дохтур (Голос. Діти) Live",
+      "downloaded_at": "2026-02-27T09:55:35.056607"
+    },
+    "a1df34e67acc26a1b0101c7a7d41f839": {
+      "artist": "Aliye Bekirova",
+      "title": "Altın yüzük (A cappella)",
+      "downloaded_at": "2026-02-27T09:55:48.104510"
+    },
+    "35b1db3ecdf98ce47cfbd0733e09bbd7": {
+      "artist": "Aliye Bekirova & Nariman Balich",
+      "title": "Şen Haytarma",
+      "downloaded_at": "2026-02-27T09:56:15.916160"
+    },
+    "c6ef015e71265a20352377ae2fa6588c": {
+      "artist": "Aliye Bekirova",
+      "title": "Amanim Yarim (produced by dj bebek 2015)",
+      "downloaded_at": "2026-02-27T09:56:37.574177"
+    },
+    "36aaeb8dab959bb2879345dced5a733a": {
+      "artist": "Aliye Bekirova & Nariman Baliсh",
+      "title": "Deñiz yanında",
+      "downloaded_at": "2026-02-27T09:56:57.952832"
+    },
+    "8895ec528699b3221895c545ee81580a": {
+      "artist": "Aliye Bekirova",
+      "title": "Amanım yarım (Prod. by DJ Bebek)",
+      "downloaded_at": "2026-02-27T09:57:29.670939"
+    },
+    "246bf78567827a091a5a7017286ade80": {
+      "artist": "Nariman Balich & Aliye Bekirova",
+      "title": "Şeñ Haytarma",
+      "downloaded_at": "2026-02-27T09:57:38.508688"
+    },
+    "3a94369692e4e133ea223b3f5822d94d": {
+      "artist": "dj bebek feat. Aliye Bekirova",
+      "title": "Amanım yarım",
+      "downloaded_at": "2026-02-27T09:57:43.625748"
+    },
+    "51a2201a56142d460e1d12f94c473d75": {
+      "artist": "Aliye Bekirova",
+      "title": "Vatanda sevip yaşa (zaycev.net)",
+      "downloaded_at": "2026-02-27T09:57:53.002108"
+    },
+    "e72c555fa6f0176a6f8bb6c81208f72b": {
+      "artist": "Aliye Bekirova Nariman Baliсh",
+      "title": "Aliye Bekirova Nariman Balich Yaşasın Yaşlar",
+      "downloaded_at": "2026-02-27T09:58:05.195659"
+    },
+    "6450ae2aec06b2cd9cd3fc5ff7f2b584": {
+      "artist": "Nariman Balich & Aliye Bekirova",
+      "title": "Deñiz Yanında",
+      "downloaded_at": "2026-02-27T09:58:22.615267"
+    },
+    "c1543f2dee05702378f55336d9d48ae7": {
+      "artist": "Aliye Cepparova",
+      "title": "Ep bir",
+      "downloaded_at": "2026-02-27T10:00:22.154966"
+    },
+    "4cb67f3ad2a1628d1736b5235b6bc1c0": {
+      "artist": "Aliye Cepparova",
+      "title": "Ateş",
+      "downloaded_at": "2026-02-27T10:02:01.093442"
+    },
+    "d533e5ce3656c03b3bf127d16c2f94de": {
+      "artist": "Aliye Cepparova",
+      "title": "Ep bir (CT)",
+      "downloaded_at": "2026-02-27T10:02:04.512237"
+    },
+    "594fb6039807400ff65d314d52075dbd": {
+      "artist": "Aliye Cepparova",
+      "title": "Qaytıp kel maña",
+      "downloaded_at": "2026-02-27T10:02:13.902733"
+    },
+    "74747c4be338bd5e533e80c8ec423d56": {
+      "artist": "Aliye Cepparova",
+      "title": "Salina salina sinsice",
+      "downloaded_at": "2026-02-27T10:02:30.553006"
+    },
+    "572fe8a14c196245d2091206979c4e69": {
+      "artist": "Aliye Cepparova",
+      "title": "Antaliya",
+      "downloaded_at": "2026-02-27T10:02:40.375662"
+    },
+    "a22e740a9eac8d9dfc248b929a83edfb": {
+      "artist": "Anara Batyrkhan",
+      "title": "Saginamin",
+      "downloaded_at": "2026-02-27T10:03:44.698368"
+    },
+    "81b4bb582dbcfe9695d9241829402b9c": {
+      "artist": "JAN & ANARA",
+      "title": "ANARA",
+      "downloaded_at": "2026-02-27T10:04:07.786742"
+    },
+    "2f880b2f71e8282c12e84c19e9aeae98": {
+      "artist": "Anara Tovuzlu",
+      "title": "Ay Zalım",
+      "downloaded_at": "2026-02-27T10:04:16.630612"
+    },
+    "70e8fb89c0ca0ce2d1bfd6dacd79f964": {
+      "artist": "Anara(31.33.35hz)",
+      "title": "Tu Me Manques (Missing You) Remix[lb by Efremov]",
+      "downloaded_at": "2026-02-27T10:04:26.965212"
+    },
+    "7ea9106079e44717e3db78583bd99f6a": {
+      "artist": "Anara Tovuzlu",
+      "title": "Ömrüm",
+      "downloaded_at": "2026-02-27T10:04:47.059052"
+    },
+    "d9ef392c9debf68d737d5cc84cc69329": {
+      "artist": "Aisulu,Anara",
+      "title": "Ivushka",
+      "downloaded_at": "2026-02-27T10:04:59.214705"
+    },
+    "be096a4b51c8e0e9a306f72d998a2f6c": {
+      "artist": "ANA'ANARA",
+      "title": "ANA'ANARA",
+      "downloaded_at": "2026-02-27T10:06:14.356031"
+    },
+    "4ee19cae70a23d6ab3730f13cb11ecc8": {
+      "artist": "Anara Tovuzlu",
+      "title": "Ureyimden Vurdun 2018",
+      "downloaded_at": "2026-02-27T10:06:18.552257"
+    },
+    "0d9bdf36d072da353817ceda54a3972e": {
+      "artist": "Anara Tovuzlu",
+      "title": "Seve Seve 2018",
+      "downloaded_at": "2026-02-27T10:06:22.127115"
+    },
+    "624d7f8e3fd4f560dfaa3e7112c5d561": {
+      "artist": "Anara",
+      "title": "Eki qaya",
+      "downloaded_at": "2026-02-27T10:06:25.562972"
+    },
+    "b5fe8b3ac1774a4a13cab9933aaabeb7": {
+      "artist": "Anara Ibrajeva",
+      "title": "Мантра защиты от зла))",
+      "downloaded_at": "2026-02-27T10:06:45.723812"
+    },
+    "d138d3459034e355ec950e10c9ff833d": {
+      "artist": "Anara Churikova",
+      "title": "Lili Marlen (Probe)_1",
+      "downloaded_at": "2026-02-27T10:06:57.979124"
+    },
+    "5a9becda11a713cdffbda4eb30e34f22": {
+      "artist": "Anara",
+      "title": "Happy birthday",
+      "downloaded_at": "2026-02-27T10:08:21.942080"
+    },
+    "fc093a6b555d70c9b74973027f20ca8c": {
+      "artist": "Anara",
+      "title": "Elimdeki kemane",
+      "downloaded_at": "2026-02-27T10:08:29.157045"
+    },
+    "75972dae588c2aca2689887162e7382b": {
+      "artist": "Anara",
+      "title": "Tañ yıldızı",
+      "downloaded_at": "2026-02-27T10:08:35.925585"
+    },
+    "b6004038a074647bf818868f16c98930": {
+      "artist": "Anara",
+      "title": "new composition demo",
+      "downloaded_at": "2026-02-27T10:08:40.807373"
+    },
+    "920bcd15ed1e9156286512228fdc7a73": {
+      "artist": "Anara",
+      "title": "Topuzlı şalım",
+      "downloaded_at": "2026-02-27T10:09:00.647304"
+    },
+    "8297fc19c472e1f08b5718b0f9abd56b": {
+      "artist": "Anara",
+      "title": "Üç qaranfil",
+      "downloaded_at": "2026-02-27T10:09:12.589424"
+    },
+    "fa9249c130bec2e1484debf86ffa366a": {
+      "artist": "Anara",
+      "title": "Qayadan endim",
+      "downloaded_at": "2026-02-27T10:10:43.009257"
+    },
+    "4d4f7daa8ba8a6fcb51e97d04c79f02c": {
+      "artist": "NCC/AnarA._Crey_Katy_SAM_T.T.",
+      "title": "Region",
+      "downloaded_at": "2026-02-27T10:10:46.669320"
+    },
+    "b568aca9dd752c9a2b4e390df0f6955a": {
+      "artist": "Anara Churikova",
+      "title": "Septembre (Probe)_1",
+      "downloaded_at": "2026-02-27T10:11:01.883555"
+    },
+    "b04f38648f967f5667452e883b016cb7": {
+      "artist": "ANARA",
+      "title": "Жаным тірі кезде",
+      "downloaded_at": "2026-02-27T10:11:13.345026"
+    },
+    "d1c6fe42050eed884112d03068f92f4d": {
+      "artist": "Anara))",
+      "title": "Quelqu'un m'a dit",
+      "downloaded_at": "2026-02-27T10:11:25.019828"
+    },
+    "86ea09b73477ee87acac14e070f17f9d": {
+      "artist": "Anara",
+      "title": "Altın yüzük",
+      "downloaded_at": "2026-02-27T10:11:28.768421"
+    },
+    "bcae6e12ac076899f7a75b2c0edf6547": {
+      "artist": "Anara",
+      "title": "Qarşıdan fener kelir",
+      "downloaded_at": "2026-02-27T10:11:41.561312"
+    },
+    "02ca4cdea1b939121f673dad2f4bd2ac": {
+      "artist": "Beskalieva Anara",
+      "title": "balapan kaz",
+      "downloaded_at": "2026-02-27T10:11:47.484030"
+    },
+    "48240814ef706ecd6e3113dca99aa803": {
+      "artist": "Anara",
+      "title": "1",
+      "downloaded_at": "2026-02-27T10:12:04.725493"
+    },
+    "aaeb4c048a46e382ed22dd66b0accc34": {
+      "artist": "Anara",
+      "title": "Sevda tüşti başıma",
+      "downloaded_at": "2026-02-27T10:12:09.272322"
+    },
+    "596f64170313887f92f8187fe9548612": {
+      "artist": "Anara",
+      "title": "Bağçalarda kestane (Qrımçah)",
+      "downloaded_at": "2026-02-27T10:12:20.078708"
+    },
+    "21f8c6f7b6ab7f880c279baeaec451ec": {
+      "artist": "Anara",
+      "title": "Bu dünyada bir yar sevdim",
+      "downloaded_at": "2026-02-27T10:12:30.316097"
+    },
+    "d3cf713930b71300a72c06ca9dd74d78": {
+      "artist": "anara akhundova",
+      "title": "\"Барак\" из романа \"Цвета холодных лет\" Дины Гавриловой",
+      "downloaded_at": "2026-02-27T10:12:43.313680"
+    },
+    "34c38c3f089a82ffdc4d063c041353ba": {
+      "artist": "anara akhundova",
+      "title": "\"Свадьба Фивы\" из романа  \"Цвета холодных лет\"Дины Гавриловой",
+      "downloaded_at": "2026-02-27T10:12:48.451018"
+    },
+    "4aed973dd127a94b303aa41d7b0add31": {
+      "artist": "Ankara Haytarma Band",
+      "title": "Qalabalıq",
+      "downloaded_at": "2026-02-27T10:12:56.124592"
+    },
+    "240beae06e5ba1ce5037df433fa60c46": {
+      "artist": "Ankara Haytarma Band",
+      "title": "Qayadan endim",
+      "downloaded_at": "2026-02-27T10:14:16.468535"
+    },
+    "3fd529d11677b3987157a24e41739e93": {
+      "artist": "Ankara Haytarma Band",
+      "title": "Ey, güzel Qırım!",
+      "downloaded_at": "2026-02-27T10:14:26.803773"
+    },
+    "8afd462a80e9993977cae7e7e20aeaa3": {
+      "artist": "Ankara Haytarma Band",
+      "title": "Tım-tım",
+      "downloaded_at": "2026-02-27T10:14:59.726236"
+    },
+    "2c2a763435f9b28bf586a4bd115dbbea": {
+      "artist": "Ankara Haytarma Band",
+      "title": "Men anamdan qalğanda",
+      "downloaded_at": "2026-02-27T10:15:02.972067"
+    },
+    "108302557ffb4c02b1acd3c72f00b9cf": {
+      "artist": "Aqmescit",
+      "title": "Fatma",
+      "downloaded_at": "2026-02-27T10:15:13.991563"
+    },
+    "e85d8aa90a999041e094d25751121324": {
+      "artist": "Aqmescit",
+      "title": "Eminem güzel",
+      "downloaded_at": "2026-02-27T10:15:29.616658"
+    },
+    "eb3b4cb0d0696e07f34cf561fe1c9b69": {
+      "artist": "Aqmescit",
+      "title": "Meydan (Server Halilov mix)",
+      "downloaded_at": "2026-02-27T10:15:40.005607"
+    },
+    "920ad3dbba2850f713b02bc63389e9ac": {
+      "artist": "Aqmescit",
+      "title": "Qız seni nazlı",
+      "downloaded_at": "2026-02-27T10:15:59.620689"
+    },
+    "b79c30aca9e82c5053b1d7b62f4c52a2": {
+      "artist": "Aqmescit",
+      "title": "Aydın haytarması",
+      "downloaded_at": "2026-02-27T10:16:12.101471"
+    },
+    "b4a067d8d7df4527b8ee57b56f0f1c0f": {
+      "artist": "Aqmescit",
+      "title": "Dolu",
+      "downloaded_at": "2026-02-27T10:17:56.012797"
+    },
+    "62151170e78405fda1586e2d44399498": {
+      "artist": "Aqmescit",
+      "title": "Yıldızlar",
+      "downloaded_at": "2026-02-27T10:18:39.205901"
+    },
+    "037d4c89d704946f1dba74081e477173": {
+      "artist": "Aqmescit",
+      "title": "Ayşe",
+      "downloaded_at": "2026-02-27T10:19:10.038719"
+    },
+    "5f49450b8263769de81a76205c0dd5d0": {
+      "artist": "Aqmescit",
+      "title": "Açıl-açıl dağlar",
+      "downloaded_at": "2026-02-27T10:19:22.430507"
+    },
+    "92b7092e20f483f3427fff000678b0de": {
+      "artist": "Aqmescit",
+      "title": "Nazik Fatma",
+      "downloaded_at": "2026-02-27T10:19:30.343828"
+    },
+    "35078b8ab189f0a16ac64bb619bc7ce6": {
+      "artist": "Aqmescit",
+      "title": "Meydan",
+      "downloaded_at": "2026-02-27T10:19:38.908904"
+    },
+    "37c0f53b006404b51f74a59cd803352f": {
+      "artist": "Aqmescit",
+      "title": "Qarılğaç",
+      "downloaded_at": "2026-02-27T10:22:44.504532"
+    },
+    "748c51c7cd5e18199951bd959955bd9d": {
+      "artist": "Aqmescit",
+      "title": "Ay-Vasil avası",
+      "downloaded_at": "2026-02-27T10:30:21.480954"
+    },
+    "f9a66f2fba4ed55128420a25a13400c0": {
+      "artist": "Aqmescit",
+      "title": "Dağlar",
+      "downloaded_at": "2026-02-27T10:30:31.001681"
+    },
+    "45bbb22debda45909a0624df94105116": {
+      "artist": "Aqmescit",
+      "title": "Sanie",
+      "downloaded_at": "2026-02-27T10:32:54.691080"
+    },
+    "ed6503a633cca1be6cadfab45e2c2a87": {
+      "artist": "Aqmescit",
+      "title": "Rom qızı",
+      "downloaded_at": "2026-02-27T10:33:02.603381"
+    },
+    "dec09a81fd1b493f124ca828383f50bd": {
+      "artist": "Aqmescit",
+      "title": "Qarılğaç (minus)",
+      "downloaded_at": "2026-02-27T10:33:11.363560"
+    },
+    "a212abeb32b8b534f90b6960dbec092b": {
+      "artist": "Aqyar",
+      "title": "Aqyar",
+      "downloaded_at": "2026-02-27T10:35:46.573069"
+    },
+    "8014f3e430f35c9dfe3ed984db43c62d": {
+      "artist": "Aqyar",
+      "title": "Qurman haytarması",
+      "downloaded_at": "2026-02-27T10:37:50.171431"
+    },
+    "1fa969f440f149607f011acd4a8069ae": {
+      "artist": "Aqyar",
+      "title": "Kopçek",
+      "downloaded_at": "2026-02-27T10:37:54.189818"
+    },
+    "fca024c0600cf4508a016440411875f4": {
+      "artist": "Aqyar",
+      "title": "Çaqıcı",
+      "downloaded_at": "2026-02-27T10:38:03.577583"
+    },
+    "9a71348cd6fe3a0c0d16b5ed8e8804b6": {
+      "artist": "Aqyar",
+      "title": "Köpçek avası",
+      "downloaded_at": "2026-02-27T10:38:09.357048"
+    },
+    "621a2173a0acd2b8538313ee24e3ae01": {
+      "artist": "Aqyar",
+      "title": "Yalı kenarında",
+      "downloaded_at": "2026-02-27T10:38:21.368772"
+    },
+    "845c16e288abc445fb6c1ef19706cb02": {
+      "artist": "Arsen Osmanov & Mavile Sarana",
+      "title": "Два любящих сердца",
+      "downloaded_at": "2026-02-27T10:40:46.834491"
+    },
+    "76cd9f73530a3ee94e16f13840fc02cd": {
+      "artist": "Arsen Osmanov",
+      "title": "Popurri",
+      "downloaded_at": "2026-02-27T10:40:55.233504"
+    },
+    "e1f5277923c20c0da248bf6346728138": {
+      "artist": "Arsen Osmanov",
+      "title": "Bomba",
+      "downloaded_at": "2026-02-27T10:41:25.192846"
+    },
+    "94b5789309145631e25a5909039779d9": {
+      "artist": "Arsen Osmanov",
+      "title": "Озен баш",
+      "downloaded_at": "2026-02-27T10:43:06.397816"
+    },
+    "f2d17e06e987bb19c8c4d4c472d20b2a": {
+      "artist": "Arsen Osmanov",
+      "title": "Eller havaya",
+      "downloaded_at": "2026-02-27T10:43:10.368389"
+    },
+    "2d531c950cbe962f5154ecfb414cdef1": {
+      "artist": "Arsen Osmanov",
+      "title": "Çanaqqale",
+      "downloaded_at": "2026-02-27T10:43:17.592314"
+    },
+    "fa50c74a0d44c143613bc7bee9f33d69": {
+      "artist": "Arsen Osmanov",
+      "title": "Alchachik Evin 2020",
+      "downloaded_at": "2026-02-27T10:45:28.373688"
+    },
+    "ce3d6fcbc6295d499efac9e7e69cb526": {
+      "artist": "Arsen Osmanov & \"Hayat\"",
+      "title": "2015 Qirimtatar",
+      "downloaded_at": "2026-02-27T10:45:36.048223"
+    },
+    "b1ef47527890de71b893a06a397bf362": {
+      "artist": "☆ ARSEN OSMANOV & SAFIE DENISHAEVA ☆ 2019",
+      "title": "«OMURIMDE SENSIN»",
+      "downloaded_at": "2026-02-27T10:45:41.000398"
+    },
+    "e6d02787de46a777497cc98ea4ed9941": {
+      "artist": "Hayat ve Arsen Osmanov",
+      "title": "Çıqtım Yalta yoluna",
+      "downloaded_at": "2026-02-27T10:45:44.512446"
+    },
+    "c3818c3d78d77855a42b11546867f764": {
+      "artist": "Arsen Osmanov",
+      "title": "Rabbimizge (ilâhi)",
+      "downloaded_at": "2026-02-27T10:45:48.031526"
+    },
+    "49bf346b94138ffb8277caa1ab6a48ea": {
+      "artist": "Arsen Osmanov",
+      "title": "Elâ közlüm",
+      "downloaded_at": "2026-02-27T10:45:52.916540"
+    },
+    "326b15b7d407bc859630c80f0c3d82ef": {
+      "artist": "ARSEN OSMANOV",
+      "title": "ALLAHIM NEYDI GÜNAHIM  2023.г.",
+      "downloaded_at": "2026-02-27T10:48:29.578298"
+    },
+    "fc82de641277997b8c92fb2853680dab": {
+      "artist": "Arsen Osmanov",
+      "title": "Zera",
+      "downloaded_at": "2026-02-27T10:48:34.484007"
+    },
+    "55bdf9b12b4a8a27201b5615b24495aa": {
+      "artist": "Arsen Osmanov",
+      "title": "Uçan-Su qaytarması",
+      "downloaded_at": "2026-02-27T10:48:43.503117"
+    },
+    "670682fda257a0329612a841c8517a4d": {
+      "artist": "ARSEN OSMANOV",
+      "title": "Gider iseñ",
+      "downloaded_at": "2026-02-27T10:48:47.339443"
+    },
+    "22912774c75b561f7e0946a498f6fc22": {
+      "artist": "Arsen Osmanov",
+      "title": "Qarasuvnıñ dört köşesi",
+      "downloaded_at": "2026-02-27T10:48:55.627143"
+    },
+    "16980a3f539f90e6059ab6c906d8fe91": {
+      "artist": "Arsen Osmanov",
+      "title": "Прости",
+      "downloaded_at": "2026-02-27T10:48:59.606701"
+    },
+    "17507dc68ea6fa5d71307f960fae79e2": {
+      "artist": "Arsen Osmanov",
+      "title": "Allahnı añ (ilâhi)",
+      "downloaded_at": "2026-02-27T10:50:11.579641"
+    },
+    "db035aee6679dd757f677b5222f3d511": {
+      "artist": "Arsen Osmanov",
+      "title": "ALCHACHIK EVIN MIX",
+      "downloaded_at": "2026-02-27T10:50:22.374770"
+    },
+    "f8fa2ccb01596373588de97db8f9c591": {
+      "artist": "Arsen Osmanov & Enver Zaman",
+      "title": "Yani Yil 2022",
+      "downloaded_at": "2026-02-27T10:50:26.786933"
+    },
+    "79c9d2245f3ff4b909e39cf40274ff7f": {
+      "artist": "8665 - Arsen Osmanov",
+      "title": "Ya Lyublyu Tebya Do Slyez",
+      "downloaded_at": "2026-02-27T10:50:33.838349"
+    },
+    "c4a23b9966c029c75a0b8ac682ae93cf": {
+      "artist": "Arsen Osmanov",
+      "title": "Allağım",
+      "downloaded_at": "2026-02-27T10:50:38.352288"
+    },
+    "8b193d68dd28a59fd02c725d63ecf753": {
+      "artist": "Arsen Osmanov",
+      "title": "Namaz ruhu (ilâhi)",
+      "downloaded_at": "2026-02-27T10:50:41.755420"
+    },
+    "56607235f8f94acbdd5548a856d186c2": {
+      "artist": "ARSEN OSMANOV",
+      "title": "\" KEREM \"",
+      "downloaded_at": "2026-02-27T10:50:51.978905"
+    },
+    "b12b207f1346de50bd16e69c426c2189": {
+      "artist": "Zaman Band-Rustem Kurtmemetov-Arsen Osmanov",
+      "title": "Ey gazlar LIVE",
+      "downloaded_at": "2026-02-27T10:50:55.907314"
+    },
+    "92849095da74f93d5894b023d8a964a9": {
+      "artist": "ARSEN OSMANOV",
+      "title": "BAHITLI OLSUN BU YIL",
+      "downloaded_at": "2026-02-27T10:51:07.712780"
+    },
+    "501bcc9079e14a16496de0581e9a982c": {
+      "artist": "Arsen Osmanov",
+      "title": "Любимая",
+      "downloaded_at": "2026-02-27T10:51:16.113198"
+    },
+    "531a4840ff729bf3a9eb574d0bfa0775": {
+      "artist": "Arsen Osmanov",
+      "title": "Шелен сувлары - Дагъыстан",
+      "downloaded_at": "2026-02-27T10:51:38.394995"
+    },
+    "79f2ec67c36d18f009140bff398203e6": {
+      "artist": "Arslan",
+      "title": "Ты хотела",
+      "downloaded_at": "2026-02-27T10:52:10.647434"
+    },
+    "2999e33634504e6f6ef125993125f4a9": {
+      "artist": "Arslan",
+      "title": "Love",
+      "downloaded_at": "2026-02-27T10:52:15.318676"
+    },
+    "3e1a41e5e6194c05051cbea653903957": {
+      "artist": "Arslan",
+      "title": "Качели",
+      "downloaded_at": "2026-02-27T10:52:19.868994"
+    },
+    "8cf5c99c63313fbdacee3b1cb2317cbf": {
+      "artist": "Arslan",
+      "title": "Untitled",
+      "downloaded_at": "2026-02-27T10:52:23.241209"
+    },
+    "433d2521d46cc1ed90dbeac7c25a05cd": {
+      "artist": "Asan Faytanciyev",
+      "title": "Бахчисарай",
+      "downloaded_at": "2026-02-27T10:52:34.692905"
+    },
+    "e0818c08995280637362e0b0a50014f0": {
+      "artist": "Asan Faytanciyev",
+      "title": "Bağçasaray halqı",
+      "downloaded_at": "2026-02-27T10:52:38.017522"
+    },
+    "4184ef3bd9d80f0807e62721ff219384": {
+      "artist": "Asan Faytanciyev",
+      "title": "Отец мой Севастополь защищал",
+      "downloaded_at": "2026-02-27T10:52:41.577623"
+    },
+    "a5f8bec60b7a49f43aec87629f3eb1e4": {
+      "artist": "Asan Faytanciyev",
+      "title": "Родился я в изгнании",
+      "downloaded_at": "2026-02-27T10:52:45.147028"
+    },
+    "2998791a2cbba192ed64e68735d79e11": {
+      "artist": "Asan Faytanciyev",
+      "title": "Я знаю, что есть на свете...",
+      "downloaded_at": "2026-02-27T10:52:48.667317"
+    },
+    "8b8ae7dd136ad31fa9e8c7191c75a494": {
+      "artist": "Asan Hayretdinov",
+      "title": "Menim bir danem",
+      "downloaded_at": "2026-02-27T10:52:57.666777"
+    },
+    "cf93fa92c278b119d4b6003658c57896": {
+      "artist": "Asan Hayretdinov",
+      "title": "Yanımdasıñ",
+      "downloaded_at": "2026-02-27T10:53:05.299680"
+    },
+    "9c4ef1ce500beaf3d5f0ed343a66610a": {
+      "artist": "Asan Hayretdinov",
+      "title": "Sevgi ikâyesi",
+      "downloaded_at": "2026-02-27T10:53:08.799668"
+    },
+    "a1d32f78ccd4cdcc565224cb01ec591e": {
+      "artist": "Asan Hayretdinov",
+      "title": "Canım",
+      "downloaded_at": "2026-02-27T10:53:12.643570"
+    },
+    "bb034b2bb9e2d57654e76ff52eb6dd19": {
+      "artist": "Asan Hayretdinov",
+      "title": "Vatanım (Ringtone)",
+      "downloaded_at": "2026-02-27T10:53:15.813127"
+    },
+    "d8114966eb6f1e6b1bb1d50974361d69": {
+      "artist": "Asan Hayretdinov",
+      "title": "Рассвет",
+      "downloaded_at": "2026-02-27T10:53:19.071378"
+    },
+    "95368e5f8b5581d560f6ab098433764a": {
+      "artist": "[muzmo.ru] Asan Hayretdinov",
+      "title": "Vatanm [muzmo.ru]",
+      "downloaded_at": "2026-02-27T10:53:22.605696"
+    },
+    "2ee156ec0946959f8000d3b950e04a46": {
+      "artist": "Asan Hayretdinov",
+      "title": "Seni kördim (с)",
+      "downloaded_at": "2026-02-27T10:53:26.134341"
+    },
+    "984f9a52c6e338a5fc2c3d67859576be": {
+      "artist": "Asan Hayretdinov ve ATR ansambli",
+      "title": "Emine güzel",
+      "downloaded_at": "2026-02-27T10:53:29.304074"
+    },
+    "67bece01acbd300f00d99fcf0b94a2ce": {
+      "artist": "Asan Hayretdinov",
+      "title": "Sevgi ikâyesi (minus)",
+      "downloaded_at": "2026-02-27T10:53:33.106167"
+    },
+    "86a2a697242def9b2e92572807625b2d": {
+      "artist": "Asan Hayretdinov",
+      "title": "Vatanım (minus)",
+      "downloaded_at": "2026-02-27T10:53:37.012238"
+    },
+    "21112f62b49d81d9cb43661f9eb72694": {
+      "artist": "Asan Umerov",
+      "title": "Alçaçıq evniñ töpesi",
+      "downloaded_at": "2026-02-27T10:53:49.599848"
+    },
+    "2ff21a7cca2c1b3e0b54199437625e51": {
+      "artist": "Asan Umerov ve ATR ansambli",
+      "title": "Asan",
+      "downloaded_at": "2026-02-27T10:53:52.978903"
+    },
+    "a4c671cb3e6226a65737c8b62922d6b7": {
+      "artist": "Asan Umerov",
+      "title": "Ayşem",
+      "downloaded_at": "2026-02-27T10:53:56.969513"
+    },
+    "163a94b291e56a9d69e7f919a64e7164": {
+      "artist": "Asan Umerov",
+      "title": "Sultaniye",
+      "downloaded_at": "2026-02-27T10:54:00.889626"
+    },
+    "9eb1f27b061a199def139f69009b5c8e": {
+      "artist": "Asan Umerov",
+      "title": "Berber tükânı",
+      "downloaded_at": "2026-02-27T10:54:04.503296"
+    },
+    "fb0c47284f5c7708143ca1929df64e72": {
+      "artist": "Asan Umerov",
+      "title": "Mustafa",
+      "downloaded_at": "2026-02-27T10:54:08.149436"
+    },
+    "fb6df15e3536ffbd804932634e135ecb": {
+      "artist": "Asan Umerov",
+      "title": "Rustem",
+      "downloaded_at": "2026-02-27T10:54:12.186267"
+    },
+    "1910eb40c1adc5a6b28d5ca8a509e0a6": {
+      "artist": "Asan Umerov",
+      "title": "Pencereden",
+      "downloaded_at": "2026-02-27T10:54:16.179610"
+    },
+    "0bb994828bb02240ed0dfe1683c2da6e": {
+      "artist": "Asan Umerov",
+      "title": "Yalvaram",
+      "downloaded_at": "2026-02-27T10:54:20.290611"
+    },
+    "7ffb170c621f49ee57fd99efdd210466": {
+      "artist": "Asan Umerov",
+      "title": "Canım",
+      "downloaded_at": "2026-02-27T10:54:24.161983"
+    },
+    "93d2f9b0a258672a17ed0ddf93f1a6db": {
+      "artist": "Asan Umerov",
+      "title": "Bugün bayram  (N I Y E T)",
+      "downloaded_at": "2026-02-27T10:54:27.944786"
+    },
+    "9094afe233833dd5d3cacaac717c327f": {
+      "artist": "Asan Umerov",
+      "title": "Ne içün meni sevmeysiñ",
+      "downloaded_at": "2026-02-27T10:54:31.901070"
+    },
+    "07962d0b62524ffef14e6c296d90e7b4": {
+      "artist": "Asan Umerov",
+      "title": "Qaranfil",
+      "downloaded_at": "2026-02-27T10:54:41.964594"
+    },
+    "23411d767373a914bdd1c1031e0567fb": {
+      "artist": "Asan Umerov",
+      "title": "Ayşem (minus)",
+      "downloaded_at": "2026-02-27T10:54:45.880311"
+    },
+    "28b4481a3c69e009a1baa990e67e71a6": {
+      "artist": "Asan Umerov ve ATR ansambli",
+      "title": "Tuvaq",
+      "downloaded_at": "2026-02-27T10:54:49.634543"
+    },
+    "5f784d12fd13a2ddb45360ddeda215e4": {
+      "artist": "Asan Umerov ve ATR ansambli",
+      "title": "Elmaz",
+      "downloaded_at": "2026-02-27T10:54:54.476504"
+    },
+    "fc91f87daab7255095a8622f576a0b9c": {
+      "artist": "Asan Umerov ve ATR ansambli",
+      "title": "Şu Yaltadan",
+      "downloaded_at": "2026-02-27T10:55:00.812212"
+    },
+    "2a216883641c5f86c1d0e787d87f60d7": {
+      "artist": "Asiye Abduraimova",
+      "title": "Araba",
+      "downloaded_at": "2026-02-27T10:55:13.084469"
+    },
+    "8b0aabbb5863402932514d62245de7d9": {
+      "artist": "Asiye Saale, Nariman Balich",
+      "title": "Ay, çalaşım",
+      "downloaded_at": "2026-02-27T10:55:24.391079"
+    },
+    "5cfafeaac0f796a949add69b68ee0302": {
+      "artist": "Asiye Saale",
+      "title": "Yosmam",
+      "downloaded_at": "2026-02-27T10:55:33.915247"
+    },
+    "5404d5109bc1e59228256955375f6da4": {
+      "artist": "Asiye Saale, Nariman Balich",
+      "title": "Sevemiz",
+      "downloaded_at": "2026-02-27T10:55:42.059087"
+    },
+    "1440fae56da623c6fb4b04878a56f223": {
+      "artist": "Asiye Saale & Nariman Balich",
+      "title": "Mesafe",
+      "downloaded_at": "2026-02-27T10:55:46.394110"
+    },
+    "1caa855db59585a53c01f2912efd7866": {
+      "artist": "Asiye Saale & Nariman Balich",
+      "title": "Quşlar Avada",
+      "downloaded_at": "2026-02-27T10:55:54.406837"
+    },
+    "18e3c77ee9c9c75d56eb557885135090": {
+      "artist": "Asiye Saale",
+      "title": "Yaşa menim halqım! (live)",
+      "downloaded_at": "2026-02-27T10:58:09.106081"
+    },
+    "830e0d6433aced6d1003007860edd26e": {
+      "artist": "Asiye Saale & Nariman Balich",
+      "title": "Çalıquşu (Королёк птичка певчая) (Muzut.net)",
+      "downloaded_at": "2026-02-27T10:58:13.948102"
+    },
+    "815e0619b82c5641d38a180ce849ad91": {
+      "artist": "Asiye Saale",
+      "title": "Girdim yarın bağçasına",
+      "downloaded_at": "2026-02-27T10:58:25.818213"
+    },
+    "6672da2c6cb2b90276810b6100c49d5a": {
+      "artist": "Asiye Saale",
+      "title": "Kemançemniñ telleri (CT)",
+      "downloaded_at": "2026-02-27T10:58:38.290369"
+    },
+    "2f070d950294d9c08a1cd500edad7460": {
+      "artist": "Asiye Saale ve Nariman Balich",
+      "title": "КЪЫРЫМДА ЯША",
+      "downloaded_at": "2026-02-27T11:00:49.627186"
+    },
+    "782335a90d12a1c2f331e14f70466795": {
+      "artist": "Asiye Saale",
+      "title": "Oğlan",
+      "downloaded_at": "2026-02-27T11:01:02.971800"
+    },
+    "bc7f2fc96580537386157e00837638fb": {
+      "artist": "Asiye Saale",
+      "title": "ЯР-ЯР-ЯР MP3",
+      "downloaded_at": "2026-02-27T11:03:14.231436"
+    }
+  }
+}
