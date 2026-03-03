@@ -1,0 +1,96 @@
+=== REMOVED TRACKS (PASS 3) ===
+
+Osmanov/Artur Osmanov - instrumental 24.mp3
+  -> cross-dup: Osmanov/Artur Osmanov - instrumental 23.mp3
+Belbek/Belbek Roots - Ozenbash.mp3
+  -> cross-dup: Belbek/Belbek Roots - 4 Ozenbash.mp3
+Belbek/Belbek Style - Дуэт.mp3
+  -> cross-dup size: Belbek/Belbek Style - Бельбек стайл.mp3
+Derviş/Dervis - Yalanci 2017.mp3
+  -> cross-dup size: Derviş/Dervis - Qal sene qurban 2017.mp3
+Esma/ESMA - LARCH.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - Ocho.mp3
+Elvina/Elvina - Sanki Buz.mp3
+  -> cross-dup: Elvina/Elvina - Sanki Buz (BRB).mp3
+Esma/Esma Redzepova - Chaje Shukarije.mp3
+  -> cross-dup: Esma/Esma Redzepova - - Chaje Shukarije.mp3
+Haytarma ansambli/Haytarma ansambli - Mishor qızı (Arzı qız 1964 s.).mp3
+  -> cross-dup size: Haytarma ansambli/Haytarma ansambli - Arzı yırı (Arzı qız 1964 s.).mp3
+Ibrahim Guzelses/Ibrahim Guzelses - Kendi Gelsin (BRB).mp3
+  -> cross-dup size: Ibrahim Guzelses/Ibrahim Guzelses - Bugune Geldim (BRB).mp3
+Ibrahim Guzelses/Ibrahim Guzelses - Kul Satmadim (BRB).mp3
+  -> cross-dup size: Ibrahim Guzelses/Ibrahim Guzelses - Bela misin (BRB).mp3
+Ibrahim Guzelses/Ibrahim Guzelses - Yaraladin Sen (BRB).mp3
+  -> cross-dup size: Ibrahim Guzelses/Ibrahim Guzelses - Kendi Gelsin (BRB).mp3
+JAMDEEN/JAMDEEN - Black Love.mp3
+  -> cross-dup size: JAMDEEN/JAMDEEN - BONITA.mp3
+JAMDEEN/JAMDEEN, ELINA - MORENA.mp3
+  -> cross-dup size: JAMDEEN/JAMDEEN - Айнанайка.mp3
+DJ SPACE ONE/KET-U feat. DJ SPACE ONE Project - Алло (dubstep).mp3
+  -> cross-dup size: DJ SPACE ONE/DJ SPACE ONE Project - Never Give Up!.mp3
+Lemara Bakalova/Lemara Bakalova - _ Mamini glaza.mp3
+  -> cross-dup size: Lemara Bakalova/Lemara Bakalova - Balikshiim.mp3
+Melek/Melek adasi - 167 NEW!!! (450 p.)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasi - 139 NEW!!! (400 p.)ПРОДАН.mp3
+Melek/Melek adasy - 246 NEW!!! (400 p.)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasi - 167 NEW!!! (450 p.)ПРОДАН.mp3
+Melek/Melek adasy - 450 NEW!!! (500 p.)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasy - 365 NEW!!! (450 p.)ПРОДАН.mp3
+Melek/Melek adasy - 652 NEW!!! (450 p.).mp3
+  -> cross-dup size: Melek/Melek adasi - 139 NEW!!! (400 p.)ПРОДАН.mp3
+Melek/Melek adasy - 695 NEW!!! (500 p)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasi - 139 NEW!!! (400 p.)ПРОДАН.mp3
+Melek/Melek adasy - 795 NEW!!! (400 p.)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasy - 365 NEW!!! (450 p.)ПРОДАН.mp3
+Melek/Melek adasy - 831 NEW!!! (700 p.)ПРОДАН.mp3
+  -> cross-dup: Melek/Melek adasy - 218 NEW!!! (400 p.)ПРОДАН.mp3
+Minaret/Minaret - Исход.mp3
+  -> cross-dup size: Minaret/Minaret - Исход (Exodus).mp3
+Minaret/Minaret - Чёрная звезда.mp3
+  -> cross-dup size: Minaret/Minaret - Черная звезда (Black star).mp3
+Bayram/Namiq Mena ft Bayram Kurdexanli - Serin - Serin.mp3
+  -> cross-dup: Bayram/NAMIQ MENA & BAYRAM KURDAXANLi - SERiN-SERIN.mp3
+Nesil/Nesil - БАЛКАНИЯ.mp3
+  -> cross-dup: Nesil/Nesil - BaLkan.mp3
+Nesrin Sipahi/Nesrin Sipahi - Yıldızların Altında (Kızlarım İçin 7.Bölüm).mp3
+  -> cross-dup size: Nesrin Sipahi/Nesrin Sipahi - Yıldızların Altında (Kiraz Mevsimi 40.Bölüm).mp3
+Nial/Niall Horan - The Show.mp3
+  -> cross-dup size: Nial/Niall Horan - Must Be Love.mp3
+Refat Osmanov/OsMan - After.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - Wet.mp3
+OsMan/OsMan - Feels.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - ISO.mp3
+OsMan/OsMan - Hawse.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - Wet.mp3
+OsMan/OsMan - Low.mp3
+  -> cross-dup size: OsMan/OsMan - Hawse.mp3
+OsMan/OsMan - Lust.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - ISO.mp3
+OsMan/OsMan - Luxx.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - Ocho.mp3
+Dilâver Osmanov/OsMan - Ocho.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - ISO.mp3
+OsMan/OsMan - Protection.mp3
+  -> cross-dup size: Dilâver Osmanov/OsMan - Ocho.mp3
+Red Neks Chatalov/RED NEKS CHATALOV - мой микрофон(Prod.bu blackDiamond Rec)(2014).mp3
+  -> cross-dup size: Red Neks Chatalov/RED NEKS CHATALOV - ГОРОД ПУСТОЙ(2014 BlackDiamond REC).mp3
+D'layna/Refined Brothers feat. D'Layna - Party Everyday (Original Club Mix).mp3
+  -> cross-dup size: D'layna/Refined Brothers feat D'Layna - Party Everyday (Tony Tweaker & MDone Remix).mp3
+Red Neks Chatalov/SEYRAN7'62 x JAMDEEN x RED NEKS CHATALOV - HIP-HOP NEVER DIE.mp3
+  -> cross-dup size: Red Neks Chatalov/JAMDEEN x RED NEKS CHATALOV - DOWNTOWN.mp3
+Sertan Gunes/Sertan Gunes - Stronger.mp3
+  -> cross-dup size: Sertan Gunes/Sertan Gunes - Ilon.mp3
+Shatur-Gudur/Shatur-Gudur - Uçma.mp3
+  -> cross-dup size: Shatur-Gudur/Shatur-Gudur - Eki çeşme.mp3
+Shatur-Gudur/Shatur-Gudur - kerek para (Bonus Track).mp3
+  -> cross-dup size: Shatur-Gudur/Shatur-Gudur - Nemeleştık (bonus track).mp3
+DJ SPACE ONE/Star Angels feat. Dj Space One Project - Ой мамо люблю Гриця (2012).mp3
+  -> cross-dup size: DJ SPACE ONE/STAR ANGELS feat. DJ SPACE ONE Project - Не скучай и не жалей (dubstep) space1media studio.mp3
+Yıldız Ayhan/Yıldız Ayhan - Siyt Osman - Qırımtatar Yırı.mp3
+  -> cross-dup size: Yıldız Ayhan/Yıldız Ayhan - Boztorgay - Qırımtatar yırı.mp3
+samumbeatz/samumbeatz - In The Way.mp3
+  -> cross-dup size: samumbeatz/samumbeatz - Demon Festival.mp3
+samumbeatz/samumbeatz - In Your Eyes.mp3
+  -> cross-dup size: samumbeatz/samumbeatz - Break Your Heart.mp3
+samumbeatz/samumbeatz - PIMP.mp3
+  -> cross-dup size: samumbeatz/samumbeatz - In The Way.mp3

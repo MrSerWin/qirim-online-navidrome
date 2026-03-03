@@ -1,0 +1,708 @@
+085 DJ Bebek/085 - 085.mp3
+  -> wrong artist: '085'
+Anara/Anara Churikova - Chante moi (Probe)_1.mp3
+  -> wrong artist: 'Anara Churikova'
+Anara/Anara Churikova - Lili Marlen (Probe)_1.mp3
+  -> wrong artist: 'Anara Churikova'
+Anara/Anara Churikova - Septembre (Probe)_1.mp3
+  -> wrong artist: 'Anara Churikova'
+Anara/Anara Tovuzlu - Ureyimden Vurdun 2018.mp3
+  -> wrong artist: 'Anara Tovuzlu'
+Anara/Anara Tovuzlu - Ömrüm.mp3
+  -> wrong artist: 'Anara Tovuzlu'
+Anara/anara akhundova - _Барак_ из романа _Цвета холодных лет_ Дины Гавриловой.mp3
+  -> wrong artist: 'anara akhundova'
+Anara/anara akhundova - _Свадьба Фивы_ из романа _Цвета холодных лет_Дины Гавриловой.mp3
+  -> wrong artist: 'anara akhundova'
+Atlant Meydan/ATLANT - Алмазный бой (Prod. NZVSTN).mp3
+  -> wrong artist: 'ATLANT'
+Atlant Meydan/ATLANT - Девочка Солнце.mp3
+  -> wrong artist: 'ATLANT'
+Atlant Meydan/ATLANT - Запал.mp3
+  -> wrong artist: 'ATLANT'
+Atlant Meydan/ATLANT - Ты.mp3
+  -> wrong artist: 'ATLANT'
+Azim/Amalia ft Azim & S.Beater - Golay www.SAYLANAN.com.mp3
+  -> wrong artist: 'Amalia ft Azim & S.Beater'
+Azim/Azim Ganiev & Millymallymoe - Огни ночного повода.mp3
+  -> wrong artist: 'Azim Ganiev & Millymallymoe'
+Azim/F.I.A.Frangiz Ibragim Azim Orazo - Ты обнимаешь меня (Dj STиЛЬ Remix).mp3
+  -> wrong artist: 'F.I.A.Frangiz Ibragim Azim Orazo'
+Azim/S Beater & Azim & MaRo - Howlukma.mp3
+  -> wrong artist: 'S Beater & Azim & MaRo'
+Azim/Артур Кальянский feat. Azim - Свадьба (DJ Pulya Remix) _ vqMusic ོ.mp3
+  -> wrong artist: 'Артур Кальянский feat. Azim'
+Azim/Артур Кальянский, AZIM - Мальвина (Freezones Remix).mp3
+  -> wrong artist: 'Артур Кальянский, AZIM'
+Azim/Артур Кальянский, AZIM - С днем рождения!.mp3
+  -> wrong artist: 'Артур Кальянский, AZIM'
+Azim/Группа F.I.A.Frangiz Ibragim Azim Orazovy - Ты обнимаешь меня (Remix).mp3
+  -> wrong artist: 'Группа F.I.A.Frangiz Ibragim Azim Orazovy'
+BAZA/BAZA - Raptors.mp3
+  -> wrong artist: 'BAZA'
+BAZA/BAZA - Для тачек.mp3
+  -> wrong artist: 'BAZA'
+BAZA/Baza Clayton - Hollywood.mp3
+  -> wrong artist: 'Baza Clayton'
+BAZA/SOUND BAZA - The Chemical Brothers - Galvanize (Cheaterz x Rich-Mond & Kizh Remix) 2019.mp3
+  -> wrong artist: 'SOUND BAZA'
+Bayram/BAYRAM NAZAROV - Поздней осенней порой.mp3
+  -> wrong artist: 'BAYRAM NAZAROV'
+Bayram/Bayram Hojatow - Digi-digi-erteki (vk.com_bagshylar).mp3
+  -> wrong artist: 'Bayram Hojatow'
+Bayram/Bayram Hojatow - Soyman bolarmy.mp3
+  -> wrong artist: 'Bayram Hojatow'
+Bayram/NAMIQ MENA & BAYRAM KURDAXANLi - SERiN-SERIN.mp3
+  -> wrong artist: 'NAMIQ MENA & BAYRAM KURDAXANLi'
+D'layna/D'Layna, Bruno Kauffmann - Shades.mp3
+  -> wrong artist: 'D'Layna, Bruno Kauffmann'
+D'layna/Willam planet &D'Layna - Everybody Wants To Party.mp3
+  -> wrong artist: 'Willam planet &D'Layna'
+DJ Azzy/DJ Azzy Nejny - Прощай (radio edit).mp3
+  -> wrong artist: 'DJ Azzy Nejny'
+DJ Azzy/Dj Azzy Nejny - Left bit (03_09_2009).mp3
+  -> wrong artist: 'Dj Azzy Nejny'
+DJ Azzy/Dj Azzy Nejny - Miniminor (02.09.09).mp3
+  -> wrong artist: 'Dj Azzy Nejny'
+DJ Smail (İsmail Lümanov)/DJ Smail - DJ Smail - Nike.mp3
+  -> wrong artist: 'DJ Smail'
+DJ Smail (İsmail Lümanov)/Dj SmaiL - Mix Ot Dj Smail.mp3
+  -> wrong artist: 'Dj SmaiL'
+DJ Smail (İsmail Lümanov)/Dj Smail - Dj Smail2.mp3
+  -> wrong artist: 'Dj Smail'
+Derviş/Dervis - - Gel 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Behane 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Biri Var 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Gelmedin 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - I Love You 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Izmirin Kavkalari (BRB).mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Mehribanim 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Orxan Murvetli 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Qal sene qurban 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Shanson.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Te Fent.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Tereddud 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Uyan 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - Uzun gece 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - intizar 2017.mp3
+  -> wrong artist: 'Dervis'
+Derviş/Dervis - ozledim 2017.mp3
+  -> wrong artist: 'Dervis'
+Eldar Ahmedov/Baba Arashev & Eldar Ahmedov - Gara goz way way (2016).mp3
+  -> wrong artist: 'Baba Arashev & Eldar Ahmedov'
+Eldar Ahmedov/Bayram Han Saparov ft Eldar Ahmedov ft SAAP - Galdyr elini 2015 (vk.com_zvezdatm).mp3
+  -> wrong artist: 'Bayram Han Saparov ft Eldar Ahmedov ft SAAP'
+Eldar Ahmedov/Eldar Ahmedov - Adyn name www.SAYLANAN.com.mp3
+  -> wrong artist: 'Eldar Ahmedov'
+Eldar Ahmedov/Eldar Ahmedov - Dine sen uchin.mp3
+  -> wrong artist: 'Eldar Ahmedov'
+Eldar Ahmedov/Eldar Ahmedov - Saxsoprano.mp3
+  -> wrong artist: 'Eldar Ahmedov'
+Eldar Ahmedov/Eldar Ahmedov - Soyerin Seni (k2).mp3
+  -> wrong artist: 'Eldar Ahmedov'
+Eldar Ahmedov/Eldar Ahmedov ft Mekan Annayev & SAAP - Soyyan diyay.mp3
+  -> wrong artist: 'Eldar Ahmedov ft Mekan Annayev & SAAP'
+Eldar Ahmedov/Eldar Ahmedov ft SAAP - Ale Ale Ale Ale.mp3
+  -> wrong artist: 'Eldar Ahmedov ft SAAP'
+Eldar Ahmedov/Eldar Ahmedov ft SAAP ft Mekan Annayev - Yakma yshgynda 2015 (vk.com_Howesjenler).mp3
+  -> wrong artist: 'Eldar Ahmedov ft SAAP ft Mekan Annayev'
+Eldar Ahmedov/eldar ahmedov - gulsat.mp3
+  -> wrong artist: 'eldar ahmedov'
+Elvina/CRIS TAYLOR x Elvina - Sanki Buz.mp3
+  -> wrong artist: 'CRIS TAYLOR x Elvina'
+Elvina/Elvina Makaryan - Menutyun.mp3
+  -> wrong artist: 'Elvina Makaryan'
+Elvina/Elvina Makaryan feat. Grisha Aghakhanyan - Aranc Ser Chka Garun.mp3
+  -> wrong artist: 'Elvina Makaryan feat. Grisha Aghakhanyan'
+Emir/Aykan Emir - No Love No More.mp3
+  -> wrong artist: 'Aykan Emir'
+Emir/Emir Taha - Huyu Suyu (Parah Dice Remix).mp3
+  -> wrong artist: 'Emir Taha'
+Emir/emir - habibi.mp3
+  -> wrong artist: 'emir'
+Env/ENV & Nikless Feat.OhEm - There U Go (Club Mix).mp3
+  -> wrong artist: 'ENV & Nikless Feat.OhEm'
+Env/ENV(itre) - 3drei3.mp3
+  -> wrong artist: 'ENV(itre)'
+Env/ENV(itre) - Aadioeedio.mp3
+  -> wrong artist: 'ENV(itre)'
+Env/ENV(itre) - Execute Autumn.mp3
+  -> wrong artist: 'ENV(itre)'
+Env/ENV(itre) - Feakar.mp3
+  -> wrong artist: 'ENV(itre)'
+Env/ENV(itre) - Grapianular.mp3
+  -> wrong artist: 'ENV(itre)'
+Env/ENV(itre) - Stench118.mp3
+  -> wrong artist: 'ENV(itre)'
+Eric Live/Eric - Утолить.mp3
+  -> wrong artist: 'Eric'
+Eshnight/Эшнайт (Eshnight) - Ватаным сенсинъ _Tematik Beatz 2016.mp3
+  -> wrong artist: 'Эшнайт (Eshnight)'
+Eshnight/Эшнайт (Eshnight) - Зачем.mp3
+  -> wrong artist: 'Эшнайт (Eshnight)'
+Esma/Esma Redzepova - - Aciljum Korkori.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Chaje Shukarije.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Ciganka Je Malena.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Esma Cocek.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Esma Kiri Gili.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Opa nina nina naj - (Audio).mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Romano Chocheko.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Romano horo - (Audio).mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - - Save Rat Daje Me Pirava.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - Soske Devla.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova - ГЛАВНАЯ ТЕМА ИЗ БОРАТА.mp3
+  -> wrong artist: 'Esma Redzepova'
+Esma/Esma Redzepova feat. Titi Robin - Dzelem, Dzelem.mp3
+  -> wrong artist: 'Esma Redzepova feat. Titi Robin'
+Esma/Esma Redzepova, (Feat. Titi Robin) - - Aman Aman.mp3
+  -> wrong artist: 'Esma Redzepova, (Feat. Titi Robin)'
+Evelina/Danu Boian feat. Evelina Virlan - Out Of My Life (Radio Edit) BeatsAudio.mp3
+  -> wrong artist: 'Danu Boian feat. Evelina Virlan'
+Evelina/Danu Boian feat. Evelina Virlan - Out Of My Life (Radio Edit).mp3
+  -> wrong artist: 'Danu Boian feat. Evelina Virlan'
+Evelina/Evelina Zelinka - Прощание (Три дня Дождя, MONA Cover).mp3
+  -> wrong artist: 'Evelina Zelinka'
+Evelina/Илья Бессердечный ft. Evelina - К чёрту любовь.mp3
+  -> wrong artist: 'Илья Бессердечный ft. Evelina'
+FaTima/16 Fatima Mansions - A singer must die.mp3
+  -> wrong artist: '16 Fatima Mansions'
+FaTima/Fatima Mansions - 12 Look What I Stole For Us, Darling Viva Dead Ponies.mp3
+  -> wrong artist: 'Fatima Mansions'
+FaTima/Fatima Yamaha - What's A Girl To Do (Pizzabrothers Edit).mp3
+  -> wrong artist: 'Fatima Yamaha'
+FaTima/Fatima Yamaha - What's A Girl To Do.mp3
+  -> wrong artist: 'Fatima Yamaha'
+FaTima/VISION OF FATIMA - Weatherpist.mp3
+  -> wrong artist: 'VISION OF FATIMA'
+FaTima/VISION OF FATIMA - 光の燃え殻 Hikari no Moegara.mp3
+  -> wrong artist: 'VISION OF FATIMA'
+FaTima/VISION OF FATIMA - 埃は微笑む Hokori ha Hohoemu.mp3
+  -> wrong artist: 'VISION OF FATIMA'
+FaTima/VISION OF FATIMA - 気孔 Kikou.mp3
+  -> wrong artist: 'VISION OF FATIMA'
+FaTima/VISION OF FATIMA - 石ころとして Ishikoro Toshite.mp3
+  -> wrong artist: 'VISION OF FATIMA'
+Filis - Emine Mustafayeva-Samedin/EMIN - Fatima.mp3
+  -> wrong artist: 'EMIN'
+Gimn/GIMN - Я и моя собака.mp3
+  -> entire folder 'Gimn' is not CT
+Gimn/Gimn - GHETTO WORKOUT.mp3
+  -> entire folder 'Gimn' is not CT
+Gimn/Gimn sv5 - Gimn sv5.mp3
+  -> entire folder 'Gimn' is not CT
+Gimn/KazantipGimn - KazantipGimn.mp3
+  -> entire folder 'Gimn' is not CT
+Gimn/Ussr Gimn - The Main Theme.mp3
+  -> entire folder 'Gimn' is not CT
+Hati/HATI - Одно и тоже.mp3
+  -> entire folder 'Hati' is not CT
+Hati/HATI, Doiposle - Vladikavkaz 15.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Crush.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Grabgesänge.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Intro.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Ka.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Mind (Hey Losco).mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Multiversion.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Papers.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Todessehnsucht.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - VI.mp3
+  -> entire folder 'Hati' is not CT
+Hati/Hati - Без названия.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - EVILPIECE (QqL remix).mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - EVILPIECE.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - Fuckin Tell.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - Lie To Me.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - Twilight.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - control (tapecut remix).mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - gtfo.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - sexy back.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - solute drugs.mp3
+  -> entire folder 'Hati' is not CT
+Hati/hati - ты не считаешь.mp3
+  -> entire folder 'Hati' is not CT
+Hayat/ACI HAYAT - BEYAZ GULUM.mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/Al Hayat Media - Descendants of the Caliphate (Kurdish Nasheed).mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/HAYAT PROJECT - JAN JAN JAN JAN new 2024 (КМ https_vk.com_kavkazskiimeloman).mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/HayaT - Crysis (Original Mix).mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/Hayat - B.U.M.I.mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/Hayat Project - Jan Jan Jan Jan (www.mp3erger.ru) 2024.mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/Hayat Project - Tash Tush.mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/Ustad Humsar Hayat Nizami - Deewane Kidhar Jaayenge.mp3
+  -> entire folder 'Hayat' is not CT
+Hayat/anam hayat bolsiydi(www.URmp3.ucoz.com ) - Abdureshit Abdullaev.mp3
+  -> entire folder 'Hayat' is not CT
+Hrust Drog/Hrust Drog - requiem for a dream MIX.mp3
+  -> wrong artist: 'Hrust Drog'
+Hrust Drog/Hrust Drog - Крымские мотивы.mp3
+  -> wrong artist: 'Hrust Drog'
+Hrust Drog/Hrust Drog - Севги.mp3
+  -> wrong artist: 'Hrust Drog'
+Karaoke/Sing Karaoke Sing - Perfect (Karaoke Version).mp3
+  -> entire folder 'Karaoke' is not CT
+Karaoke/Sunfly Karaoke - Lost On You (Originally Performed by LP).mp3
+  -> entire folder 'Karaoke' is not CT
+Kerim/KERIM MURAVEY, Pawel Prutt - Aigiri Nandini.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt'
+Kerim/KERIM MURAVEY, Pawel Prutt - Mzungu.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt'
+Kerim/KERIM MURAVEY, Pawel Prutt - Rume Rimwe.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt'
+Kerim/KERIM MURAVEY, Pawel Prutt - This Is House.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt'
+Kerim/KERIM MURAVEY, Pawel Prutt, Azanna - Sweet Dreams.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt, Azanna'
+Kerim/KERIM MURAVEY, Pawel Prutt, Maneesh - Jimmy Jimmy.mp3
+  -> wrong artist: 'KERIM MURAVEY, Pawel Prutt, Maneesh'
+Lenmar ve Demirel/Demirel - Hold Me.mp3
+  -> wrong artist: 'Demirel'
+Liname/257) Liname - Зеркальный лабиринт (ooo_battle_r2).mp3
+  -> entire folder 'Liname' is not CT
+Liname/D' Liv ( Liname и Дима Варвус ) - Заглянуть в глаза.mp3
+  -> entire folder 'Liname' is not CT
+Liname/D' Liv ( Liname и Дима Варвус) - Тебе ( Не надо слов ) 2012.mp3
+  -> entire folder 'Liname' is not CT
+Liname/LINAME - ЦИКЛИЧЕСКИЙ СТАТУС (sounddesign by LINAME).mp3
+  -> entire folder 'Liname' is not CT
+Liname/LINAME и Дима Варвус - Будь со мной (курсанты КЮИ ) - будь со мной.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname & DiaMartyRia - Преград больше нет ( LN_RAWprod. ).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname ( D' Liv ) - 9й официальный hip-hop батл.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname ( D' Liv ) - undergroundminus_new.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname ( D' Liv ) - Последний комплимент.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname (demo) - влюбился(2012).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - (vs. ArmHembol) Умереть, чтобы воскреснуть и вернуться снова (ooo_battle_r4).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - (vs. Фокусник) Не помню - значит, не было (ooo_battle_r3).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - HoneyBD23.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Артуру(10.12.2012).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Гимн Батла _ООО.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Жизнь и биты.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Красивая любовь.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Место под солнцем(2012).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Не х_й с горы.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname - Пустота.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a mirel ( D' Liv ) - Не забуду (2012).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a mirel ( D' Liv ) - Под небесным покровом (2012).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a mirel' - Чарівне плаття ( LN RAWprod ).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - Вариация искренности LN_RAW(3МНРБ_1r).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - Дай мне себя забыть.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - Не забуду.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - Период полураспада.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - По заплаканым щекам.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' - Под Небесным Покровом.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' LN_RAW - http_vk.com_ln_rawprod минус, трек, сведение, мастеринг, автотюн, куплеты, припевы, читка, рэп, реп, РЭП, рэпчик, кач, крут,.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' LN_RAW - Бесконечные Циклы! (LN_RAWsound).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' LN_RAW - Последнее восхождение на Олимп (Königsberg force round 3).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname a.k.a. mirel' LN_RAW - Снится мне велосипед.mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname feat.Mapko - Лариса 2012( Lave rec.Lave prod).mp3
+  -> entire folder 'Liname' is not CT
+Liname/Liname и Дима Варвус - Бабочка.mp3
+  -> entire folder 'Liname' is not CT
+Liname/e1ty и Liname a.k.a. mirel' - Летим с тобой (LN_RAWsound).mp3
+  -> entire folder 'Liname' is not CT
+M. Halilova/Lilova - Хоровод.mp3
+  -> wrong artist: 'Lilova'
+Melek/Ferus Melek - Cerberus Will Guide Us Home.mp3
+  -> wrong artist: 'Ferus Melek'
+Melek/Ferus Melek - Dead Horizon.mp3
+  -> wrong artist: 'Ferus Melek'
+Melek/Melek adasy - 218 NEW!!! (400 p.)ПРОДАН.mp3
+  -> wrong artist: 'Melek adasy'
+Melek/Melek adasy - 365 NEW!!! (450 p.)ПРОДАН.mp3
+  -> wrong artist: 'Melek adasy'
+Melek/Melek adasy - 736 NEW!!! (600 p.)ПРОДАН.mp3
+  -> wrong artist: 'Melek adasy'
+Melek/Melek-Tha - Act III - La Monstrueuse Creature.mp3
+  -> wrong artist: 'Melek-Tha'
+Melek/Melek-Tha - Ave Lucifer Rex Qliphoth (Ouverture).mp3
+  -> wrong artist: 'Melek-Tha'
+Melek/Melek-Tha - Inferni Ride.mp3
+  -> wrong artist: 'Melek-Tha'
+Melek/Melek-Tha - Le Chaos Rampant.mp3
+  -> wrong artist: 'Melek-Tha'
+Melek/Melek-Tha - Sinistrum Lamentum.mp3
+  -> wrong artist: 'Melek-Tha'
+Melek/Melek-Tha - The Luciferian Manifest.mp3
+  -> wrong artist: 'Melek-Tha'
+Minaret/Iron Minaret - Asphalt Prayer.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Iron Minaret - Block Testament.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Iron Minaret - Concrete Freight.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Iron Minaret - Gravel Counts.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Iron Minaret - No Receipts.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Iron Minaret - Street Interest.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/MINARET - Варшавка, 26.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Demo.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - The Cold January of 24th.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Безумец.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Вечная память, вечная беда (Memory Eternal, Eternal Woe).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Вечная память, вечная беда.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Исход (Exodus).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Криминальная Россия (Criminal Russia).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Криминальная Россия.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Левый марш.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Минарет.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Панихида (Panikhida).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Повесть о Городе Грозном.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Погибель царствия старобытного (The Death of the Antiquated Tsarstvie).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Приговор (Judgment).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Распятая корона (The Crown Crucified).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Распятая корона.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Сказание о колоколе отчаянном.mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Черная звезда (Black star).mp3
+  -> entire folder 'Minaret' is not CT
+Minaret/Minaret - Шахтерская.mp3
+  -> entire folder 'Minaret' is not CT
+Nesil/NESIL BAND - Yağma Yağmur.mp3
+  -> wrong artist: 'NESIL BAND'
+Nesil/Nesil Band - 7-8.mp3
+  -> wrong artist: 'Nesil Band'
+Nesil/Nesil Band - Бир байракъ бир ниет.mp3
+  -> wrong artist: 'Nesil Band'
+Nesil/Nesil Band - Орнын елу_Ornin yolu.mp3
+  -> wrong artist: 'Nesil Band'
+Nesrin Sipahi/Nesrin Sipahi (Yurdaer Doğulu Ork.) - Arkadaşımın aşkısın.mp3
+  -> wrong artist: 'Nesrin Sipahi (Yurdaer Doğulu Ork.)'
+Nesrin Sipahi/Nesrin Sipahi - - Reyhan.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Ar_m Bal_m Petegim.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Arkadaşımın Aşkısın.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Artik sevmeyecegim.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Arım balım peteğim.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Ağlama Değmez Hayat (Bir Deli Rüzgar 1.Bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Aşkın Kanunu.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Benim Gönlüm Sarhoştur - Yıldızların Altında (Hayat Yolunda 7 bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Fenerbahçe Marşı.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Gozleri Aska Gulen - İstanbullu Gelin 2. Bölüm.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Gözleri Aşka Gülen (Medcezir 16.Bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Gözleri Aşka Gülen (Official Video).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Gözleri Aşka Gülen - Yalı Çapkını (Qarisqa TV).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Her Yer Karanlık (Makber).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Her Yer Karanlık Makber (Aşk Yeniden 42.Bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Kalbi Kirik Serseri (Ali Kuru).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Laçın.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Ömrümce Hep Adım Adım.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Reyhan (Şahsiyet 12.Bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Safalar Getirdiniz Safa Geldiniz Dostlar (Adanalı 14 bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Sensiz De Yasanirmis (1971).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Sensiz de Yaşanırmış - Yargı (Qarisqa TV).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Sevmek Bir Yalanm_s.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Sevmek Bir Yalanmış.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Taksim On The Tambour (Biz Ruzgardir Gelir Gecer Sanmistim).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Yağmur Seninle Güzel.mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Yaşa Fenerbahçe (1973).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Yunus (1972).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nesrin Sipahi/Nesrin Sipahi - Yıldızların Altında (Kiraz Mevsimi 40.Bölüm).mp3
+  -> wrong artist: 'Nesrin Sipahi'
+Nial/De!nial - Suicide Liquid.mp3
+  -> wrong artist: 'De!nial'
+Nial/Kon-G-nial - Sternengreifer.mp3
+  -> wrong artist: 'Kon-G-nial'
+Nial/Kon-G-nial - Wir haben keine Zeit.mp3
+  -> wrong artist: 'Kon-G-nial'
+Nial/Niall Horan - If You Leave Me.mp3
+  -> wrong artist: 'Niall Horan'
+Nial/Niall Horan - Meltdown.mp3
+  -> wrong artist: 'Niall Horan'
+Nial/Niall Horan - Must Be Love.mp3
+  -> wrong artist: 'Niall Horan'
+OsMan/OsMan, SINDICVT - Liberty Walk.mp3
+  -> wrong artist: 'OsMan, SINDICVT'
+Osmanov/D.Osmanov vkhp.net - Татарский клубняк)))))))))))))))).mp3
+  -> wrong artist: 'D.Osmanov vkhp.net'
+Osmanov/Osmanov, Maxi Mize - Tell Me Why.mp3
+  -> wrong artist: 'Osmanov, Maxi Mize'
+Refat Mustafayev/Refat Mustafayev - Вернись ко мне (Prod. Tematik 2016).mp3
+  -> wrong artist: 'Refat Mustafayev'
+Regina/13. Regina Avenue - I Don't Want To.mp3
+  -> wrong artist: '13. Regina Avenue'
+Regina/Cantores 'Regina Caeli' - Agnus Dei VII (De Angelis).mp3
+  -> wrong artist: 'Cantores 'Regina Caeli''
+Regina/Cantores 'Regina Caeli' - Asperges Me.mp3
+  -> wrong artist: 'Cantores 'Regina Caeli''
+Regina/Cantores 'Regina Caeli' - Collect.mp3
+  -> wrong artist: 'Cantores 'Regina Caeli''
+Regina/Marcel Schweizer & Regina Engel - Gut das es uns gut geht.mp3
+  -> wrong artist: 'Marcel Schweizer & Regina Engel'
+Regina/Regina Troupe - Never Want To Loose U.mp3
+  -> wrong artist: 'Regina Troupe'
+Ringtones/Pi Ringtones - SharOn - сведи и сохрани.mp3
+  -> entire folder 'Ringtones' is not CT
+Rozali/ALISHA, Rozalia - Не давай мне спать.mp3
+  -> wrong artist: 'ALISHA, Rozalia'
+Rozali/Nomad Punk, Rozalia - BOBIK.mp3
+  -> wrong artist: 'Nomad Punk, Rozalia'
+Rozali/Rozalia mp3xa.cc - Fake Luv.mp3
+  -> wrong artist: 'Rozalia mp3xa.cc'
+Sanat/DIAR feat. SANAT - Сүймепсің.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Diar & Sanat - Суймепсин 2022.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Diar & Sanat - Сүймепсің.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Remix by SaNaT - Поболело и прошло remix.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/SANAT - I don't give a love.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/SANAT.prod - BASSHOUSE(demo).mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/SANAT.prod - Без названия.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/SaNaT - Дровосек(Criz beatz prod.).mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat - Посвящаю моей Диане.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat Ghosh, Saroj Patra - Jug Purusottam.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat Hates You - God is hiding under my bed.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat Hates You - Rocket Heart.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat Hates You - Z.O.M.B.I.E.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat kumara - Cruzeiro do Sul.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat kumara - Ea - Enki - Senhor do Mar.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat kumara - Espíritos Maiores.mp3
+  -> entire folder 'Sanat' is not CT
+Sanat/Sanat kumara - Pleidianos Piano Clássico.mp3
+  -> entire folder 'Sanat' is not CT
+Seda/Alex Seda & Dave Rose - You Got Me Thinking (Original Radio Edit).mp3
+  -> wrong artist: 'Alex Seda & Dave Rose'
+Seda/Alex Seda, Dave Rose - You Got Me Thinking (Radio Edit).mp3
+  -> wrong artist: 'Alex Seda, Dave Rose'
+Seda/Ruslan Bakinskiy & Vuqar Seda - Кайфовая.mp3
+  -> wrong artist: 'Ruslan Bakinskiy & Vuqar Seda'
+Seda/Vuqar Seda & Elnur Qala - Lazim Deyil 2018.mp3
+  -> wrong artist: 'Vuqar Seda & Elnur Qala'
+Seda/Vuqar Seda - Ай яй яй девушки танцуйте давай девушки (Shamuz.net).mp3
+  -> wrong artist: 'Vuqar Seda'
+Seda/Vuqar Seda - Ты моя глюкоза у меня крепкий доза (Muzos.net).mp3
+  -> wrong artist: 'Vuqar Seda'
+Seda/Vuqar Seda ft Elnur Qala - Seher Usagi 2016.mp3
+  -> wrong artist: 'Vuqar Seda ft Elnur Qala'
+Seda/Şafak Can, Seda Tosun - Aklım Sende uzxit.net.mp3
+  -> wrong artist: 'Şafak Can, Seda Tosun'
+Shen/Ji Shen (姬神) - Millennium prayer (千年の祈り).mp3
+  -> entire folder 'Shen' is not CT
+Shen/Ork.Maksim Shen - Avtomat kuchek.mp3
+  -> entire folder 'Shen' is not CT
+Shen/SHEN - Рэпризент.mp3
+  -> entire folder 'Shen' is not CT
+Shen/Shenseea - Shen Yeng Anthem.mp3
+  -> entire folder 'Shen' is not CT
+Shen/Zhou Shen (周深) - Firework.mp3
+  -> entire folder 'Shen' is not CT
+Shen/Zhou Shen (周深) - Одолжить мечту (借梦).mp3
+  -> entire folder 'Shen' is not CT
+Shen/Zhou Shen - Cocoon (茧).mp3
+  -> entire folder 'Shen' is not CT
+Shen/Zhou Shen - Позаимствовать мечту - Дворец Куньнин.mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 (Zhou Shen) - 借梦 (Borrow Dreams).mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 Zhou Shen - 借梦 OST Story of Kunning Palace _ 宁安如梦.mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 Zhou Shen - 借梦.mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 Zhou Shen - 借过一下.mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 Zhou Shen - 浮光.mp3
+  -> entire folder 'Shen' is not CT
+Shen/周深 Zhou Shen - 浮游 OST Back From the Brink.mp3
+  -> entire folder 'Shen' is not CT
+Stazis/Denni Stazis - Skypiea (Original Mix).mp3
+  -> wrong artist: 'Denni Stazis'
+Stazis/Mentarey & Denni Stazis - TBA (Preview).mp3
+  -> wrong artist: 'Mentarey & Denni Stazis'
+Stazis/Stazis FX - Improvisacion Rock Orcestra 01 (demo).mp3
+  -> wrong artist: 'Stazis FX'
+Stazis/Stazis FX - LandLife.mp3
+  -> wrong artist: 'Stazis FX'
+Stazis/Stazis FX - PUNK demo tema 3v1.mp3
+  -> wrong artist: 'Stazis FX'
+Stazis/Stazis FX - ауткастгитарконтест.mp3
+  -> wrong artist: 'Stazis FX'
+Şükriye Tutkun/Tutku - Kızılcık Şerbeti (Qarisqa TV).mp3
+  -> wrong artist: 'Tutku'
+Taraf/Gaetano Fabri vs Taraf de Haпdouks - Go East.mp3
+  -> wrong artist: 'Gaetano Fabri vs Taraf de Haпdouks'
+Taraf/Oi-Va-Voi vs Taraf De Haпdouks - A rom and a home.mp3
+  -> wrong artist: 'Oi-Va-Voi vs Taraf De Haпdouks'
+Taraf/ShrineSynchroSystem vs Taraf De Haпdouks - Neacsu in Africa.mp3
+  -> wrong artist: 'ShrineSynchroSystem vs Taraf De Haпdouks'
+Taraf/Taraf De Haidouks - Waltz From Masqerade.mp3
+  -> wrong artist: 'Taraf De Haidouks'
+Taraf/Taraf De Haпdouks - Cind Eram La '48.mp3
+  -> wrong artist: 'Taraf De Haпdouks'
+Taraf/Taraf de Haidouks & Kocani Orkestar - 100 Millions.mp3
+  -> wrong artist: 'Taraf de Haidouks & Kocani Orkestar'
+Taraf/Taraf de Haidouks & Kocani Orkestar - Turceasca a lu Kalo.mp3
+  -> wrong artist: 'Taraf de Haidouks & Kocani Orkestar'
+Taraf/Taraf de Haidouks - Briu (demo).mp3
+  -> wrong artist: 'Taraf de Haidouks'
+Taraf/Vasile Olaru si Taraf Moldova - Concert - Concert vocal (SAIAN).mp3
+  -> wrong artist: 'Vasile Olaru si Taraf Moldova'
+Taraf/Балканская музыка Taraf de Haidouks - Rustem.mp3
+  -> wrong artist: 'Балканская музыка Taraf de Haidouks'
+Timur/2 Timur Slavov - Get Ready!.mp3
+  -> wrong artist: '2 Timur Slavov'
+Timur/Imitationofmane, Timur Mucuraev - Смерть.mp3
+  -> wrong artist: 'Imitationofmane, Timur Mucuraev'
+Timur/Timur Chochiia - Fall (Orchestral Mix).mp3
+  -> wrong artist: 'Timur Chochiia'
+Timur/Timur Mucuraev - Милые Зеленые Глаза.mp3
+  -> wrong artist: 'Timur Mucuraev'
+Timur/Timur Slavov - Zolotaya lavina - Leytmotiv (C.mp3
+  -> wrong artist: 'Timur Slavov'
+Timur/Timur Slavov - Zolotaya lavina - Leytmotiv+St.mp3
+  -> wrong artist: 'Timur Slavov'
+Timur/Timur Slavov - Лакомка.mp3
+  -> wrong artist: 'Timur Slavov'
+Timur/Timur Slavov - Обречённые.mp3
+  -> wrong artist: 'Timur Slavov'
+Timur/Timur Zaloginov - Fonk_учённых.mp3
+  -> wrong artist: 'Timur Zaloginov'
+Timur/Timur Zaloginov - Кайфует Алена.mp3
+  -> wrong artist: 'Timur Zaloginov'
+Veronika/Veronika - А ты мне врал.mp3
+  -> wrong artist: 'Veronika'
+Vetan/Гр. VetAn - Про любовь.mp3
+  -> wrong artist: 'Гр. VetAn'
+Zaman/Beauty, Rashed Zaman - Rosh Khaiben.mp3
+  -> wrong artist: 'Beauty, Rashed Zaman'
+Zaman/Beauty, Rashed Zaman - Sonar Angti.mp3
+  -> wrong artist: 'Beauty, Rashed Zaman'
+Zaman/Rashed Zaman, Beauty - Rikshawala.mp3
+  -> wrong artist: 'Rashed Zaman, Beauty'
+Zarema/ZaremaАртур Текеев - Струны души.mp3
+  -> wrong artist: 'ZaremaАртур Текеев'
+Эді/Эді - Такси.mp3
+  -> wrong artist: 'Эді'

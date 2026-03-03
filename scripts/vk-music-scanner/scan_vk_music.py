@@ -434,6 +434,15 @@ class VKMusicScanner:
         self.artist_mappings = config.get('artist_mappings', {})
         self.settings = config.get('settings', {})
 
+        # Load ignore lists
+        ignore_config = config.get('ignore', {})
+        self.ignored_artists = {a.lower() for a in ignore_config.get('artists', [])}
+        self.ignored_tracks = [
+            (t['artist'].lower(), t['title'].lower())
+            for t in ignore_config.get('tracks', [])
+            if 'artist' in t and 'title' in t
+        ]
+
     def _load_downloaded(self) -> dict:
         """Load list of already downloaded tracks"""
         if DOWNLOADED_FILE.exists():
@@ -637,6 +646,13 @@ class VKMusicScanner:
             if track_hash in self.downloaded.get('tracks', {}):
                 continue
 
+            # Skip ignored tracks
+            track_artist_lower = track['artist'].lower().strip()
+            if any(track_artist_lower == ia for ia in self.ignored_artists):
+                continue
+            if (track_artist_lower, title_lower) in self.ignored_tracks:
+                continue
+
             # This is a new track!
             logger.info(f"NEW: {track['artist']} - {track['title']}")
 
@@ -685,7 +701,13 @@ class VKMusicScanner:
         # Scan each artist
         all_new_tracks = []
 
+        skipped = 0
         for artist in artists:
+            # Skip ignored artists
+            if artist['name'].lower() in self.ignored_artists:
+                skipped += 1
+                continue
+
             try:
                 new_tracks = self.scan_artist(artist)
                 all_new_tracks.extend(new_tracks)
@@ -694,6 +716,9 @@ class VKMusicScanner:
 
             # Rate limiting between artists
             time.sleep(2)
+
+        if skipped:
+            logger.info(f"Skipped {skipped} ignored artists")
 
         # Summary
         logger.info("\n" + "="*60)

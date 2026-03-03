@@ -1,0 +1,231 @@
+ToLoad/Adam İsmail/Adam İsmail - My wonderwall.mp3	dur+size+title: sim=64% szratio=98%
+ToLoad/Afize Kassara/Afize Kassara - Aman dayler.mp3	dur+title: sim=76% dur=193s vs lib
+ToLoad/Alime Mustafayeva/Alime Mustafayeva - Oğlan.mp3	dur+title: sim=81% dur=169s vs lib
+ToLoad/Arsen Osmanov/Arsen Osmanov - Шелен сувлары - Дагъыстан.mp3	dur+size+title: sim=62% szratio=97%
+ToLoad/Arslan Rasilov/Arslan - Love.mp3	dur+size+title: sim=59% szratio=98%
+ToLoad/Asiye Saale & Nariman Balich/Asiye Saale & Nariman Balich - Quşlar Avada МИНУСОВКА (минус) MINUSA.RUS.mp3	dur+title: sim=75% dur=191s vs lib
+ToLoad/Atlant Meydan/ATLANT - Интро.mp3	dur+size+title: sim=50% szratio=93%
+ToLoad/Atlant Meydan/ATLANT - Танкоград (Prod. Meep).mp3	cross-folder size+dur: sim=56% szratio=100%
+ToLoad/Atlant Meydan/ATLANT - Танкоград (prod. Yung Meep).mp3	cross-folder size+dur: sim=55% szratio=100%
+ToLoad/Azim/Azim - Remenber Me.mp3	cross-folder dup: sim=94% vs Azim - Remember Me.mp3
+ToLoad/Azim/Артур Кальянский, AZIM - С днём рождения!.mp3	cross-folder dup: sim=96% vs Артур Кальянский, AZIM - С днем рождения!.mp3
+ToLoad/Bekir Adilov/Bekir Adilov _ İnsaf ansambli - Ezansız kalmasın Qırım (ilâhi).mp3	cross-folder dup: sim=96% vs Bekir Adilov (İnsaf ansambli) - Ezansız qalmasın Qırım (ilâhi).mp3
+ToLoad/Belbek/Belbek Roots - Mystic.mp3	cross-folder dup: sim=95% vs Belbek Roots - 1 Mystic.mp3
+ToLoad/Belbek/Belbek Roots - Renaissance.mp3	cross-folder dup: sim=96% vs Belbek Roots - 5 Renaissance.mp3
+ToLoad/Belbek/Belbek Roots - Качели.mp3	cross-folder dup: sim=95% vs Belbek Roots - 2 Качели.mp3
+ToLoad/Bizim Taraf/Bizim taraf - Minus.mp3	dur+size+title: sim=67% szratio=98%
+ToLoad/D'layna/Refined Brothers feat D'Layna - Party Everyday (DJ A-One Remix).mp3	cross-folder dup: sim=86% vs Refined Brothers feat D'Layna - Party Everyday (DJ A-One Remix) Invisible Edition.mp3
+ToLoad/D'layna/Rob Hayes feat. D'Layna - Can't Get Enough (Original Mix).mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U and DJ Bebek feat. DJ SPACE ONE Project - Кто виноват ты или я - Не буду одна.mp3	dur+size+title: sim=73% szratio=97%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ SPACE ONE Project - Індіго (Слова і музика - Влад Дарвин) (НОВИНКА 2012).mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ SPACE ONE Project - Індіго (Слова і музика - Влад Дарвин)(http_vk.com_ymusic).mp3	cross-folder size+dur: sim=53% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ SPACE ONE Project - Индиго (Слова и музыка - Влад Дарвин).mp3	cross-folder size+dur: sim=59% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ SPACE ONE Project - Ой на горі два дубки (house) radio edit.mp3	cross-folder size+dur: sim=75% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Allo.mp3	cross-folder dup: sim=90% vs KET-U feat. DJ SPACE ONE Project - Алло (dubstep).mp3
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Індіго www.pulsemp3.ru.mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Індіго.mp3	dur+size+title: sim=56% szratio=97%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Алло (НОВИНКА 2012).mp3	cross-folder size+dur: sim=79% szratio=100%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Индиго (07_10_12).mp3	dur+size+title: sim=57% szratio=97%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Индиго.mp3	dur+size+title: sim=56% szratio=97%
+ToLoad/DJ SPACE ONE/KET-U feat. DJ Space One Project - Равнодушна (Dubstep Mix).mp3	cross-folder dup: sim=86% vs KET-U feat. DJ Space One Project - Равнодушна (Dubstep Mix)(http_vk.com_ymusic).mp3
+ToLoad/DJ SPACE ONE/KET-U feat. Dj Space One Proje - Індіго.mp3	cross-folder dup: sim=81% vs KET-U feat. DJ Space One Project - Індіго www.pulsemp3.ru.mp3
+ToLoad/DJ SPACE ONE/KET-U и DJ Bebek feat. DJ Space One Project - 1.mp3	dur+title: sim=75% dur=174s vs lib
+ToLoad/DJ SPACE ONE/KET-U и DJ Space One Project - Индиго.mp3	cross-folder size+dur: sim=55% szratio=100%
+ToLoad/DJ Smail (İsmail Lümanov)/Dj SmaiL - Индийский Mix Ot Dj SmaiL.mp3	cross-folder dup: sim=83% vs Dj SmaiL - Mix Ot Dj Smail.mp3
+ToLoad/DeLi Damir/DeLi Damir & Temircan & Panda - BB.mp3	dur+size+title: sim=61% szratio=97%
+ToLoad/DeLi Damir/DeLi Damir & Temircan & Panda - GD.mp3	dur+size+title: sim=61% szratio=97%
+ToLoad/DeLi Damir/DeLi Damir & Temircan - BAĞIŞLA.mp3	dur+size+title: sim=59% szratio=96%
+ToLoad/Derviş/Dervis - Hessebi.mp3	dur+size+title: sim=50% szratio=95%
+ToLoad/Dilâver Osmanov/OsMan - Dope.mp3	dur+size+title: sim=67% szratio=97%
+ToLoad/Dilâver Osmanov/OsMan - Istanbul.mp3	dur+size+title: sim=64% szratio=97%
+ToLoad/Dilâver Osmanov/OsMan - Raiders.mp3	cross-folder size+dur: sim=52% szratio=100%
+ToLoad/Dilyara Tukyanji/Dilyara Tukyanji - Labirint.mp3	dur+size+title: sim=66% szratio=98%
+ToLoad/Dilyara Tukyanji/Dilyara Tukyanji - Ruya.mp3	dur+title: sim=82% dur=204s vs lib
+ToLoad/Dj Bebek/DJ BEBEK - Track07.mp3	dur+size+title: sim=58% szratio=98%
+ToLoad/Edem İbragimov/Edem İbragimov - Baar kelse (Folk-Jazz).mp3	dur+size+title: sim=53% szratio=98%
+ToLoad/Edem İbragimov/Edem İbragimov - Латино-джаз.mp3	dur+size+title: sim=53% szratio=96%
+ToLoad/Edem Polâkov/EDEM - Не моя.mp3	dur+size+title: sim=56% szratio=98%
+ToLoad/Ediye/Ediye - Restful Life.mp3	dur+size+title: sim=55% szratio=95%
+ToLoad/Ediye/Ediye Topçi - 18.mp3	dur+size+title: sim=69% szratio=95%
+ToLoad/Ediye/Ediye Topçı - 14.mp3	dur+size+title: sim=50% szratio=94%
+ToLoad/Ediye/Ediye Topçı - 16.mp3	dur+size+title: sim=51% szratio=94%
+ToLoad/Ediye/Ediye Topçı - 17.mp3	dur+size+title: sim=65% szratio=90%
+ToLoad/Ediye/Ediye Topçı - 3.mp3	dur+size+title: sim=71% szratio=94%
+ToLoad/Ediye/Ediye Topçı - 5.mp3	dur+size+title: sim=73% szratio=94%
+ToLoad/Eldar Ahmedov/Eldar Ahmedov ft SAAP - Ale Ale Ale www.SAYLANAN.com.mp3	cross-folder dup: sim=85% vs Eldar Ahmedov ft SAAP - Ale Ale Ale Ale.mp3
+ToLoad/Eldar Ahmedov/Eldar Ahmedov ft SAAP ft Mekan Annayev - Yakma yshgynda www.SAYLANAN.com.mp3	cross-folder size+dur: sim=79% szratio=100%
+ToLoad/Elmaz Kakura/ELMAZ KAKURA-SERVER KAKURA - UC QUSCIGIM.mp3	dur+size+title: sim=54% szratio=95%
+ToLoad/Elvina/Elvina - Дура не плачь.mp3	dur+size+title: sim=53% szratio=97%
+ToLoad/Elvina/Elvina - Холодный ветер.mp3	cross-folder dup: sim=81% vs Elvina - Холодный Ветер _ vqMusic ོ.mp3
+ToLoad/Elvina/Elvina.M. - Не оставляй меня одну.mp3	dur+size+title: sim=50% szratio=98%
+ToLoad/Emine Ziadin/Nazife Reizova & Emine Ziadin - Ana-Vatanimiz (Sia Cover).mp3	dur+size+title: sim=50% szratio=94%
+ToLoad/Env/ENV(itre) - Atodeq.mp3	dur+size+title: sim=50% szratio=99%
+ToLoad/Env/EnV - Uprise.mp3	cross-folder size+dur: sim=74% szratio=100%
+ToLoad/Enver İbragimov/Enver İbragimov - Badem terek (live).mp3	dur+title: sim=82% dur=128s vs lib
+ToLoad/Eshnight/Эшнайт (Eshnight) - Неге керек _ youtube.com_qirimwebtv.mp3	dur+size+title: sim=53% szratio=98%
+ToLoad/Esken Zova/Esken Zova - Siempre Me Quedara.mp3	cross-folder dup: sim=84% vs Esken Zova - Siempre Me Quedara (Bebe cover).mp3
+ToLoad/Esma/ESMA - Пример 1.mp3	cross-folder size+dur: sim=62% szratio=100%
+ToLoad/Esma/Esma Redzepova - - Ah Devla (Audio).mp3	dur+size+title: sim=50% szratio=94%
+ToLoad/Esma/Esma Redzepova - - Kale Jakha.mp3	dur+size+title: sim=50% szratio=95%
+ToLoad/Esma/Esma Redzepova - Chaje Shukarije (OST Borat).mp3	cross-folder dup: sim=86% vs Esma Redzepova - - Chaje Shukarije.mp3
+ToLoad/Esma/Esma Redzepova - Romano Khoro.mp3	cross-folder dup: sim=88% vs Esma Redzepova - - Romano horo - (Audio).mp3
+ToLoad/Esma/Esma Redzepova, (Feat. Titi Robin) - - Dzelem, Dzelem.mp3	cross-folder dup: sim=100% vs Esma Redzepova feat. Titi Robin - Dzelem, Dzelem.mp3
+ToLoad/Evelina/Evelina - Sydän Sulaa.mp3	dur+size+title: sim=52% szratio=97%
+ToLoad/Fazile/Fazile - My Number One (cover).mp3	dur+size+title: sim=57% szratio=97%
+ToLoad/Fazile/Fazile - Sennen beraber (minus 2).mp3	cross-folder dup: sim=97% vs Fazile - Sennen beraber (minus 1).mp3
+ToLoad/Fazile/Fazile - Sennen beraber (minus) 02.mp3	cross-folder dup: sim=95% vs Fazile - Sennen beraber (minus 1).mp3
+ToLoad/Fazile/Fazile - Sennen beraber.mp3	cross-folder dup: sim=84% vs Fazile - Sennen beraber (minus 1).mp3
+ToLoad/Fazile/Fazile - Где же ты (prod. Tematik).mp3	dur+size+title: sim=57% szratio=99%
+ToLoad/Fazile/Fazilet Hanım Ve Kızları - Hayatım Değişince (Klarnet Versiyon).mp3	cross-folder dup: sim=92% vs Fazilet Hanım Ve Kızları - Hayatım Değişince (Akustik Versiyon).mp3
+ToLoad/Fazile/Fazilet Hanım ve Kızları - 34. Kaçınılmaz Aşk.mp3	cross-folder dup: sim=94% vs Fazilet Hanım Ve Kızları - Kaçınılmaz Aşk 2.mp3
+ToLoad/Fazile/Fazilet Hanım ve Kızları - Aşk (Yaylı Versiyon).mp3	cross-folder dup: sim=95% vs Fazilet Hanım ve Kızları - 32. Aşk (Yayli Versyon).mp3
+ToLoad/FortRoyalBeatz (EmCiEl)/FORTROYALBEATZ - GEORGIA.mp3	dur+size+title: sim=55% szratio=94%
+ToLoad/Garik ve Garik/Garik ve Garik - Nasıl keçti habersiz (instrumental).mp3	dur+size+title: sim=52% szratio=98%
+ToLoad/Hansaray/015 Hansaray - Aglama Kelin.mp3	dur+size+title: sim=50% szratio=95%
+ToLoad/Hansaray/Hansaray - Osman-Paha.mp3	dur+size+title: sim=55% szratio=95%
+ToLoad/Hati/hati - kiss.mp3	cross-folder size+dur: sim=52% szratio=99%
+ToLoad/Hati/hati - pay me.mp3	cross-folder size+dur: sim=73% szratio=100%
+ToLoad/Haytarma ansambli/Haytarma ansambli - Alet muzıkası (Arzı qız 1964 s.).mp3	dur+size+title: sim=50% szratio=95%
+ToLoad/İzzet/DJ İzzet Yılmaz - Drop The Bass.mp3	dur+size+title: sim=66% szratio=97%
+ToLoad/İzzet/DJ İzzet Yılmaz - Free Night.mp3	cross-folder dup: sim=82% vs DJ İzzet Yılmaz - Feel Me.mp3
+ToLoad/İzzet/DJ İzzet Yılmaz - Magic Orgasm.mp3	dur+size+title: sim=67% szratio=99%
+ToLoad/İzzet/DJ İzzet Yılmaz - Ready for You!.mp3	dur+size+title: sim=69% szratio=98%
+ToLoad/JAMDEEN/JAMDEEN feat. RED NEKS CHATALOV - Капли по стеклу(Slowed).mp3	dur+size+title: sim=53% szratio=99%
+ToLoad/JAMDEEN/REANA TARKOVA & JAMDEEN - MAVI BONCUK (REMIX 2019).mp3	dur+size+title: sim=62% szratio=98%
+ToLoad/JAMDEEN/REANA TARKOVA & JAMDEEN - MAVI BONCUK.mp3	dur+size+title: sim=52% szratio=98%
+ToLoad/JAMDEEN/REANA TARKOVA & JAMDEEN - MAVU BONDJUK.mp3	dur+size+title: sim=56% szratio=98%
+ToLoad/JAMDEEN/REANA TARKOVA, JAMDEEN - LOVELY.mp3	dur+size+title: sim=50% szratio=96%
+ToLoad/JAMDEEN/REANA TARKOVA, JAMDEEN - NESIL.mp3	dur+size+title: sim=50% szratio=96%
+ToLoad/Jamala/Jamala (Джамала) - 1944 (zaycevi.net).mp3	dur+size+title: sim=54% szratio=95%
+ToLoad/Jamala/Jamala - 1944 (DeepOn Remix).mp3	dur+size+title: sim=50% szratio=97%
+ToLoad/Jamala/Jamala - I Believe In U.mp3	dur+size+title: sim=50% szratio=98%
+ToLoad/Jamala/Jamala - My Lover EP Дякую.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Jamala/Jamala - My Lover.mp3	dur+size+title: sim=56% szratio=96%
+ToLoad/Jamala/Jamala - Очима.mp3	dur+size+title: sim=50% szratio=98%
+ToLoad/Jamala/Jamala - Подих.mp3	dur+size+title: sim=53% szratio=97%
+ToLoad/Kadriye Nurmambet/Kadriye Nurmambet - Yol yanında sarayım (asret türküsi).mp3	dur+size+title: sim=56% szratio=98%
+ToLoad/Kerim/Kerim Muravey feat. Pawel Prutt - Varanasi.mp3	cross-folder size+dur: sim=78% szratio=100%
+ToLoad/Lenara Osmanova/2009 Ukraine - Lenara Osmanova - Flash.mp3	dur+size+title: sim=74% szratio=95%
+ToLoad/Lenara Osmanova/Lenara Osmanova - Amma men sevem.mp3	dur+size+title: sim=50% szratio=97%
+ToLoad/Lenara Osmanova/Lenara Osmanova - Qalaylı qazan.mp3	dur+size+title: sim=52% szratio=87%
+ToLoad/Lenie Djepparova/Lenie - Aynenni.mp3	dur+size+title: sim=53% szratio=95%
+ToLoad/Leniye/Leniye İzmaylova ve Guzel - Şarqıy oyün.mp3	dur+title: sim=75% dur=226s vs lib
+ToLoad/Leviza Çalbaşeva/LeVi - Ыытабын.mp3	cross-folder size+dur: sim=52% szratio=100%
+ToLoad/Liname/Liname - piano_демо.mp3	dur+size+title: sim=53% szratio=93%
+ToLoad/Liname/Liname - Жизнь&Биты.mp3	cross-folder dup: sim=91% vs Liname - Жизнь и биты.mp3
+ToLoad/Liname/Liname - Хрупкий мой рай.mp3	cross-folder size+dur: sim=50% szratio=100%
+ToLoad/Mamet Kharkhara/Mamet Kharkhara - Ey Qiz.mp3	dur+size+title: sim=52% szratio=97%
+ToLoad/Marlen Mamutov/Marlen Mamutov - İnstrumental.mp3	dur+title: sim=90% dur=153s vs lib
+ToLoad/Marlen Settarov/Marlen Settarov - Canlan.mp3	dur+size+title: sim=50% szratio=96%
+ToLoad/Marlen Settarov/Marlen Settarov feat. Riana Balbekova - Canlan.mp3	dur+size+title: sim=55% szratio=99%
+ToLoad/Melek/Ferus Melek - Lonely Circuit.mp3	dur+size+title: sim=50% szratio=98%
+ToLoad/Melek/Melek adasy - 735 NEW!!! (470 p.)ПРОДАН.mp3	cross-folder dup: sim=87% vs Melek adasy - 695 NEW!!! (500 p)ПРОДАН.mp3
+ToLoad/Melek/Melek adasy - 744 NEW!!! (650 p.)ПРОДАН.mp3	cross-folder dup: sim=87% vs Melek adasy - 695 NEW!!! (500 p)ПРОДАН.mp3
+ToLoad/Melek/Melek adasy - 757 NEW!!! (600p.).mp3	cross-folder size+dur: sim=69% szratio=100%
+ToLoad/Melek/Melek adasy - 844 NEW!!! (400 p.)ПРОДАН.mp3	cross-folder dup: sim=90% vs Melek adasy - 831 NEW!!! (700 p.)ПРОДАН.mp3
+ToLoad/Minaret/Minaret - Погибель царствия старобытного.mp3	cross-folder size+dur: sim=67% szratio=100%
+ToLoad/Nesil/Nesil - Gel De Asik Olma (TRmusic).mp3	cross-folder dup: sim=86% vs Nesil - Gel De Asik Olma (BRB).mp3
+ToLoad/Nesil/Nesil - Gel De Aşık Olma.mp3	cross-folder dup: sim=92% vs Nesil - Gel De Asik Olma (BRB).mp3
+ToLoad/Nesrin Sipahi/Nesrin Sipahi - Gözleri Aşka Gülen (İstanbullu Gelin 2.Bölüm).mp3	cross-folder size+dur: sim=76% szratio=100%
+ToLoad/Nesrin Sipahi/Nesrin Sipahi - Yaşa Fenerbahçe.mp3	cross-folder dup: sim=81% vs Nesrin Sipahi - Fenerbahçe Marşı.mp3
+ToLoad/Nesrin Sipahi/Nesrin Sipahi - Yıldızların Altında.mp3	cross-folder size+dur: sim=76% szratio=100%
+ToLoad/Nesrin Sipahi/Nesrin Sipahi - sensiz de yaşanırmış.mp3	cross-folder dup: sim=93% vs Nesrin Sipahi - Sensiz De Yasanirmis (1971).mp3
+ToLoad/Nesrin Sipahi/nesrin sipahi - duyduk.mp3	cross-folder size+dur: sim=75% szratio=100%
+ToLoad/Nial/Nial Bulenkova - Yüksek minare.mp3	dur+size+title: sim=56% szratio=98%
+ToLoad/OsMan/Emre Kabak, OsMan - Black Bloud.mp3	dur+size+title: sim=50% szratio=96%
+ToLoad/OsMan/OsMan - Baby Toxic.mp3	dur+size+title: sim=53% szratio=98%
+ToLoad/OsMan/OsMan - Feelings.mp3	dur+size+title: sim=58% szratio=96%
+ToLoad/OsMan/OsMan - For Us.mp3	cross-folder size+dur: sim=67% szratio=100%
+ToLoad/OsMan/OsMan - How I Feel.mp3	cross-folder size+dur: sim=52% szratio=100%
+ToLoad/OsMan/OsMan - Monalisa.mp3	dur+size+title: sim=64% szratio=97%
+ToLoad/OsMan/OsMan - My Love.mp3	dur+size+title: sim=53% szratio=98%
+ToLoad/OsMan/OsMan - Pure Devils.mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/OsMan/OsMan - Rules.mp3	cross-folder size+dur: sim=70% szratio=100%
+ToLoad/OsMan/OsMan - Stay Human.mp3	dur+size+title: sim=53% szratio=97%
+ToLoad/OsMan/OsMan - Vandal.mp3	cross-folder size+dur: sim=50% szratio=100%
+ToLoad/OsMan/OsMan, Eda Atlas - I.W.K.US.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Osman Asanov/Osman Asanov - Ey qız meni ne içün.mp3	dur+size+title: sim=72% szratio=95%
+ToLoad/Osman Asanov/Osman Asanov - Ey qız крымско татарские песни.mp3	dur+size+title: sim=52% szratio=96%
+ToLoad/Osman Dülgerov/OsMan - Dr.UGS.mp3	dur+size+title: sim=64% szratio=95%
+ToLoad/Osmanov/Artur Osmanov - instrumental 21.mp3	dur+size+title: sim=52% szratio=85%
+ToLoad/Osmanov/Osmanov - Fuck in Love.mp3	dur+size+title: sim=54% szratio=94%
+ToLoad/Osmanov/Osmanov, Yokka - До утра.mp3	dur+size+title: sim=57% szratio=97%
+ToLoad/Osmanov/Renat Osmanov - Glass.mp3	dur+size+title: sim=65% szratio=98%
+ToLoad/Osmanov/Renat Osmanov - Обійми.mp3	cross-folder size+dur: sim=52% szratio=100%
+ToLoad/Osmanov/Vlad Osmanov - Mary (2018).mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/Reana Tarkova/REANA TARKOVA & JAMDEEN - MAVI BONCUK (2019).mp3	dur+size+title: sim=58% szratio=98%
+ToLoad/Reana Tarkova/REANA TARKOVA - Bu güzel yaşayiş.mp3	dur+size+title: sim=50% szratio=97%
+ToLoad/Reana Tarkova/REANA TARKOVA - Never Let You Go.mp3	dur+size+title: sim=53% szratio=96%
+ToLoad/Reana Tarkova/REANA TARKOVA - ONLY WORDS (electro house, deep house, house).mp3	dur+size+title: sim=60% szratio=97%
+ToLoad/Reana Tarkova/REANA TARKOVA - Opme.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Reana Tarkova/REANA TARKOVA - YUREGIM URA.mp3	cross-folder size+dur: sim=62% szratio=100%
+ToLoad/Reana Tarkova/REANA TARKOVA - На краю земли.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Reana Tarkova/REANA TARKOVA - Санъа кетмеге бермем.mp3	dur+size+title: sim=50% szratio=97%
+ToLoad/Reana Tarkova/Reana Tarkova - Areket et.mp3	dur+size+title: sim=56% szratio=99%
+ToLoad/Reana Tarkova/Reana Tarkova - COME BACK.mp3	dur+size+title: sim=59% szratio=97%
+ToLoad/Reana Tarkova/Reana Tarkova - До луны.mp3	dur+size+title: sim=55% szratio=98%
+ToLoad/Reana Tarkova/Reana Tarkova - ｄｚｈａａａｍａ.mp3	dur+size+title: sim=60% szratio=89%
+ToLoad/Reana Tarkova/Reana Tarkova, Enver Kaishev - Bu degerli hazine.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Red Neks Chatalov/HİP-HOP QIRIM (SEYRAN7'62,ЭМДЖИЭЛ,RED NEKS CHATALOV,DELİ DAMİR) - BU HİP-HOP QIRIM (ORIGINAL) - BU HIP-HOP QIRIM.mp3	cross-folder dup: sim=90% vs HİP-HOP QIRIM (SEYRAN7'62, ЭМДЖИЭЛ, RED NEKS CHATALOV, DELİ DAMİR) - BU HİP-HOP QIRIM (Original).mp3
+ToLoad/Red Neks Chatalov/JAMDEEN & RED NEKS CHATALOV - Любовь на двоих.mp3	dur+size+title: sim=55% szratio=98%
+ToLoad/Red Neks Chatalov/RED NEKS CHATALOV (BlackDiamond rec.) - VAQIT (TIME).mp3	dur+size+title: sim=73% szratio=98%
+ToLoad/Red Neks Chatalov/RED NEKS CHATALOV (prod. By black Diamond Rec) - Millet.mp3	dur+title: sim=87% dur=183s vs lib
+ToLoad/Red Neks Chatalov/RED NEKS CHATALOV - Я обнимаю тебя.mp3	dur+size+title: sim=70% szratio=98%
+ToLoad/Red Neks Chatalov/RED NEKS CHATALOV-(By BlakDiamond rec.) - vaqit (time).mp3	dur+size+title: sim=74% szratio=98%
+ToLoad/Red Neks Chatalov/Red Neks Chatalov - Детство.mp3	dur+size+title: sim=72% szratio=98%
+ToLoad/Red Neks Chatalov/Red neks Chatalov -(FortRoyalBeatz) - Судьба.mp3	dur+size+title: sim=67% szratio=97%
+ToLoad/Red Neks Chatalov/Red neks Chatalov-(FORTROYALBEATZ) - Добьюсь всего сам !!.mp3	cross-folder size+dur: sim=53% szratio=100%
+ToLoad/Refat Mustafayev/Refat Mustafayev - Pain In My Heart.mp3	dur+size+title: sim=52% szratio=98%
+ToLoad/Refat Osmanov/OsMan - Breath.mp3	cross-folder size+dur: sim=64% szratio=100%
+ToLoad/Refat Osmanov/OsMan - Fresh.mp3	cross-folder size+dur: sim=67% szratio=100%
+ToLoad/Refat Osmanov/OsMan - Loud.mp3	cross-folder size+dur: sim=57% szratio=100%
+ToLoad/Refat Osmanov/OsMan - Mask Off.mp3	cross-folder size+dur: sim=58% szratio=99%
+ToLoad/Refat Osmanov/OsMan - Pull.mp3	cross-folder size+dur: sim=63% szratio=100%
+ToLoad/Rozali/(33-37Hz) WHITE GALLOWS, Rozalia (Bass Club Production) - Голая (Low Bass By Smoke).mp3	cross-folder dup: sim=95% vs (20-22Hz) WHITE GALLOWS, Rozalia (Bass Club Production) - Голая (Low Bass By Smoke).mp3
+ToLoad/Rozali/RozAli - Ювца со.mp3	cross-folder size+dur: sim=58% szratio=100%
+ToLoad/Rozali/Rozali - Ey güzel Qırım (Мой любимый Крым).mp3	dur+size+title: sim=57% szratio=98%
+ToLoad/Rozali/Rozali - Мой любимый Крым (перевод крымскотатарской песни _Ey güzel Qırım_).mp3	dur+size+title: sim=50% szratio=98%
+ToLoad/Rozali/WHITE GALLOWS feat. Rozalia - Голая.mp3	cross-folder size+dur: sim=52% szratio=100%
+ToLoad/Rozali/WHITE GALLOWS, Rozalia - Голая (Полная Версия) muzne.net.mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/Ruslan Aliyev/Ali Qafarov & Ruslan Aliyev - Bele qizi sevmekmi olar_(2013).mp3	cross-folder size+dur: sim=70% szratio=100%
+ToLoad/Ruslan Aliyev/Ruslan Aliyev - MARK II.mp3	dur+size+title: sim=59% szratio=96%
+ToLoad/Ruslan Aliyev/Ruslan Aliyev - Sympathy (Piano).mp3	dur+size+title: sim=52% szratio=94%
+ToLoad/Rustem Mambetov/Rustem Mambetov - sax.Nariman Balich-akordion.mp3	dur+size+title: sim=50% szratio=97%
+ToLoad/Sanat/Sanat Jalilov - Bobo.mp3	dur+size+title: sim=50% szratio=99%
+ToLoad/Seda/Vuqar Seda - Черный роза доза он мне сладкий глюкоза muzonov.net.mp3	cross-folder size+dur: sim=54% szratio=100%
+ToLoad/Sertan Gunes/Sertan Gunes - Summer Smash.mp3	cross-folder size+dur: sim=67% szratio=100%
+ToLoad/Sertan Gunes/Sertan Gunes feat. Nico Collu - Electro Disco.mp3	cross-folder size+dur: sim=76% szratio=100%
+ToLoad/Server Kakura/SERVER KAKURA - ILYAS.mp3	dur+title: sim=79% dur=245s vs lib
+ToLoad/Server Kakura/SERVER KAKURA - OSAMA.mp3	dur+title: sim=79% dur=190s vs lib
+ToLoad/Server Kakura/SERVER KAKURA - TUSUNCE - BU DUNYA.mp3	dur+size+title: sim=64% szratio=90%
+ToLoad/Server Kakura/ZAREMA BEKIROVA-SERVER KAKURA - EBABIL.mp3	dur+size+title: sim=58% szratio=94%
+ToLoad/Seytabla Memetov/Seytabla Memetov - Tatarlığım.mp3	dur+size+title: sim=70% szratio=88%
+ToLoad/Shatur-Gudur/Shatur-gudur - Myz myz myz.mp3	dur+size+title: sim=60% szratio=98%
+ToLoad/Stazis/Dj. StaZiS - Без названия.mp3	cross-folder size+dur: sim=65% szratio=100%
+ToLoad/Stazis/Stazis FX - Dont You Stay.mp3	cross-folder size+dur: sim=56% szratio=100%
+ToLoad/Stazis/Stazis feat. Sokolfly - Моя.mp3	cross-folder dup: sim=89% vs Stazis & Sokolfly - Моя.mp3
+ToLoad/Stazis/Stazis x ЭмДжиЭл - Laf Etem (2015) (Prod.By FORTROYALBEATZ).mp3	dur+size+title: sim=55% szratio=98%
+ToLoad/Susanna Maksutova/Susanna Maksutova, Asan Bilyalov - Oglan & Ayshe hanum.mp3	dur+size+title: sim=55% szratio=96%
+ToLoad/Taraf/Taraf de Haidouks - The Fields Are Blooming (demo).mp3	cross-folder size+dur: sim=66% szratio=100%
+ToLoad/Taraf/Taraf de Haïdouks - Dance Suite a la clejani (demo).mp3	cross-folder size+dur: sim=62% szratio=100%
+ToLoad/Taraf/Taraf de Haïdouks - The Fields Are Blooming (demo).mp3	cross-folder size+dur: sim=63% szratio=100%
+ToLoad/Temircan/Ali İmran Ömer Şeyh ve Temircan - Biznes (Prod. by Jammy Beatz).mp3	cross-folder dup: sim=88% vs ALI IMRAN UMAR SHAIH & TEMIRCAN - BIZNE (Prod. by Jammy Beatz).mp3
+ToLoad/Temircan/TEMIRCAN - BU YOLĞA (KIT Trap Remix).mp3	cross-folder size+dur: sim=51% szratio=100%
+ToLoad/Temircan/Temircan - O2.mp3	dur+size+title: sim=55% szratio=98%
+ToLoad/Vetan/Vetan & rustem'studio - Kaynana.mp3	cross-folder dup: sim=87% vs Vetan & Rustem - Kaynana.mp3
+ToLoad/Zarema/Zarema - Воспоминания (Tematik).mp3	dur+size+title: sim=56% szratio=93%
+ToLoad/Zarema/Zarema - ДоттагI.mp3	dur+size+title: sim=51% szratio=97%
+ToLoad/Zarema/Zarema - Дыши.mp3	dur+size+title: sim=52% szratio=94%
+ToLoad/Zarema/Zarema - Красивая чеченская свадьба.mp3	dur+size+title: sim=51% szratio=96%
+ToLoad/Zarema/Zarema Elim - Замки.mp3	dur+size+title: sim=53% szratio=95%
+ToLoad/Zarema Hanum/Zarema Hanum - AudioTrack 11.mp3	dur+size+title: sim=62% szratio=95%
+ToLoad/Zarema Hanum/Zarema Hanum - Hamsi qoydım tavaya (CT).mp3	dur+size+title: sim=59% szratio=95%
+ToLoad/dj bebek & Зера Кенжикаева/dj bebek & Зера Кенжикаева - Къызым сени киме вереим (horan version 2012).mp3	dur+size+title: sim=55% szratio=98%
+ToLoad/samumbeatz/samumbeatz - Hello Punch.mp3	cross-folder size+dur: sim=72% szratio=100%
+ToLoad/samumbeatz/samumbeatz - Me Blocked.mp3	dur+size+title: sim=50% szratio=96%
+ToLoad/samumbeatz/samumbeatz - Red.mp3	cross-folder size+dur: sim=77% szratio=100%
+ToLoad/samumbeatz/samumbeatz - Something Cool.mp3	cross-folder size+dur: sim=65% szratio=100%
+ToLoad/samumbeatz/samumbeatz - Strangers Are Coming.mp3	dur+size+title: sim=52% szratio=95%
+ToLoad/samumbeatz/samumbeatz - Under My Skin.mp3	cross-folder size+dur: sim=62% szratio=100%
+ToLoad/samumbeatz/samumbeatz - afterdeath.mp3	dur+size+title: sim=50% szratio=95%
+ToLoad/Эльнара Кучук & dj bebek/Эльнара Кучук & dj bebek - Севгилим (produced by dj bebek 2011).mp3	dur+size+title: sim=52% szratio=97%
