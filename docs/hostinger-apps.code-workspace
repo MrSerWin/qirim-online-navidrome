@@ -8,6 +8,18 @@
 		},
 		{
 			"path": "../../../../1_AI/sevil-ai-hub"
+		},
+		{
+			"path": "../../../../1_anayurt/ana-yurt-auth"
+		},
+		{
+			"path": "../../../../1_AI/HelpfullTools/FileFlip"
+		},
+		{
+			"path": "../../../../1_AI/HelpfullTools/ResumeAI"
+		},
+		{
+			"path": "../../../../1_AI/HelpfullTools/TakeoutFix"
 		}
 	],
 	"settings": {}
