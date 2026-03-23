@@ -18,7 +18,8 @@ workbox.loadModule('workbox-expiration')
 workbox.core.clientsClaim()
 self.skipWaiting()
 
-console.log('[SW] Service Worker initialized and ready!')
+const SW_VERSION = '2026-03-23-v2'
+console.log('[SW] Service Worker', SW_VERSION, 'initialized')
 
 addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
@@ -38,6 +39,15 @@ self.addEventListener('install', async (event) => {
   )
 })
 
+// Clean up old audio cache on SW activation (audio no longer cached by SW)
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.delete('audio-cache-v1').then((deleted) => {
+      if (deleted) console.log('[SW] Cleaned up old audio cache')
+    }),
+  )
+})
+
 const networkOnly = new workbox.strategies.NetworkOnly()
 const navigationHandler = async (params) => {
   try {
@@ -54,61 +64,10 @@ const navigationHandler = async (params) => {
 // self.__WB_MANIFEST is default injection point
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST)
 
-// Audio caching constants
-const AUDIO_CACHE_NAME = 'audio-cache-v1'
-const MAX_AUDIO_CACHE_SIZE = 50 // Maximum number of audio files to cache
-const MAX_AUDIO_CACHE_AGE = 7 * 24 * 60 * 60 // 7 days in seconds
-
-// Custom audio caching handler
-// Serves from cache if available, otherwise passes request through AS-IS
-// (preserving Range headers for streaming playback)
-const audioHandler = async ({ url, request, event }) => {
-  const cache = await caches.open(AUDIO_CACHE_NAME)
-
-  const songId = url.searchParams.get('id')
-  if (!songId) {
-    return fetch(request)
-  }
-
-  const cacheKey = `${url.origin}${url.pathname}?id=${songId}`
-
-  // Try cache first
-  const cachedResponse = await cache.match(cacheKey)
-  if (cachedResponse) {
-    console.log('[SW] Audio cache HIT:', songId)
-    return cachedResponse
-  }
-
-  // Cache MISS: pass through to server with original headers (including Range)
-  // This ensures fast streaming start — browser gets partial content immediately
-  try {
-    const response = await fetch(request)
-
-    // Cache full responses (200) in background for offline use
-    // Don't cache partial (206) responses — they're incomplete
-    if (response.ok && response.status === 200) {
-      const responseToCache = response.clone()
-      cache
-        .put(cacheKey, responseToCache)
-        .then(() => console.log('[SW] Cached audio:', songId))
-        .catch((err) => console.error('[SW] Failed to cache audio:', songId, err))
-    }
-
-    return response
-  } catch (error) {
-    console.error('[SW] Audio fetch failed:', error)
-    throw error
-  }
-}
-
-// Register audio streaming route
-workbox.routing.registerRoute(({ url }) => {
-  return (
-    url.pathname.includes('/stream') ||
-    url.pathname.includes('/rest/stream') ||
-    url.pathname.match(/\/api\/song\/.*\/stream/)
-  )
-}, audioHandler)
+// Audio streams: NO interception by SW.
+// SW interception adds async delay (cache open, cache match) during track transitions.
+// On mobile in background, this delay causes the OS to see "no active audio" and suspend the page.
+// Let the browser handle audio requests natively with proper Range/206 support.
 
 // Custom image caching handler - doesn't throw errors offline
 const imageHandler = async ({ url, request, event }) => {
@@ -235,6 +194,7 @@ workbox.routing.registerRoute(({ url }) => {
   return (
     (url.pathname.startsWith('/api/') || url.pathname.startsWith('/rest/')) &&
     !url.pathname.includes('/stream') &&
+    !url.pathname.includes('/keepalive') &&
     !url.pathname.startsWith('/api/wrapped/')
   )
 }, apiHandler)
