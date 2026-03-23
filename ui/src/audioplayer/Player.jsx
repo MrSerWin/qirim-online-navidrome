@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useMediaQuery } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -33,6 +33,7 @@ import { keyMap } from '../hotkeys'
 import keyHandlers from './keyHandlers'
 import { calculateGain } from '../utils/calculateReplayGain'
 import useBackgroundPlayback from './useBackgroundPlayback'
+import useSilentBridge from './useSilentBridge'
 
 const Player = () => {
   const theme = useCurrentTheme()
@@ -48,6 +49,7 @@ const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPlayerExpanded, setIsPlayerExpanded] = useState(false)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const preloadRef = useRef(null)
   const isDesktop = useMediaQuery('(min-width:810px)')
   const isMobilePlayer =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -88,6 +90,12 @@ const Player = () => {
     currentTrack: playerState.current,
     audioContext: context,
     onRecoveryNeeded: handleRecoveryNeeded,
+  })
+
+  // Silent audio bridge: keeps audio session alive during track transitions on mobile
+  useSilentBridge({
+    isPlaying,
+    hasQueue: playerState.queue.length > 0,
   })
 
   useEffect(() => {
@@ -195,7 +203,27 @@ const Player = () => {
       }
 
       const progress = (info.currentTime / info.duration) * 100
+      const remaining = info.duration - info.currentTime
 
+      // Preload next track: at 50% progress, OR 4 min played, OR < 30s remaining
+      // Separated from scrobble gate so short songs get preloaded too
+      if (!preloaded && !isNaN(info.duration) && !info.isRadio) {
+        if (progress >= 50 || info.currentTime >= 240 || remaining < 30) {
+          const next = nextSong()
+          if (next != null) {
+            if (preloadRef.current) {
+              preloadRef.current.src = ''
+            }
+            const audio = new Audio()
+            audio.preload = 'auto'
+            audio.src = next.musicSrc
+            preloadRef.current = audio
+          }
+          setPreload(true)
+        }
+      }
+
+      // Scrobble gate: 50% progress OR 4 minutes played (unchanged)
       if (isNaN(info.duration) || (progress < 50 && info.currentTime < 240)) {
         return
       }
@@ -204,28 +232,16 @@ const Player = () => {
         return
       }
 
-      if (!preloaded) {
-        const next = nextSong()
-        if (next != null) {
-          const audio = new Audio()
-          audio.src = next.musicSrc
-        }
-        setPreload(true)
-        return
-      }
-
       if (!scrobbled) {
         if (info.trackId) {
           console.log('[SCROBBLE ON PROGRESS] Conditions met - progress:', progress.toFixed(1), '%, currentTime:', info.currentTime.toFixed(1), 's')
           console.log('[SCROBBLE DEBUG] authenticated:', authenticated, 'username:', username, 'isReallyAuthenticated:', isReallyAuthenticated)
           if (isReallyAuthenticated) {
-            // Authenticated user: use regular scrobble (updates both user + global stats)
             console.log('[SCROBBLE] Using regular scrobble (user + global)')
             subsonic.scrobble(info.trackId, startTime).catch((err) => {
               console.error('Scrobble failed:', err)
             })
           } else {
-            // Unauthenticated/guest: use globalScrobble (only updates global stats)
             console.log('[SCROBBLE] Using globalScrobble (global only)')
             subsonic.globalScrobble(info.trackId, startTime).catch((err) => {
               console.error('Global scrobble failed:', err)
@@ -375,6 +391,16 @@ const Player = () => {
     console.error('[Player] Audio error:', errMsg)
     console.error('[Player] Failed track:', audioInfo?.name, 'ID:', audioInfo?.trackId)
     // The player will automatically try next track due to loadAudioErrorPlayNext: true
+  }, [])
+
+  // Clean up preloaded audio element on unmount
+  useEffect(() => {
+    return () => {
+      if (preloadRef.current) {
+        preloadRef.current.src = ''
+        preloadRef.current = null
+      }
+    }
   }, [])
 
   if (!visible) {
