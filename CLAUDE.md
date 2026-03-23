@@ -100,7 +100,7 @@ make migration-go   # Create empty Go migration file
 
 **Production (qirim.online):**
 ```bash
-./scripts/deploy.sh
+./deploy.sh
 ```
 
 Both scripts:

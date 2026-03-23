@@ -104,7 +104,7 @@
 ### To Deploy Full Feature (Ready Now!)
 ```bash
 # Build and deploy
-./scripts/deploy.sh
+./deploy.sh
 
 # Migrations will run automatically on server startup
 # Play history tracking will start immediately after deployment

@@ -60,58 +60,38 @@ const MAX_AUDIO_CACHE_SIZE = 50 // Maximum number of audio files to cache
 const MAX_AUDIO_CACHE_AGE = 7 * 24 * 60 * 60 // 7 days in seconds
 
 // Custom audio caching handler
-// Fetches full audio file (without Range header) for caching
+// Serves from cache if available, otherwise passes request through AS-IS
+// (preserving Range headers for streaming playback)
 const audioHandler = async ({ url, request, event }) => {
   const cache = await caches.open(AUDIO_CACHE_NAME)
 
-  // Use song ID as cache key (from ?id= param)
   const songId = url.searchParams.get('id')
   if (!songId) {
-    // No ID, just pass through
     return fetch(request)
   }
 
   const cacheKey = `${url.origin}${url.pathname}?id=${songId}`
 
-  // Try to get from cache first
+  // Try cache first
   const cachedResponse = await cache.match(cacheKey)
   if (cachedResponse) {
     console.log('[SW] Audio cache HIT:', songId)
     return cachedResponse
   }
 
-  console.log('[SW] Audio cache MISS, fetching:', songId)
-
-  // Fetch without Range header to get full file (200 response)
-  const fullRequest = new Request(url, {
-    headers: new Headers({
-      // Copy original headers except Range
-      ...Object.fromEntries(
-        Array.from(request.headers.entries()).filter(
-          ([key]) => key.toLowerCase() !== 'range',
-        ),
-      ),
-    }),
-    credentials: request.credentials,
-    mode: request.mode,
-  })
-
+  // Cache MISS: pass through to server with original headers (including Range)
+  // This ensures fast streaming start — browser gets partial content immediately
   try {
-    const response = await fetch(fullRequest)
+    const response = await fetch(request)
 
-    // Only cache successful full responses
+    // Cache full responses (200) in background for offline use
+    // Don't cache partial (206) responses — they're incomplete
     if (response.ok && response.status === 200) {
-      // Clone response for caching (must clone before reading body)
       const responseToCache = response.clone()
-      // Cache asynchronously without blocking return
       cache
         .put(cacheKey, responseToCache)
-        .then(() => {
-          console.log('[SW] Cached audio:', songId)
-        })
-        .catch((err) => {
-          console.error('[SW] Failed to cache audio:', songId, err)
-        })
+        .then(() => console.log('[SW] Cached audio:', songId))
+        .catch((err) => console.error('[SW] Failed to cache audio:', songId, err))
     }
 
     return response

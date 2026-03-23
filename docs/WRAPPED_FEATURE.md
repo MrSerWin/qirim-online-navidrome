@@ -216,7 +216,7 @@ make build
 make test
 
 # Deploy to production
-./scripts/deploy.sh
+./deploy.sh
 ```
 
 ## Deployment Checklist

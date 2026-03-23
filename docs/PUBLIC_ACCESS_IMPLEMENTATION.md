@@ -291,7 +291,7 @@ This feature is no longer needed since we implemented proper public access at th
 
 Run the deployment script:
 ```bash
-./scripts/deploy.sh
+./deploy.sh
 ```
 
 This will:
