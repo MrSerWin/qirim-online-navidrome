@@ -54,7 +54,6 @@ nginx/
 DEPLOY.md
 
 rebuild-and-deploy.sh
-rebuild-and-deploy-qirim-online.sh
 docker-compose.qirim-online.yml
 
 mailcow-install.sh

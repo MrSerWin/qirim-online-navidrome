@@ -45,12 +45,20 @@ bin
 # Music directory
 music
 
+# Nginx configs (runtime only)
+nginx
+
+# Xray configs (runtime only)
+xray
+
 # Documentation
 *.md
 !README.md
 
-# Scripts
+# Scripts (only .sh files are needed, but not the entire scripts/ folder)
 *.sh
+scripts/
+!scripts/.gitkeep
 
 # Logs
 *.log

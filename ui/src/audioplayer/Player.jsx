@@ -86,6 +86,7 @@ const Player = () => {
     audioInstance,
     isPlaying,
     currentTrack: playerState.current,
+    audioContext: context,
     onRecoveryNeeded: handleRecoveryNeeded,
   })
 
@@ -94,6 +95,7 @@ const Player = () => {
       context === null &&
       audioInstance &&
       config.enableReplayGain &&
+      !isMobilePlayer &&
       'AudioContext' in window &&
       (gainInfo.gainMode === 'album' || gainInfo.gainMode === 'track')
     ) {
@@ -256,6 +258,9 @@ const Player = () => {
       // Audio is playing, so video is not the active player
       setIsVideoPlaying(false)
       setIsPlaying(true)
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'playing'
+      }
       dispatch(currentPlaying(info))
       if (startTime === null) {
         setStartTime(Date.now())
@@ -332,6 +337,9 @@ const Player = () => {
   const onAudioPause = useCallback(
     (info) => {
       setIsPlaying(false)
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'paused'
+      }
       dispatch(currentPlaying(info))
     },
     [dispatch],
@@ -378,11 +386,24 @@ const Player = () => {
     [audioInstance, playerState],
   )
 
+  // On mobile: apply ReplayGain via volume instead of AudioContext
+  // AudioContext gets suspended in background, killing audio — volume doesn't
   useEffect(() => {
     if (isMobilePlayer && audioInstance) {
-      audioInstance.volume = 1
+      if (
+        config.enableReplayGain &&
+        (gainInfo.gainMode === 'album' || gainInfo.gainMode === 'track')
+      ) {
+        const current = playerState.current || {}
+        const song = current.song || {}
+        const numericGain = calculateGain(gainInfo, song)
+        // volume supports 0-1 range only (can reduce but not boost above 1)
+        audioInstance.volume = Math.min(1, Math.max(0, numericGain))
+      } else {
+        audioInstance.volume = 1
+      }
     }
-  }, [isMobilePlayer, audioInstance])
+  }, [isMobilePlayer, audioInstance, playerState, gainInfo])
 
   // Listen for video play event to pause audio and hide mobile player bar
   useEffect(() => {

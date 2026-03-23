@@ -149,7 +149,7 @@ nginx -t && systemctl reload nginx
 
 ```bash
 cd /Volumes/T9/1_dev/1_QO/myQO/navidrome
-./scripts/rebuild-and-deploy-qirim-online.sh
+./scripts/deploy.sh
 ```
 
 Скрипт автоматически:

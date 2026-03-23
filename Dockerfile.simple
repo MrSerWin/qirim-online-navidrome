@@ -51,6 +51,8 @@ COPY --from=taglib-build /taglib /taglib
 # Set up TagLib for compilation
 ENV CGO_ENABLED=1
 ENV PKG_CONFIG_PATH=/taglib/lib/pkgconfig
+ENV CGO_CFLAGS_ALLOW=".*"
+ENV CGO_LDFLAGS_ALLOW=".*"
 
 # Copy go.mod and go.sum first
 COPY go.mod go.sum ./

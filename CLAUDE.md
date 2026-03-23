@@ -98,14 +98,9 @@ make migration-go   # Create empty Go migration file
 
 ### Deployment
 
-**Stage (YOUR_DOMAIN):**
-```bash
-./rebuild-and-deploy.sh
-```
-
 **Production (qirim.online):**
 ```bash
-./rebuild-and-deploy-qirim-online.sh
+./scripts/deploy.sh
 ```
 
 Both scripts:

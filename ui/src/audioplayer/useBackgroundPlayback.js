@@ -16,6 +16,7 @@ const useBackgroundPlayback = ({
   audioInstance,
   isPlaying,
   currentTrack,
+  audioContext,
   onRecoveryNeeded,
 }) => {
   const dataProvider = useDataProvider()
@@ -24,6 +25,12 @@ const useBackgroundPlayback = ({
   const wasPlayingBeforeHidden = useRef(false)
   const lastKeepaliveTime = useRef(Date.now())
   const lastNowPlayingTime = useRef(Date.now())
+  // Track isPlaying via ref to avoid triggering interval cleanup on pause
+  const isPlayingRef = useRef(isPlaying)
+
+  useEffect(() => {
+    isPlayingRef.current = isPlaying
+  }, [isPlaying])
 
   // Send keepalive to server
   const sendKeepalive = useCallback(() => {
@@ -63,10 +70,11 @@ const useBackgroundPlayback = ({
     })
   }, [audioInstance, currentTrack])
 
-  // Start periodic keepalive and nowPlaying when playing
+  // Start periodic keepalive and nowPlaying when there's a track in queue
+  // FIX: Don't depend on isPlaying — browser can pause audio briefly in background
+  // and we must NOT clear intervals during those brief pauses
   useEffect(() => {
-    if (isPlaying && currentTrack) {
-      // Clear any existing intervals
+    if (currentTrack) {
       if (keepaliveIntervalRef.current) {
         clearInterval(keepaliveIntervalRef.current)
       }
@@ -74,23 +82,24 @@ const useBackgroundPlayback = ({
         clearInterval(nowPlayingIntervalRef.current)
       }
 
-      // Start keepalive interval
+      // Keepalive: send when playing OR when tab is hidden (session might still be needed)
       keepaliveIntervalRef.current = setInterval(() => {
-        if (document.visibilityState === 'visible' || isPlaying) {
+        if (isPlayingRef.current || document.visibilityState === 'hidden') {
           sendKeepalive()
         }
       }, KEEPALIVE_INTERVAL)
 
-      // Start nowPlaying interval
+      // NowPlaying: only when actually playing
       nowPlayingIntervalRef.current = setInterval(() => {
-        if (isPlaying && !currentTrack?.isRadio) {
+        if (isPlayingRef.current && !currentTrack?.isRadio) {
           sendNowPlaying()
         }
       }, NOWPLAYING_INTERVAL)
 
-      // Send initial keepalive and nowPlaying
-      sendKeepalive()
-      sendNowPlaying()
+      if (isPlayingRef.current) {
+        sendKeepalive()
+        sendNowPlaying()
+      }
     }
 
     return () => {
@@ -103,62 +112,56 @@ const useBackgroundPlayback = ({
         nowPlayingIntervalRef.current = null
       }
     }
-  }, [isPlaying, currentTrack, sendKeepalive, sendNowPlaying])
+  }, [currentTrack, sendKeepalive, sendNowPlaying])
 
   // Handle Page Visibility API
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'hidden') {
-        // Tab became hidden
-        wasPlayingBeforeHidden.current = isPlaying
+        wasPlayingBeforeHidden.current = isPlayingRef.current
 
-        // Send keepalive before hiding (browser might throttle after this)
-        if (isPlaying) {
+        if (isPlayingRef.current) {
           sendKeepalive()
           sendNowPlaying()
         }
 
-        console.log('[BackgroundPlayback] Tab hidden, wasPlaying:', isPlaying)
+        console.log('[BackgroundPlayback] Tab hidden, wasPlaying:', isPlayingRef.current)
       } else if (document.visibilityState === 'visible') {
-        // Tab became visible
         console.log('[BackgroundPlayback] Tab visible, wasPlaying:', wasPlayingBeforeHidden.current)
 
-        // Always send keepalive when becoming visible
         sendKeepalive()
 
-        // Check if audio is still playing as expected
-        if (audioInstance && wasPlayingBeforeHidden.current) {
-          // If it was playing but now paused, might need recovery
-          if (audioInstance.paused) {
-            console.log('[BackgroundPlayback] Audio was paused unexpectedly, attempting recovery')
+        // Resume AudioContext if browser suspended it in background
+        if (audioContext && audioContext.state !== 'running') {
+          console.log('[BackgroundPlayback] Resuming AudioContext, state:', audioContext.state)
+          audioContext.resume().catch((e) => {
+            console.warn('[BackgroundPlayback] AudioContext resume failed:', e)
+          })
+        }
 
-            // Try to resume playback
+        if (audioInstance && wasPlayingBeforeHidden.current) {
+          if (audioInstance.paused) {
+            console.log('[BackgroundPlayback] Audio paused unexpectedly, attempting recovery')
             audioInstance.play().catch((e) => {
               console.warn('[BackgroundPlayback] Failed to resume playback:', e)
               onRecoveryNeeded?.('playback_stopped')
             })
           } else {
-            // Still playing, just send nowPlaying update
             sendNowPlaying()
           }
         }
 
-        // Check for potential issues after being hidden for a long time
         const timeSinceLastKeepalive = Date.now() - lastKeepaliveTime.current
         if (timeSinceLastKeepalive > KEEPALIVE_INTERVAL * 3) {
           console.log('[BackgroundPlayback] Long time since last keepalive, checking session')
-          // Session might have expired, verify by sending keepalive
           sendKeepalive()
         }
       }
     }
 
     document.addEventListener('visibilitychange', handleVisibilityChange)
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
-    }
-  }, [audioInstance, isPlaying, sendKeepalive, sendNowPlaying, onRecoveryNeeded])
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
+  }, [audioInstance, audioContext, sendKeepalive, sendNowPlaying, onRecoveryNeeded])
 
   // Handle network status changes
   useEffect(() => {
@@ -195,12 +198,10 @@ const useBackgroundPlayback = ({
     const handleError = (e) => {
       console.error('[BackgroundPlayback] Audio error:', e)
 
-      // Check if it's a network or auth error
       if (audioInstance.error) {
         const error = audioInstance.error
         console.error('[BackgroundPlayback] Audio error code:', error.code, 'message:', error.message)
 
-        // MEDIA_ERR_NETWORK (2) or MEDIA_ERR_SRC_NOT_SUPPORTED (4) might indicate session issues
         if (error.code === 2 || error.code === 4) {
           onRecoveryNeeded?.('audio_error')
         }
@@ -209,13 +210,10 @@ const useBackgroundPlayback = ({
 
     const handleStalled = () => {
       console.warn('[BackgroundPlayback] Audio stalled')
-      // Send keepalive to check session
       sendKeepalive()
     }
 
     const handleWaiting = () => {
-      // Audio is waiting for data, this is normal during buffering
-      // but prolonged waiting might indicate issues
       console.log('[BackgroundPlayback] Audio waiting for data')
     }
 
@@ -229,6 +227,24 @@ const useBackgroundPlayback = ({
       audioInstance.removeEventListener('waiting', handleWaiting)
     }
   }, [audioInstance, sendKeepalive, onRecoveryNeeded])
+
+  // Monitor AudioContext state — auto-resume if browser suspends it during playback
+  useEffect(() => {
+    if (!audioContext) return
+
+    const handleStateChange = () => {
+      console.log('[BackgroundPlayback] AudioContext state:', audioContext.state)
+      if (audioContext.state === 'suspended' && isPlayingRef.current) {
+        console.log('[BackgroundPlayback] AudioContext suspended during playback, resuming')
+        audioContext.resume().catch((e) => {
+          console.warn('[BackgroundPlayback] AudioContext auto-resume failed:', e)
+        })
+      }
+    }
+
+    audioContext.addEventListener('statechange', handleStateChange)
+    return () => audioContext.removeEventListener('statechange', handleStateChange)
+  }, [audioContext])
 
   return {
     sendKeepalive,

@@ -143,7 +143,7 @@
 
 ```bash
 # Сборка и деплой на qirim.online
-./scripts/rebuild-and-deploy-qirim-online.sh
+./scripts/deploy.sh
 ```
 
 После деплоя:

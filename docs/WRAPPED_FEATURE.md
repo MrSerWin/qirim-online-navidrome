@@ -216,7 +216,7 @@ make build
 make test
 
 # Deploy to production
-./scripts/rebuild-and-deploy-qirim-online.sh
+./scripts/deploy.sh
 ```
 
 ## Deployment Checklist
