@@ -32,6 +32,22 @@ import { keyMap } from '../hotkeys'
 import keyHandlers from './keyHandlers'
 import { calculateGain } from '../utils/calculateReplayGain'
 
+// Remote debug logger — sends player events to server via sendBeacon (works in background)
+const DEBUG_LOG = true
+const rlog = (event, data = {}) => {
+  if (!DEBUG_LOG) return
+  try {
+    const payload = JSON.stringify({
+      t: Date.now(),
+      e: event,
+      vis: document.visibilityState,
+      ...data,
+    })
+    navigator.sendBeacon('/api/keepalive/debuglog', payload)
+    console.log(`[PlayerDebug] ${event}`, data)
+  } catch (_) {}
+}
+
 const Player = () => {
   const theme = useCurrentTheme()
   const translate = useTranslate()
@@ -219,6 +235,7 @@ const Player = () => {
       // Pause video player when audio starts
       window.dispatchEvent(new CustomEvent(PAUSE_VIDEO_EVENT))
 
+      rlog('play', { track: info.song?.title, id: info.trackId })
       dispatch(currentPlaying(info))
       if (startTime === null) {
         setStartTime(Date.now())
@@ -251,6 +268,7 @@ const Player = () => {
   )
 
   const onAudioPlayTrackChange = useCallback(() => {
+    rlog('trackChange')
     if (scrobbled) {
       setScrobbled(false)
     }
@@ -260,12 +278,16 @@ const Player = () => {
   }, [scrobbled, startTime])
 
   const onAudioPause = useCallback(
-    (info) => dispatch(currentPlaying(info)),
+    (info) => {
+      rlog('pause', { track: info.song?.title, ended: info.ended })
+      dispatch(currentPlaying(info))
+    },
     [dispatch],
   )
 
   const onAudioEnded = useCallback(
     (currentPlayId, audioLists, info) => {
+      rlog('ended', { track: info.song?.title, id: info.trackId })
       setScrobbled(false)
       setStartTime(null)
       dispatch(currentPlaying(info))
@@ -303,6 +325,20 @@ const Player = () => {
       audioInstance.volume = 1
     }
   }, [isMobilePlayer, audioInstance])
+
+  // Log visibility changes and audio state (works in background via sendBeacon)
+  useEffect(() => {
+    const onVis = () => {
+      rlog('visibility', {
+        state: document.visibilityState,
+        paused: audioInstance?.paused,
+        ended: audioInstance?.ended,
+        src: audioInstance?.src ? 'yes' : 'no',
+      })
+    }
+    document.addEventListener('visibilitychange', onVis)
+    return () => document.removeEventListener('visibilitychange', onVis)
+  }, [audioInstance])
 
   // Pause audio when video starts playing
   useEffect(() => {
