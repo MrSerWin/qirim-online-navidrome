@@ -19,10 +19,11 @@ DOMAINS=(
     "mail.qirim.online"
     "sevil.chat"
     "admin.qirim.online"
-    # Uncomment after DNS is set and certs obtained:
     "ana-yurt.dev"
     "shareapp.ana-yurt.dev"
     "qirim.cloud"
+    "fileflip.ana-yurt.dev"
+    "toponims.ana-yurt.com"
 )
 
 echo "$LOG_PREFIX Starting certificate renewal check..."
@@ -53,5 +54,24 @@ for domain in "${DOMAINS[@]}"; do
         echo "$LOG_PREFIX  SKIP: $domain - no certificate found"
     fi
 done
+
+# Sync certbot certs to Mailcow (IMAP/SMTP use Mailcow's own cert path)
+MAILCOW_SSL="/opt/mailcow-dockerized/data/assets/ssl"
+CERTBOT_MAIL="/etc/letsencrypt/live/mail.qirim.online"
+if [ -f "$CERTBOT_MAIL/fullchain.pem" ] && [ -f "$CERTBOT_MAIL/privkey.pem" ]; then
+    # Check if certbot cert is newer than Mailcow cert
+    if [ "$CERTBOT_MAIL/fullchain.pem" -nt "$MAILCOW_SSL/cert.pem" ] 2>/dev/null; then
+        cp "$CERTBOT_MAIL/fullchain.pem" "$MAILCOW_SSL/cert.pem"
+        cp "$CERTBOT_MAIL/privkey.pem" "$MAILCOW_SSL/key.pem"
+        cp "$CERTBOT_MAIL/fullchain.pem" "$MAILCOW_SSL/mail.qirim.online/cert.pem"
+        cp "$CERTBOT_MAIL/privkey.pem" "$MAILCOW_SSL/mail.qirim.online/key.pem"
+        cd /opt/mailcow-dockerized && docker compose restart dovecot-mailcow postfix-mailcow
+        echo "$LOG_PREFIX Synced certbot cert to Mailcow and restarted IMAP/SMTP"
+    else
+        echo "$LOG_PREFIX Mailcow cert is up to date"
+    fi
+else
+    echo "$LOG_PREFIX WARNING: certbot cert for mail.qirim.online not found"
+fi
 
 echo "$LOG_PREFIX Done."
