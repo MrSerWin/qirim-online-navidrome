@@ -25,28 +25,13 @@ import {
   syncQueue,
 } from '../actions'
 import PlayerToolbar from './PlayerToolbar'
+import MobilePlayerBar from './MobilePlayerBar'
 import { sendNotification } from '../utils'
 import subsonic from '../subsonic'
 import locale from './locale'
 import { keyMap } from '../hotkeys'
 import keyHandlers from './keyHandlers'
 import { calculateGain } from '../utils/calculateReplayGain'
-
-// Remote debug logger — sends player events to server via sendBeacon (works in background)
-const DEBUG_LOG = true
-const rlog = (event, data = {}) => {
-  if (!DEBUG_LOG) return
-  try {
-    const payload = JSON.stringify({
-      t: Date.now(),
-      e: event,
-      vis: document.visibilityState,
-      ...data,
-    })
-    navigator.sendBeacon('/api/keepalive/debuglog', payload)
-    console.log(`[PlayerDebug] ${event}`, data)
-  } catch (_) {}
-}
 
 const Player = () => {
   const theme = useCurrentTheme()
@@ -235,7 +220,6 @@ const Player = () => {
       // Pause video player when audio starts
       window.dispatchEvent(new CustomEvent(PAUSE_VIDEO_EVENT))
 
-      rlog('play', { track: info.song?.title, id: info.trackId })
       dispatch(currentPlaying(info))
       if (startTime === null) {
         setStartTime(Date.now())
@@ -268,7 +252,6 @@ const Player = () => {
   )
 
   const onAudioPlayTrackChange = useCallback(() => {
-    rlog('trackChange')
     if (scrobbled) {
       setScrobbled(false)
     }
@@ -278,16 +261,12 @@ const Player = () => {
   }, [scrobbled, startTime])
 
   const onAudioPause = useCallback(
-    (info) => {
-      rlog('pause', { track: info.song?.title, ended: info.ended })
-      dispatch(currentPlaying(info))
-    },
+    (info) => dispatch(currentPlaying(info)),
     [dispatch],
   )
 
   const onAudioEnded = useCallback(
     (currentPlayId, audioLists, info) => {
-      rlog('ended', { track: info.song?.title, id: info.trackId })
       setScrobbled(false)
       setStartTime(null)
       dispatch(currentPlaying(info))
@@ -326,19 +305,23 @@ const Player = () => {
     }
   }, [isMobilePlayer, audioInstance])
 
-  // Log visibility changes and audio state (works in background via sendBeacon)
+  // Hide library's floating bubble on mobile (it renders via portal to document.body)
   useEffect(() => {
-    const onVis = () => {
-      rlog('visibility', {
-        state: document.visibilityState,
-        paused: audioInstance?.paused,
-        ended: audioInstance?.ended,
-        src: audioInstance?.src ? 'yes' : 'no',
-      })
-    }
-    document.addEventListener('visibilitychange', onVis)
-    return () => document.removeEventListener('visibilitychange', onVis)
-  }, [audioInstance])
+    if (!isMobilePlayer) return
+    const style = document.createElement('style')
+    style.textContent = `
+      .react-jinke-music-player-main > .react-jinke-music-player {
+        position: fixed !important;
+        top: -9999px !important;
+        left: -9999px !important;
+      }
+      .react-jinke-music-player-main > .audio-lists-panel {
+        display: none !important;
+      }
+    `
+    document.head.appendChild(style)
+    return () => style.remove()
+  }, [isMobilePlayer])
 
   // Pause audio when video starts playing
   useEffect(() => {
@@ -369,6 +352,7 @@ const Player = () => {
         onBeforeDestroy={onBeforeDestroy}
         getAudioInstance={setAudioInstance}
       />
+      {isMobilePlayer && <MobilePlayerBar audioInstance={audioInstance} />}
       <GlobalHotKeys handlers={handlers} keyMap={keyMap} allowChanges />
     </ThemeProvider>
   )
