@@ -104,7 +104,7 @@ const Player = () => {
       bounds: 'body',
       playMode: playerState.mode,
       mode: isDesktop ? 'full' : 'mini',
-      loadAudioErrorPlayNext: false,
+      loadAudioErrorPlayNext: true,
       autoPlayInitLoadPlayList: true,
       clearPriorAudioLists: false,
       showDestroy: true,
