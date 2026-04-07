@@ -85,6 +85,7 @@ func (api *Router) routes() http.Handler {
 
 	// Public Media Endpoints - Allow both authenticated and unauthenticated access
 	r.Group(func(r chi.Router) {
+		r.Use(optionalCheckParameters)
 		r.Use(server.OptionalAuthenticator(api.ds))
 		r.Use(server.UpdateLastAccessMiddleware(api.ds))
 

@@ -59,6 +59,31 @@ func fromInternalOrProxyAuth(r *http.Request) (string, bool) {
 	return server.UsernameFromReverseProxyHeader(r), false
 }
 
+// optionalCheckParameters populates request context with username/client/version if available.
+// Unlike checkRequiredParameters, it does NOT reject requests missing these params.
+// Used for public endpoints (stream, getCoverArt) that work for both authenticated and guest users.
+func optionalCheckParameters(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		p := req.Params(r)
+		username, _ := fromInternalOrProxyAuth(r)
+		if username == "" {
+			username, _ = p.String("u")
+		}
+		if username == "" {
+			username = "UNKNOWN"
+		}
+		client, _ := p.String("c")
+		version, _ := p.String("v")
+
+		ctx := r.Context()
+		ctx = request.WithUsername(ctx, username)
+		ctx = request.WithClient(ctx, client)
+		ctx = request.WithVersion(ctx, version)
+
+		next.ServeHTTP(w, r.WithContext(ctx))
+	})
+}
+
 func checkRequiredParameters(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var requiredParameters []string
