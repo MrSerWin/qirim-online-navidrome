@@ -54,7 +54,7 @@ const globalScrobble = (id, time) => {
   if (time) {
     params.append('time', time)
   }
-  return httpClient(`/rest/scrobble?${params.toString()}`)
+  return httpClient(`/rest/globalScrobble?${params.toString()}`)
 }
 
 const nowPlaying = (id, position = null) => scrobble(id, null, false, position)

@@ -195,9 +195,7 @@ const Player = () => {
               console.error('Scrobble failed:', err)
             })
           } else {
-            subsonic.globalScrobble(info.trackId, startTime).catch((err) => {
-              console.error('Global scrobble failed:', err)
-            })
+            subsonic.globalScrobble(info.trackId, startTime).catch(() => {})
           }
         }
         setScrobbled(true)
@@ -227,7 +225,7 @@ const Player = () => {
       if (info.duration) {
         const song = info.song
         document.title = `${song.title} - ${song.artist} - Qırım Online`
-        if (!info.isRadio) {
+        if (!info.isRadio && isReallyAuthenticated) {
           const pos = startTime === null ? null : Math.floor(info.currentTime)
           subsonic.nowPlaying(info.trackId, pos)
         }
@@ -248,7 +246,7 @@ const Player = () => {
         }
       }
     },
-    [context, dispatch, showNotifications, startTime],
+    [context, dispatch, showNotifications, startTime, isReallyAuthenticated],
   )
 
   const onAudioPlayTrackChange = useCallback(() => {
@@ -270,11 +268,13 @@ const Player = () => {
       setScrobbled(false)
       setStartTime(null)
       dispatch(currentPlaying(info))
-      dataProvider
-        .getOne('keepalive', { id: info.trackId })
-        .catch((e) => console.log('Keepalive error:', e))
+      if (isReallyAuthenticated) {
+        dataProvider
+          .getOne('keepalive', { id: info.trackId })
+          .catch((e) => console.log('Keepalive error:', e))
+      }
     },
-    [dispatch, dataProvider],
+    [dispatch, dataProvider, isReallyAuthenticated],
   )
 
   const onCoverClick = useCallback((mode, audioLists, audioInfo) => {
