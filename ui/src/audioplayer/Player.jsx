@@ -42,7 +42,6 @@ const Player = () => {
   const dispatch = useDispatch()
   const [startTime, setStartTime] = useState(null)
   const [scrobbled, setScrobbled] = useState(false)
-  const [preloaded, setPreload] = useState(false)
   const [audioInstance, setAudioInstance] = useState(null)
   const isDesktop = useMediaQuery('(min-width:810px)')
   const isMobilePlayer =
@@ -155,13 +154,6 @@ const Player = () => {
     [dispatch],
   )
 
-  const nextSong = useCallback(() => {
-    const idx = playerState.queue.findIndex(
-      (item) => item.uuid === playerState.current.uuid,
-    )
-    return idx !== null ? playerState.queue[idx + 1] : null
-  }, [playerState])
-
   const onAudioProgress = useCallback(
     (info) => {
       if (info.ended) {
@@ -178,16 +170,6 @@ const Player = () => {
         return
       }
 
-      if (!preloaded) {
-        const next = nextSong()
-        if (next != null) {
-          const audio = new Audio()
-          audio.src = next.musicSrc
-        }
-        setPreload(true)
-        return
-      }
-
       if (!scrobbled) {
         if (info.trackId) {
           if (isReallyAuthenticated) {
@@ -201,7 +183,7 @@ const Player = () => {
         setScrobbled(true)
       }
     },
-    [startTime, scrobbled, nextSong, preloaded, isReallyAuthenticated],
+    [startTime, scrobbled, isReallyAuthenticated],
   )
 
   const onAudioVolumeChange = useCallback(
@@ -229,7 +211,7 @@ const Player = () => {
           const pos = startTime === null ? null : Math.floor(info.currentTime)
           subsonic.nowPlaying(info.trackId, pos)
         }
-        setPreload(false)
+
         if (config.gaTrackingId) {
           ReactGA.event({
             category: 'Player',
