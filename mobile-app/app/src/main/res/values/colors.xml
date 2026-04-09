@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- QO Brand Colors -->
+    <color name="qo_primary">#5B5FD5</color>
+    <color name="qo_primary_dark">#4548A8</color>
+    <color name="qo_primary_light">#7C80E0</color>
+    <color name="qo_accent">#7C80E0</color>
+
+    <!-- Light Theme -->
+    <color name="qo_background_light">#FAFAFA</color>
+    <color name="qo_surface_light">#FFFFFF</color>
+    <color name="qo_on_primary">#FFFFFF</color>
+    <color name="qo_on_background_light">#1C1B1F</color>
+    <color name="qo_on_surface_light">#1C1B1F</color>
+
+    <!-- Dark Theme -->
+    <color name="qo_background_dark">#303030</color>
+    <color name="qo_surface_dark">#383838</color>
+    <color name="qo_on_primary_dark">#FFFFFF</color>
+    <color name="qo_on_background_dark">#E6E1E5</color>
+    <color name="qo_on_surface_dark">#E6E1E5</color>
+
+    <!-- Seed color for Material You -->
+    <color name="qo_seed">#5B5FD5</color>
+
+    <!-- Player -->
+    <color name="player_background">#1A1A2E</color>
+    <color name="player_progress">#7C80E0</color>
+    <color name="player_progress_track">#404060</color>
+
+    <!-- Status -->
+    <color name="guest_badge">#FF9800</color>
+    <color name="online_indicator">#4CAF50</color>
+</resources>

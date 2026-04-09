@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="album_art_size">124dp</dimen>
+    <dimen name="album_card_width">140dp</dimen>
+    <dimen name="mini_player_height">64dp</dimen>
+    <dimen name="mini_player_art_size">40dp</dimen>
+    <dimen name="player_art_size">300dp</dimen>
+    <dimen name="section_padding">16dp</dimen>
+
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

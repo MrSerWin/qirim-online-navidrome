@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- QO Music Theme (Dark) -->
+    <style name="Theme.QOMusic" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/qo_primary_light</item>
+        <item name="colorPrimaryDark">@color/qo_primary_dark</item>
+        <item name="colorAccent">@color/qo_accent</item>
+        <item name="colorOnPrimary">@color/qo_on_primary_dark</item>
+        <item name="android:colorBackground">@color/qo_background_dark</item>
+        <item name="colorSurface">@color/qo_surface_dark</item>
+        <item name="colorOnBackground">@color/qo_on_background_dark</item>
+        <item name="colorOnSurface">@color/qo_on_surface_dark</item>
+        <item name="android:statusBarColor">@color/qo_background_dark</item>
+        <item name="android:navigationBarColor">@color/qo_surface_dark</item>
+        <item name="android:fontFamily">@font/rajdhani</item>
+    </style>
+
+</resources>

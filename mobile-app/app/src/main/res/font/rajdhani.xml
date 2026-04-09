@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Downloadable font configuration for Rajdhani -->
+<!-- To use actual font files, download from Google Fonts and place .ttf files here -->
+<!-- For now, using downloadable fonts via Google Fonts provider -->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Regular weight placeholder - replace with actual TTF reference -->
+    <!-- Download Rajdhani from: https://fonts.google.com/specimen/Rajdhani -->
+    <!-- Place rajdhani_regular.ttf, rajdhani_bold.ttf, rajdhani_medium.ttf in this folder -->
+</font-family>
