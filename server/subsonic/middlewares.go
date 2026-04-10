@@ -178,6 +178,66 @@ func authenticate(ds model.DataStore) func(next http.Handler) http.Handler {
 	}
 }
 
+// optionalAuthenticate tries Subsonic credential authentication if params are present.
+// If no credentials provided or authentication fails, it injects a guest user with access to all libraries.
+// This allows public read-only access to browsing/search/streaming endpoints.
+func optionalAuthenticate(ds model.DataStore) func(next http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			ctx := r.Context()
+
+			// Try internal/reverse-proxy auth first
+			username, isInternalAuth := fromInternalOrProxyAuth(r)
+			if username != "" {
+				authType := If(isInternalAuth, "internal", "reverse-proxy")
+				usr, err := ds.User(ctx).FindByUsername(username)
+				if err == nil {
+					ctx = request.WithUser(ctx, *usr)
+					next.ServeHTTP(w, r.WithContext(ctx))
+					return
+				}
+				log.Debug(ctx, "API: Optional auth failed", "auth", authType, "username", username, err)
+			}
+
+			// Try Subsonic param auth
+			p := req.Params(r)
+			if u, err := p.String("u"); err == nil && u != "" {
+				pass, _ := p.String("p")
+				token, _ := p.String("t")
+				salt, _ := p.String("s")
+				jwtParam, _ := p.String("jwt")
+
+				usr, err := ds.User(ctx).FindByUsernameWithPassword(u)
+				if err == nil {
+					if err = validateCredentials(usr, pass, token, salt, jwtParam); err == nil {
+						ctx = request.WithUser(ctx, *usr)
+						next.ServeHTTP(w, r.WithContext(ctx))
+						return
+					}
+				}
+				log.Debug(ctx, "API: Optional subsonic auth failed", "username", u, err)
+			}
+
+			// No valid credentials — inject guest user with ID="-1".
+			// The persistence layer treats user ID="-1" as unrestricted,
+			// skipping library filters so guests can see all content.
+			libs, err := ds.Library(ctx).GetAll()
+			if err != nil {
+				log.Error(ctx, "API: Error loading libraries for guest", err)
+				libs = model.Libraries{}
+			}
+			guestUser := model.User{
+				ID:        "-1",
+				UserName:  "guest",
+				IsAdmin:   false,
+				Libraries: libs,
+			}
+			ctx = request.WithUser(ctx, guestUser)
+			next.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
+}
+
 func validateCredentials(user *model.User, pass, token, salt, jwt string) error {
 	valid := false
 
