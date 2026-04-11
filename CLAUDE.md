@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is **Navidrome QO** - a custom fork of Navidrome music streaming server with custom themes, UI modifications, and OAuth integration for Qirim.Online (qirim.online) and stage environment (YOUR_DOMAIN).
 
+**Part of a two-repo workspace** (`d:/MyProjects/qo.code-workspace`) — see [docs/WORKSPACE.md](docs/WORKSPACE.md) for the repo map, cross-repo contracts, and "where to look when X breaks" table. The sibling repo is the Android app at `d:/MyProjects/qo-music-android`.
+
 **Key Customizations:**
 - QO Dark/Light themes
 - Circular album covers
