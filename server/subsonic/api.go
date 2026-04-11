@@ -108,50 +108,66 @@ func (api *Router) routes() http.Handler {
 		h(r, "globalScrobble", api.GlobalScrobble)
 	})
 
-	// Protected
+	// Public Browsing - Read-only endpoints accessible without authentication
+	// If credentials are provided, user-specific data (starred, ratings) is included.
+	// Without credentials, a guest user with access to all libraries is injected.
+	r.Group(func(r chi.Router) {
+		r.Use(optionalCheckParameters)
+		r.Use(optionalAuthenticate(api.ds))
+
+		h(r, "ping", api.Ping)
+		h(r, "getLicense", api.GetLicense)
+
+		// Browsing
+		h(r, "getMusicFolders", api.GetMusicFolders)
+		h(r, "getIndexes", api.GetIndexes)
+		h(r, "getArtists", api.GetArtists)
+		h(r, "getGenres", api.GetGenres)
+		h(r, "getMusicDirectory", api.GetMusicDirectory)
+		h(r, "getArtist", api.GetArtist)
+		h(r, "getAlbum", api.GetAlbum)
+		h(r, "getSong", api.GetSong)
+		h(r, "getAlbumInfo", api.GetAlbumInfo)
+		h(r, "getAlbumInfo2", api.GetAlbumInfo)
+		h(r, "getArtistInfo", api.GetArtistInfo)
+		h(r, "getArtistInfo2", api.GetArtistInfo2)
+		h(r, "getTopSongs", api.GetTopSongs)
+		h(r, "getSimilarSongs", api.GetSimilarSongs)
+		h(r, "getSimilarSongs2", api.GetSimilarSongs2)
+
+		// Album/Song lists
+		hr(r, "getAlbumList", api.GetAlbumList)
+		hr(r, "getAlbumList2", api.GetAlbumList2)
+		h(r, "getRandomSongs", api.GetRandomSongs)
+		h(r, "getSongsByGenre", api.GetSongsByGenre)
+
+		// Search
+		h(r, "search2", api.Search2)
+		h(r, "search3", api.Search3)
+
+		// Playlists (read-only)
+		h(r, "getPlaylists", api.GetPlaylists)
+		h(r, "getPlaylist", api.GetPlaylist)
+
+		// Lyrics
+		h(r, "getLyrics", api.GetLyrics)
+		h(r, "getLyricsBySongId", api.GetLyricsBySongId)
+
+		// Starred (returns empty for guests)
+		h(r, "getStarred", api.GetStarred)
+		h(r, "getStarred2", api.GetStarred2)
+
+		// Radio (read-only)
+		h(r, "getInternetRadioStations", api.GetInternetRadios)
+	})
+
+	// Protected - Requires authentication (user-specific write operations)
 	r.Group(func(r chi.Router) {
 		r.Use(checkRequiredParameters)
 		r.Use(authenticate(api.ds))
 		r.Use(server.UpdateLastAccessMiddleware(api.ds))
 
-		// Subsonic endpoints, grouped by controller
-		r.Group(func(r chi.Router) {
-			r.Use(getPlayer(api.players))
-			h(r, "ping", api.Ping)
-			h(r, "getLicense", api.GetLicense)
-		})
-		r.Group(func(r chi.Router) {
-			r.Use(getPlayer(api.players))
-			h(r, "getMusicFolders", api.GetMusicFolders)
-			h(r, "getIndexes", api.GetIndexes)
-			h(r, "getArtists", api.GetArtists)
-			h(r, "getGenres", api.GetGenres)
-			h(r, "getMusicDirectory", api.GetMusicDirectory)
-			h(r, "getArtist", api.GetArtist)
-			h(r, "getAlbum", api.GetAlbum)
-			h(r, "getSong", api.GetSong)
-			h(r, "getAlbumInfo", api.GetAlbumInfo)
-			h(r, "getAlbumInfo2", api.GetAlbumInfo)
-			h(r, "getArtistInfo", api.GetArtistInfo)
-			h(r, "getArtistInfo2", api.GetArtistInfo2)
-			h(r, "getTopSongs", api.GetTopSongs)
-			h(r, "getSimilarSongs", api.GetSimilarSongs)
-			h(r, "getSimilarSongs2", api.GetSimilarSongs2)
-		})
-		r.Group(func(r chi.Router) {
-			r.Use(getPlayer(api.players))
-			hr(r, "getAlbumList", api.GetAlbumList)
-			hr(r, "getAlbumList2", api.GetAlbumList2)
-			h(r, "getStarred", api.GetStarred)
-			h(r, "getStarred2", api.GetStarred2)
-			if conf.Server.EnableNowPlaying {
-				h(r, "getNowPlaying", api.GetNowPlaying)
-			} else {
-				h501(r, "getNowPlaying")
-			}
-			h(r, "getRandomSongs", api.GetRandomSongs)
-			h(r, "getSongsByGenre", api.GetSongsByGenre)
-		})
+		// User annotations
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			h(r, "setRating", api.SetRating)
@@ -159,14 +175,26 @@ func (api *Router) routes() http.Handler {
 			h(r, "unstar", api.Unstar)
 			h(r, "scrobble", api.Scrobble)
 		})
+
+		// Now playing
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
-			h(r, "getPlaylists", api.GetPlaylists)
-			h(r, "getPlaylist", api.GetPlaylist)
+			if conf.Server.EnableNowPlaying {
+				h(r, "getNowPlaying", api.GetNowPlaying)
+			} else {
+				h501(r, "getNowPlaying")
+			}
+		})
+
+		// Playlist management (create/update/delete)
+		r.Group(func(r chi.Router) {
+			r.Use(getPlayer(api.players))
 			h(r, "createPlaylist", api.CreatePlaylist)
 			h(r, "deletePlaylist", api.DeletePlaylist)
 			h(r, "updatePlaylist", api.UpdatePlaylist)
 		})
+
+		// Bookmarks & play queue
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			h(r, "getBookmarks", api.GetBookmarks)
@@ -175,35 +203,36 @@ func (api *Router) routes() http.Handler {
 			h(r, "getPlayQueue", api.GetPlayQueue)
 			h(r, "savePlayQueue", api.SavePlayQueue)
 		})
-		r.Group(func(r chi.Router) {
-			r.Use(getPlayer(api.players))
-			h(r, "search2", api.Search2)
-			h(r, "search3", api.Search3)
-		})
+
+		// User management
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			h(r, "getUser", api.GetUser)
 			h(r, "getUsers", api.GetUsers)
 		})
+
+		// Scanning
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			h(r, "getScanStatus", api.GetScanStatus)
 			h(r, "startScan", api.StartScan)
 		})
+
+		// Downloads & avatars
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			hr(r, "getAvatar", api.GetAvatar)
-			h(r, "getLyrics", api.GetLyrics)
-			h(r, "getLyricsBySongId", api.GetLyricsBySongId)
 			hr(r, "download", api.Download)
 		})
+
+		// Radio management
 		r.Group(func(r chi.Router) {
 			r.Use(getPlayer(api.players))
 			h(r, "createInternetRadioStation", api.CreateInternetRadio)
 			h(r, "deleteInternetRadioStation", api.DeleteInternetRadio)
-			h(r, "getInternetRadioStations", api.GetInternetRadios)
 			h(r, "updateInternetRadioStation", api.UpdateInternetRadio)
 		})
+
 		if conf.Server.EnableSharing {
 			r.Group(func(r chi.Router) {
 				r.Use(getPlayer(api.players))
