@@ -36,7 +36,7 @@ services:
       ND_ENABLESHARING: "true"
       ND_ENABLESELFREGISTRATION: "true"
       ND_DEFAULTTHEME: "QODarkTheme"
-      ND_ENABLEDOWNLOADS: "false"
+      ND_ENABLEDOWNLOADS: "true"
 
       # OAuth Configuration (disabled by default - enable when ready to test)
       ND_OAUTH_ENABLED: "true"

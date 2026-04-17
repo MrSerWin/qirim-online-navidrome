@@ -107,7 +107,7 @@ const Player = () => {
       autoPlayInitLoadPlayList: true,
       clearPriorAudioLists: false,
       showDestroy: true,
-      showDownload: false,
+      showDownload: config.enableDownloads,
       showLyric: false,
       showReload: false,
       toggleMode: !isDesktop,
@@ -146,6 +146,10 @@ const Player = () => {
       ),
       defaultVolume: isMobilePlayer ? 1 : playerState.volume,
       showMediaSession: !current.isRadio,
+      showDownload: config.enableDownloads && !current.isRadio,
+      customDownloader: () => {
+        if (current.trackId) subsonic.download(current.trackId)
+      },
     }
   }, [playerState, defaultOptions, isMobilePlayer])
 

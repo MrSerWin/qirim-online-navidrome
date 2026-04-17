@@ -8,8 +8,8 @@
 #
 # Использование:
 #   ./scripts/update-music-tags.sh "/путь/к/папке/с/музыкой"
-#   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/QırımYankısı"
-#   ./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Adile Absaitova"
+#   ./scripts/update-music-tags.sh "/Volumes/T9/Media/Music/Музыка/QirimTatar/QırımYankısı"
+#   ./scripts/update-music-tags.sh "/Volumes/T9/Media/Music/Музыка/QirimTatar/Adile Absaitova"
 #
 # ВАЖНО: Извлечение нескольких артистов из имени файла ВРЕМЕННО ОТКЛЮЧЕНО
 # Функции extract_artists_from_filename() готовы, но закомментированы в коде
@@ -126,7 +126,7 @@ print_usage() {
     echo ""
     echo "Примеры:"
     echo "  $0 '/path/to/music/Artist Name'"
-    echo "  $0 '/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Qırım Yankısı'"
+    echo "  $0 '/Volumes/T9/Media/Music/Музыка/QirimTatar/Qırım Yankısı'"
     echo ""
     echo "Что делает скрипт:"
     echo "  - Устанавливает Artist и Album = название папки"

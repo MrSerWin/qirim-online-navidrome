@@ -534,7 +534,7 @@ For Navidrome core issues, see the [official documentation](https://www.navidrom
 **Last Updated:** 2025-01-23
 
 
-./scripts/update-music-tags.sh "/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Zarema Halitova"
+./scripts/update-music-tags.sh "/Volumes/T9/Media/Music/Музыка/QirimTatar/Zarema Halitova"
 
 
 # Один файл → MP3 (320kbps, по умолчанию)

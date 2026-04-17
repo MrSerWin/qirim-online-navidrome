@@ -76,7 +76,7 @@ python3 deduplicate_tracks.py
 python3 sync_vk_music.py --move-only
 ```
 
-Копирует из `Upload/Artist/` в `/Volumes/T9/MyOneDrive/Media/Music/Музыка/QirimTatar/Artist/`
+Копирует из `Upload/Artist/` в `/Volumes/T9/Media/Music/Музыка/QirimTatar/Artist/`
 
 ### 6. Обновление тегов
 Автоматически запускает `update-music-tags.sh` для каждого артиста.

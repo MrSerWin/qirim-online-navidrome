@@ -27,7 +27,7 @@ services:
       ND_ENABLESHARING: "false"
       ND_ENABLESELFREGISTRATION: "true"
       ND_DEFAULTTHEME: "QODarkTheme"
-      ND_ENABLEDOWNLOADS: "false"
+      ND_ENABLEDOWNLOADS: "true"
     volumes:
       # Локальные пути для разработки
       - /Volumes/T9/1_dev/1_QO/myQO/navidrome-data:/data
