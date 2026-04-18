@@ -24,7 +24,7 @@ import {
   openDownloadMenu,
   DOWNLOAD_MENU_ALBUM,
 } from '../actions'
-import { formatBytes } from '../utils'
+import { canDownload, formatBytes } from '../utils'
 import config from '../config'
 import { ToggleFieldsMenu, QuickShareButton } from '../common'
 import { generateAlbumShareURL } from '../utils/urlGenerator'
@@ -131,7 +131,7 @@ const AlbumActions = ({
               size="medium"
             />
           )}
-          {config.enableDownloads && (
+          {config.enableDownloads && canDownload() && (
             <AlbumButton
               onClick={handleDownload}
               label={

@@ -24,7 +24,7 @@ import {
   openShareMenu,
 } from '../actions'
 import PropTypes from 'prop-types'
-import { formatBytes } from '../utils'
+import { canDownload, formatBytes } from '../utils'
 import config from '../config'
 import { ToggleFieldsMenu } from '../common'
 
@@ -124,7 +124,7 @@ const PlaylistActions = ({ className, ids, data, record, ...rest }) => {
               <ShareIcon />
             </Button>
           )}
-          {config.enableDownloads && (
+          {config.enableDownloads && canDownload() && (
             <Button
               onClick={handleDownload}
               label={

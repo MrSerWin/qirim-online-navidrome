@@ -23,7 +23,7 @@ import {
 } from '../actions'
 import { LoveButton } from './LoveButton'
 import config from '../config'
-import { formatBytes } from '../utils'
+import { canDownload, formatBytes } from '../utils'
 import { generateSongShareURL } from '../utils/urlGenerator'
 import { useRedirect } from 'react-admin'
 import { LyricsDialog } from '../lyrics'
@@ -143,7 +143,7 @@ export const SongContextMenu = ({
       },
     },
     download: {
-      enabled: config.enableDownloads,
+      enabled: config.enableDownloads && canDownload(),
       label: `${translate('ra.action.download')} (${formatBytes(record.size)})`,
       action: (record) =>
         dispatch(openDownloadMenu(record, DOWNLOAD_MENU_SONG)),

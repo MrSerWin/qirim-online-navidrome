@@ -2,8 +2,8 @@ DataFolder = "/var/lib/navidrome"
 MusicFolder = "/opt/navidrome/music"
 
 EnableSelfRegistration = true
-# Disable downloads
-EnableDownloads = false
+# Enable downloads
+EnableDownloads = true
 
 # OAuth Configuration
 # Enable OAuth authentication (login via social networks)

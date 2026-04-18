@@ -26,7 +26,7 @@ import {
 } from '../actions'
 import PlayerToolbar from './PlayerToolbar'
 import MobilePlayerBar from './MobilePlayerBar'
-import { sendNotification } from '../utils'
+import { canDownload, sendNotification } from '../utils'
 import subsonic from '../subsonic'
 import locale from './locale'
 import { keyMap } from '../hotkeys'
@@ -146,7 +146,7 @@ const Player = () => {
       ),
       defaultVolume: isMobilePlayer ? 1 : playerState.volume,
       showMediaSession: !current.isRadio,
-      showDownload: config.enableDownloads && !current.isRadio,
+      showDownload: config.enableDownloads && canDownload() && !current.isRadio,
       customDownloader: () => {
         if (current.trackId) subsonic.download(current.trackId)
       },

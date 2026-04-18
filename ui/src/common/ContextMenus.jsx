@@ -24,7 +24,7 @@ import {
 } from '../actions'
 import { LoveButton } from './LoveButton'
 import config from '../config'
-import { formatBytes } from '../utils'
+import { canDownload, formatBytes } from '../utils'
 
 const useStyles = makeStyles({
   noWrap: {
@@ -104,7 +104,7 @@ const ContextMenu = ({
       action: (data, ids) => dispatch(openAddToPlaylist({ selectedIds: ids })),
     },
     download: {
-      enabled: config.enableDownloads && record.size,
+      enabled: config.enableDownloads && canDownload() && record.size,
       needData: false,
       label: `${translate('ra.action.download')} (${formatBytes(record.size)})`,
       action: () => {
