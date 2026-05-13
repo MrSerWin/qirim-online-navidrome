@@ -43,6 +43,7 @@ export default defineConfig({
   server: {
     host: true,
     port: frontendPort,
+    allowedHosts: ['localhost', 'host.docker.internal', '.qirim.online'],
     proxy: {
       '^/(auth|api|rest|backgrounds|song|share|sitemap\\.xml|robots\\.txt)/.*': 'http://localhost:' + backendPort,
       '^/song/': 'http://localhost:' + backendPort,

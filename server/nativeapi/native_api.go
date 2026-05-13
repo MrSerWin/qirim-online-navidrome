@@ -62,6 +62,9 @@ func (n *Router) routes() http.Handler {
 		n.addVideoClipRoute(r)
 		n.addVideoPlaylistRoute(r)
 
+		// YouTube sync: admin-only upsert-by-youtube_id API for the external sync script
+		n.addYouTubeSyncRoute(r)
+
 		// Shop: public read for categories/products, admin write
 		// Orders: public create, admin manage
 		if conf.Server.EnableShop {

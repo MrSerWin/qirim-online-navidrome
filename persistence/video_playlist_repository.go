@@ -189,13 +189,13 @@ func (r *videoPlaylistRepository) GetClips(playlistID string, options ...model.Q
 
 // GetClipCount returns the number of clips in the playlist
 func (r *videoPlaylistRepository) GetClipCount(playlistID string) (int, error) {
-	sel := Select("COUNT(*)").
+	sel := Select("COUNT(*) as count").
 		From("video_playlist_clip").
 		Where(Eq{"playlist_id": playlistID})
 
-	var count int
-	err := r.queryOne(sel, &count)
-	return count, err
+	var res struct{ Count int }
+	err := r.queryOne(sel, &res)
+	return res.Count, err
 }
 
 // UpdateVideoCount updates the video_count field in the playlist

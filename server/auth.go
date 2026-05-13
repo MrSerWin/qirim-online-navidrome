@@ -426,6 +426,23 @@ func Authenticator(ds model.DataStore) func(next http.Handler) http.Handler {
 	}
 }
 
+// TokenOnlyAuthenticator authenticates using ONLY the JWT token (and reverse-proxy
+// header), bypassing DevAutoLoginUsername. Use this for routes that must always
+// run as the real caller — e.g. admin-only machine-to-machine APIs — when guest
+// auto-login is configured globally.
+func TokenOnlyAuthenticator(ds model.DataStore) func(next http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			ctx, err := authenticateRequest(ds, r, UsernameFromToken, UsernameFromReverseProxyHeader)
+			if err != nil {
+				_ = rest.RespondWithError(w, http.StatusUnauthorized, "Not authenticated")
+				return
+			}
+			next.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
+}
+
 // OptionalAuthenticator tries to authenticate, but allows unauthenticated requests to proceed
 // Used for public read-only access to content
 func OptionalAuthenticator(ds model.DataStore) func(next http.Handler) http.Handler {

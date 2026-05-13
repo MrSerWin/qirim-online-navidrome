@@ -36,6 +36,9 @@ This is **Navidrome QO** - a custom fork of Navidrome music streaming server wit
 - store all documentation in foder docs
 - store all *.sh in folder scripts
 
+## Hard Rules (apply to all agents, no exceptions)
+- **Never use `ND_DEVAUTOLOGINUSERNAME` (guest auto-login)** — not in dev, staging, prod, scripts, tests, docker-compose, examples, or docs. It wins over real JWT/Bearer tokens in Navidrome's auth chain (`UsernameFromConfig` runs before `UsernameFromToken`), which silently masks auth bugs and downgrades every caller to the guest user. If you find it set anywhere, treat it as a problem to remove, not a feature to rely on. For machine-to-machine API access, use real login (JWT) + `server.TokenOnlyAuthenticator` on the route; for "public" read access, use route-level public design (`OptionalAuthenticator` + handler-level checks).
+
 ## Maintenance and Monitoring
 
 ### Health Checks
