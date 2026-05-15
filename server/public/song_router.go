@@ -78,6 +78,7 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 		AlbumID:      mf.AlbumID,
 		Year:         mf.Year,
 		Duration:     formatDuration(mf.Duration),
+		DurationISO:  formatISODuration(mf.Duration),
 		Lyrics:       lyricsText,
 		LyricsHTML:   template.HTML(formatLyricsHTML(lyricsText)),
 		ImageURL:     "/share/img/" + mf.AlbumID,

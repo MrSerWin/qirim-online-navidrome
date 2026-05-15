@@ -3,80 +3,107 @@
 
 User-agent: *
 
-# Main app - indexable pages
+# Public canonical SEO pages (server-rendered HTML)
 Allow: /
-Allow: /app/
-Allow: /app/album
-Allow: /app/artist
-Allow: /app/song
-Allow: /app/playlist
-Allow: /app/radio
-
-# Public shares (shared content)
+Allow: /song/
+Allow: /artist/
+Allow: /album/
+Allow: /top50
+Allow: /new
+Allow: /karaoke
+Allow: /clips
 Allow: /p/
-
-# Wrapped public shares (year-in-review)
 Allow: /api/wrapped/share/
 
 # Static assets
 Allow: /favicon.ico
 Allow: /robots.txt
 Allow: /sitemap.xml
+Allow: /sitemap-static.xml
+Allow: /sitemap-artists.xml
+Allow: /sitemap-albums.xml
+Allow: /sitemap-songs.xml
+Allow: /sitemap-clips.xml
 Allow: /privacy.html
+Allow: /qo-logo.png
+Allow: /album-placeholder.webp
+Allow: /artist-placeholder.webp
 
-# Disallow private sections (require authentication)
+# SPA routes are NOT canonical — server-rendered versions live at /artist/, /album/, /song/
+# Block duplicate SPA URLs so crawlers don't waste budget and don't split signals
+Disallow: /app/
+
+# Private/auth-only sections
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
 
-# Re-allow public API endpoints (override above)
-Allow: /api/wrapped/share/*
+# Re-allow the public wrapped share endpoint (overrides /api/ disallow)
+Allow: /api/wrapped/share/
 
-# Disallow user-specific and admin paths
+# Private user areas (already blocked by /app/ above, listed for clarity)
 Disallow: /app/settings
 Disallow: /app/user
 Disallow: /app/queue
 Disallow: /app/personal
 Disallow: /app/login
 
-# Disallow streaming and download URLs
+# Streaming and download URLs of public shares
 Disallow: /p/s/
 Disallow: /p/d/
 
-# Disallow search result pages with parameters
+# Filtered/search-result URLs (no SEO value, infinite combinations)
 Disallow: /*?_start=
 Disallow: /*?_end=
 Disallow: /*?_sort=
 Disallow: /*?filter=
 
-# Crawl-delay to prevent server overload
-Crawl-delay: 2
-
 # Sitemap location
 Sitemap: https://qirim.online/sitemap.xml
 
-# Googlebot (supports more features)
+# Googlebot
 User-agent: Googlebot
 Allow: /
+Allow: /song/
+Allow: /artist/
+Allow: /album/
+Allow: /top50
+Allow: /new
+Allow: /karaoke
+Allow: /clips
+Disallow: /app/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
-Allow: /api/wrapped/share/*
-Crawl-delay: 1
+Allow: /api/wrapped/share/
 
 # Yandex
 User-agent: Yandex
 Allow: /
+Allow: /song/
+Allow: /artist/
+Allow: /album/
+Allow: /top50
+Allow: /new
+Allow: /karaoke
+Allow: /clips
+Disallow: /app/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
-Crawl-delay: 2
 Host: qirim.online
 
 # Bingbot
 User-agent: Bingbot
 Allow: /
+Allow: /song/
+Allow: /artist/
+Allow: /album/
+Allow: /top50
+Allow: /new
+Allow: /karaoke
+Allow: /clips
+Disallow: /app/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
-Crawl-delay: 2

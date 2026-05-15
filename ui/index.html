@@ -9,12 +9,8 @@
   <meta name="title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки | Слушать Онлайн" />
   <meta name="description"
     content="Qirim.Online — крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты крымскотатарских исполнителей. Бесплатный стриминг музыки онлайн." />
-  <meta name="keywords"
-    content="крымскотатарская музыка, qirimtatar music, кърымтатар джыры, народные песни крымских татар, крымскотатарские исполнители, онлайн архив музыки, qirim online, крымскотатарская культура, традиционная музыка, современная крымскотатарская музыка, слушать онлайн, музыкальный стриминг" />
   <meta name="author" content="Qirim.Online" />
   <meta name="robots" content="index, follow" />
-  <meta name="language" content="Russian" />
-  <meta name="revisit-after" content="7 days" />
 
   <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
@@ -36,11 +32,11 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Qirim.Online">
-  <meta property="og:url" content="{{ .ShareURL }}">
+  <meta property="og:url" content="{{ if .ShareURL }}{{ .ShareURL }}{{ else }}https://qirim.online/{{ end }}">
   <meta property="og:title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки">
   <meta property="og:description"
     content="Откройте для себя уникальную коллекцию крымскотатарской музыки — от старинных народных песен до современных хитов. Слушайте онлайн бесплатно." />
-  <meta property="og:image" content="{{ .ShareImageURL }}">
+  <meta property="og:image" content="{{ if .ShareImageURL }}{{ .ShareImageURL }}{{ else }}https://qirim.online/qo-logo.png{{ end }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Qirim.Online - Крымскотатарская музыка онлайн" />
@@ -53,7 +49,7 @@
   <meta name="twitter:title" content="Qirim.Online — Крупнейший Архив Крымскотатарской Музыки" />
   <meta name="twitter:description"
     content="Откройте для себя уникальную коллекцию крымскотатарской музыки — от старинных народных песен до современных хитов." />
-  <meta name="twitter:image" content="{{ .ShareImageURL }}" />
+  <meta name="twitter:image" content="{{ if .ShareImageURL }}{{ .ShareImageURL }}{{ else }}https://qirim.online/qo-logo.png{{ end }}" />
   <meta name="twitter:image:alt" content="Qirim.Online - Крымскотатарская музыка онлайн" />
 
   <!-- Canonical URL -->
@@ -68,26 +64,22 @@
       "alternateName": ["Къырым.Онлайн", "Qırım Online"],
       "url": "https://qirim.online",
       "description": "Крупнейший онлайн-архив крымскотатарской музыки. Слушайте старинные народные песни и современные хиты.",
-      "inLanguage": ["ru", "crh", "en"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://qirim.online/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": ["ru", "crh", "en"]
     }
     </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MusicArchive",
-      "name": "Qirim.Online",
-      "description": "Qirim.Online — крупнейший онлайн-архив крымскотатарской музыки. Уникальная коллекция народных песен и современных хитов.",
+      "@type": "CollectionPage",
+      "name": "Qirim.Online — Архив крымскотатарской музыки",
+      "description": "Уникальная онлайн-коллекция крымскотатарской музыки: народные песни, классика эстрады, современные релизы, тексты и клипы.",
       "url": "https://qirim.online",
-      "genre": ["Крымскотатарская музыка", "Народная музыка", "Традиционная музыка"],
-      "keywords": "крымскотатарская музыка, кърымтатар джыры, народные песни, музыкальный архив",
+      "inLanguage": ["ru", "crh", "en"],
+      "about": {
+        "@type": "Thing",
+        "name": "Крымскотатарская музыка",
+        "sameAs": "https://ru.wikipedia.org/wiki/Крымскотатарская_музыка"
+      },
       "audience": {
         "@type": "Audience",
         "audienceType": "Любители крымскотатарской музыки и культуры"
@@ -99,10 +91,16 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Qirim.Online",
+      "alternateName": ["Къырым.Онлайн", "Qırım Online"],
       "url": "https://qirim.online",
       "logo": "https://qirim.online/android-chrome-512x512.png",
       "description": "Цифровая сокровищница крымскотатарской музыки",
-      "sameAs": []
+      "sameAs": [
+        "https://www.youtube.com/@AnaUrtcom",
+        "https://t.me/ana_yurt_dev",
+        "https://www.facebook.com/qirimonline",
+        "https://ru.wikipedia.org/wiki/Крымскотатарская_музыка"
+      ]
     }
     </script>
 

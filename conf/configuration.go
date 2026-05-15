@@ -105,6 +105,8 @@ type configOptions struct {
 	Deezer                          deezerOptions       `json:",omitzero"`
 	ListenBrainz                    listenBrainzOptions `json:",omitzero"`
 	OAuth                           oauthOptions        `json:",omitzero"`
+	IndexNowKey                     string
+	IndexNowKeyLocation             string
 	Tags                            map[string]TagConf  `json:",omitempty"`
 	Agents                          string
 

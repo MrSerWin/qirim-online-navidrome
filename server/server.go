@@ -198,7 +198,17 @@ func (s *Server) initRoutes() {
 	})
 
 	// Mount dynamic sitemap (public, no auth required)
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap.xml"), sitemapHandler(s.ds))
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap.xml"), sitemapIndexHandler())
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap-static.xml"), sitemapStaticHandler())
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap-artists.xml"), sitemapArtistsHandler(s.ds))
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap-albums.xml"), sitemapAlbumsHandler(s.ds))
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap-songs.xml"), sitemapSongsHandler(s.ds))
+	r.Get(path.Join(conf.Server.BasePath, "/sitemap-clips.xml"), sitemapClipsHandler(s.ds))
+
+	// IndexNow key-file verification endpoint (Bing/Yandex/Seznam)
+	if keyPath := indexNowKeyPath(); keyPath != "" {
+		r.Get(path.Join(conf.Server.BasePath, keyPath), indexNowKeyHandler())
+	}
 }
 
 func (s *Server) mountAuthenticationRoutes() chi.Router {
@@ -249,17 +259,18 @@ func (s *Server) mountRootRedirector() {
 	r := s.router
 	// Serve static assets from root for SEO pages
 	assets := ui.BuildAssets()
-	staticFiles := []string{"qo-logo.png", "album-placeholder.webp", "artist-placeholder.webp", "favicon.ico"}
+	staticFiles := []string{
+		"qo-logo.png", "album-placeholder.webp", "artist-placeholder.webp", "favicon.ico",
+		"privacy.html", "llms.txt", "favicon.svg", "apple-touch-icon.png",
+		"android-chrome-192x192.png", "android-chrome-512x512.png", "web-app-manifest-192x192.png", "web-app-manifest-512x512.png",
+	}
 	for _, file := range staticFiles {
 		fileName := file
 		r.Get("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
 			http.ServeFileFS(w, r, assets, fileName)
 		})
 	}
-	// Redirect root to UI URL (but not specific routes like /song, /api, /share, etc.)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, s.appRoot+"/", http.StatusFound)
-	})
+	// Note: root "/" is now handled by the SEO LandingRouter mounted earlier.
 	r.Get(s.appRoot, func(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, s.appRoot+"/", http.StatusFound)
 	})

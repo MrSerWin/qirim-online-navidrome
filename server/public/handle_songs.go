@@ -20,6 +20,7 @@ type SongPageData struct {
 	AlbumID      string
 	Year         int
 	Duration     string
+	DurationISO  string
 	Lyrics       string
 	LyricsHTML   template.HTML
 	ImageURL     string
@@ -57,12 +58,31 @@ func extractLyricsText(mf *model.MediaFile) string {
 	return strings.Join(lines, "\n")
 }
 
-// formatDuration formats duration in seconds to MM:SS format
+// formatDuration formats duration in seconds to MM:SS format (for human display)
 func formatDuration(seconds float32) string {
 	d := time.Duration(seconds) * time.Second
 	m := int(d.Minutes())
 	s := int(d.Seconds()) % 60
 	return fmt.Sprintf("%d:%02d", m, s)
+}
+
+// formatISODuration formats duration as ISO 8601 (e.g. PT3M18S) for Schema.org
+func formatISODuration(seconds float32) string {
+	total := int(seconds)
+	h := total / 3600
+	m := (total % 3600) / 60
+	s := total % 60
+	out := "PT"
+	if h > 0 {
+		out += fmt.Sprintf("%dH", h)
+	}
+	if m > 0 {
+		out += fmt.Sprintf("%dM", m)
+	}
+	if s > 0 || (h == 0 && m == 0) {
+		out += fmt.Sprintf("%dS", s)
+	}
+	return out
 }
 
 // formatLyricsHTML converts plain text lyrics to HTML (escapes special chars)
@@ -84,6 +104,9 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
     <meta name="description" content="{{.Description}}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://qirim.online{{.CanonicalURL}}">
+    <link rel="alternate" hreflang="ru" href="https://qirim.online{{.CanonicalURL}}">
+    <link rel="alternate" hreflang="crh" href="https://qirim.online{{.CanonicalURL}}">
+    <link rel="alternate" hreflang="x-default" href="https://qirim.online{{.CanonicalURL}}">
     <link rel="icon" href="/app/favicon.ico" type="image/x-icon">
 
     <!-- Open Graph -->
@@ -111,16 +134,30 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
         "name": "{{.Title}}",
         "byArtist": {
             "@type": "MusicGroup",
-            "name": "{{.Artist}}"
+            "name": "{{.Artist}}",
+            "url": "https://qirim.online/artist/{{.ArtistID}}"
         },
         "inAlbum": {
             "@type": "MusicAlbum",
-            "name": "{{.Album}}"
+            "name": "{{.Album}}",
+            "url": "https://qirim.online/album/{{.AlbumID}}"
         },
-        "duration": "PT{{.Duration}}",
+        "duration": "{{.DurationISO}}",
         {{if .Year}}"datePublished": "{{.Year}}",{{end}}
-        "url": "https://qirim.online{{.SongURL}}",
+        "url": "https://qirim.online{{.CanonicalURL}}",
         "image": "https://qirim.online{{.ImageURL}}"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://qirim.online/"},
+            {"@type": "ListItem", "position": 2, "name": "{{.Artist}}", "item": "https://qirim.online/artist/{{.ArtistID}}"},
+            {"@type": "ListItem", "position": 3, "name": "{{.Album}}", "item": "https://qirim.online/album/{{.AlbumID}}"},
+            {"@type": "ListItem", "position": 4, "name": "{{.Title}}", "item": "https://qirim.online{{.CanonicalURL}}"}
+        ]
     }
     </script>
 

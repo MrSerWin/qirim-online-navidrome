@@ -4,8 +4,10 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/http"
+	"strings"
 	"time"
 
+	"github.com/Masterminds/squirrel"
 	"github.com/navidrome/navidrome/conf"
 	"github.com/navidrome/navidrome/log"
 	"github.com/navidrome/navidrome/model"
@@ -25,89 +27,200 @@ type SitemapURL struct {
 	Priority   string `xml:"priority,omitempty"`
 }
 
-func sitemapHandler(ds model.DataStore) http.HandlerFunc {
+type SitemapIndex struct {
+	XMLName  xml.Name        `xml:"sitemapindex"`
+	XMLNS    string          `xml:"xmlns,attr"`
+	Sitemaps []SitemapIndexEntry `xml:"sitemap"`
+}
+
+type SitemapIndexEntry struct {
+	Loc     string `xml:"loc"`
+	LastMod string `xml:"lastmod,omitempty"`
+}
+
+func siteBaseURL() string {
+	baseURL := conf.Server.BaseURL
+	if baseURL == "" {
+		baseURL = "https://qirim.online"
+	}
+	return strings.TrimRight(baseURL, "/")
+}
+
+func writeSitemap(w http.ResponseWriter, urls []SitemapURL) error {
+	sitemap := URLSet{
+		XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9",
+		URLs:  urls,
+	}
+	w.Header().Set("Content-Type", "application/xml; charset=utf-8")
+	w.Header().Set("Cache-Control", "public, max-age=3600")
+	w.Write([]byte(xml.Header))
+	enc := xml.NewEncoder(w)
+	enc.Indent("", "  ")
+	return enc.Encode(sitemap)
+}
+
+// sitemapIndexHandler returns the sitemap index file pointing to per-type sitemaps
+func sitemapIndexHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		ctx := r.Context()
-
-		baseURL := conf.Server.BaseURL
-		if baseURL == "" {
-			baseURL = "https://qirim.online"
-		}
-
+		base := siteBaseURL()
 		today := time.Now().Format("2006-01-02")
-
-		urls := []SitemapURL{
-			// Static pages
-			{Loc: baseURL + "/", LastMod: today, ChangeFreq: "daily", Priority: "1.0"},
-			{Loc: baseURL + "/app/", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
-			{Loc: baseURL + "/app/album", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
-			{Loc: baseURL + "/app/artist", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
-			{Loc: baseURL + "/app/song", LastMod: today, ChangeFreq: "daily", Priority: "0.8"},
-			{Loc: baseURL + "/app/playlist", LastMod: today, ChangeFreq: "weekly", Priority: "0.8"},
-			{Loc: baseURL + "/app/radio", LastMod: today, ChangeFreq: "weekly", Priority: "0.7"},
-			{Loc: baseURL + "/privacy.html", LastMod: today, ChangeFreq: "monthly", Priority: "0.3"},
-		}
-
-		// Get all artists
-		artists, err := ds.Artist(ctx).GetAll()
-		if err != nil {
-			log.Error(ctx, "Error getting artists for sitemap", err)
-		} else {
-			for _, artist := range artists {
-				artistURL := SitemapURL{
-					Loc:        fmt.Sprintf("%s/app/artist/%s/show", baseURL, artist.ID),
-					ChangeFreq: "weekly",
-					Priority:   "0.7",
-				}
-				urls = append(urls, artistURL)
-			}
-		}
-
-		// Get all albums
-		albums, err := ds.Album(ctx).GetAll()
-		if err != nil {
-			log.Error(ctx, "Error getting albums for sitemap", err)
-		} else {
-			for _, album := range albums {
-				albumURL := SitemapURL{
-					Loc:        fmt.Sprintf("%s/app/album/%s/show", baseURL, album.ID),
-					ChangeFreq: "weekly",
-					Priority:   "0.6",
-				}
-				urls = append(urls, albumURL)
-			}
-		}
-
-		// Get all songs with approved crowdsource lyrics for SEO pages
-		approvedLyrics, err := ds.LyricsCrowdsource(ctx).GetAllApproved(10000, 0)
-		if err != nil {
-			log.Error(ctx, "Error getting approved lyrics for sitemap", err)
-		} else {
-			for _, lyrics := range approvedLyrics {
-				songURL := SitemapURL{
-					Loc:        fmt.Sprintf("%s/song/%s", baseURL, lyrics.MediaFileID),
-					ChangeFreq: "monthly",
-					Priority:   "0.5",
-				}
-				urls = append(urls, songURL)
-			}
-		}
-
-		sitemap := URLSet{
+		idx := SitemapIndex{
 			XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9",
-			URLs:  urls,
+			Sitemaps: []SitemapIndexEntry{
+				{Loc: base + "/sitemap-static.xml", LastMod: today},
+				{Loc: base + "/sitemap-artists.xml", LastMod: today},
+				{Loc: base + "/sitemap-albums.xml", LastMod: today},
+				{Loc: base + "/sitemap-songs.xml", LastMod: today},
+				{Loc: base + "/sitemap-clips.xml", LastMod: today},
+			},
 		}
-
 		w.Header().Set("Content-Type", "application/xml; charset=utf-8")
-		w.Header().Set("Cache-Control", "public, max-age=3600") // Cache for 1 hour
-
+		w.Header().Set("Cache-Control", "public, max-age=3600")
 		w.Write([]byte(xml.Header))
-		encoder := xml.NewEncoder(w)
-		encoder.Indent("", "  ")
-		if err := encoder.Encode(sitemap); err != nil {
-			log.Error(ctx, "Error encoding sitemap", err)
-			http.Error(w, "Error generating sitemap", http.StatusInternalServerError)
+		enc := xml.NewEncoder(w)
+		enc.Indent("", "  ")
+		_ = enc.Encode(idx)
+	}
+}
+
+// sitemapStaticHandler returns landing pages and other static URLs
+func sitemapStaticHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		today := time.Now().Format("2006-01-02")
+		urls := []SitemapURL{
+			{Loc: base + "/", LastMod: today, ChangeFreq: "daily", Priority: "1.0"},
+			{Loc: base + "/top50", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
+			{Loc: base + "/new", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
+			{Loc: base + "/karaoke", LastMod: today, ChangeFreq: "weekly", Priority: "0.8"},
+			{Loc: base + "/clips", LastMod: today, ChangeFreq: "weekly", Priority: "0.8"},
+			{Loc: base + "/privacy.html", LastMod: today, ChangeFreq: "monthly", Priority: "0.2"},
+		}
+		_ = writeSitemap(w, urls)
+	}
+}
+
+func sitemapArtistsHandler(ds model.DataStore) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		artists, err := ds.Artist(r.Context()).GetAll(model.QueryOptions{
+			Filters: squirrel.Eq{"missing": false},
+		})
+		if err != nil {
+			log.Error(r.Context(), "Error getting artists for sitemap", err)
+			http.Error(w, "Error", http.StatusInternalServerError)
 			return
 		}
+		urls := make([]SitemapURL, 0, len(artists))
+		for _, a := range artists {
+			loc := fmt.Sprintf("%s/artist/%s", base, a.ID)
+			lastmod := ""
+			if a.UpdatedAt != nil && !a.UpdatedAt.IsZero() {
+				lastmod = a.UpdatedAt.Format("2006-01-02")
+			}
+			urls = append(urls, SitemapURL{
+				Loc:        loc,
+				LastMod:    lastmod,
+				ChangeFreq: "weekly",
+				Priority:   "0.8",
+			})
+		}
+		_ = writeSitemap(w, urls)
+	}
+}
+
+func sitemapAlbumsHandler(ds model.DataStore) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		albums, err := ds.Album(r.Context()).GetAll(model.QueryOptions{
+			Filters: squirrel.Eq{"missing": false},
+		})
+		if err != nil {
+			log.Error(r.Context(), "Error getting albums for sitemap", err)
+			http.Error(w, "Error", http.StatusInternalServerError)
+			return
+		}
+		urls := make([]SitemapURL, 0, len(albums))
+		for _, a := range albums {
+			loc := fmt.Sprintf("%s/album/%s", base, a.ID)
+			lastmod := ""
+			if !a.UpdatedAt.IsZero() {
+				lastmod = a.UpdatedAt.Format("2006-01-02")
+			}
+			urls = append(urls, SitemapURL{
+				Loc:        loc,
+				LastMod:    lastmod,
+				ChangeFreq: "weekly",
+				Priority:   "0.7",
+			})
+		}
+		_ = writeSitemap(w, urls)
+	}
+}
+
+func sitemapSongsHandler(ds model.DataStore) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		// Cap at 45k to stay safely under the 50k per-sitemap limit
+		songs, err := ds.MediaFile(r.Context()).GetAll(model.QueryOptions{
+			Filters: squirrel.Eq{"missing": false},
+			Sort:    "global_play_count",
+			Order:   "desc",
+			Max:     45000,
+		})
+		if err != nil {
+			log.Error(r.Context(), "Error getting songs for sitemap", err)
+			http.Error(w, "Error", http.StatusInternalServerError)
+			return
+		}
+		urls := make([]SitemapURL, 0, len(songs))
+		for _, s := range songs {
+			loc := fmt.Sprintf("%s/song/%s", base, s.ID)
+			lastmod := ""
+			if !s.UpdatedAt.IsZero() {
+				lastmod = s.UpdatedAt.Format("2006-01-02")
+			}
+			urls = append(urls, SitemapURL{
+				Loc:        loc,
+				LastMod:    lastmod,
+				ChangeFreq: "monthly",
+				Priority:   "0.6",
+			})
+		}
+		_ = writeSitemap(w, urls)
+	}
+}
+
+func sitemapClipsHandler(ds model.DataStore) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		clips, err := ds.VideoClip(r.Context()).GetAll(model.QueryOptions{Max: 10000})
+		if err != nil {
+			log.Error(r.Context(), "Error getting clips for sitemap", err)
+			http.Error(w, "Error", http.StatusInternalServerError)
+			return
+		}
+		urls := make([]SitemapURL, 0, len(clips)+1)
+		urls = append(urls, SitemapURL{
+			Loc:        base + "/clips",
+			ChangeFreq: "daily",
+			Priority:   "0.8",
+		})
+		for _, c := range clips {
+			// Clips live inside the SPA — only the /clips landing is canonical.
+			// We still expose individual clip URLs so search engines know about them.
+			loc := fmt.Sprintf("%s/app/#/video/%s", base, c.ID)
+			lastmod := ""
+			if !c.UpdatedAt.IsZero() {
+				lastmod = c.UpdatedAt.Format("2006-01-02")
+			}
+			urls = append(urls, SitemapURL{
+				Loc:        loc,
+				LastMod:    lastmod,
+				ChangeFreq: "monthly",
+				Priority:   "0.5",
+			})
+		}
+		_ = writeSitemap(w, urls)
 	}
 }

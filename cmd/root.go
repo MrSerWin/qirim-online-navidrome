@@ -114,6 +114,9 @@ func startServer(ctx context.Context) func() error {
 		a.MountRouter("Subsonic API", consts.URLPathSubsonicAPI, CreateSubsonicAPIRouter(ctx))
 		a.MountRouter("Public Endpoints", consts.URLPathPublic, CreatePublicRouter())
 		a.MountRouter("SEO Song Pages", "/song", CreateSongPagesRouter())
+		a.MountRouter("SEO Artist Pages", "/artist", CreateArtistPagesRouter())
+		a.MountRouter("SEO Album Pages", "/album", CreateAlbumPagesRouter())
+		a.MountRouter("SEO Landing Pages", "/", CreateLandingPagesRouter())
 		if conf.Server.LastFM.Enabled {
 			a.MountRouter("LastFM Auth", consts.URLPathNativeAPI+"/lastfm", CreateLastFMRouter())
 		}

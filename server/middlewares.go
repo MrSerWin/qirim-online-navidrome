@@ -102,12 +102,16 @@ func corsHandler() func(http.Handler) http.Handler {
 }
 
 func secureMiddleware() func(http.Handler) http.Handler {
+	// If a reverse-proxy already sets X-Frame-Options (e.g. nginx with SAMEORIGIN),
+	// skip emitting it here to avoid duplicate/conflicting headers.
+	customFrameVal := conf.Server.HTTPSecurityHeaders.CustomFrameOptionsValue
+	frameDeny := customFrameVal == ""
 	sec := secure.New(secure.Options{
 		ContentTypeNosniff:      true,
-		FrameDeny:               true,
+		FrameDeny:               frameDeny,
 		ReferrerPolicy:          "same-origin",
 		PermissionsPolicy:       "autoplay=(), camera=(), microphone=(), usb=()",
-		CustomFrameOptionsValue: conf.Server.HTTPSecurityHeaders.CustomFrameOptionsValue,
+		CustomFrameOptionsValue: customFrameVal,
 		//ContentSecurityPolicy: "script-src 'self' 'unsafe-inline'",
 	})
 	return sec.Handler
