@@ -112,7 +112,7 @@ func (lr *LandingRouter) handleHome(w http.ResponseWriter, r *http.Request) {
 		}
 		topArtists = append(topArtists, landingArtistItem{
 			ID:   a.ID,
-			Name: a.Name,
+			Name: cleanText(a.Name),
 			URL:  "/artist/" + a.ID,
 			Img:  img,
 		})
@@ -128,7 +128,7 @@ func (lr *LandingRouter) handleHome(w http.ResponseWriter, r *http.Request) {
 	newAlbums := make([]landingAlbumItem, 0, len(albums))
 	for _, a := range albums {
 		newAlbums = append(newAlbums, landingAlbumItem{
-			ID: a.ID, Name: a.Name, Artist: a.AlbumArtist, Year: a.MaxYear,
+			ID: a.ID, Name: cleanText(a.Name), Artist: cleanText(a.AlbumArtist), Year: a.MaxYear,
 			URL: "/album/" + a.ID, ArtistURL: "/artist/" + a.AlbumArtistID,
 			Cover: "/share/img/" + a.ID,
 		})
@@ -160,7 +160,7 @@ func (lr *LandingRouter) handleTop50(w http.ResponseWriter, r *http.Request) {
 	items := make([]landingSongItem, 0, len(songs))
 	for _, s := range songs {
 		items = append(items, landingSongItem{
-			ID: s.ID, Title: s.Title, Artist: s.Artist, Album: s.Album,
+			ID: s.ID, Title: cleanText(s.Title), Artist: cleanText(s.Artist), Album: cleanText(s.Album),
 			Duration: formatDuration(s.Duration), URL: "/song/" + s.ID,
 			Cover: "/share/img/" + s.AlbumID,
 		})
@@ -190,7 +190,7 @@ func (lr *LandingRouter) handleNew(w http.ResponseWriter, r *http.Request) {
 	items := make([]landingAlbumItem, 0, len(albums))
 	for _, a := range albums {
 		items = append(items, landingAlbumItem{
-			ID: a.ID, Name: a.Name, Artist: a.AlbumArtist, Year: a.MaxYear,
+			ID: a.ID, Name: cleanText(a.Name), Artist: cleanText(a.AlbumArtist), Year: a.MaxYear,
 			URL: "/album/" + a.ID, ArtistURL: "/artist/" + a.AlbumArtistID,
 			Cover: "/share/img/" + a.ID,
 		})
@@ -220,7 +220,7 @@ func (lr *LandingRouter) handleKaraoke(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		items = append(items, landingSongItem{
-			ID: mf.ID, Title: mf.Title, Artist: mf.Artist, Album: mf.Album,
+			ID: mf.ID, Title: cleanText(mf.Title), Artist: cleanText(mf.Artist), Album: cleanText(mf.Album),
 			Duration: formatDuration(mf.Duration), URL: "/song/" + mf.ID,
 			Cover: "/share/img/" + mf.AlbumID,
 		})
@@ -256,7 +256,7 @@ func (lr *LandingRouter) handleClips(w http.ResponseWriter, r *http.Request) {
 			yt = "https://i.ytimg.com/vi/" + c.YoutubeID + "/hqdefault.jpg"
 		}
 		items = append(items, landingClipItem{
-			ID: c.ID, Title: c.Title, Artist: c.Artist,
+			ID: c.ID, Title: cleanText(c.Title), Artist: cleanText(c.Artist),
 			Thumbnail:  yt,
 			YoutubeURL: "https://www.youtube.com/watch?v=" + c.YoutubeID,
 			URL:        "/app/#/video/" + c.ID,
@@ -317,13 +317,47 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Qirim.Online",
+        "alternateName": ["Къырым.Онлайн", "Qırım Online"],
         "url": "https://qirim.online",
         "description": "{{.MetaDesc}}",
-        "inLanguage": ["ru", "crh"],
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://qirim.online/app/#/song?filter=%7B%22title%22%3A%22{search_term_string}%22%7D",
-            "query-input": "required name=search_term_string"
+        "inLanguage": ["ru", "crh", "en"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Qirim.Online",
+        "alternateName": ["Къырым.Онлайн", "Qırım Online"],
+        "url": "https://qirim.online",
+        "logo": "https://qirim.online/android-chrome-512x512.png",
+        "description": "Цифровая сокровищница крымскотатарской музыки — народные песни, классика эстрады, современные релизы.",
+        "foundingDate": "2025",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@qirim.online",
+            "contactType": "customer support",
+            "availableLanguage": ["Russian", "Crimean Tatar", "English"]
+        },
+        "sameAs": [
+            "https://www.youtube.com/@AnaUrtcom",
+            "https://t.me/ana_yurt_dev",
+            "https://www.facebook.com/qirimonline",
+            "https://ru.wikipedia.org/wiki/Крымскотатарская_музыка"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Qirim.Online — Архив крымскотатарской музыки",
+        "url": "https://qirim.online",
+        "inLanguage": ["ru", "crh", "en"],
+        "about": {
+            "@type": "Thing",
+            "name": "Крымскотатарская музыка",
+            "sameAs": "https://ru.wikipedia.org/wiki/Крымскотатарская_музыка"
         }
     }
     </script>

@@ -1,6 +1,7 @@
 package public
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -70,12 +71,30 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 		lyricsText = extractLyricsText(mf)
 	}
 
+	title := cleanText(mf.Title)
+	artist := cleanText(mf.Artist)
+	album := cleanText(mf.Album)
+	genre := cleanText(mf.Genre)
+
+	// Build a richer meta description (~25-40 words) for better SERP CTR
+	descParts := []string{fmt.Sprintf("%s — %s", title, artist)}
+	if album != "" {
+		descParts = append(descParts, fmt.Sprintf("альбом «%s»", album))
+	}
+	if mf.Year > 0 {
+		descParts = append(descParts, fmt.Sprintf("%d год", mf.Year))
+	}
+	if genre != "" {
+		descParts = append(descParts, genre)
+	}
+	desc := strings.Join(descParts, ", ") + ". Слушайте крымскотатарскую песню онлайн на Qirim.Online — текст, музыка и информация."
+
 	// Build page data
 	data := SongPageData{
-		Title:        mf.Title,
-		Artist:       mf.Artist,
+		Title:        title,
+		Artist:       artist,
 		ArtistID:     mf.ArtistID,
-		Album:        mf.Album,
+		Album:        album,
 		AlbumID:      mf.AlbumID,
 		Year:         mf.Year,
 		Duration:     formatDuration(mf.Duration),
@@ -87,7 +106,7 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 		LyricsURL:    "/app/#/song/" + mf.ID + "/lyrics",
 		CanonicalURL: "/song/" + mf.ID,
 		SiteName:     "Qirim.Online",
-		Description:  mf.Title + " — " + mf.Artist + ". Текст песни и музыка на Qirim.Online",
+		Description:  desc,
 		CurrentYear:  time.Now().Year(),
 	}
 

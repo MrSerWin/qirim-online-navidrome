@@ -70,6 +70,7 @@ func sitemapIndexHandler() http.HandlerFunc {
 				{Loc: base + "/sitemap-static.xml", LastMod: today},
 				{Loc: base + "/sitemap-artists.xml", LastMod: today},
 				{Loc: base + "/sitemap-albums.xml", LastMod: today},
+				{Loc: base + "/sitemap-playlists.xml", LastMod: today},
 				{Loc: base + "/sitemap-songs.xml", LastMod: today},
 				{Loc: base + "/sitemap-clips.xml", LastMod: today},
 			},
@@ -89,12 +90,12 @@ func sitemapStaticHandler() http.HandlerFunc {
 		base := siteBaseURL()
 		today := time.Now().Format("2006-01-02")
 		urls := []SitemapURL{
-			{Loc: base + "/", LastMod: today, ChangeFreq: "daily", Priority: "1.0"},
-			{Loc: base + "/top50", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
-			{Loc: base + "/new", LastMod: today, ChangeFreq: "daily", Priority: "0.9"},
-			{Loc: base + "/karaoke", LastMod: today, ChangeFreq: "weekly", Priority: "0.8"},
-			{Loc: base + "/clips", LastMod: today, ChangeFreq: "weekly", Priority: "0.8"},
-			{Loc: base + "/privacy.html", LastMod: today, ChangeFreq: "monthly", Priority: "0.2"},
+			{Loc: base + "/", LastMod: today},
+			{Loc: base + "/top50", LastMod: today},
+			{Loc: base + "/new", LastMod: today},
+			{Loc: base + "/karaoke", LastMod: today},
+			{Loc: base + "/clips", LastMod: today},
+			{Loc: base + "/privacy.html", LastMod: today},
 		}
 		_ = writeSitemap(w, urls)
 	}
@@ -118,12 +119,7 @@ func sitemapArtistsHandler(ds model.DataStore) http.HandlerFunc {
 			if a.UpdatedAt != nil && !a.UpdatedAt.IsZero() {
 				lastmod = a.UpdatedAt.Format("2006-01-02")
 			}
-			urls = append(urls, SitemapURL{
-				Loc:        loc,
-				LastMod:    lastmod,
-				ChangeFreq: "weekly",
-				Priority:   "0.8",
-			})
+			urls = append(urls, SitemapURL{Loc: loc, LastMod: lastmod})
 		}
 		_ = writeSitemap(w, urls)
 	}
@@ -147,11 +143,33 @@ func sitemapAlbumsHandler(ds model.DataStore) http.HandlerFunc {
 			if !a.UpdatedAt.IsZero() {
 				lastmod = a.UpdatedAt.Format("2006-01-02")
 			}
+			urls = append(urls, SitemapURL{Loc: loc, LastMod: lastmod})
+		}
+		_ = writeSitemap(w, urls)
+	}
+}
+
+func sitemapPlaylistsHandler(ds model.DataStore) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		base := siteBaseURL()
+		playlists, err := ds.Playlist(r.Context()).GetAll(model.QueryOptions{
+			Filters: squirrel.Eq{"public": true},
+			Max:     10000,
+		})
+		if err != nil {
+			log.Error(r.Context(), "Error getting playlists for sitemap", err)
+			http.Error(w, "Error", http.StatusInternalServerError)
+			return
+		}
+		urls := make([]SitemapURL, 0, len(playlists))
+		for _, p := range playlists {
+			lastmod := ""
+			if !p.UpdatedAt.IsZero() {
+				lastmod = p.UpdatedAt.Format("2006-01-02")
+			}
 			urls = append(urls, SitemapURL{
-				Loc:        loc,
-				LastMod:    lastmod,
-				ChangeFreq: "weekly",
-				Priority:   "0.7",
+				Loc:     fmt.Sprintf("%s/playlist/%s", base, p.ID),
+				LastMod: lastmod,
 			})
 		}
 		_ = writeSitemap(w, urls)
@@ -180,12 +198,7 @@ func sitemapSongsHandler(ds model.DataStore) http.HandlerFunc {
 			if !s.UpdatedAt.IsZero() {
 				lastmod = s.UpdatedAt.Format("2006-01-02")
 			}
-			urls = append(urls, SitemapURL{
-				Loc:        loc,
-				LastMod:    lastmod,
-				ChangeFreq: "monthly",
-				Priority:   "0.6",
-			})
+			urls = append(urls, SitemapURL{Loc: loc, LastMod: lastmod})
 		}
 		_ = writeSitemap(w, urls)
 	}
@@ -201,11 +214,7 @@ func sitemapClipsHandler(ds model.DataStore) http.HandlerFunc {
 			return
 		}
 		urls := make([]SitemapURL, 0, len(clips)+1)
-		urls = append(urls, SitemapURL{
-			Loc:        base + "/clips",
-			ChangeFreq: "daily",
-			Priority:   "0.8",
-		})
+		urls = append(urls, SitemapURL{Loc: base + "/clips"})
 		for _, c := range clips {
 			// Clips live inside the SPA — only the /clips landing is canonical.
 			// We still expose individual clip URLs so search engines know about them.
@@ -214,12 +223,7 @@ func sitemapClipsHandler(ds model.DataStore) http.HandlerFunc {
 			if !c.UpdatedAt.IsZero() {
 				lastmod = c.UpdatedAt.Format("2006-01-02")
 			}
-			urls = append(urls, SitemapURL{
-				Loc:        loc,
-				LastMod:    lastmod,
-				ChangeFreq: "monthly",
-				Priority:   "0.5",
-			})
+			urls = append(urls, SitemapURL{Loc: loc, LastMod: lastmod})
 		}
 		_ = writeSitemap(w, urls)
 	}

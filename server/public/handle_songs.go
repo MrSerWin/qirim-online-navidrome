@@ -58,6 +58,15 @@ func extractLyricsText(mf *model.MediaFile) string {
 	return strings.Join(lines, "\n")
 }
 
+// cleanText normalizes a DB-sourced string for safe insertion into an HTML
+// template: it decodes any HTML entities that might already be present (e.g.
+// "&#39;" → "'") so that html/template can escape exactly once afterwards.
+// Without this, names like "SEYRAN7'62" stored as "SEYRAN7&#39;62" come out
+// as "SEYRAN7&amp;#39;62" in the rendered page.
+func cleanText(s string) string {
+	return html.UnescapeString(s)
+}
+
 // formatDuration formats duration in seconds to MM:SS format (for human display)
 func formatDuration(seconds float32) string {
 	d := time.Duration(seconds) * time.Second

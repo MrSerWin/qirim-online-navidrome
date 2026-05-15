@@ -206,6 +206,7 @@ func (s *Server) initRoutes() {
 	publicGet(path.Join(conf.Server.BasePath, "/sitemap-static.xml"), sitemapStaticHandler())
 	publicGet(path.Join(conf.Server.BasePath, "/sitemap-artists.xml"), sitemapArtistsHandler(s.ds))
 	publicGet(path.Join(conf.Server.BasePath, "/sitemap-albums.xml"), sitemapAlbumsHandler(s.ds))
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-playlists.xml"), sitemapPlaylistsHandler(s.ds))
 	publicGet(path.Join(conf.Server.BasePath, "/sitemap-songs.xml"), sitemapSongsHandler(s.ds))
 	publicGet(path.Join(conf.Server.BasePath, "/sitemap-clips.xml"), sitemapClipsHandler(s.ds))
 

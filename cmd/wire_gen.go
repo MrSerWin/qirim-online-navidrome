@@ -144,6 +144,12 @@ func CreateLandingPagesRouter() *public.LandingRouter {
 	return public.NewLandingRouter(dataStore)
 }
 
+func CreatePlaylistPagesRouter() *public.PlaylistRouter {
+	sqlDB := db.Db()
+	dataStore := persistence.New(sqlDB)
+	return public.NewPlaylistRouter(dataStore)
+}
+
 func CreateLastFMRouter() *lastfm.Router {
 	sqlDB := db.Db()
 	dataStore := persistence.New(sqlDB)

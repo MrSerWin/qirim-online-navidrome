@@ -95,7 +95,7 @@ func (ar *ArtistRouter) handleArtistPage(w http.ResponseWriter, r *http.Request)
 	for _, a := range albums {
 		albumItems = append(albumItems, artistAlbumItem{
 			ID:       a.ID,
-			Name:     a.Name,
+			Name:     cleanText(a.Name),
 			Year:     a.MaxYear,
 			CoverURL: "/share/img/" + a.ID,
 			URL:      "/album/" + a.ID,
@@ -114,16 +114,17 @@ func (ar *ArtistRouter) handleArtistPage(w http.ResponseWriter, r *http.Request)
 	for _, s := range songs {
 		songItems = append(songItems, artistSongItem{
 			ID:       s.ID,
-			Title:    s.Title,
-			Album:    s.Album,
+			Title:    cleanText(s.Title),
+			Album:    cleanText(s.Album),
 			Duration: formatDuration(s.Duration),
 			URL:      "/song/" + s.ID,
 		})
 	}
 
-	bioText := stripHTML(artist.Biography)
+	artistName := cleanText(artist.Name)
+	bioText := cleanText(stripHTML(artist.Biography))
 	if bioText == "" {
-		bioText = fmt.Sprintf("%s — крымскотатарский исполнитель. Слушайте песни и альбомы на Qirim.Online — крупнейшем архиве крымскотатарской музыки.", artist.Name)
+		bioText = fmt.Sprintf("%s — крымскотатарский исполнитель. Слушайте песни и альбомы на Qirim.Online — крупнейшем архиве крымскотатарской музыки.", artistName)
 	}
 	description := bioText
 	if len(description) > 300 {
@@ -137,7 +138,7 @@ func (ar *ArtistRouter) handleArtistPage(w http.ResponseWriter, r *http.Request)
 
 	data := ArtistPageData{
 		ID:            artist.ID,
-		Name:          artist.Name,
+		Name:          artistName,
 		BiographyText: bioText,
 		Biography:     template.HTML(formatLyricsHTML(bioText)),
 		ImageURL:      imageURL,
@@ -231,8 +232,7 @@ var artistPageTemplate = template.Must(template.New("artist").Funcs(template.Fun
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://qirim.online/"},
-            {"@type": "ListItem", "position": 2, "name": "Артисты", "item": "https://qirim.online/"},
-            {"@type": "ListItem", "position": 3, "name": "{{.Name}}", "item": "https://qirim.online{{.CanonicalURL}}"}
+            {"@type": "ListItem", "position": 2, "name": "{{.Name}}", "item": "https://qirim.online{{.CanonicalURL}}"}
         ]
     }
     </script>
@@ -308,7 +308,6 @@ var artistPageTemplate = template.Must(template.New("artist").Funcs(template.Fun
     <div class="container">
         <nav class="breadcrumb">
             <a href="/">Главная</a> ›
-            <a href="/app/#/artist">Артисты</a> ›
             {{.Name}}
         </nav>
 

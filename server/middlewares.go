@@ -106,13 +106,34 @@ func secureMiddleware() func(http.Handler) http.Handler {
 	// skip emitting it here to avoid duplicate/conflicting headers.
 	customFrameVal := conf.Server.HTTPSecurityHeaders.CustomFrameOptionsValue
 	frameDeny := customFrameVal == ""
+
+	// Content-Security-Policy
+	// 'unsafe-inline' is required for: inline JSON-LD <script>, Yandex Metrika
+	// initializer, gtag init. 'unsafe-eval' is needed by some React dev builds —
+	// production build shouldn't need it but Navidrome's UI uses it in places.
+	// img-src includes data: for inline SVG icons.
+	csp := strings.Join([]string{
+		"default-src 'self'",
+		"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://mc.yandex.ru https://mc.yandex.com",
+		"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+		"font-src 'self' data: https://fonts.gstatic.com",
+		"img-src 'self' data: blob: https: http:",
+		"media-src 'self' blob: https:",
+		"connect-src 'self' https://mc.yandex.ru https://mc.yandex.com https://www.google-analytics.com https://stats.g.doubleclick.net wss: ws:",
+		"frame-src 'self' https://mc.yandex.ru https://www.youtube.com https://www.youtube-nocookie.com",
+		"object-src 'none'",
+		"base-uri 'self'",
+		"form-action 'self'",
+		"frame-ancestors 'self'",
+	}, "; ")
+
 	sec := secure.New(secure.Options{
 		ContentTypeNosniff:      true,
 		FrameDeny:               frameDeny,
 		ReferrerPolicy:          "same-origin",
 		PermissionsPolicy:       "autoplay=(), camera=(), microphone=(), usb=()",
 		CustomFrameOptionsValue: customFrameVal,
-		//ContentSecurityPolicy: "script-src 'self' 'unsafe-inline'",
+		ContentSecurityPolicy:   csp,
 	})
 	return sec.Handler
 }

@@ -8,6 +8,7 @@ Allow: /
 Allow: /song/
 Allow: /artist/
 Allow: /album/
+Allow: /playlist/
 Allow: /top50
 Allow: /new
 Allow: /karaoke
@@ -22,6 +23,7 @@ Allow: /sitemap.xml
 Allow: /sitemap-static.xml
 Allow: /sitemap-artists.xml
 Allow: /sitemap-albums.xml
+Allow: /sitemap-playlists.xml
 Allow: /sitemap-songs.xml
 Allow: /sitemap-clips.xml
 Allow: /privacy.html
@@ -67,6 +69,7 @@ Allow: /
 Allow: /song/
 Allow: /artist/
 Allow: /album/
+Allow: /playlist/
 Allow: /top50
 Allow: /new
 Allow: /karaoke
@@ -83,6 +86,7 @@ Allow: /
 Allow: /song/
 Allow: /artist/
 Allow: /album/
+Allow: /playlist/
 Allow: /top50
 Allow: /new
 Allow: /karaoke
@@ -99,10 +103,149 @@ Allow: /
 Allow: /song/
 Allow: /artist/
 Allow: /album/
+Allow: /playlist/
 Allow: /top50
 Allow: /new
 Allow: /karaoke
 Allow: /clips
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+# ============================================================
+# AI / LLM crawlers — explicit allow so they pick up our content
+# and so we have a clear, debuggable signal per agent.
+# ============================================================
+
+User-agent: GPTBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: CCBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Applebot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: YouBot
+Allow: /
+Disallow: /app/
+Disallow: /api/
+Disallow: /rest/
+Disallow: /auth/
+
+User-agent: DuckAssistBot
+Allow: /
 Disallow: /app/
 Disallow: /api/
 Disallow: /rest/
