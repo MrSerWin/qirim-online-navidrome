@@ -27,6 +27,7 @@ func (ar *AlbumRouter) routes() http.Handler {
 	r := chi.NewRouter()
 	r.Use(server.URLParamsMiddleware)
 	r.Get("/{id}", ar.handleAlbumPage)
+	r.Head("/{id}", ar.handleAlbumPage)
 	return r
 }
 

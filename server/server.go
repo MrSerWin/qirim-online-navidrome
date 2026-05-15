@@ -197,17 +197,21 @@ func (s *Server) initRoutes() {
 		s.router = r
 	})
 
-	// Mount dynamic sitemap (public, no auth required)
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap.xml"), sitemapIndexHandler())
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap-static.xml"), sitemapStaticHandler())
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap-artists.xml"), sitemapArtistsHandler(s.ds))
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap-albums.xml"), sitemapAlbumsHandler(s.ds))
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap-songs.xml"), sitemapSongsHandler(s.ds))
-	r.Get(path.Join(conf.Server.BasePath, "/sitemap-clips.xml"), sitemapClipsHandler(s.ds))
+	// Mount dynamic sitemap (public, no auth required) — GET + HEAD
+	publicGet := func(path string, handler http.HandlerFunc) {
+		r.Get(path, handler)
+		r.Head(path, handler)
+	}
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap.xml"), sitemapIndexHandler())
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-static.xml"), sitemapStaticHandler())
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-artists.xml"), sitemapArtistsHandler(s.ds))
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-albums.xml"), sitemapAlbumsHandler(s.ds))
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-songs.xml"), sitemapSongsHandler(s.ds))
+	publicGet(path.Join(conf.Server.BasePath, "/sitemap-clips.xml"), sitemapClipsHandler(s.ds))
 
 	// IndexNow key-file verification endpoint (Bing/Yandex/Seznam)
 	if keyPath := indexNowKeyPath(); keyPath != "" {
-		r.Get(path.Join(conf.Server.BasePath, keyPath), indexNowKeyHandler())
+		publicGet(path.Join(conf.Server.BasePath, keyPath), indexNowKeyHandler())
 	}
 }
 
@@ -266,9 +270,11 @@ func (s *Server) mountRootRedirector() {
 	}
 	for _, file := range staticFiles {
 		fileName := file
-		r.Get("/"+fileName, func(w http.ResponseWriter, r *http.Request) {
+		handler := func(w http.ResponseWriter, r *http.Request) {
 			http.ServeFileFS(w, r, assets, fileName)
-		})
+		}
+		r.Get("/"+fileName, handler)
+		r.Head("/"+fileName, handler)
 	}
 	// Note: root "/" is now handled by the SEO LandingRouter mounted earlier.
 	r.Get(s.appRoot, func(w http.ResponseWriter, r *http.Request) {

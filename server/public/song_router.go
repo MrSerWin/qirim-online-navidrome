@@ -28,6 +28,7 @@ func (sr *SongRouter) routes() http.Handler {
 	r := chi.NewRouter()
 	r.Use(server.URLParamsMiddleware)
 	r.Get("/{id}", sr.handleSongPage)
+	r.Head("/{id}", sr.handleSongPage)
 	return r
 }
 

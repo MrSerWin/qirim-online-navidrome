@@ -24,11 +24,19 @@ func NewLandingRouter(ds model.DataStore) *LandingRouter {
 
 func (lr *LandingRouter) routes() http.Handler {
 	r := chi.NewRouter()
-	r.Get("/", lr.handleHome)
-	r.Get("/top50", lr.handleTop50)
-	r.Get("/new", lr.handleNew)
-	r.Get("/karaoke", lr.handleKaraoke)
-	r.Get("/clips", lr.handleClips)
+	for _, route := range []struct {
+		path    string
+		handler http.HandlerFunc
+	}{
+		{"/", lr.handleHome},
+		{"/top50", lr.handleTop50},
+		{"/new", lr.handleNew},
+		{"/karaoke", lr.handleKaraoke},
+		{"/clips", lr.handleClips},
+	} {
+		r.Get(route.path, route.handler)
+		r.Head(route.path, route.handler)
+	}
 	return r
 }
 

@@ -29,6 +29,7 @@ func (ar *ArtistRouter) routes() http.Handler {
 	r := chi.NewRouter()
 	r.Use(server.URLParamsMiddleware)
 	r.Get("/{id}", ar.handleArtistPage)
+	r.Head("/{id}", ar.handleArtistPage)
 	return r
 }
 
