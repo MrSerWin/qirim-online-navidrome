@@ -35,6 +35,13 @@ Allow: /artist-placeholder.webp
 # Block duplicate SPA URLs so crawlers don't waste budget and don't split signals
 Disallow: /app/
 
+# Allow legacy SPA URLs so crawlers can follow the 301 → canonical SSR routes.
+# Nginx permanently redirects /app/{album,artist,playlist}/{id}/show → /{album,artist,playlist}/{id}.
+# More-specific Allow overrides the broader Disallow above (Google's longest-match rule).
+Allow: /app/album/
+Allow: /app/artist/
+Allow: /app/playlist/
+
 # Private/auth-only sections
 Disallow: /api/
 Disallow: /rest/
@@ -75,6 +82,9 @@ Allow: /new
 Allow: /karaoke
 Allow: /clips
 Disallow: /app/
+Allow: /app/album/
+Allow: /app/artist/
+Allow: /app/playlist/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
@@ -92,6 +102,9 @@ Allow: /new
 Allow: /karaoke
 Allow: /clips
 Disallow: /app/
+Allow: /app/album/
+Allow: /app/artist/
+Allow: /app/playlist/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/
@@ -109,6 +122,9 @@ Allow: /new
 Allow: /karaoke
 Allow: /clips
 Disallow: /app/
+Allow: /app/album/
+Allow: /app/artist/
+Allow: /app/playlist/
 Disallow: /api/
 Disallow: /rest/
 Disallow: /auth/

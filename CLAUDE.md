@@ -203,7 +203,7 @@ See `docker-compose.qirim-online.yml` for full production config.
 - `docker-compose.qirim-online.yml` - Production config (qirim.online)
 - `docker-compose.yml` - Stage config (YOUR_DOMAIN)
 - `Dockerfile.simple` - Docker build file
-- `nginx/nginx-qirim-online.conf` - Nginx reverse proxy config for production
+- `nginx/nginx-qirim-online.conf` - **REFERENCE ONLY, OUT OF SYNC.** Real prod config lives on server at `/etc/nginx/conf.d/10-qirim-online.conf` (host systemd nginx, NOT Docker). `deploy.sh` does NOT touch nginx. See [docs/NGINX_SETUP.md](docs/NGINX_SETUP.md) for how to edit and reload.
 
 ### Documentation
 - `DEPLOYMENT.md` - Detailed deployment guide
