@@ -53,6 +53,40 @@ Google Search Console показал три раздела. Разбор и пл
 - [ ] Открыть раздел «Not found (404)» → нажать **Validate Fix**.
 - [ ] Через 1-3 недели проверить, что список 404 уменьшился (старт: 54).
 
+### 🟢 Алерт GSC «Duplicate, Google chose different canonical than user» — фикс задеплоен (2026-05-31)
+
+**Корневая причина:** массовый шаблон в данных — имена файлов вида `Artist - Song.mp3` / `Artist_Song.mp3`, плюс альбомы названы по имени артиста. Результат: `<title>`/`<h1>`/JSON-LD у /song, /album, /artist почти одинаковы; имя артиста повторяется 3-4 раза в каждом мета-теге; Google помечает их как дубли и сам выбирает canonical.
+
+Пример «до» для одной песни:
+```
+<title>Elina Sosnovskaya - Ep ileri — Elina Sosnovskaya | Текст песни | Qirim.Online</title>
+<h1>Elina Sosnovskaya - Ep ileri</h1>
+description: ...— Elina Sosnovskaya, альбом «Elina Sosnovskaya»...
+```
+
+**Что сделано (закоммитить и задеплоено):**
+- [x] **`stripArtistPrefix(title, artist)`** в [server/public/handle_songs.go](../server/public/handle_songs.go) — срезает префикс артиста из названия. Case-insensitive, разделители: ` - `, `–`, `—`, `-`, `_`, `.`. Подчёркивания нормализуются как пробелы.
+- [x] **Humanize underscores** — после среза префикса `_` → ` ` и схлопывание пробелов. Названия вида `Elvira_Emir_Strunnyj_kvartet_chast_3` теперь рендерятся как `Strunnyj kvartet chast 3`.
+- [x] **Самотитульные альбомы** ([server/public/seo_album_router.go](../server/public/seo_album_router.go)) — флаг `SelfTitled` (`album.Name == album.AlbumArtist`); `<title>` и `og:title` рендерятся как `«{Artist} — все песни»` вместо дублирующего `«{Artist} — {Artist} | Альбом»`. Description тоже без дубля.
+- [x] **Treklist в альбоме и top-songs у артиста** — все названия проходят через `stripArtistPrefix` ([server/public/seo_album_router.go](../server/public/seo_album_router.go), [server/public/seo_artist_router.go](../server/public/seo_artist_router.go)).
+- [x] **Песня — description без дублирования** ([server/public/song_router.go](../server/public/song_router.go)): «альбом «X»» больше не выводится, если `album == artist`. Добавлена длительность.
+
+«После» для той же песни:
+```
+<title>Ep ileri — Elina Sosnovskaya | Текст песни | Qirim.Online</title>
+<h1>Ep ileri</h1>
+description: Ep ileri — Elina Sosnovskaya, длительность 3:29...
+```
+
+**После деплоя — GSC:**
+- [ ] Открыть Pages → «Duplicate, Google chose different canonical than user» → **Validate Fix** (когда там накопится больше затронутых URL — сейчас всего 1, ждём что Google расширит выборку через 1-2 недели).
+- [ ] Через 2-3 недели проверить, что счётчик не растёт и существующие URL переиндексировались с нашим canonical.
+
+**Остаточные edge cases (не источник дублей):**
+- Названия с именем артиста **в конце**: `Neizvesten_Kyrym_nagmeleri_kompozitor_Elvira_Emir` — не ловится prefix-strip-ом, но это не дубль.
+- Транслитерация: `ehlvira_ehmir_Bez_nazvaniya` (в title) vs `Elvira Emir` (в artist) — разное написание. Решение через таблицу транслитерации — отдельная задача.
+- Эти случаи остаются с подчёркиваниями в названии — UX просадка, не SEO-дубль.
+
 ### Долги, всплывшие при работе
 
 - [ ] **Map старых SEO-URL → hash-роуты** (строки 1-330 в `/etc/nginx/conf.d/10-qirim-online.conf`). Редиректит URL вида `/album/105/elvira+sarıhalil/эльвира+сарыхалил` на `/app/#/album/{id}/show` — тот же мёртвый hash-роут. Перегенерировать через [scripts/find-redirects.py](../scripts/find-redirects.py), чтобы цели стали каноническими `/album/{id}` / `/artist/{id}`. Тот же класс SEO-ремонта.

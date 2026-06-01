@@ -71,14 +71,17 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 		lyricsText = extractLyricsText(mf)
 	}
 
-	title := cleanText(mf.Title)
 	artist := cleanText(mf.Artist)
+	// Strip "Artist - " prefix often present in imported titles to avoid duplicate signals.
+	title := stripArtistPrefix(cleanText(mf.Title), artist)
 	album := cleanText(mf.Album)
 	genre := cleanText(mf.Genre)
 
-	// Build a richer meta description (~25-40 words) for better SERP CTR
+	// Build a meta description that avoids repeating the artist name when the
+	// album is self-titled (album name == artist name — the common case when
+	// the import created one container "album" per artist).
 	descParts := []string{fmt.Sprintf("%s — %s", title, artist)}
-	if album != "" {
+	if album != "" && !equalFold(album, artist) {
 		descParts = append(descParts, fmt.Sprintf("альбом «%s»", album))
 	}
 	if mf.Year > 0 {
@@ -86,6 +89,9 @@ func (sr *SongRouter) handleSongPage(w http.ResponseWriter, r *http.Request) {
 	}
 	if genre != "" {
 		descParts = append(descParts, genre)
+	}
+	if mf.Duration > 0 {
+		descParts = append(descParts, fmt.Sprintf("длительность %s", formatDuration(mf.Duration)))
 	}
 	desc := strings.Join(descParts, ", ") + ". Слушайте крымскотатарскую песню онлайн на Qirim.Online — текст, музыка и информация."
 

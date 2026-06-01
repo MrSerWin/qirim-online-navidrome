@@ -59,6 +59,7 @@ type AlbumPageData struct {
 	SiteName      string
 	MetaDesc      string
 	CurrentYear   int
+	SelfTitled    bool // true when album.Name == album.AlbumArtist; suppresses duplicate signals
 }
 
 func (ar *AlbumRouter) handleAlbumPage(w http.ResponseWriter, r *http.Request) {
@@ -85,11 +86,15 @@ func (ar *AlbumRouter) handleAlbumPage(w http.ResponseWriter, r *http.Request) {
 		Max:     500,
 	})
 
+	albumName := cleanText(album.Name)
+	albumArtist := cleanText(album.AlbumArtist)
+	selfTitled := equalFold(albumName, albumArtist)
+
 	trackItems := make([]albumTrackItem, 0, len(tracks))
 	for _, t := range tracks {
 		trackItems = append(trackItems, albumTrackItem{
 			ID:          t.ID,
-			Title:       cleanText(t.Title),
+			Title:       stripArtistPrefix(cleanText(t.Title), albumArtist),
 			Track:       t.TrackNumber,
 			Duration:    formatDuration(t.Duration),
 			DurationISO: formatISODuration(t.Duration),
@@ -97,11 +102,14 @@ func (ar *AlbumRouter) handleAlbumPage(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	albumName := cleanText(album.Name)
-	albumArtist := cleanText(album.AlbumArtist)
 	descText := cleanText(stripHTML(album.Description))
 	if descText == "" {
-		descText = fmt.Sprintf("Альбом «%s» — %s. %d песен. Слушайте онлайн на Qirim.Online.", albumName, albumArtist, len(trackItems))
+		if selfTitled {
+			// Avoid the «Album X — X» phrasing that produced duplicate signals.
+			descText = fmt.Sprintf("Все песни %s — %d треков в архиве крымскотатарской музыки Qirim.Online.", albumArtist, len(trackItems))
+		} else {
+			descText = fmt.Sprintf("Альбом «%s» — %s. %d песен. Слушайте онлайн на Qirim.Online.", albumName, albumArtist, len(trackItems))
+		}
 	}
 	metaDesc := descText
 	if len(metaDesc) > 300 {
@@ -127,6 +135,7 @@ func (ar *AlbumRouter) handleAlbumPage(w http.ResponseWriter, r *http.Request) {
 		SiteName:      "Qirim.Online",
 		MetaDesc:      metaDesc,
 		CurrentYear:   time.Now().Year(),
+		SelfTitled:    selfTitled,
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -143,7 +152,7 @@ var albumPageTemplate = template.Must(template.New("album").Funcs(template.FuncM
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{.Name}} — {{.Artist}} | Альбом | {{.SiteName}}</title>
+    <title>{{if .SelfTitled}}{{.Artist}} — все песни | {{.SiteName}}{{else}}{{.Name}} — {{.Artist}} | Альбом | {{.SiteName}}{{end}}</title>
     <meta name="description" content="{{.MetaDesc}}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://qirim.online{{.CanonicalURL}}">
@@ -153,7 +162,7 @@ var albumPageTemplate = template.Must(template.New("album").Funcs(template.FuncM
     <link rel="icon" href="/app/favicon.ico" type="image/x-icon">
 
     <meta property="og:type" content="music.album">
-    <meta property="og:title" content="{{.Name}} — {{.Artist}}">
+    <meta property="og:title" content="{{if .SelfTitled}}{{.Artist}} — все песни{{else}}{{.Name}} — {{.Artist}}{{end}}">
     <meta property="og:description" content="{{.MetaDesc}}">
     <meta property="og:image" content="https://qirim.online{{.CoverURL}}">
     <meta property="og:url" content="https://qirim.online{{.CanonicalURL}}">
@@ -162,7 +171,7 @@ var albumPageTemplate = template.Must(template.New("album").Funcs(template.FuncM
     {{if .Year}}<meta property="music:release_date" content="{{.Year}}">{{end}}
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{.Name}} — {{.Artist}}">
+    <meta name="twitter:title" content="{{if .SelfTitled}}{{.Artist}} — все песни{{else}}{{.Name}} — {{.Artist}}{{end}}">
     <meta name="twitter:description" content="{{.MetaDesc}}">
     <meta name="twitter:image" content="https://qirim.online{{.CoverURL}}">
 

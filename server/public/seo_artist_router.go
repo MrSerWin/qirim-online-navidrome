@@ -110,18 +110,17 @@ func (ar *ArtistRouter) handleArtistPage(w http.ResponseWriter, r *http.Request)
 		Max:     20,
 	})
 
+	artistName := cleanText(artist.Name)
 	songItems := make([]artistSongItem, 0, len(songs))
 	for _, s := range songs {
 		songItems = append(songItems, artistSongItem{
 			ID:       s.ID,
-			Title:    cleanText(s.Title),
+			Title:    stripArtistPrefix(cleanText(s.Title), artistName),
 			Album:    cleanText(s.Album),
 			Duration: formatDuration(s.Duration),
 			URL:      "/song/" + s.ID,
 		})
 	}
-
-	artistName := cleanText(artist.Name)
 	bioText := cleanText(stripHTML(artist.Biography))
 	if bioText == "" {
 		bioText = fmt.Sprintf("%s — крымскотатарский исполнитель. Слушайте песни и альбомы на Qirim.Online — крупнейшем архиве крымскотатарской музыки.", artistName)

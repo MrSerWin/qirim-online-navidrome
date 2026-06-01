@@ -67,6 +67,53 @@ func cleanText(s string) string {
 	return html.UnescapeString(s)
 }
 
+// stripArtistPrefix removes a redundant "{Artist}{sep}" prefix from a title.
+// Many imported titles are stored as "Artist - Song" or "Artist_Song" (from
+// filenames like "Artist - Song.mp3" / "Artist_Song.mp3"), which duplicates the
+// artist field and produces near-identical <title>/<h1>/JSON-LD across pages —
+// Google flags these as "Duplicate, Google chose different canonical than user".
+// Match is case-insensitive and treats underscores as spaces so titles like
+// "Elvira_Emir_Strunnyj_kvartet" with artist "Elvira Emir" still match.
+func stripArtistPrefix(title, artist string) string {
+	title = strings.TrimSpace(title)
+	artist = strings.TrimSpace(artist)
+	if title == "" || artist == "" {
+		return title
+	}
+	// Normalize for comparison only: underscores ↔ spaces, lowercase. The original
+	// `title` keeps its bytes — and since `_`/` ` are both 1-byte ASCII, byte
+	// offsets line up with the normalized view.
+	normalize := func(s string) string {
+		return strings.ToLower(strings.ReplaceAll(s, "_", " "))
+	}
+	if !strings.HasPrefix(normalize(title), normalize(artist)) {
+		return title
+	}
+	humanize := func(s string) string {
+		// Filename-style residue: turn underscores into spaces, collapse runs.
+		return strings.Join(strings.Fields(strings.ReplaceAll(s, "_", " ")), " ")
+	}
+	rest := strings.TrimLeft(title[len(artist):], " _.")
+	for _, sep := range []string{"—", "–", "-"} {
+		if strings.HasPrefix(rest, sep) {
+			cleaned := strings.TrimLeft(rest[len(sep):], " _.")
+			if cleaned != "" {
+				return humanize(cleaned)
+			}
+			return title
+		}
+	}
+	// No explicit dash separator (e.g. "Artist_Song") — accept what we have if non-empty.
+	if rest != "" && rest != title {
+		return humanize(rest)
+	}
+	return title
+}
+
+// equalFold reports whether s and t are equal under simple Unicode case folding.
+// Local alias to keep call sites concise.
+func equalFold(s, t string) bool { return strings.EqualFold(strings.TrimSpace(s), strings.TrimSpace(t)) }
+
 // formatDuration formats duration in seconds to MM:SS format (for human display)
 func formatDuration(seconds float32) string {
 	d := time.Duration(seconds) * time.Second
