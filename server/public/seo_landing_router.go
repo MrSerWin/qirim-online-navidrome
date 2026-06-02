@@ -1,5 +1,7 @@
 package public
 
+// SEO landing pages (server-rendered) for crawlers and the public homepage.
+
 import (
 	"fmt"
 	"html/template"
@@ -8,6 +10,7 @@ import (
 
 	"github.com/Masterminds/squirrel"
 	"github.com/go-chi/chi/v5"
+	"github.com/navidrome/navidrome/consts"
 	"github.com/navidrome/navidrome/model"
 )
 
@@ -38,6 +41,17 @@ func (lr *LandingRouter) routes() http.Handler {
 		r.Head(route.path, route.handler)
 	}
 	return r
+}
+
+// validAlbumFilter returns a filter that excludes missing albums and the
+// untagged "[Unknown Album]" / "[Unknown Artist]" placeholders Navidrome assigns
+// to files without metadata, so they never appear on the public SEO pages.
+func validAlbumFilter() squirrel.Sqlizer {
+	return squirrel.And{
+		squirrel.Eq{"missing": false},
+		squirrel.NotEq{"album.name": consts.UnknownAlbum},
+		squirrel.NotEq{"album.album_artist": consts.UnknownArtist},
+	}
 }
 
 type landingArtistItem struct {
@@ -106,31 +120,27 @@ func (lr *LandingRouter) handleHome(w http.ResponseWriter, r *http.Request) {
 	})
 	topArtists := make([]landingArtistItem, 0, len(artists))
 	for _, a := range artists {
-		img := a.ArtistImageUrl()
-		if img == "" {
-			img = "/share/img/ar-" + a.ID
-		}
 		topArtists = append(topArtists, landingArtistItem{
 			ID:   a.ID,
 			Name: cleanText(a.Name),
 			URL:  "/artist/" + a.ID,
-			Img:  img,
+			Img:  ImageURL(r, a.CoverArtID(), 300),
 		})
 	}
 
-	// Recently added albums
+	// Recently added albums (exclude untagged/unknown placeholders)
 	albums, _ := lr.ds.Album(ctx).GetAll(model.QueryOptions{
 		Sort:    "recently_added",
 		Order:   "desc",
 		Max:     24,
-		Filters: squirrel.Eq{"missing": false},
+		Filters: validAlbumFilter(),
 	})
 	newAlbums := make([]landingAlbumItem, 0, len(albums))
 	for _, a := range albums {
 		newAlbums = append(newAlbums, landingAlbumItem{
 			ID: a.ID, Name: cleanText(a.Name), Artist: cleanText(a.AlbumArtist), Year: a.MaxYear,
 			URL: "/album/" + a.ID, ArtistURL: "/artist/" + a.AlbumArtistID,
-			Cover: "/share/img/" + a.ID,
+			Cover: ImageURL(r, a.CoverArtID(), 300),
 		})
 	}
 
@@ -162,7 +172,7 @@ func (lr *LandingRouter) handleTop50(w http.ResponseWriter, r *http.Request) {
 		items = append(items, landingSongItem{
 			ID: s.ID, Title: cleanText(s.Title), Artist: cleanText(s.Artist), Album: cleanText(s.Album),
 			Duration: formatDuration(s.Duration), URL: "/song/" + s.ID,
-			Cover: "/share/img/" + s.AlbumID,
+			Cover: ImageURL(r, s.CoverArtID(), 100),
 		})
 	}
 	data := LandingPageData{
@@ -185,14 +195,14 @@ func (lr *LandingRouter) handleNew(w http.ResponseWriter, r *http.Request) {
 		Sort:    "recently_added",
 		Order:   "desc",
 		Max:     60,
-		Filters: squirrel.Eq{"missing": false},
+		Filters: validAlbumFilter(),
 	})
 	items := make([]landingAlbumItem, 0, len(albums))
 	for _, a := range albums {
 		items = append(items, landingAlbumItem{
 			ID: a.ID, Name: cleanText(a.Name), Artist: cleanText(a.AlbumArtist), Year: a.MaxYear,
 			URL: "/album/" + a.ID, ArtistURL: "/artist/" + a.AlbumArtistID,
-			Cover: "/share/img/" + a.ID,
+			Cover: ImageURL(r, a.CoverArtID(), 300),
 		})
 	}
 	data := LandingPageData{
@@ -222,7 +232,7 @@ func (lr *LandingRouter) handleKaraoke(w http.ResponseWriter, r *http.Request) {
 		items = append(items, landingSongItem{
 			ID: mf.ID, Title: cleanText(mf.Title), Artist: cleanText(mf.Artist), Album: cleanText(mf.Album),
 			Duration: formatDuration(mf.Duration), URL: "/song/" + mf.ID,
-			Cover: "/share/img/" + mf.AlbumID,
+			Cover: ImageURL(r, mf.CoverArtID(), 100),
 		})
 		if len(items) >= 100 {
 			break
@@ -392,7 +402,7 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #202021; color: #D8DEE9; min-height: 100vh; line-height: 1.6; }
-        .navbar { background-color: #4C566A; box-shadow: rgba(15,17,21,0.25) 0px 4px 6px; padding: 0 16px; height: 64px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .navbar { background-color: #202021; border-bottom: 1px solid #2E3440; box-shadow: rgba(0,0,0,0.4) 0px 4px 6px; padding: 0 16px; height: 64px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
         .navbar-content { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
         .logo img { height: 40px; width: auto; }
@@ -406,7 +416,7 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
         .hero p { font-size: 1.125rem; color: #E5E9F0; max-width: 800px; margin: 0 auto 24px; }
         .cta-btn { display: inline-block; background: #fff; color: #2E3440; padding: 12px 32px; border-radius: 500px; text-decoration: none; font-weight: 700; font-size: 1rem; }
         .cta-btn:hover { background: #ECEFF4; transform: scale(1.02); }
-        section { background: #2b2b2b; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+        section { background: #2E3440; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
         section h2 { font-size: 1.25rem; font-weight: 700; color: #E5E9F0; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #4C566A; text-transform: uppercase; letter-spacing: 1px; }
         .artists-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; }
         .artist-card { text-decoration: none; color: inherit; text-align: center; transition: transform 0.2s; }
@@ -420,7 +430,7 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
         .album-card .album-name { margin-top: 8px; font-weight: 600; font-size: 0.95rem; color: #E5E9F0; }
         .album-card .album-artist { color: #b3b3b3; font-size: 0.85rem; }
         .songs-list { list-style: none; }
-        .songs-list li { padding: 12px; border-bottom: 1px solid #3b3b3b; display: flex; align-items: center; gap: 12px; }
+        .songs-list li { padding: 12px; border-bottom: 1px solid #3B4252; display: flex; align-items: center; gap: 12px; }
         .songs-list li:last-child { border-bottom: none; }
         .songs-list .idx { color: #b3b3b3; font-weight: 600; min-width: 32px; }
         .songs-list .thumb { width: 44px; height: 44px; border-radius: 4px; object-fit: cover; flex-shrink: 0; background: #4C566A; }
@@ -430,7 +440,7 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
         .songs-list .meta .sub { color: #b3b3b3; font-size: 0.875rem; }
         .songs-list .dur { color: #b3b3b3; font-size: 0.875rem; min-width: 50px; text-align: right; }
         .clips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .clip-card { text-decoration: none; color: inherit; transition: transform 0.2s; background: #232323; border-radius: 8px; overflow: hidden; }
+        .clip-card { text-decoration: none; color: inherit; transition: transform 0.2s; background: #3B4252; border-radius: 8px; overflow: hidden; }
         .clip-card:hover { transform: translateY(-2px); }
         .clip-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #4C566A; }
         .clip-card .info { padding: 12px; }
@@ -465,7 +475,7 @@ var landingPageTemplate = template.Must(template.New("landing").Funcs(template.F
         <header class="hero">
             <h1>{{.H1}}</h1>
             <p>{{.Intro}}</p>
-            <a class="cta-btn" href="/app/">▶ Открыть плеер</a>
+            <a class="cta-btn" href="/app/#/random">▶ Открыть плеер</a>
         </header>
 
         {{if .TopArtists}}

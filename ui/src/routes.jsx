@@ -8,6 +8,7 @@ import About from './about/About'
 import Privacy from './privacy/Privacy'
 import Top from './top/Top'
 import New from './new/New'
+import PlayRandom from './random/PlayRandom'
 import Wrapped from './wrapped/Wrapped'
 import WrappedPublicShare from './wrapped/WrappedPublicShare'
 import { LyricsModerationPage } from './lyrics'
@@ -23,6 +24,7 @@ const routes = [
   <Route exact path="/privacy" render={() => <Privacy />} key={'privacy'} />,
   <Route exact path="/top" render={() => <Top />} key={'top'} />,
   <Route exact path="/new" render={() => <New />} key={'new'} />,
+  <Route exact path="/random" render={() => <PlayRandom />} key={'random'} />,
   <Route exact path="/wrapped" render={() => <Wrapped />} key={'wrapped'} />,
   <Route exact path="/wrapped/share/:shareId" render={() => <WrappedPublicShare />} key={'wrapped-share'} />,
   <Route exact path="/lyrics-moderation" render={() => <LyricsModerationPage />} key={'lyrics-moderation'} />,
