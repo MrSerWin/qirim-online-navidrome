@@ -321,6 +321,20 @@ var albumPageTemplate = template.Must(template.New("album").Funcs(template.FuncM
             <p>© {{.CurrentYear}} <a href="https://qirim.online">Qirim.Online</a> — Крупнейший архив крымскотатарской музыки</p>
         </footer>
     </div>
+    <script>
+    /* Progressive enhancement: crawlers follow the canonical hrefs above (needed
+       for indexing); real visitors clicking them are routed into the player SPA.
+       Modifier/middle clicks fall through so "open in new tab" keeps the SEO URL. */
+    (function () {
+      document.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var a = e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var m = (a.getAttribute('href') || '').match(/^\/(artist|album|song|playlist)\/([^\/?#]+)\/?$/);
+        if (m) { e.preventDefault(); window.location.href = '/app/#/' + m[1] + '/' + m[2] + '/show'; }
+      });
+    })();
+    </script>
 </body>
 </html>
 `))

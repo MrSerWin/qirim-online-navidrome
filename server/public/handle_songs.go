@@ -213,8 +213,7 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://qirim.online/"},
             {"@type": "ListItem", "position": 2, "name": "{{.Artist}}", "item": "https://qirim.online/artist/{{.ArtistID}}"},
-            {"@type": "ListItem", "position": 3, "name": "{{.Album}}", "item": "https://qirim.online/album/{{.AlbumID}}"},
-            {"@type": "ListItem", "position": 4, "name": "{{.Title}}", "item": "https://qirim.online{{.CanonicalURL}}"}
+            {"@type": "ListItem", "position": 3, "name": "{{.Title}}", "item": "https://qirim.online{{.CanonicalURL}}"}
         ]
     }
     </script>
@@ -506,8 +505,8 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
     <div class="container">
         <!-- Breadcrumb -->
         <nav class="breadcrumb">
-            <a href="/app/">Главная</a> ›
-            <a href="/app/#/song">Песни</a> ›
+            <a href="/">Главная</a> ›
+            <a href="/artist/{{.ArtistID}}">{{.Artist}}</a> ›
             {{.Title}}
         </nav>
 
@@ -516,8 +515,8 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
             <img class="cover" src="{{.ImageURL}}" alt="{{.Album}} — обложка альбома" loading="lazy" onerror="this.onerror=null; this.src='/album-placeholder.webp';">
             <div class="song-info">
                 <h1>{{.Title}}</h1>
-                <p class="artist"><a href="/app/#/artist/{{.ArtistID}}/show">{{.Artist}}</a></p>
-                <p class="meta"><a href="/app/#/album/{{.AlbumID}}/show">{{.Album}}</a>{{if .Year}} • {{.Year}}{{end}} • {{.Duration}}</p>
+                <p class="artist"><a href="/artist/{{.ArtistID}}">{{.Artist}}</a></p>
+                <p class="meta"><a href="/album/{{.AlbumID}}">{{.Album}}</a>{{if .Year}} • {{.Year}}{{end}} • {{.Duration}}</p>
                 <a href="{{.LyricsURL}}" class="listen-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                     Открыть в приложении
@@ -536,6 +535,20 @@ var songPageTemplate = template.Must(template.New("song").Parse(`<!DOCTYPE html>
             <p>© {{.CurrentYear}} <a href="https://qirim.online">Qirim.Online</a> — Крупнейший архив крымскотатарской музыки</p>
         </footer>
     </div>
+    <script>
+    /* Progressive enhancement: crawlers follow the canonical hrefs above (needed
+       for indexing); real visitors clicking them are routed into the player SPA.
+       Modifier/middle clicks fall through so "open in new tab" keeps the SEO URL. */
+    (function () {
+      document.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var a = e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var m = (a.getAttribute('href') || '').match(/^\/(artist|album|song|playlist)\/([^\/?#]+)\/?$/);
+        if (m) { e.preventDefault(); window.location.href = '/app/#/' + m[1] + '/' + m[2] + '/show'; }
+      });
+    })();
+    </script>
 </body>
 </html>
 `))
