@@ -84,3 +84,4 @@ scripts/vk-music-scanner/venv/
 scripts/vk-music-scanner/config.json
 *.mp3
 *.log
+tmp_charts/
