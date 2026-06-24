@@ -97,19 +97,20 @@ const authProvider = {
 
   checkError: ({ status }) => {
     if (status === 401 || status === 403) {
-      // For unauthenticated users (no token), just ignore the error
-      // They should be able to browse as guests
-      const isAuthenticated = localStorage.getItem('is-authenticated')
-
-      if (!isAuthenticated) {
-        // Not authenticated - ignore 401/403 and allow guest access
-        return Promise.resolve()
+      // Never force a redirect to the login page on an auth error.
+      // The login page must only appear when the user explicitly clicks
+      // "Login"; the default landing page is the public home page.
+      //
+      // Background pollers (keepalive, now-playing, queue auto-save, SSE)
+      // can hit a transient/expired 401/403. If we rejected here,
+      // react-admin would log the user out and redirect to /login, which
+      // is exactly the unwanted behavior. Instead, silently downgrade an
+      // expired session to guest (preserving the player queue and other
+      // non-auth state) and keep the user where they are.
+      if (localStorage.getItem('is-authenticated')) {
+        clearSession()
       }
-
-      // For authenticated users, logout on 401/403
-      // This means their session is invalid
-      removeItems()
-      return Promise.reject()
+      return Promise.resolve()
     }
     return Promise.resolve()
   },
@@ -134,7 +135,10 @@ const authProvider = {
   },
 }
 
-const removeItems = () => {
+// Remove only the authentication/session items, preserving the player queue
+// and other non-auth app state. Used to downgrade an expired session to guest
+// without a forced logout/redirect (see checkError).
+const clearSession = () => {
   localStorage.removeItem('token')
   localStorage.removeItem('userId')
   localStorage.removeItem('name')
@@ -144,6 +148,12 @@ const removeItems = () => {
   localStorage.removeItem('subsonic-salt')
   localStorage.removeItem('subsonic-token')
   localStorage.removeItem('is-authenticated')
+}
+
+// Full cleanup for an explicit logout: clears the session plus all
+// user-specific app state (player queue, caches, preferences).
+const removeItems = () => {
+  clearSession()
   // Clear persisted Redux state (player queue, playlists, library, etc.)
   localStorage.removeItem('state')
   // Clear other app-specific data
